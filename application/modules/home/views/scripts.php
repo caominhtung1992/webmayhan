@@ -1,9 +1,31 @@
 <link href="<?php echo base_url();?>public/styles/style.css" rel="stylesheet" type="text/css" />
+<link href="<?php echo base_url();?>public/styles/skin.css" rel="stylesheet" type="text/css" />
+<link href="<?php echo base_url();?>public/styles/main.css" rel="stylesheet" type="text/css" />
+<link href="<?php echo base_url();?>public/styles/jquery.bxslider.css" rel="stylesheet" type="text/css" />
+
+
 <script type="text/javascript" src="<?php echo base_url();?>public/scripts/jquery-1.8.2.min.js"></script>
 <script type="text/javascript" src="<?php echo base_url();?>public/scripts/library.js"></script>
 <script type="text/javascript" src="<?php echo base_url();?>public/scripts/common.js"></script>
 <script type="text/javascript" src="<?php echo base_url();?>public/scripts/jquery.lazyload.min.js"></script>
+<script type="text/javascript" src="<?php echo base_url();?>public/scripts/jcarousel.js"></script>
+<script type="text/javascript" src="<?php echo base_url();?>public/scripts/jquery.bxslider.min.js"></script>
+<script type="text/javascript" src="<?php echo base_url();?>public/scripts/jquery.jcarousel.min.js"></script>
 
+<script type="text/javascript">
+		$(document).ready(function(){
+		  $('.bxslider').bxSlider();
+		});
+
+		jQuery(".iteam-main-pro").hover(
+		   function() {
+		      jQuery(this).find(".product-info").css("display","block");
+		   },
+		   function() {
+		      jQuery(this).find(".product-info").css("display","none");
+		   }
+		);
+	</script>
 <script type="text/javascript">
 	var links = "<?php echo base_url();?>";
 </script>
