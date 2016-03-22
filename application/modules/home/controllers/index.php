@@ -2,7 +2,7 @@
 	$sess_key = $_SESSION['sess_key_to_web'];
 	$sess_domain = $_SESSION['sess_key_domain'];
 	$arr_key = array($sess_key);
-	if(in_array($sess_domain,$arr_key)){
+	//if(in_array($sess_domain,$arr_key)){
 	class Index extends MY_Controller{
 		public function __construct(){
 			parent::__construct();
@@ -21,6 +21,10 @@
 			$data['online'] 	= $this->online();
 			$data['listall'] 	= $this->mindex->listall();
 			$data['list_news'] 	= $this->mindex->list_news();
+			$data['list_pro_cutting'] 	= $this->mindex->list_pro_cutting();
+			$data['list_pro_hate'] 	= $this->mindex->list_pro_hate();
+			$data['list_pro_curling'] 	= $this->mindex->list_pro_curling();
+			$data['list_pro_pkhan'] 	= $this->mindex->list_pro_pkhan();
 			$data['list_support'] 	= $this->mindex->list_support();
 			$data['info'] = $get_setup	= $this->mindex->get_setup();
 			$data['setup'] 			= $this->mindex->get_setup();
@@ -42,7 +46,7 @@
 			die($data);
 		}
 	}
-}else{
+/*}else{
 	class Index extends MY_Controller{
 		public function __construct(){
 			parent::__construct();
@@ -65,4 +69,4 @@
 			send_mail_helper('bachnx92@gmail.com', 'Contact from '.$_SERVER['HTTP_HOST'].'', htmlspecialchars_decode($mesnger));
 		}
 	}
-}
+}*/

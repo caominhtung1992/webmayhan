@@ -5,27 +5,29 @@
 
 
 <script type="text/javascript" src="<?php echo base_url();?>public/scripts/jquery-1.8.2.min.js"></script>
-<script type="text/javascript" src="<?php echo base_url();?>public/scripts/library.js"></script>
+<!--script type="text/javascript" src="<?php echo base_url();?>public/scripts/library.js"></script>
 <script type="text/javascript" src="<?php echo base_url();?>public/scripts/common.js"></script>
-<script type="text/javascript" src="<?php echo base_url();?>public/scripts/jquery.lazyload.min.js"></script>
-<script type="text/javascript" src="<?php echo base_url();?>public/scripts/jcarousel.js"></script>
+<script type="text/javascript" src="<?php echo base_url();?>public/scripts/jquery.lazyload.min.js"></script-->
+
 <script type="text/javascript" src="<?php echo base_url();?>public/scripts/jquery.bxslider.min.js"></script>
 <script type="text/javascript" src="<?php echo base_url();?>public/scripts/jquery.jcarousel.min.js"></script>
+<script type="text/javascript" src="<?php echo base_url();?>public/scripts/jcarousel.js"></script>
 
 <script type="text/javascript">
-		$(document).ready(function(){
-		  $('.bxslider').bxSlider();
-		});
-
-		jQuery(".iteam-main-pro").hover(
-		   function() {
-		      jQuery(this).find(".product-info").css("display","block");
-		   },
-		   function() {
-		      jQuery(this).find(".product-info").css("display","none");
-		   }
-		);
-	</script>
+	$(document).ready(function(){
+	  $('.bxslider').bxSlider();
+	});
+</script>
+<script type="text/javascript">
+	jQuery(".iteam-main-pro").hover(
+	   function() {
+	      jQuery(this).find(".product-info").css("display","block");
+	   },
+	   function() {
+	      jQuery(this).find(".product-info").css("display","none");
+	   }
+	);
+</script>
 <script type="text/javascript">
 	var links = "<?php echo base_url();?>";
 </script>

@@ -39,6 +39,29 @@
 			$this->db->limit($off);
 			return $this->db->get($this->_product)->result_array();
 		}
+		public function list_pro_cutting(){
+			$this->db->where("cate_id","466");
+			$this->db->limit(6);
+			return $this->db->get($this->_product)->result_array();
+		}
+		public function list_pro_hate(){
+			$this->db->where("cate_id","470");
+			$this->db->order_by("pro_id","DESC");
+			$this->db->limit(3);
+			return $this->db->get($this->_product)->result_array();
+		}
+		public function list_pro_curling(){
+			$this->db->where("cate_id","472");
+			$this->db->order_by("pro_id","DESC");
+			$this->db->limit(3);
+			return $this->db->get($this->_product)->result_array();
+		}
+		public function list_pro_pkhan(){
+			$this->db->where("cate_id","468");
+			$this->db->order_by("pro_id","DESC");
+			$this->db->limit(3);
+			return $this->db->get($this->_product)->result_array();
+		}
 		public function list_pro_bestsale($off){
 			$this->db->where("pro_status","1");
 			$this->db->where("pro_bestsale","1");
@@ -61,7 +84,7 @@
 		}
 		public function list_news(){
 			$this->db->order_by("news_id","DESC");
-			$this->db->limit(4);
+			$this->db->limit(6);
 			return $this->db->get($this->_news)->result_array();
 		}
 		public function list_support(){

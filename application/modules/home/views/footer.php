@@ -19,7 +19,7 @@
               <li><a href="<?php echo base_url(); ?>page/trung-tam-ho-tro-khach-hang/104.html">Trung tâm hỗ trợ khách hàng</a></li>
               <li><a href="<?php echo base_url(); ?>page/kiem-tra-don-hang/114.html">Kiểm tra đơn hàng</a></li>
               <li><a href="<?php echo base_url(); ?>page/chinh-sach-bao-mat-thanh-toan/115.html">Chính sách bảo mật thanh toán</a></li>
-              <li><a href="<?php echo base_url(); ?>chinh-sach-dinh-danh-khach-hang/116.html">Chính sách định danh khách hàng</a></li>
+              <li><a href="<?php echo base_url(); ?>page/chinh-sach-dinh-danh-khach-hang/116.html">Chính sách định danh khách hàng</a></li>
               <li><a href="<?php echo base_url(); ?>page/chinh-sach-thanh-toan/117.html">Chính sách thanh toán</a></li>
               <li><a href="<?php echo base_url(); ?>page/chinh-sach-giao-hang/118.html">Chính sách giao hàng</a></li>
               <li><a href="<?php echo base_url(); ?>page/chinh-sach-doi-tra/119.html">Chính sách đổi trả</a></li>

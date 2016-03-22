@@ -2,7 +2,7 @@
 <style type="text/css">
 .box_column_right{width: 97.6%;}
 </style>
-  <?php $this->load->view("articles/column_left"); ?>
+  <?php //$this->load->view("articles/column_left"); ?>
   
   <div class="column_right">
     <div id="location">

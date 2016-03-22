@@ -5,101 +5,33 @@
             <div class="col-24">
               <div class="new-pro-title">
                 <p>Sản phẩm mới</p>
-                <a href="#">Xem tất cả >></a>
+                <a href="<?php echo base_url(); ?>/san-pham-moi/">Xem tất cả >></a>
               </div>
             </div>
           </div>
           <div class="slider-product">
             <ul class="owl-carousel jcarousel-skin-tango1" id="mycarousel1">
-                        <li class="iteam_slider">
-                          <div class="iteam_slider_top"><img src="images/pro-home-02.png" /></div>
-                          <div class="iteam_slider_bot">
-                              <a href="#">Máy cắt CUT-40M</a>
-                              <p>11.180.000đ</p>
-                  <span>10.500.000</span>
-                            </div>
-                        </li>
-                      <li class="iteam_slider">
-                          <div class="iteam_slider_top"><img src="images/pro-home-02.png" /></div>
-                          <div class="iteam_slider_bot">
-                              <a href="#">Máy cắt CUT-40M</a>
-                              <p>11.180.000đ</p>
-                  <span>10.500.000</span>
-                            </div>
-                        </li>
-                        <li class="iteam_slider">
-                          <div class="iteam_slider_top"><img src="images/pro-home-02.png" /></div>
-                          <div class="iteam_slider_bot">
-                              <a href="#">Máy cắt CUT-40M</a>
-                              <p>11.180.000đ</p>
-                  <span>10.500.000</span>
-                            </div>
-                        </li>
-                        <li class="iteam_slider">
-                          <div class="iteam_slider_top"><img src="images/pro-home-02.png" /></div>
-                          <div class="iteam_slider_bot">
-                              <a href="#">Máy cắt CUT-40M</a>
-                              <p>11.180.000đ</p>
-                  <span>10.500.000</span>
-                            </div>
-                        </li>
-                        <li class="iteam_slider">
-                          <div class="iteam_slider_top"><img src="images/pro-home-02.png" /></div>
-                          <div class="iteam_slider_bot">
-                              <a href="#">Máy cắt CUT-40M</a>
-                              <p>11.180.000đ</p>
-                  <span>10.500.000</span>
-                            </div>
-                        </li>
-                        <li class="iteam_slider">
-                          <div class="iteam_slider_top"><img src="images/pro-home-02.png" /></div>
-                          <div class="iteam_slider_bot">
-                              <a href="#">Máy cắt CUT-40M</a>
-                              <p>11.180.000đ</p>
-                  <span>10.500.000</span>
-                            </div>
-                        </li>
-                        <li class="iteam_slider">
-                          <div class="iteam_slider_top"><img src="images/pro-home-02.png" /></div>
-                          <div class="iteam_slider_bot">
-                              <a href="#">Máy cắt CUT-40M</a>
-                              <p>11.180.000đ</p>
-                  <span>10.500.000</span>
-                            </div>
-                        </li>
-                        <li class="iteam_slider">
-                          <div class="iteam_slider_top"><img src="images/pro-home-02.png" /></div>
-                          <div class="iteam_slider_bot">
-                              <a href="#">Máy cắt CUT-40M</a>
-                              <p>11.180.000đ</p>
-                  <span>10.500.000</span>
-                            </div>
-                        </li>
-                        <li class="iteam_slider">
-                          <div class="iteam_slider_top"><img src="images/pro-home-02.png" /></div>
-                          <div class="iteam_slider_bot">
-                              <a href="#">Máy cắt CUT-40M</a>
-                              <p>11.180.000đ</p>
-                  <span>10.500.000</span>
-                            </div>
-                        </li>
-                        <li class="iteam_slider">
-                          <div class="iteam_slider_top"><img src="images/pro-home-02.png" /></div>
-                          <div class="iteam_slider_bot">
-                              <a href="#">Máy cắt CUT-40M</a>
-                              <p>11.180.000đ</p>
-                  <span>10.500.000</span>
-                            </div>
-                        </li>
-                        <li class="iteam_slider">
-                          <div class="iteam_slider_top"><img src="images/pro-home-02.png" /></div>
-                          <div class="iteam_slider_bot">
-                              <a href="#">Máy cắt CUT-40M</a>
-                              <p>11.180.000đ</p>
-                  <span>10.500.000</span>
-                            </div>
-                        </li>
-                    </ul>
+            <?php 
+              if(isset($pro_new) && $pro_new != NULL){
+                $stt = 0;
+                foreach($pro_new as $value){
+                  @$images = unserialize($value['pro_images']);
+                  //var_dump($value);die();
+                  $stt++;
+              ?>
+                  <li class="iteam_slider">
+                    <div class="iteam_slider_top"><img src="<?php echo base_url()."uploads/products/thumb/".$images[0]."" ?>" /></div>
+                    <div class="iteam_slider_bot">
+                        <a href="<?php echo base_url()."".$value['pro_name_rewrite']."/p".$value['pro_id'].".html"; ?>"><?php echo $value['pro_name']; ?></a>
+                        <p><?php echo $value['pro_market']; ?></p>
+                        <span><?php echo $value['pro_price']; ?></span>
+                      </div>
+                  </li>
+                <?php 
+                  }
+                } 
+                ?>
+            </ul>
           </div>
         </div>
       </div>
@@ -129,41 +61,13 @@
                               }
                   }
                   ?>
-                  <!--li><a href="#">Máy Cắt Thép</a></li>
-                  <li><a href="#">Máy Cắt Bê Tông</a></li>
-                  <li><a href="#">Máy Cắt Gạch</a></li-->
                 </ul>
                 <?php } ?>
               </div>
               <?php
               }
             }
-            ?>
-              <!--div class="left-pro-iteam">
-                <p>Máy Hàn</p>
-                <ul>
-                  <li><a href="#">Máy Hàn TIG</a></li>
-                  <li><a href="#">Máy Hàn</a></li>
-                  <li><a href="#">Máy Hàn</a></li>
-                  <li><a href="#">Máy Hàn</a></li>
-                </ul>
-              </div>
-              <div class="left-pro-iteam">
-                <p>Phụ Kiện Máy Hàn</p>
-                <ul>
-                  <li><a href="#">Máy Cắt Thép</a></li>
-                  <li><a href="#">Máy Cắt Bê Tông</a></li>
-                  <li><a href="#">Máy Cắt Gạch</a></li>
-                </ul>
-              </div>
-              <div class="left-pro-iteam">
-                <p>Máy Cắt Uốn</p>
-                <ul>
-                  <li><a href="#">Máy Cắt Thép</a></li>
-                  <li><a href="#">Máy Cắt Bê Tông</a></li>
-                  <li><a href="#">Máy Cắt Gạch</a></li>
-                </ul>
-              </div-->
+            ?>         
             </div>
             <div class="left-content-video">
               <div class="title-new-left">
@@ -226,24 +130,30 @@
                 <p>Máy cắt</p>
               </div>
               <div class="grouptop-main-pro">
+               <?php
+                if(isset($list_pro_cutting) && $list_pro_cutting != NULL){
+                  foreach($list_pro_cutting as $value){
+                  //echo '</pre>'.var_dump($value);die();
+                  @$images = unserialize($value['pro_images']);
+              ?>
                 <div class="iteam-main-pro">
                   <div class="iteam-pro-img">
-                    <a href="#">
-                      <img src="images/pro-home-02.png" alt="">
+                    <a href="<?php echo base_url()."".$value['pro_name_rewrite']."/p".$value['pro_id'].".html"; ?>">
+                      <img src="<?php echo base_url()."uploads/products/thumb/".$images[0]."" ?>" alt="">
                       <div class="sale">
                         <p>Giảm</p>
-                        <span class="sale-number">-20</span><span>%</span>
+                        <span class="sale-number">-<?php echo round(( $value["pro_market"] - $value["pro_price"] ) / $value["pro_market"] * 100) ?></span><span>%</span>
                       </div>
                     </a>
                   </div>
                   <div class="iteam-pro-info">
-                    <a href="#">Máy cắt CUT-40M</a>
-                    <p>11.500.000</p>
-                    <span>10.500.000</span>
+                    <a href="<?php echo base_url()."".$value['pro_name_rewrite']."/p".$value['pro_id'].".html"; ?>"><?php echo $value["pro_name"]; ?></a>
+                    <p><?php echo $value["pro_market"] ?> vnđ</p>
+                    <span><?php echo $value["pro_price"] ?> vnđ</span>
                   </div>
                   <div class="product-info">
                     <div class="product-info-top">
-                      <p>TIỆN DỤNG VỚI NGUỒN ĐIỆN 220V CẮT NHANH, ĐẸP, CƠ ĐỘNG, KINH TẾ SỬ DỤNG KHI CẮT TỪ MÁY NÉN KHÍ (>4.5Kg) CHINH PHỤC ĐỘ DÀY</p>
+                      <p><?php echo $value["pro_info"] ?></p>
                     </div>
                     <div class="product-info-bot">
                       <a class="detail-pro" href="#">Chi Tiết</a>
@@ -251,211 +161,101 @@
                     </div>
                   </div>
                 </div>
-
-                <div class="iteam-main-pro">
-                  <div class="iteam-pro-img">
-                    <a href="#">
-                      <img src="images/pro-home-03.png" alt="">
-                    </a>
-                  </div>
-                  <div class="iteam-pro-info">
-                    <a href="#">Máy cắt CUT-40M</a>
-                    <p>11.500.000</p>
-                    <span>10.500.000</span>
-                  </div>
-                  <div class="product-info">
-                    <div class="product-info-top">
-                      <p>TIỆN DỤNG VỚI NGUỒN ĐIỆN 220V CẮT NHANH, ĐẸP, CƠ ĐỘNG, KINH TẾ SỬ DỤNG KHI CẮT TỪ MÁY NÉN KHÍ (>4.5Kg) CHINH PHỤC ĐỘ DÀY</p>
-                    </div>
-                    <div class="product-info-bot">
-                      <a class="detail-pro" href="#">Chi Tiết</a>
-                      <a class="comparison-pro" href="#">So Sánh</a>
-                    </div>
-                  </div>
-                </div>
-                <div class="iteam-main-pro pro-border-none">
-                  <div class="iteam-pro-img">
-                    <a href="#">
-                      <img src="images/pro-home-01.jpg" alt="">
-                    </a>
-                  </div>
-                  <div class="iteam-pro-info">
-                    <a href="#">Máy hàn TIG-400AM-D</a>
-                    <p>11.500.000</p>
-                    <span>10.500.000</span>
-                  </div>
-                  <div class="product-info">
-                    <div class="product-info-top">
-                      <p>TIỆN DỤNG VỚI NGUỒN ĐIỆN 220V CẮT NHANH, ĐẸP, CƠ ĐỘNG, KINH TẾ SỬ DỤNG KHI CẮT TỪ MÁY NÉN KHÍ (>4.5Kg) CHINH PHỤC ĐỘ DÀY</p>
-                    </div>
-                    <div class="product-info-bot">
-                      <a class="detail-pro" href="#">Chi Tiết</a>
-                      <a class="comparison-pro" href="#">So Sánh</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="grouptop-main-pro01">
-                <div class="iteam-main-pro">
-                  <div class="iteam-pro-img">
-                    <a href="#">
-                      <img src="images/pro-home-01.jpg" alt="">
-                    </a>
-                  </div>
-                  <div class="iteam-pro-info">
-                    <a href="#">Máy cắt CUT-40M</a>
-                    <p>11.500.000</p>
-                    <span>10.500.000</span>
-                  </div>
-                </div>
-                <div class="iteam-main-pro">
-                  <div class="iteam-pro-img">
-                    <a href="#">
-                      <img src="images/pro-home-01.jpg" alt="">
-                    </a>
-                  </div>
-                  <div class="iteam-pro-info">
-                    <a href="#">Máy cắt CUT-40M</a>
-                    <p>11.500.000</p>
-                    <span>10.500.000</span>
-                  </div>
-                </div>
-                <div class="iteam-main-pro pro-border-none">
-                  <div class="iteam-pro-img">
-                    <a href="#">
-                      <img src="images/pro-home-01.jpg" alt="">
-                    </a>
-                  </div>
-                  <div class="iteam-pro-info">
-                    <a href="#">Máy cắt CUT-40M</a>
-                    <p>11.500.000</p>
-                    <span>10.500.000</span>
-                  </div>
-                </div>
-              </div>
+                <?php 
+                  }
+                }
+                ?>
+              </div>   
             </div>
             <div class="main-product">
               <div class="title-main-product">
                 <p>Máy Hàn</p>
               </div>
-              <div class="iteam-main-pro">
-                <div class="iteam-pro-img">
-                  <a href="#">
-                    <img src="images/pro-home-01.jpg" alt="">
-                  </a>
+              <?php
+                if(isset($list_pro_hate) && $list_pro_hate != NULL){
+                  foreach($list_pro_hate as $value){
+                   @$images = unserialize($value['pro_images']);
+              ?>
+                <div class="iteam-main-pro">
+                  <div class="iteam-pro-img">
+                    <a href="<?php echo base_url()."".$value['pro_name_rewrite']."/p".$value['pro_id'].".html"; ?>">
+                      <img src="<?php echo base_url()."uploads/products/thumb/".$images[0]."" ?>" alt="">
+                    </a>
+                    <div class="sale">
+                        <p>Giảm</p>
+                        <span class="sale-number">-<?php echo round(( $value["pro_market"] - $value["pro_price"] ) / $value["pro_market"] * 100) ?></span><span>%</span>
+                      </div>
+                  </div>
+                  <div class="iteam-pro-info">
+                    <a href="<?php echo base_url()."".$value['pro_name_rewrite']."/p".$value['pro_id'].".html"; ?>"><?php echo $value["pro_name"] ?></a>
+                     <p><?php echo $value["pro_market"] ?> vnđ</p>
+                    <span><?php echo $value["pro_price"] ?> vnđ</span>
+                  </div>
                 </div>
-                <div class="iteam-pro-info">
-                  <a href="#">Máy cắt CUT-40M</a>
-                  <p>11.500.000</p>
-                  <span>10.500.000</span>
-                </div>
-              </div>
-              <div class="iteam-main-pro">
-                <div class="iteam-pro-img">
-                  <a href="#">
-                    <img src="images/pro-home-01.jpg" alt="">
-                  </a>
-                </div>
-                <div class="iteam-pro-info">
-                  <a href="#">Máy cắt CUT-40M</a>
-                  <p>11.500.000</p>
-                  <span>10.500.000</span>
-                </div>
-              </div>
-              <div class="iteam-main-pro pro-border-none">
-                <div class="iteam-pro-img">
-                  <a href="#">
-                    <img src="images/pro-home-01.jpg" alt="">
-                  </a>
-                </div>
-                <div class="iteam-pro-info">
-                  <a href="#">Máy cắt CUT-40M</a>
-                  <p>11.500.000</p>
-                  <span>10.500.000</span>
-                </div>
-              </div>
+              <?php 
+                } 
+              }
+             ?>
             </div>
             <div class="main-product">
               <div class="title-main-product">
                 <p>Máy cắt uốn</p>
               </div>
-              <div class="iteam-main-pro">
-                <div class="iteam-pro-img">
-                  <a href="#">
-                    <img src="images/pro-home-01.jpg" alt="">
-                  </a>
+                <?php
+                if(isset($list_pro_curling) && $list_pro_curling != NULL){
+                  foreach($list_pro_curling as $value){
+                   @$images = unserialize($value['pro_images']);
+              ?>
+                <div class="iteam-main-pro">
+                  <div class="iteam-pro-img">
+                    <a href="<?php echo base_url()."".$value['pro_name_rewrite']."/p".$value['pro_id'].".html"; ?>">
+                      <img src="<?php echo base_url()."uploads/products/thumb/".$images[0]."" ?>" alt="">
+                    </a>
+                    <div class="sale">
+                        <p>Giảm</p>
+                        <span class="sale-number">-<?php echo round(( $value["pro_market"] - $value["pro_price"] ) / $value["pro_market"] * 100) ?></span><span>%</span>
+                      </div>
+                  </div>
+                  <div class="iteam-pro-info">
+                    <a href="<?php echo base_url()."".$value['pro_name_rewrite']."/p".$value['pro_id'].".html"; ?>"><?php echo $value["pro_name"] ?></a>
+                     <p><?php echo $value["pro_market"] ?> vnđ</p>
+                    <span><?php echo $value["pro_price"] ?> vnđ</span>
+                  </div>
                 </div>
-                <div class="iteam-pro-info">
-                  <a href="#">Máy cắt CUT-40M</a>
-                  <p>11.500.000</p>
-                  <span>10.500.000</span>
-                </div>
-              </div>
-              <div class="iteam-main-pro">
-                <div class="iteam-pro-img">
-                  <a href="#">
-                    <img src="images/pro-home-01.jpg" alt="">
-                  </a>
-                </div>
-                <div class="iteam-pro-info">
-                  <a href="#">Máy cắt CUT-40M</a>
-                  <p>11.500.000</p>
-                  <span>10.500.000</span>
-                </div>
-              </div>
-              <div class="iteam-main-pro pro-border-none">
-                <div class="iteam-pro-img">
-                  <a href="#">
-                    <img src="images/pro-home-01.jpg" alt="">
-                  </a>
-                </div>
-                <div class="iteam-pro-info">
-                  <a href="#">Máy cắt CUT-40M</a>
-                  <p>11.500.000</p>
-                  <span>10.500.000</span>
-                </div>
-              </div>
+              <?php 
+                } 
+              }
+             ?>
             </div>
             <div class="main-product">
               <div class="title-main-product">
                 <p>Phụ Kiện máy hàn</p>
               </div>
-              <div class="iteam-main-pro">
-                <div class="iteam-pro-img">
-                  <a href="#">
-                    <img src="images/pro-home-01.jpg" alt="">
-                  </a>
+                <?php
+                if(isset($list_pro_pkhan) && $list_pro_pkhan != NULL){
+                  foreach($list_pro_pkhan as $value){
+                   @$images = unserialize($value['pro_images']);
+              ?>
+                <div class="iteam-main-pro">
+                  <div class="iteam-pro-img">
+                    <a href="<?php echo base_url()."".$value['pro_name_rewrite']."/p".$value['pro_id'].".html"; ?>">
+                      <img src="<?php echo base_url()."uploads/products/thumb/".$images[0]."" ?>" alt="">
+                    </a>
+                    <div class="sale">
+                        <p>Giảm</p>
+                        <span class="sale-number">-<?php echo round(( $value["pro_market"] - $value["pro_price"] ) / $value["pro_market"] * 100) ?></span><span>%</span>
+                      </div>
+                  </div>
+                  <div class="iteam-pro-info">
+                    <a href="<?php echo base_url()."".$value['pro_name_rewrite']."/p".$value['pro_id'].".html"; ?>"><?php echo $value["pro_name"] ?></a>
+                     <p><?php echo $value["pro_market"] ?> vnđ</p>
+                    <span><?php echo $value["pro_price"] ?> vnđ</span>
+                  </div>
                 </div>
-                <div class="iteam-pro-info">
-                  <a href="#">Máy cắt CUT-40M</a>
-                  <p>11.500.000</p>
-                  <span>10.500.000</span>
-                </div>
-              </div>
-              <div class="iteam-main-pro">
-                <div class="iteam-pro-img">
-                  <a href="#">
-                    <img src="images/pro-home-01.jpg" alt="">
-                  </a>
-                </div>
-                <div class="iteam-pro-info">
-                  <a href="#">Máy cắt CUT-40M</a>
-                  <p>11.500.000</p>
-                  <span>10.500.000</span>
-                </div>
-              </div>
-              <div class="iteam-main-pro pro-border-none">
-                <div class="iteam-pro-img">
-                  <a href="#">
-                    <img src="images/pro-home-01.jpg" alt="">
-                  </a>
-                </div>
-                <div class="iteam-pro-info">
-                  <a href="#">Máy cắt CUT-40M</a>
-                  <p>11.500.000</p>
-                  <span>10.500.000</span>
-                </div>
-              </div>
+              <?php 
+                } 
+              }
+             ?>
             </div>
           </div>
           <div class="col-5 right-merit">
