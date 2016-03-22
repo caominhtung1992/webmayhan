@@ -22,12 +22,10 @@
 </head>
 
 <body>
-<div id="wrap">
-    <div class="wrap_content">
+<div id="wrapper">
 		<?php $this->load->view("header");?>
         <?php $this->load->view("product/detail/detail_product"); ?>
         <?php $this->load->view("footer"); ?>
-    </div>
 </div>
 </body>
 </html>

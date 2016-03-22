@@ -74,6 +74,14 @@
               <!-- <p class="a_root"><a href="javascript:void(0);">Hình nền website</a></p> -->
             </div>
           </li>
+          <li id="s18" class="h_menu_item left">
+            <a class="first_" href="javascript:void(0);" title="Bán hàng"><span><i class="icon-bar-chart"></i>Quản lý ảnh chứng chỉ</span></a>
+            <div class="h_menu_sub_full4 h_menu_sub_public" id="h_menu_sub_s18" style="display: none;">
+              <!--p class="a_root"><a href="javascript:void(0);">Danh sách banner</a></p-->
+              <p class="a_root"><a href="<?php echo base_url()."admin/merit" ;?>">Ảnh chứng chỉ</a></p>
+              <!-- <p class="a_root"><a href="javascript:void(0);">Hình nền website</a></p> -->
+            </div>
+          </li>
           <li id="s5" class="h_menu_item left ">
           	<a class="first_" href="javascript:void(0);" title="Bán hàng"><span><i class="icon-th-large"></i>Nội dung</span></a>
             <div class="h_menu_sub_full5 h_menu_sub_public" id="h_menu_sub_s5">

@@ -64,7 +64,7 @@ a{text-decoration:none;color:#444;}
 </style>
 </head>
 <body>
-	<div id="container">
+	<div id="wapper">
 		<h1>Nội dung không tìm thấy !</h1>
 		<p>Nội dung bạn cần xem không có hoặc đã bị xóa bỏ. Quý khách vui lòng xem nội dung khác.</p>	
         <p><a href="<?php echo base_url(); ?>" title="Trở lại trang chủ">Quay lại trang chủ</a></p>

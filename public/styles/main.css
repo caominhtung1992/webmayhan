@@ -3185,7 +3185,8 @@ button {
 .left-content-commitment .left-commitment-t ul li a {
   color: #fff;
   text-decoration: none;
-  font-size: 13px;
+  font-size: 12px;
+  font-family: Arial;
 }
 
 .left-content-commitment .left-commitment-b {
