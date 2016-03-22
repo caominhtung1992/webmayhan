@@ -3179,6 +3179,7 @@ button {
   padding: 0px;
   margin-left: 15px;
   list-style-image: url(../images/bg-ulli-left.png);
+  margin-bottom: -3px;
 }
 
 .left-content-commitment .left-commitment-t ul li a {

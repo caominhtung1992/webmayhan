@@ -112,15 +112,34 @@
               </h2>
             </div>
             <div class="left-pro-content">
+            <?php
+              if(isset($listall['cate']) && $listall['cate'] != NULL){
+                foreach($listall['cate'] as $k => $v){
+            ?>
               <div class="left-pro-iteam">
-                <p>Máy Cắt</p>
+                <p> <?php echo $v['cate_name']; ?> </p>
+                <?php 
+                  if($listall['sub'][$k] != NULL){
+                ?>
                 <ul>
-                  <li><a href="#">Máy Cắt Thép</a></li>
+                <?php
+                  if(isset($listall['sub']) && $listall['sub'] != NULL){
+                    foreach($listall['sub'][$k] as $key => $value){
+                      echo "<li><a class='sub_1' href='".base_url()."".$value['cate_rewrite']."/c".$value['cate_id'].".html'>".$value['cate_name']."</a></li>";
+                              }
+                  }
+                  ?>
+                  <!--li><a href="#">Máy Cắt Thép</a></li>
                   <li><a href="#">Máy Cắt Bê Tông</a></li>
-                  <li><a href="#">Máy Cắt Gạch</a></li>
+                  <li><a href="#">Máy Cắt Gạch</a></li-->
                 </ul>
+                <?php } ?>
               </div>
-              <div class="left-pro-iteam">
+              <?php
+              }
+            }
+            ?>
+              <!--div class="left-pro-iteam">
                 <p>Máy Hàn</p>
                 <ul>
                   <li><a href="#">Máy Hàn TIG</a></li>
@@ -144,7 +163,7 @@
                   <li><a href="#">Máy Cắt Bê Tông</a></li>
                   <li><a href="#">Máy Cắt Gạch</a></li>
                 </ul>
-              </div>
+              </div-->
             </div>
             <div class="left-content-video">
               <div class="title-new-left">
@@ -167,7 +186,7 @@
                 </ul>
               </div>
               <div class="left-commitment-b">
-                <img src="images/images-adv.jpg" alt="">
+                <img src="<?php echo base_url();?>public/images/images-adv.jpg" alt="">
               </div>
             </div>
             <div class="left-content-partner">
@@ -176,27 +195,27 @@
               </p>
               <div class="left-img-partner">
                 <a href="#">
-                  <img src="images/img-parten01.jpg" alt="">
+                  <img src="<?php echo base_url();?>public/images/img-parten01.jpg" alt="">
                 </a>
               </div>
               <div class="left-img-partner">
                 <a href="#">
-                  <img src="images/img-parten02.jpg" alt="">
+                  <img src="<?php echo base_url();?>public/images/img-parten02.jpg" alt="">
                 </a>
               </div>
               <div class="left-img-partner">
                 <a href="#">
-                  <img src="images/img-parten01.jpg" alt="">
+                  <img src="<?php echo base_url();?>public/images/img-parten01.jpg" alt="">
                 </a>
               </div>
               <div class="left-img-partner">
                 <a href="#">
-                  <img src="images/img-parten02.jpg" alt="">
+                  <img src="<?php echo base_url();?>public/images/img-parten02.jpg" alt="">
                 </a>
               </div>
               <div class="left-img-partner">
                 <a href="#">
-                  <img src="images/img-parten01.jpg" alt="">
+                  <img src="<?php echo base_url();?>public/images/img-parten01.jpg" alt="">
                 </a>
               </div>
             </div>
@@ -445,13 +464,13 @@
               <SPAN>& CHỨNG NHẬN </SPAN>
               <div class="right-main-merit">
                 <div class="iteam-right-merit">
-                  <img src="images/merit01.jpg" alt="">
+                  <img src="<?php echo base_url();?>public/images/merit01.jpg" alt="">
                 </div>
                 <div class="iteam-right-merit">
-                  <img src="images/merit02.jpg" alt="">
+                  <img src="<?php echo base_url();?>public/images/merit02.jpg" alt="">
                 </div>
                 <div class="iteam-right-merit">
-                  <img src="images/merit03.jpg" alt="">
+                  <img src="<?php echo base_url();?>public/images/merit03.jpg" alt="">
                 </div>
               </div>
             </div>
@@ -459,7 +478,19 @@
               <div class="title-main-new-right">
                 <p>Tin tức sự kiện</p>
               </div>
+              <?php
+              if(isset($list_news) && $list_news != NULL){
+                foreach($list_news as $value){
+            ?>
               <div class="iteam-main-new-right">
+                <a href="<?php echo base_url()."tin-tuc/".$value['news_rewrite']."/".$value['news_id'].".html"; ?>" alt="<?php echo $value['news_title']; ?>" /><img src="<?php echo base_url()."uploads/news/thumb/".$value['news_images']."";?>" alt=""></a>
+                <a class="link-new-right" href="<?php echo base_url()."tin-tuc/".$value['news_rewrite']."/".$value['news_id'].".html"; ?>"><?php echo $value['news_title']; ?></a>
+              </div>
+            <?php
+              }
+            } 
+            ?>
+              <!--div class="iteam-main-new-right">
                 <a href="#"><img src="images/img-new01.jpg" alt=""></a>
                 <a class="link-new-right" href="#">So sánh cắt plasma với cắt Axetylen Oxy</a>
               </div>
@@ -478,11 +509,7 @@
               <div class="iteam-main-new-right">
                 <a href="#"><img src="images/img-new01.jpg" alt=""></a>
                 <a class="link-new-right" href="#">So sánh cắt plasma với cắt Axetylen Oxy</a>
-              </div>
-              <div class="iteam-main-new-right">
-                <a href="#"><img src="images/img-new01.jpg" alt=""></a>
-                <a class="link-new-right" href="#">So sánh cắt plasma với cắt Axetylen Oxy</a>
-              </div>
+              </div-->
             </div>
           </div>
         </div>
