@@ -1,6 +1,6 @@
 <?php
 	require("libraries/student.php");
-	class User extends Student{
+	class Merit extends Student{
 		public function __construct(){
 			parent::__construct();
 			$this->load->helper("url");

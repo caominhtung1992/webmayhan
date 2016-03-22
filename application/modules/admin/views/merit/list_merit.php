@@ -5,44 +5,32 @@
     </ul>
   </div>
   <div style="color:red;"></div>
-  <table id="tb-list">
-    <tbody>
-      <tr>
-        <td>
-        <div>
-	    </div>
-    
-        </td>
-        <td align="right">
-        </td>
-      </tr>
-    </tbody>
-  </table>
   <br />
   <table cellspacing="0" id="tb-list" border="1" bordercolor="#CCCCCC">
     <tbody>
       <tr bgcolor="#EEEEEE" style="font-weight:bold;">
         <td style="width:30px;text-align:center;">STT</td>
         <td style="width:80px">Ảnh</td>
-        <td>Sản phẩm (Tổng số: <?php echo $row; ?>)</td>
-        <td style="width:150px">Người dùng</td>
+        <td>Tên ảnh chứng chỉ</td>
+        <!--td style="width:150px">Người dùng</td>
         <td style="width:200px">Thông tin bán hàng</td>
-        <td style="width:200px">Thông tin khác</td>
+        <td style="width:200px">Thông tin khác</td-->
         <td style="width:150px">Cập nhật</td>
         <td style="width:110px">Công cụ</td>
       </tr>
       <?php
-	  	if(isset($list_pro) && $list_pro != NULL){
+	  	if(isset($list_merit) && $list_merit != NULL){
 			$stt= 0;
-			foreach($list_pro as $value){
+			foreach($list_merit as $value){
 				$stt++;
+        //var_dump($value); die();
       ?>
-      <tr id="row_<?php echo $value['pro_id']; ?>" onMouseOver="this.className='row-hover'" onMouseOut="this.className=''" class="">
+      <tr id="row_<?php echo $value['merit_id']; ?>" onMouseOver="this.className='row-hover'" onMouseOut="this.className=''" class="">
         <td style="text-align:center;"><?php echo $stt; ?></td>
         <td align="center">
 		<?php
-		@$images = unserialize($value['pro_images']);
-        if($value['pro_images'] == NULL){
+		@$images = unserialize($value['merit_images']);
+        if($value['merit_images'] == NULL){
         	echo "<img style='max-width: 70px;' src='".base_url()."public/admin/images/no-images.jpg' alt='No images' />";
         }else{
         	echo "<img style='max-width: 80px;' src='".base_url()."uploads/products/thumb/".$images[0]."'/>";
@@ -51,62 +39,47 @@
         <br />
           <!-- 1 ảnh<br /> -->
           <!-- <a href="">sửa lại ảnh</a> --></td>
-        <td><b><a target="_blank" style="color: #012998;" href="<?php echo base_url()."".$value['pro_name_rewrite']."/p".$value['pro_id'].".html"; ?>" class="pop-up cboxElement"><?php echo $value['pro_name']; ?></a></b> <br />
-          Danh mục  : <span id="change_cat_1636"><b><?php echo $value['cate_name']; ?></b> (<a href="<?php echo base_url()."admin/product/update/".$value['pro_id']."" ; ?>" class="pop-up-small cboxElement">đổi</a>) </span><br />
-          Mã kho  : <b><?php echo $value['pro_code']; ?></b><br />
-          Cập nhật: <?php echo $value['pro_date']; ?><br /></td>
-        <td> 
-          - Xem : <b><?php echo $value['pro_view']; ?></b> <br />
-          - Thích : <b><?php echo $value['pro_like']; ?></b> <br />
-          - Mua : <b><?php echo $value['pro_buy']; ?></b>
-          </td>
-        <td> - Giá web : <b style="color:red;"><?php echo @number_format($value['pro_price']); ?></b> vnd 
-          <br />
-          - SL tổng : <span class="stock-level-critical"><?php echo $value['pro_qty']; ?></span><br /></td>
-        <td id="">
-          - Giá thị trường : <b><?php echo @number_format($value['pro_market']); ?> vnđ</b> <br />
-          - Bảo hành : <?php echo $value['pro_war']; ?> <br />
-          - Khuyến mại : <?php echo $value['pro_promotion']; ?><br />
-          <div id="button_<?php echo $value['pro_id']; ?>"></div></td>
-        <td><div id="hot_info_<?php echo $value['pro_id']; ?>">
-            <input type="checkbox" id="pro_new_<?php echo $value['pro_id']; ?>" value="new"  <?php if($value['pro_new'] == 1){ echo "checked='checked'"; } ?> />
+        <td>
+          <?php echo $value['merit_name']; ?>
+        </td>
+        <td><!--div id="hot_info_<?php echo $value['merit_id']; ?>">
+            <input type="checkbox" id="pro_new_<?php echo $value['merit_id']; ?>" value="new"  <?php if($value['pro_new'] == 1){ echo "checked='checked'"; } ?> />
             <?php if($value['pro_new'] == 1){ echo "<span style='background:#FFB800;'> Mới</span>"; }else{echo "<span style='background:none;'> Mới</span>";} ?>
             
             <br />
-            <input type="checkbox" id="pro_hot_<?php echo $value['pro_id']; ?>" value="hot" <?php if($value['pro_hot'] == 1){ echo "checked='checked'"; } ?> />
+            <input type="checkbox" id="pro_hot_<?php echo $value['merit_id']; ?>" value="hot" <?php if($value['pro_hot'] == 1){ echo "checked='checked'"; } ?> />
             <?php if($value['pro_hot'] == 1){ echo "<span style='background:#FFB800;'> HOT (hỏi nhiều)</span>"; }else{echo "<span style='background:none;'> HOT (hỏi nhiều)</span>";} ?>
             <br />
-            <input type="checkbox" id="pro_bestsale_<?php echo $value['pro_id']; ?>" value="bestsale" <?php if($value['pro_bestsale'] == 1){ echo "checked='checked'"; } ?> />
+            <input type="checkbox" id="pro_bestsale_<?php echo $value['merit_id']; ?>" value="bestsale" <?php if($value['pro_bestsale'] == 1){ echo "checked='checked'"; } ?> />
             <?php if($value['pro_bestsale'] == 1){ echo "<span style='background:#FFB800;'> Bán chạy</span>"; }else{echo "<span style='background:none;'> Bán chạy</span>";} ?>
             <br />
-            <input type="checkbox" id="pro_saleoff_<?php echo $value['pro_id']; ?>" value="saleoff" <?php if($value['pro_saleoff'] == 1){ echo "checked='checked'"; } ?> />
+            <input type="checkbox" id="pro_saleoff_<?php echo $value['merit_id']; ?>" value="saleoff" <?php if($value['pro_saleoff'] == 1){ echo "checked='checked'"; } ?> />
             <?php if($value['pro_saleoff'] == 1){ echo "<span style='background:#FFB800;'> Xả hàng (sale-off)</span>"; }else{echo "<span style='background:none;'> Xả hàng (sale-off)</span>";} ?>
             <br />
-            <span id="hot_button_<?php echo $value['pro_id']; ?>">
-            <input type="button" value="Cập nhật" class="update-bt-all" onClick="update_product_hot(<?php echo $value['pro_id']; ?>)" />
-            </span></div></td>
-        <td><div id="del_wait_<?php echo $value['pro_id']; ?>"> <a href="<?php echo base_url()."admin/product/update/".$value['pro_id']."" ; ?>" class="pop-up cboxElement">Sửa lại</a><br />
-            <a href="<?php echo base_url()."".$value['pro_name_rewrite']."/p".$value['pro_id'].".html"; ?>" target="_blank">Xem tại web</a><br />
+            <span id="hot_button_<?php echo $value['merit_id']; ?>">
+            <input type="button" value="Cập nhật" class="update-bt-all" onClick="update_product_hot(<?php echo $value['merit_id']; ?>)" />
+            </span></div--></td>
+        <td><div id="del_wait_<?php echo $value['merit_id']; ?>"> <a href="<?php echo base_url()."admin/merit/update/".$value['merit_id']."" ; ?>" class="pop-up cboxElement">Sửa lại</a><br />
+            <a href="<?php echo base_url()."".$value['merit_name']."/p".$value['merit_id'].".html"; ?>" target="_blank">Xem tại web</a><br />
             
-            <span id="status_<?php echo $value['pro_id']; ?>"></span> 
+            <span id="status_<?php echo $value['merit_id']; ?>"></span> 
             <?php
-				if($value['pro_status'] == 1){
-					echo "<a rel='".$value['pro_id']."' name='1' class='status_active' href='javascript:void(0);'>Hạ xuống</a>";
+				if($value['status'] == 1){
+					echo "<a rel='".$value['merit_id']."' name='1' class='status_active' href='javascript:void(0);'>Hạ xuống</a>";
 				}else{
-					echo "<a style='background:#FFB800;' rel='".$value['pro_id']."' name='0' class='status_active' href='javascript:void(0);'>Cho hiển thị</a>";
+					echo "<a style='background:#FFB800;' rel='".$value['merit_id']."' name='0' class='status_active' href='javascript:void(0);'>Cho hiển thị</a>";
 				}
 			?>
                     
             <br />
-            <a href="javascript:;" onClick="delete_product(<?php echo $value['pro_id']; ?>)">Xóa sản phẩm</a><br />
-            <span id="update_ordering_<?php echo $value['pro_id']; ?>">STT :
-            <input class="change_order" type="text" rel="<?php echo $value['pro_id']; ?>" value="<?php echo $value['pro_order']; ?>" size="2" />
+            <a href="javascript:;" onClick="delete_product(<?php echo $value['merit_id']; ?>)">Xóa sản phẩm</a><br />
+            <span id="update_ordering_<?php echo $value['merit_id']; ?>">STT :
             </span> </div></td>
       </tr>
       <?php
 	  	}
 		}else{
-			echo "<tr><td colspan='8'>Không có sản phẩm nào .</td></tr>";
+			echo "<tr><td colspan='8'>Không có ảnh chứng chỉ nào .</td></tr>";
 		}
 	  ?>
     </tbody>
@@ -131,7 +104,7 @@
 				$(this).attr("name","1");
 			}
 			$.ajax({
-				"url"	: "<?php echo base_url()."admin/product/update_status"; ?>",
+				"url"	: "<?php echo base_url()."admin/merit/update_status"; ?>",
 				"type"	: "post",
 				"data"	: "val="+val+"&rel="+rel+"&type="+type,
 				"async"	: "false",
@@ -147,7 +120,7 @@
 			id = $(this).attr("rel");
 			type = "bachnx";
 			$.ajax({
-				"url" 	: "<?php echo base_url()."admin/product/update_order"; ?>",
+				"url" 	: "<?php echo base_url()."admin/merit/update_order"; ?>",
 				"type"	: "post",
 				"data"	: "val="+val+"&id="+id+"&type="+type,
 				"async"	: "false",
@@ -161,39 +134,39 @@
 	});
 	
 	/*update*/
-	function update_product_hot(pro_id){
+	function update_product_hot(merit_id){
 		var pro_new = "";
-		if(document.getElementById('pro_new_'+pro_id).checked){
+		if(document.getElementById('pro_new_'+merit_id).checked){
 			pro_new = '1';
 		}
 		var pro_hot = "";
-		if(document.getElementById('pro_hot_'+pro_id).checked){
+		if(document.getElementById('pro_hot_'+merit_id).checked){
 			pro_hot = '1';
 		}
 		var pro_bestsale = "";
-		if(document.getElementById('pro_bestsale_'+pro_id).checked){
+		if(document.getElementById('pro_bestsale_'+merit_id).checked){
 			pro_bestsale = '1';
 		}
 		var pro_saleoff = "";
-		if(document.getElementById('pro_saleoff_'+pro_id).checked){
+		if(document.getElementById('pro_saleoff_'+merit_id).checked){
 			pro_saleoff = '1';
 		}
 		
-		$("#hot_button_"+pro_id).html("... vui lòng đợi");
-		$.post("<?php echo base_url()."admin/product/update_all"; ?>",{action:"update-pro-hot",pro_new:pro_new, pro_hot : pro_hot, pro_bestsale:pro_bestsale, pro_saleoff:pro_saleoff, pro_id:pro_id },function(data){ $("#hot_button_"+pro_id).html("xong");});
+		$("#hot_button_"+merit_id).html("... vui lòng đợi");
+		$.post("<?php echo base_url()."admin/product/update_all"; ?>",{action:"update-pro-hot",pro_new:pro_new, pro_hot : pro_hot, pro_bestsale:pro_bestsale, pro_saleoff:pro_saleoff, merit_id:merit_id },function(data){ $("#hot_button_"+merit_id).html("xong");});
 	}
 	
-	function delete_product(pro_id){
-		$("#row_"+pro_id).attr('class', 'row-hover');
+	function delete_product(merit_id){
+		$("#row_"+merit_id).attr('class', 'row-hover');
 		if(confirm("Bạn chắc chắn muốn xóa sản phẩm")){
-			$("#del_wait_"+pro_id).html("<img class='pro_refresh' src='"+links+"public/admin/images/refresh.gif' /> đang xóa...");
+			$("#del_wait_"+merit_id).html("<img class='pro_refresh' src='"+links+"public/admin/images/refresh.gif' /> đang xóa...");
 			$.post("<?php echo base_url()."admin/product/del"; ?>"
-				   ,{action:"delete-product",pro_id:pro_id}
-				   ,function(data){$("#row_"+pro_id).fadeOut();
+				   ,{action:"delete-product",merit_id:merit_id}
+				   ,function(data){$("#row_"+merit_id).fadeOut();
 				   //alert(data);
 			});
 		}else{
-			$("#row_"+pro_id).attr('class', '');	
+			$("#row_"+merit_id).attr('class', '');	
 		}
 	}
 </script> 
