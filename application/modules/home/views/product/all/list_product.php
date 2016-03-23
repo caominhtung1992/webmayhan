@@ -1,4 +1,4 @@
-<style type="text/css">
+<!--style type="text/css">
   .column_right{
   float: left;
   width: 697px;
@@ -36,19 +36,10 @@
         <div class="r" style="float: left !important;width:100%">
           <div class="paging r" style="float: left !important;margin: 10px 0px auto !important;position: relative;left: 10%;">
           </div>
-          <!--paging-->
           <div id="sort" class="l" style="float: right !important;">
-            <!-- <select onChange="window.location='?sort='+this.value">
-              <option>Sắp xếp theo thứ tự</option>
-              <option value="new">Mới nhất trước</option>
-              <option value="price-asc">Giá tăng dần</option>
-              <option value="price-desc">Giá giảm dần</option>
-            </select> -->
           </div>
         </div>
-        <!--r--> 
       </div>
-      <!--title_box_right-->
       <div class="clear"></div>
       <hr size="1" color="#ccc" style="margin:0;">
       <div class="list_product">
@@ -110,15 +101,390 @@
 			}
 		?>
       </div>
-      <!--list_pro-->
       <div class="clear"></div>
       <hr size="1" color="#ccc" style="margin:0;">
       <div class="pagination page-top">
       <div id="pagination" class=""><?php  echo $this->pagination->create_links();?></div>
 		</div>
-      <!--paging--> 
     </div>
-    <!--box_column_right--> 
   </div>
   <?php $this->load->view("column_right"); ?>
-</div>
+</div-->
+
+
+<section id="main-body">
+      <div class="main-content">
+        <div class="row">
+          <div class="col-24 cate-breadcrumbs">
+            <a href="">Trang chủ </a>>><a href=""> Sản phẩm </a>>><a href=""> Máy hàn</a>
+          </div>
+          <div class="col-5 cate-left">
+            <div class="cate-left-menu">
+              <p class="cate-left-menu-title">Máy Hàn</p>
+              <ul>
+                <li><a href="#">Máy Hàn TIG</a></li>
+                <li><a href="#">Máy Hàn TIG</a></li>
+                <li><a href="#">Máy Hàn TIG</a></li>
+              </ul>
+            </div>
+            <div class="cate-left-trademark">
+              <p class="cate-left-menu-title">Thương Hiệu</p>
+              <ul>
+                <li><a href="#">Máy hàn LINCOLN - MỸ </a></li>
+                <li><a href="#">MÁY HÀN MILLER - MỸ</a></li>
+                <li><a href="#">MÁY HÀN ESAB - THỤY ĐIỂN</a></li>
+                <li><a href="#"> MÁY HÀN KEMPPI - PHẦN LAN</a></li>
+                <li><a href="#">Máy hàn LINCOLN - MỸ </a></li>
+                <li><a href="#">MÁY HÀN MILLER - MỸ</a></li>
+                <li><a href="#">MÁY HÀN ESAB - THỤY ĐIỂN</a></li>
+                <li><a href="#"> MÁY HÀN KEMPPI - PHẦN LAN</a></li>
+                <li><a href="#">Máy hàn LINCOLN - MỸ </a></li>
+                <li><a href="#">MÁY HÀN MILLER - MỸ</a></li>
+                <li><a href="#">MÁY HÀN ESAB - THỤY ĐIỂN</a></li>
+                <li><a href="#"> MÁY HÀN KEMPPI - PHẦN LAN</a></li>
+                <li><a href="#">Máy hàn LINCOLN - MỸ </a></li>
+                <li><a href="#">MÁY HÀN MILLER - HÀN QUỐC</a></li>
+                <li><a href="#">MÁY HÀN ESAB - TRUNG QUỐC</a></li>
+              </ul>
+            </div>
+            <div class="cate-left-fitter"></div>
+            <div class="left-content-video">
+              <div class="title-new-left">
+                <p>video</p>
+              </div>
+              <div class="left-main-video">
+                <iframe width="100%" height="150px" src="https://www.youtube.com/embed/7QF_QRMyeds" frameborder="0" allowfullscreen></iframe>
+              </div>
+            </div>
+            <div class="left-content-commitment">
+              <div class="left-commitment-t cate-left-commitent">
+                <p class="abc">Cam kết</p>
+                <ul>
+                  <li><a href="#">Bán đúng giá đăng</a></li>
+                  <li><a href="#">Bán hàng đúng như miêu tả</a></li>
+                  <li><a href="#">Giao hàng thu tiền tận nhà</a></li>
+                  <li><a href="#">Đổi trả hàng trong 7 ngày</a></li>
+                  <li><a href="#">Bảo hành bảo trì tận nơi</a></li>
+                  <li><a href="#">Hàng mới 100%</a></li>
+                </ul>
+              </div>
+              <div class="left-commitment-b">
+                <img src="<?php echo base_url();?>public/images/images-adv.jpg" alt="">
+              </div>
+            </div>
+            <div class="left-content-partner">
+              <p class="left-title-partner">
+                Đối tác
+              </p>
+              <div class="left-img-partner">
+                <a href="#">
+                  <img src="<?php echo base_url();?>public/images/img-parten01.jpg" alt="">
+                </a>
+              </div>
+              <div class="left-img-partner">
+                <a href="#">
+                  <img src="<?php echo base_url();?>public/images/img-parten02.jpg" alt="">
+                </a>
+              </div>
+              <div class="left-img-partner">
+                <a href="#">
+                  <img src="<?php echo base_url();?>public/images/img-parten01.jpg" alt="">
+                </a>
+              </div>
+              <div class="left-img-partner">
+                <a href="#">
+                  <img src="<?php echo base_url();?>public/images/img-parten02.jpg" alt="">
+                </a>
+              </div>
+              <div class="left-img-partner">
+                <a href="#">
+                  <img src="<?php echo base_url();?>public/images/img-parten01.jpg" alt="">
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col-19 cate-right">
+            <div class="cate-r-banner">
+              <img src="<?php echo base_url();?>public/images/cateloger-banner.jpg" alt="">
+            </div>
+            <div class="cate-r-title">
+              <p class="cate-title-info">Máy Hàn</p>
+            </div>
+            <div class="cate-iteam-pro">
+              <div class="cate-iteam-main">
+                <div class="cate-iteam-img">
+                  <a href=""><img src="images/pro-home-03.png" alt=""></a>
+                </div>
+                <div class="cate-iteam-info">
+                  <a href="">Máy hàn TIG-400AM-D</a>
+                  <p>11.500.000</p>
+                  <span>10.500.000</span>
+                </div>                
+              </div>
+            </div>
+            <div class="cate-iteam-pro">
+              <div class="cate-iteam-main">
+                <div class="cate-iteam-img">
+                  <a href=""><img src="images/pro-home-03.png" alt=""></a>
+                </div>
+                <div class="cate-iteam-info">
+                  <a href="">Máy hàn TIG-400AM-D</a>
+                  <p>11.500.000</p>
+                  <span>10.500.000</span>
+                </div>
+                <div class="sale">
+                  <p>Giảm</p>
+                  <span class="sale-number">-20</span><span class="cate-sale-off">%</span>
+                </div>          
+              </div>
+            </div>
+            <div class="cate-iteam-pro">
+              <div class="cate-iteam-main">
+                <div class="cate-iteam-img">
+                  <a href=""><img src="images/pro-home-03.png" alt=""></a>
+                </div>
+                <div class="cate-iteam-info">
+                  <a href="">Máy hàn TIG-400AM-D</a>
+                  <p>11.500.000</p>
+                  <span>10.500.000</span>
+                </div>                
+              </div>
+            </div>
+            <div class="cate-iteam-pro">
+              <div class="cate-iteam-main pro-border-none">
+                <div class="cate-iteam-img">
+                  <a href=""><img src="images/pro-home-03.png" alt=""></a>
+                </div>
+                <div class="cate-iteam-info">
+                  <a href="">Máy hàn TIG-400AM-D</a>
+                  <p>11.500.000</p>
+                  <span>10.500.000</span>
+                </div>                
+              </div>
+            </div>
+            <div class="cate-iteam-pro">
+              <div class="cate-iteam-main">
+                <div class="cate-iteam-img">
+                  <a href=""><img src="images/pro-home-03.png" alt=""></a>
+                </div>
+                <div class="cate-iteam-info">
+                  <a href="">Máy hàn TIG-400AM-D</a>
+                  <p>11.500.000</p>
+                  <span>10.500.000</span>
+                </div>                
+              </div>
+            </div>
+            <div class="cate-iteam-pro">
+              <div class="cate-iteam-main">
+                <div class="cate-iteam-img">
+                  <a href=""><img src="images/pro-home-03.png" alt=""></a>
+                </div>
+                <div class="cate-iteam-info">
+                  <a href="">Máy hàn TIG-400AM-D</a>
+                  <p>11.500.000</p>
+                  <span>10.500.000</span>
+                </div>                
+              </div>
+            </div>
+            <div class="cate-iteam-pro">
+              <div class="cate-iteam-main">
+                <div class="cate-iteam-img">
+                  <a href=""><img src="images/pro-home-03.png" alt=""></a>
+                </div>
+                <div class="cate-iteam-info">
+                  <a href="">Máy hàn TIG-400AM-D</a>
+                  <p>11.500.000</p>
+                  <span>10.500.000</span>
+                </div>                
+              </div>
+            </div>
+            <div class="cate-iteam-pro">
+              <div class="cate-iteam-main pro-border-none">
+                <div class="cate-iteam-img">
+                  <a href=""><img src="images/pro-home-03.png" alt=""></a>
+                </div>
+                <div class="cate-iteam-info">
+                  <a href="">Máy hàn TIG-400AM-D</a>
+                  <p>11.500.000</p>
+                  <span>10.500.000</span>
+                </div>                
+              </div>
+            </div>
+            <div class="cate-iteam-pro">
+              <div class="cate-iteam-main">
+                <div class="cate-iteam-img">
+                  <a href=""><img src="images/pro-home-03.png" alt=""></a>
+                </div>
+                <div class="cate-iteam-info">
+                  <a href="">Máy hàn TIG-400AM-D</a>
+                  <p>11.500.000</p>
+                  <span>10.500.000</span>
+                </div>                
+              </div>
+            </div>
+            <div class="cate-iteam-pro">
+              <div class="cate-iteam-main">
+                <div class="cate-iteam-img">
+                  <a href=""><img src="images/pro-home-03.png" alt=""></a>
+                </div>
+                <div class="cate-iteam-info">
+                  <a href="">Máy hàn TIG-400AM-D</a>
+                  <p>11.500.000</p>
+                  <span>10.500.000</span>
+                </div>                
+              </div>
+            </div>
+            <div class="cate-iteam-pro">
+              <div class="cate-iteam-main">
+                <div class="cate-iteam-img">
+                  <a href=""><img src="images/pro-home-03.png" alt=""></a>
+                </div>
+                <div class="cate-iteam-info">
+                  <a href="">Máy hàn TIG-400AM-D</a>
+                  <p>11.500.000</p>
+                  <span>10.500.000</span>
+                </div>                
+              </div>
+            </div>
+            <div class="cate-iteam-pro">
+              <div class="cate-iteam-main pro-border-none">
+                <div class="cate-iteam-img">
+                  <a href=""><img src="images/pro-home-03.png" alt=""></a>
+                </div>
+                <div class="cate-iteam-info">
+                  <a href="">Máy hàn TIG-400AM-D</a>
+                  <p>11.500.000</p>
+                  <span>10.500.000</span>
+                </div>                
+              </div>
+            </div>
+            <div class="cate-iteam-pro">
+              <div class="cate-iteam-main">
+                <div class="cate-iteam-img">
+                  <a href=""><img src="images/pro-home-03.png" alt=""></a>
+                </div>
+                <div class="cate-iteam-info">
+                  <a href="">Máy hàn TIG-400AM-D</a>
+                  <p>11.500.000</p>
+                  <span>10.500.000</span>
+                </div>                
+              </div>
+            </div>
+            <div class="cate-iteam-pro">
+              <div class="cate-iteam-main">
+                <div class="cate-iteam-img">
+                  <a href=""><img src="images/pro-home-03.png" alt=""></a>
+                </div>
+                <div class="cate-iteam-info">
+                  <a href="">Máy hàn TIG-400AM-D</a>
+                  <p>11.500.000</p>
+                  <span>10.500.000</span>
+                </div>                
+              </div>
+            </div>
+            <div class="cate-iteam-pro">
+              <div class="cate-iteam-main">
+                <div class="cate-iteam-img">
+                  <a href=""><img src="images/pro-home-03.png" alt=""></a>
+                </div>
+                <div class="cate-iteam-info">
+                  <a href="">Máy hàn TIG-400AM-D</a>
+                  <p>11.500.000</p>
+                  <span>10.500.000</span>
+                </div>                
+              </div>
+            </div>
+            <div class="cate-iteam-pro">
+              <div class="cate-iteam-main pro-border-none">
+                <div class="cate-iteam-img">
+                  <a href=""><img src="images/pro-home-03.png" alt=""></a>
+                </div>
+                <div class="cate-iteam-info">
+                  <a href="">Máy hàn TIG-400AM-D</a>
+                  <p>11.500.000</p>
+                  <span>10.500.000</span>
+                </div>                
+              </div>
+            </div>
+            <div class="cate-iteam-pro">
+              <div class="cate-iteam-main">
+                <div class="cate-iteam-img">
+                  <a href=""><img src="images/pro-home-03.png" alt=""></a>
+                </div>
+                <div class="cate-iteam-info">
+                  <a href="">Máy hàn TIG-400AM-D</a>
+                  <p>11.500.000</p>
+                  <span>10.500.000</span>
+                </div>                
+              </div>
+            </div>
+            <div class="cate-iteam-pro">
+              <div class="cate-iteam-main">
+                <div class="cate-iteam-img">
+                  <a href=""><img src="images/pro-home-03.png" alt=""></a>
+                </div>
+                <div class="cate-iteam-info">
+                  <a href="">Máy hàn TIG-400AM-D</a>
+                  <p>11.500.000</p>
+                  <span>10.500.000</span>
+                </div>                
+              </div>
+            </div>
+            <div class="cate-iteam-pro">
+              <div class="cate-iteam-main">
+                <div class="cate-iteam-img">
+                  <a href=""><img src="images/pro-home-03.png" alt=""></a>
+                </div>
+                <div class="cate-iteam-info">
+                  <a href="">Máy hàn TIG-400AM-D</a>
+                  <p>11.500.000</p>
+                  <span>10.500.000</span>
+                </div>
+                <div class="sale">
+                  <p>Giảm</p>
+                  <span class="sale-number">-20</span><span class="cate-sale-off">%</span>
+                </div>              
+              </div>
+            </div>
+            <div class="cate-iteam-pro">
+              <div class="cate-iteam-main pro-border-none">
+                <div class="cate-iteam-img">
+                  <a href=""><img src="images/pro-home-03.png" alt=""></a>
+                </div>
+                <div class="cate-iteam-info">
+                  <a href="">Máy hàn TIG-400AM-D</a>
+                  <p>11.500.000</p>
+                  <span>10.500.000</span>
+                </div>                
+              </div>
+            </div>
+          </div>
+          <div class="col-24 cate-news">
+            <div class="cate-r-title-news">
+              <p class="cate-title-info">Tin tức sự kiện</p>
+              <a href="#">Xem tất cả &nbsp >></a>
+            </div>
+            <div class="cate-news-iteam">
+              <img src="images/cate-images-news.jpg" alt="">
+              <a href="#">Máy hàn inverter và những tính năng ưu điểm vượt trội</a>
+            </div>
+            <div class="cate-news-iteam">
+              <img src="images/cate-images-news.jpg" alt="">
+              <a href="#">Máy hàn inverter và những tính năng ưu điểm vượt trội</a>
+            </div>
+            <div class="cate-news-iteam">
+              <img src="images/cate-images-news.jpg" alt="">
+              <a href="#">Máy hàn inverter và những tính năng ưu điểm vượt trội</a>
+            </div>
+            <div class="cate-news-iteam">
+              <img src="images/cate-images-news.jpg" alt="">
+              <a href="#">Máy hàn inverter và những tính năng ưu điểm vượt trội</a>
+            </div>
+            <div class="cate-news-iteam">
+              <img src="images/cate-images-news.jpg" alt="">
+              <a href="#">Máy hàn inverter và những tính năng ưu điểm vượt trội</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>

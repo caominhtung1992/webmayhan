@@ -98,27 +98,20 @@
               <p class="cate-title-info">Tin tức sự kiện</p>
               <a href="#">Xem tất cả &nbsp >></a>
             </div>
+            <?php
+                if(isset($list_news_invole) && $list_news_invole != NULL){
+                  foreach($list_news_invole as $value){
+                  //var_dump($value);die();
+                  @$images = unserialize($value['news_images']);
+              ?>
             <div class="cate-news-iteam">
-              <img src="<?php echo base_url();?>public/images/cate-images-news.jpg" alt="">
-              <a href="#">Máy hàn inverter và những tính năng ưu điểm vượt trội</a>
+              <img src="<?php echo base_url()."uploads/news/thumb/".$value['news_images']."" ?>" alt="">
+              <a href="#"><?php echo $value["news_title"]; ?></a>
             </div>
-            <div class="cate-news-iteam">
-              <img src="<?php echo base_url();?>public/images/cate-images-news.jpg" alt="">
-              <a href="#">Máy hàn inverter và những tính năng ưu điểm vượt trội</a>
-            </div>
-            <div class="cate-news-iteam">
-              <img src="<?php echo base_url();?>public/images/cate-images-news.jpg" alt="">
-              <a href="#">Máy hàn inverter và những tính năng ưu điểm vượt trội</a>
-            </div>
-            <div class="cate-news-iteam">
-              <img src="<?php echo base_url();?>public/images/cate-images-news.jpg" alt="">
-              <a href="#">Máy hàn inverter và những tính năng ưu điểm vượt trội</a>
-            </div>
-            <div class="cate-news-iteam">
-              <img src="<?php echo base_url();?>public/images/cate-images-news.jpg" alt="">
-              <a href="#">Máy hàn inverter và những tính năng ưu điểm vượt trội</a>
-            </div>
-          </div>
+        <?php 
+            }
+          }
+         ?> 
         </div>
       </div>
     </section>

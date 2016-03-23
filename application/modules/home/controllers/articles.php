@@ -11,14 +11,24 @@
 			$data['online'] 	= $this->online();
 			$data['access'] 	= $this->access();
 			$this->write($data['access']);
+			$config['per_page'] 	= 5;
 			$data['listall'] 	= $this->mindex->listall();
 			$data['list_support'] 	= $this->mindex->list_support();
 			$data['listnews'] 	= $this->marticles->listnews();
+			$data['list_news_invole'] 	= $this->marticles->list_news_invole();
 			$data['news_hot'] 	= $this->marticles->gethot();
 			$get_setup 				= $this->mindex->get_setup();
 			$data['pro_hot'] 		= $this->mindex->list_pro_hot($get_setup['set_pro_hot']);
 			$data['pro_view'] 		= $this->mindex->list_pro_view();
 			//$this->debug($data['news_hot']);
+			$config['next_link'] 	= "Next";
+			$config['prev_link'] 	= "Prev";
+			$config['first_link'] 	= "First";
+			$config['last_link'] 	= "Last";
+			$this->load->library("pagination");
+			$this->pagination->initialize($config);
+			$start = $this->uri->segment(2);
+			$data['list_new'] 		= $this->marticles->list_new($config['per_page'],$start);
 			$data['template'] = "content";
 			$this->load->view("articles/layout",$data);
 		}
@@ -44,7 +54,7 @@
 			$this->load->library("pagination");
 			$this->pagination->initialize($config);
 			$start = $this->uri->segment(2);
-			$data['list_new'] 		= $this->marticles->list_new($id,$config['per_page'],$start);
+			$data['list_new'] 		= $this->marticles->list_new($config['per_page'],$start);
 			$data['pro_view'] 		= $this->mindex->list_pro_view();
 			$data['template'] = "list";
 			$this->load->view("articles/layouts",$data);

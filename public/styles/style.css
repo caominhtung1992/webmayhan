@@ -77,3 +77,32 @@ margin: 0;
 .nivo-controlNav a {background-image: url("../images/bullets-sprite.png") !important;background-position: 0px 0px !important;color: #FFFFFF;display: block;float: left;font: bold 12px/21px arial;height: 23px;text-align: center;margin: 0 2px;text-decoration: none;width: 22px !important;display: inline-block;*display: inline;cursor: pointer;z-index: 9;position: relative;line-height: 23px;}
 .nivo-controlNav a.active {background-position: -31px 0px !important;color: #053865;}
 /*------------------------ End nivo ----------------------*/
+
+.cate-news-list-iteam{
+	width:100%;
+	float: left;
+	height: auto;
+	border-bottom: 1px solid #ccc;
+	padding: 10px 0px;
+}
+.cate-news-list-iteam img{ 
+	float:left;
+	width: 20%;
+}
+.cate-news-list-info{
+	width: 80%;
+	float:left;
+}
+.cate-news-list-info a{ 
+	float:left;
+	width: 100%;
+	padding-left: 10px;
+	color: #00f;
+	text-decoration: none !important;
+}
+.cate-news-list-info p{ 
+	float: left;
+	width: 100%;
+	padding-left: 10px;
+	margin-top: 10px;
+}

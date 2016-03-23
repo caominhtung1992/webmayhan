@@ -290,26 +290,6 @@
               }
             } 
             ?>
-              <!--div class="iteam-main-new-right">
-                <a href="#"><img src="images/img-new01.jpg" alt=""></a>
-                <a class="link-new-right" href="#">So sánh cắt plasma với cắt Axetylen Oxy</a>
-              </div>
-              <div class="iteam-main-new-right">
-                <a href="#"><img src="images/img-new01.jpg" alt=""></a>
-                <a class="link-new-right" href="#">So sánh cắt plasma với cắt Axetylen Oxy</a>
-              </div>
-              <div class="iteam-main-new-right">
-                <a href="#"><img src="images/img-new01.jpg" alt=""></a>
-                <a class="link-new-right" href="#">So sánh cắt plasma với cắt Axetylen Oxy</a>
-              </div>
-              <div class="iteam-main-new-right">
-                <a href="#"><img src="images/img-new01.jpg" alt=""></a>
-                <a class="link-new-right" href="#">So sánh cắt plasma với cắt Axetylen Oxy</a>
-              </div>
-              <div class="iteam-main-new-right">
-                <a href="#"><img src="images/img-new01.jpg" alt=""></a>
-                <a class="link-new-right" href="#">So sánh cắt plasma với cắt Axetylen Oxy</a>
-              </div-->
             </div>
           </div>
         </div>
