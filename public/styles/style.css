@@ -1,9 +1,8 @@
 /*------------------------------------*/
-/* Created by : Nguyễn Xuân Bách      */
-/* Phone      : 0976.256.106          */
-/* Mail       : Bachnx92@gmail.com    */
-/* Skype      : Northstar.vn          */
-/* Yahoo      : Bachnx92              */
+/* Created by : Cao tungf      */
+/* Phone      : 01675641992          */
+/* Mail       :     */
+/* Skype      : caoinhtung1992          */
 /* Website    : http://northstar.vn/  */
 /* -----------------------------------*/
 
@@ -77,3 +76,78 @@ margin: 0;
 .nivo-controlNav a {background-image: url("../images/bullets-sprite.png") !important;background-position: 0px 0px !important;color: #FFFFFF;display: block;float: left;font: bold 12px/21px arial;height: 23px;text-align: center;margin: 0 2px;text-decoration: none;width: 22px !important;display: inline-block;*display: inline;cursor: pointer;z-index: 9;position: relative;line-height: 23px;}
 .nivo-controlNav a.active {background-position: -31px 0px !important;color: #053865;}
 /*------------------------ End nivo ----------------------*/
+
+.cate-news-list-iteam{
+	width:100%;
+	float: left;
+	height: auto;
+	border-bottom: 1px solid #ccc;
+	padding: 10px 0px;
+}
+.cate-news-list-iteam img{ 
+	float:left;
+	width: 20%;
+	height: 140px;
+}
+.cate-news-list-info{
+	width: 80%;
+	float:left;
+}
+.cate-news-list-info a{ 
+	float:left;
+	width: 100%;
+	padding-left: 10px;
+	color: #00f;
+	text-decoration: none !important;
+}
+.cate-news-list-info p{ 
+	float: left;
+	width: 100%;
+	padding-left: 10px;
+	margin-top: 10px;
+}
+.cate-news-iteam img{
+	width: 100%;
+	height: 140px;
+}
+.iteam_slider_bot{
+	border-top: 1px solid #ccc;
+	padding-top: 10px;
+}
+.iteam_slider_bot a{
+    color: #2682b1;
+    margin-left: 10px;
+    text-decoration: none !important; 
+}
+.iteam_slider_bot p{
+    margin-left: 10px;
+    color: #000;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    font-size: 15px;
+    text-decoration: line-through;
+}
+.iteam_slider_bot span{
+    margin-left: 10px;
+    color: #f00;
+    font-size: 18px;
+}
+.cap1{
+	position: relative;
+}
+.cap2{
+	position: absolute;
+	top: 48px;
+	left: 0px;
+	z-index: 999;
+	display: none;
+}
+.cap2 li{
+	border-bottom: 1px solid #ccc;
+	background: #0077ab;
+	width: 200px;
+}
+.cap2 li a{
+	font-size: 15px !important;
+	margin-left: 10px;
+}

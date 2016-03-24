@@ -6,12 +6,14 @@
 
 <script type="text/javascript" src="<?php echo base_url();?>public/scripts/jquery-1.8.2.min.js"></script>
 <!--script type="text/javascript" src="<?php echo base_url();?>public/scripts/library.js"></script>
-<script type="text/javascript" src="<?php echo base_url();?>public/scripts/common.js"></script>
-<script type="text/javascript" src="<?php echo base_url();?>public/scripts/jquery.lazyload.min.js"></script-->
+<script type="text/javascript" src="<?php echo base_url();?>public/scripts/common.js"></script-->
+<script type="text/javascript" src="<?php echo base_url();?>public/scripts/jquery.lazyload.min.js"></script>
 
 <script type="text/javascript" src="<?php echo base_url();?>public/scripts/jquery.bxslider.min.js"></script>
 <script type="text/javascript" src="<?php echo base_url();?>public/scripts/jquery.jcarousel.min.js"></script>
 <script type="text/javascript" src="<?php echo base_url();?>public/scripts/jcarousel.js"></script>
+<script type="text/javascript" src="<?php echo base_url();?>public/scripts/common.js"></script>
+
 
 <script type="text/javascript">
 	$(document).ready(function(){
@@ -41,12 +43,4 @@
 	js.src = "//connect.facebook.net/vi_VN/all.js#xfbml=1&appId=199828456846777";
 	fjs.parentNode.insertBefore(js, fjs);
 	}(document, 'script', 'facebook-jssdk'));
-</script>
-<script type="text/javascript">
-	$(document).ready(function(){
-		$("img.lazy").lazyload({
-			placeholder: "<?php echo base_url(); ?>public/images/grey.gif",
-			effect: "fadeIn"
-		});
-	});
 </script>

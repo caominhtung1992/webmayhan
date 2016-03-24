@@ -3038,7 +3038,7 @@ button {
 
 .owl-carousel li {
   border-right: 1px solid #ccc;
-  padding: 0px 30px 0px 30px;
+  padding: 0px 36px 0px 36px;
 }
 
 .new-pro-title {
@@ -3111,11 +3111,16 @@ button {
 .left-pro-content .left-pro-iteam ul li {
   color: #000;
   text-transform: capitalize;
-  list-style-image: url("../images/bg-menu-left.jpg");
+  /*list-style-image: url("../images/bg-menu-left.jpg");*/
+  background: url("../images/bg-menu-left.jpg") no-repeat left;
+  list-style-type:none;
 }
-
+.left-pro-content .left-pro-iteam ul{
+  margin-left: 10px !important;
+}
 .left-pro-content .left-pro-iteam ul li a {
   text-decoration: none;
+  padding-left: 10px;
 }
 
 .left-content-video {
@@ -3582,14 +3587,16 @@ button {
 }
 
 #footer .top-footer .top-foote-r .top-foote-r-main .top-foote-r-iteam ul li {
-  padding-top: 5px;
-  list-style-image: url("../images/bg-menu-left.jpg");
+  padding: 2px 0px;
+  background: url("../images/bg-menu-left.jpg") no-repeat left;
+  list-style-type:none;
   margin-left: 15px;
 }
 
 #footer .top-footer .top-foote-r .top-foote-r-main .top-foote-r-iteam ul li a {
   color: #6c6b6c;
   text-decoration: none;
+  padding-left: 10px;
 }
 
 #footer .top-footer .top-foote-r .top-foote-r-main .top-foote-r-iteam ul li a:hover {

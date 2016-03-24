@@ -5,7 +5,7 @@
             <div class="col-24">
               <div class="new-pro-title">
                 <p>Sản phẩm mới</p>
-                <a href="<?php echo base_url(); ?>/san-pham-moi/">Xem tất cả >></a>
+                <a href="<?php echo base_url(); ?>san-pham-moi/">Xem tất cả >></a>
               </div>
             </div>
           </div>
@@ -290,26 +290,6 @@
               }
             } 
             ?>
-              <!--div class="iteam-main-new-right">
-                <a href="#"><img src="images/img-new01.jpg" alt=""></a>
-                <a class="link-new-right" href="#">So sánh cắt plasma với cắt Axetylen Oxy</a>
-              </div>
-              <div class="iteam-main-new-right">
-                <a href="#"><img src="images/img-new01.jpg" alt=""></a>
-                <a class="link-new-right" href="#">So sánh cắt plasma với cắt Axetylen Oxy</a>
-              </div>
-              <div class="iteam-main-new-right">
-                <a href="#"><img src="images/img-new01.jpg" alt=""></a>
-                <a class="link-new-right" href="#">So sánh cắt plasma với cắt Axetylen Oxy</a>
-              </div>
-              <div class="iteam-main-new-right">
-                <a href="#"><img src="images/img-new01.jpg" alt=""></a>
-                <a class="link-new-right" href="#">So sánh cắt plasma với cắt Axetylen Oxy</a>
-              </div>
-              <div class="iteam-main-new-right">
-                <a href="#"><img src="images/img-new01.jpg" alt=""></a>
-                <a class="link-new-right" href="#">So sánh cắt plasma với cắt Axetylen Oxy</a>
-              </div-->
             </div>
           </div>
         </div>

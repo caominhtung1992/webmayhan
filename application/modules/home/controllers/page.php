@@ -4,6 +4,7 @@
 			parent::__construct();
 			$this->load->helper("url");
 			$this->load->model("mpage");
+			$this->load->model("marticles");
 		}
 		public function detail(){
 			$id = $this->uri->segment(3);
@@ -15,6 +16,7 @@
 			$data['access'] 	= $this->access();
 			$this->write($data['access']);
 			$data['pro_view'] 		= $this->mindex->list_pro_view();
+			$data['list_news_invole'] 	= $this->marticles->list_news_invole();
 			$get_setup 				= $this->mindex->get_setup();
 			$data['pro_hot'] 		= $this->mindex->list_pro_hot($get_setup['set_pro_hot']);
 			$data['title'] = $data['detail_page']['page_title'];

@@ -36,8 +36,19 @@
 			$this->db->limit(4);
 			return $this->db->get($this->_news)->result_array();
 		}
-		public function list_new($id,$off,$start){
-			$this->db->where("cago_id",$id);
+		public function list_news_ct(){
+			$this->db->where("news_status","1");
+			$this->db->order_by("news_id","DESC");
+			$this->db->limit(10);
+			return $this->db->get($this->_news)->result_array();
+		}
+		public function list_news_invole(){
+			$this->db->where("news_status","1");
+			$this->db->order_by("news_id","RANDOM");
+			$this->db->limit(5);
+			return $this->db->get($this->_news)->result_array();
+		}
+		public function list_new($off,$start){
 			$this->db->where("news_status","1");
 			$this->db->order_by("news_id","DESC");
 			$this->db->limit($off,$start);
@@ -46,6 +57,10 @@
 		public function count_all_new($id){
 			$this->db->where("cago_id",$id);
 			return $this->db->count_all_results($this->_table);
+		}
+		public function count_all_news(){
+			$this->db->where("news_status","1");
+			return $this->db->count_all_results($this->_news);
 		}
 		public function other_list($id1,$id2){
 			$this->db->where("cago_id",$id1);

@@ -17,11 +17,20 @@
         <div class="row">
           <div class="col-19 menu-top">
             <ul>
-              <li><a href="">Trang chủ</a></li>
-              <li><a href="">Giới thiệu</a></li>
-              <li><a href="">Sản phẩm</a></li>
+              <li><a href="<?php echo base_url();?>">Trang chủ</a></li>
+              <li><a href="<?php echo base_url();?>">Giới thiệu</a></li>
+              <li class="cap1"><a href="<?php echo base_url();?>">Sản phẩm</a>
+                  <ul class="cap2">
+                    <?php
+                      if(isset($listall['cate']) && $listall['cate'] != NULL){
+                        foreach($listall['cate'] as $k => $v){
+                    ?>
+                    <li><a class="color-cap2" href="#"><?php echo $v['cate_name']; ?></a></li>
+                    <?php }} ?>
+                  </ul>
+              </li>
               <li><a href="<?php echo base_url(); ?>tin-tuc/">Tin tức</a></li>
-              <li><a href="">Liên hệ</a></li>
+              <li><a href="<?php echo base_url();?>">Liên hệ</a></li>
             </ul>               
           </div>
           <div class="col-5 hotline-top">
