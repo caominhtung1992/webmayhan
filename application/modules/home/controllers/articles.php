@@ -21,7 +21,8 @@
 			$data['pro_view'] 		= $this->mindex->list_pro_view();
 			//$this->debug($data['news_hot']);
 			$config['per_page'] 	= 5;
-			$config['base_url']    = base_url('tin-tuc/'); 
+			$config['base_url']    = base_url('tin-tuc/ac'); 
+			//$config['base_url'] 	= base_url()."".$id2."/ac".$id."";
 			$config['total_rows'] = $this->marticles->count_all_news();
 			$config['next_link'] 	= "Next";
 			$config['prev_link'] 	= "Prev";

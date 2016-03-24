@@ -7,10 +7,11 @@ $(document).ready(function(){
 	$('.cap1').mouseout(function () {
 	      $('.cap2').hide();      
 	});
+
 	$('.iteam-main-pro').mouseover(function () {
-	       $(this).$('.product-info').show();      
+	       $(this).find('.product-info').show();      
 	});
 	$('.iteam-main-pro').mouseout(function () {
-	       $(this).$('.product-info').hide();      
+	       $(this).find('.product-info').hide();      
 	});
 });

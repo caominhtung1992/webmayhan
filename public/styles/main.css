@@ -3295,7 +3295,7 @@ button {
   height: 65px;
   background-image: url(../images/bg-sale.png);
   background-repeat: no-repeat;
-  z-index: 10;
+  z-index: 190;
 }
 
 .main-content-mid .main-product .iteam-main-pro .iteam-pro-img .sale p, .main-content-mid .main-product .iteam-main-pro .iteam-pro-img .sale #main-body ul, #main-body .main-content-mid .main-product .iteam-main-pro .iteam-pro-img .sale ul, .main-content-mid .main-product .iteam-main-pro .iteam-pro-img .sale #main-body ol, #main-body .main-content-mid .main-product .iteam-main-pro .iteam-pro-img .sale ol, .main-content-mid .main-product .iteam-main-pro .iteam-pro-img .sale #main-body table, #main-body .main-content-mid .main-product .iteam-main-pro .iteam-pro-img .sale table {
