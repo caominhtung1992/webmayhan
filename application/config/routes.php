@@ -65,6 +65,7 @@ $route['san-pham-yeu-thich'] = "home/users/save";
 $route['sua-thong-tin'] = "home/users/update_info";
 $route['man-hinh-laptop'] = "home/monitor";
 $route['tin-tuc'] = "home/articles";
+$route['tin-tuc/(:num)'] = "home/articles";
 $route['([a-zA-Z0-9-_]+)/ac(:num)'] = "home/articles/list_news/(:num)";
 $route['tin-tuc/([a-zA-Z0-9-_]+)/(:num)'] = "home/articles/detail/(:num)";
 $route['san-pham-khuyen-mai'] = "home/product_sale";

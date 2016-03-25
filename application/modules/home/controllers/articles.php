@@ -19,19 +19,21 @@
 			$get_setup 				= $this->mindex->get_setup();
 			$data['pro_hot'] 		= $this->mindex->list_pro_hot($get_setup['set_pro_hot']);
 			$data['pro_view'] 		= $this->mindex->list_pro_view();
-			//$this->debug($data['news_hot']);
+			$id = $this->uri->segment(2);
+		 	$config['base_url'] 	= base_url()."tin-tuc";
+			$config['total_rows'] 	= $this->marticles->count_all_news();
 			$config['per_page'] 	= 5;
-			$config['base_url']    = base_url('tin-tuc/ac'); 
-			//$config['base_url'] 	= base_url()."".$id2."/ac".$id."";
-			$config['total_rows'] = $this->marticles->count_all_news();
+			$config['uri_segment'] 	= 2;
 			$config['next_link'] 	= "Next";
 			$config['prev_link'] 	= "Prev";
 			$config['first_link'] 	= "First";
 			$config['last_link'] 	= "Last";
 			$this->load->library("pagination");
 			$this->pagination->initialize($config);
-		 	//$this->pagination->create_links();
-			$start = $this->uri->segment(3,0);
+		 	//$this->debug($config);
+
+
+			$start = $this->uri->segment(2);
 			$data['list_new'] 		= $this->marticles->list_new($config['per_page'],$start);
 			$data['template'] = "content";
 			$this->load->view("articles/layout",$data);
