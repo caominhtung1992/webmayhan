@@ -25,7 +25,7 @@
                       if(isset($listall['cate']) && $listall['cate'] != NULL){
                         foreach($listall['cate'] as $k => $v){
                     ?>
-                    <li><a class="color-cap2" href="#"><?php echo $v['cate_name']; ?></a></li>
+                    <li><a class="color-cap2" href="<?php echo base_url()."".$v['cate_rewrite']."/c".$v['cate_id'].".html"; ?>" ><?php echo $v['cate_name']; ?></a></li>
                     <?php }} ?>
                   </ul>
               </li>
