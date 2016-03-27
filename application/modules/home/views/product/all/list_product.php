@@ -116,7 +116,7 @@
       <div class="main-content">
         <div class="row">
           <div class="col-24 cate-breadcrumbs">
-            <a href="">Trang chủ </a>>><a href=""> Sản phẩm </a>>><a href=""> Máy hàn</a>
+            <a href="">Trang chủ </a>>><a href=""> Máy hàn</a>
           </div>
           <div class="col-5 cate-left">
             <div class="cate-left-menu">
@@ -210,253 +210,33 @@
             <div class="cate-r-title">
               <p class="cate-title-info">Máy Hàn</p>
             </div>
+            <?php 
+            if(isset($list_pro) && $list_pro != NULL){
+              $stt = 0;
+              foreach($list_pro as $value){
+                @$images = unserialize($value['pro_images']);
+                $stt++;
+                //var_dump($value);die();
+            ?>
             <div class="cate-iteam-pro">
               <div class="cate-iteam-main">
                 <div class="cate-iteam-img">
-                  <a href=""><img src="images/pro-home-03.png" alt=""></a>
+                  <a href="<?php echo base_url()."".$value['pro_name_rewrite']."/p".$value['pro_id'].".html"; ?>"><img src="<?php echo base_url()."uploads/products/thumb/".$images[0]."" ?>" alt=""></a>
                 </div>
                 <div class="cate-iteam-info">
-                  <a href="">Máy hàn TIG-400AM-D</a>
-                  <p>11.500.000</p>
-                  <span>10.500.000</span>
-                </div>                
-              </div>
-            </div>
-            <div class="cate-iteam-pro">
-              <div class="cate-iteam-main">
-                <div class="cate-iteam-img">
-                  <a href=""><img src="images/pro-home-03.png" alt=""></a>
-                </div>
-                <div class="cate-iteam-info">
-                  <a href="">Máy hàn TIG-400AM-D</a>
-                  <p>11.500.000</p>
-                  <span>10.500.000</span>
+                  <a href="<?php echo base_url()."".$value['pro_name_rewrite']."/p".$value['pro_id'].".html"; ?>"><?php echo $value['pro_name']; ?></a>
+                  <p><?php echo $value['pro_market'] ?></p>
+                  <span><?php echo $value['pro_price'] ?></span>
                 </div>
                 <div class="sale">
                   <p>Giảm</p>
-                  <span class="sale-number">-20</span><span class="cate-sale-off">%</span>
-                </div>          
-              </div>
-            </div>
-            <div class="cate-iteam-pro">
-              <div class="cate-iteam-main">
-                <div class="cate-iteam-img">
-                  <a href=""><img src="images/pro-home-03.png" alt=""></a>
-                </div>
-                <div class="cate-iteam-info">
-                  <a href="">Máy hàn TIG-400AM-D</a>
-                  <p>11.500.000</p>
-                  <span>10.500.000</span>
-                </div>                
-              </div>
-            </div>
-            <div class="cate-iteam-pro">
-              <div class="cate-iteam-main pro-border-none">
-                <div class="cate-iteam-img">
-                  <a href=""><img src="images/pro-home-03.png" alt=""></a>
-                </div>
-                <div class="cate-iteam-info">
-                  <a href="">Máy hàn TIG-400AM-D</a>
-                  <p>11.500.000</p>
-                  <span>10.500.000</span>
-                </div>                
-              </div>
-            </div>
-            <div class="cate-iteam-pro">
-              <div class="cate-iteam-main">
-                <div class="cate-iteam-img">
-                  <a href=""><img src="images/pro-home-03.png" alt=""></a>
-                </div>
-                <div class="cate-iteam-info">
-                  <a href="">Máy hàn TIG-400AM-D</a>
-                  <p>11.500.000</p>
-                  <span>10.500.000</span>
-                </div>                
-              </div>
-            </div>
-            <div class="cate-iteam-pro">
-              <div class="cate-iteam-main">
-                <div class="cate-iteam-img">
-                  <a href=""><img src="images/pro-home-03.png" alt=""></a>
-                </div>
-                <div class="cate-iteam-info">
-                  <a href="">Máy hàn TIG-400AM-D</a>
-                  <p>11.500.000</p>
-                  <span>10.500.000</span>
-                </div>                
-              </div>
-            </div>
-            <div class="cate-iteam-pro">
-              <div class="cate-iteam-main">
-                <div class="cate-iteam-img">
-                  <a href=""><img src="images/pro-home-03.png" alt=""></a>
-                </div>
-                <div class="cate-iteam-info">
-                  <a href="">Máy hàn TIG-400AM-D</a>
-                  <p>11.500.000</p>
-                  <span>10.500.000</span>
-                </div>                
-              </div>
-            </div>
-            <div class="cate-iteam-pro">
-              <div class="cate-iteam-main pro-border-none">
-                <div class="cate-iteam-img">
-                  <a href=""><img src="images/pro-home-03.png" alt=""></a>
-                </div>
-                <div class="cate-iteam-info">
-                  <a href="">Máy hàn TIG-400AM-D</a>
-                  <p>11.500.000</p>
-                  <span>10.500.000</span>
-                </div>                
-              </div>
-            </div>
-            <div class="cate-iteam-pro">
-              <div class="cate-iteam-main">
-                <div class="cate-iteam-img">
-                  <a href=""><img src="images/pro-home-03.png" alt=""></a>
-                </div>
-                <div class="cate-iteam-info">
-                  <a href="">Máy hàn TIG-400AM-D</a>
-                  <p>11.500.000</p>
-                  <span>10.500.000</span>
-                </div>                
-              </div>
-            </div>
-            <div class="cate-iteam-pro">
-              <div class="cate-iteam-main">
-                <div class="cate-iteam-img">
-                  <a href=""><img src="images/pro-home-03.png" alt=""></a>
-                </div>
-                <div class="cate-iteam-info">
-                  <a href="">Máy hàn TIG-400AM-D</a>
-                  <p>11.500.000</p>
-                  <span>10.500.000</span>
-                </div>                
-              </div>
-            </div>
-            <div class="cate-iteam-pro">
-              <div class="cate-iteam-main">
-                <div class="cate-iteam-img">
-                  <a href=""><img src="images/pro-home-03.png" alt=""></a>
-                </div>
-                <div class="cate-iteam-info">
-                  <a href="">Máy hàn TIG-400AM-D</a>
-                  <p>11.500.000</p>
-                  <span>10.500.000</span>
-                </div>                
-              </div>
-            </div>
-            <div class="cate-iteam-pro">
-              <div class="cate-iteam-main pro-border-none">
-                <div class="cate-iteam-img">
-                  <a href=""><img src="images/pro-home-03.png" alt=""></a>
-                </div>
-                <div class="cate-iteam-info">
-                  <a href="">Máy hàn TIG-400AM-D</a>
-                  <p>11.500.000</p>
-                  <span>10.500.000</span>
-                </div>                
-              </div>
-            </div>
-            <div class="cate-iteam-pro">
-              <div class="cate-iteam-main">
-                <div class="cate-iteam-img">
-                  <a href=""><img src="images/pro-home-03.png" alt=""></a>
-                </div>
-                <div class="cate-iteam-info">
-                  <a href="">Máy hàn TIG-400AM-D</a>
-                  <p>11.500.000</p>
-                  <span>10.500.000</span>
-                </div>                
-              </div>
-            </div>
-            <div class="cate-iteam-pro">
-              <div class="cate-iteam-main">
-                <div class="cate-iteam-img">
-                  <a href=""><img src="images/pro-home-03.png" alt=""></a>
-                </div>
-                <div class="cate-iteam-info">
-                  <a href="">Máy hàn TIG-400AM-D</a>
-                  <p>11.500.000</p>
-                  <span>10.500.000</span>
-                </div>                
-              </div>
-            </div>
-            <div class="cate-iteam-pro">
-              <div class="cate-iteam-main">
-                <div class="cate-iteam-img">
-                  <a href=""><img src="images/pro-home-03.png" alt=""></a>
-                </div>
-                <div class="cate-iteam-info">
-                  <a href="">Máy hàn TIG-400AM-D</a>
-                  <p>11.500.000</p>
-                  <span>10.500.000</span>
-                </div>                
-              </div>
-            </div>
-            <div class="cate-iteam-pro">
-              <div class="cate-iteam-main pro-border-none">
-                <div class="cate-iteam-img">
-                  <a href=""><img src="images/pro-home-03.png" alt=""></a>
-                </div>
-                <div class="cate-iteam-info">
-                  <a href="">Máy hàn TIG-400AM-D</a>
-                  <p>11.500.000</p>
-                  <span>10.500.000</span>
-                </div>                
-              </div>
-            </div>
-            <div class="cate-iteam-pro">
-              <div class="cate-iteam-main">
-                <div class="cate-iteam-img">
-                  <a href=""><img src="images/pro-home-03.png" alt=""></a>
-                </div>
-                <div class="cate-iteam-info">
-                  <a href="">Máy hàn TIG-400AM-D</a>
-                  <p>11.500.000</p>
-                  <span>10.500.000</span>
-                </div>                
-              </div>
-            </div>
-            <div class="cate-iteam-pro">
-              <div class="cate-iteam-main">
-                <div class="cate-iteam-img">
-                  <a href=""><img src="images/pro-home-03.png" alt=""></a>
-                </div>
-                <div class="cate-iteam-info">
-                  <a href="">Máy hàn TIG-400AM-D</a>
-                  <p>11.500.000</p>
-                  <span>10.500.000</span>
-                </div>                
-              </div>
-            </div>
-            <div class="cate-iteam-pro">
-              <div class="cate-iteam-main">
-                <div class="cate-iteam-img">
-                  <a href=""><img src="images/pro-home-03.png" alt=""></a>
-                </div>
-                <div class="cate-iteam-info">
-                  <a href="">Máy hàn TIG-400AM-D</a>
-                  <p>11.500.000</p>
-                  <span>10.500.000</span>
-                </div>
-                <div class="sale">
-                  <p>Giảm</p>
-                  <span class="sale-number">-20</span><span class="cate-sale-off">%</span>
+                  <span class="sale-number">-<?php echo round(( $value["pro_market"] - $value["pro_price"] ) / $value["pro_market"] * 100) ?></span><span>%</span>
                 </div>              
               </div>
             </div>
-            <div class="cate-iteam-pro">
-              <div class="cate-iteam-main pro-border-none">
-                <div class="cate-iteam-img">
-                  <a href=""><img src="images/pro-home-03.png" alt=""></a>
-                </div>
-                <div class="cate-iteam-info">
-                  <a href="">Máy hàn TIG-400AM-D</a>
-                  <p>11.500.000</p>
-                  <span>10.500.000</span>
-                </div>                
-              </div>
+            <?php } }  ?>
+            <div class="pagination page-top">
+              <div id="pagination" class=""><?php  echo $this->pagination->create_links();?></div>
             </div>
           </div>
           <div class="col-24 cate-news">
@@ -464,27 +244,20 @@
               <p class="cate-title-info">Tin tức sự kiện</p>
               <a href="#">Xem tất cả &nbsp >></a>
             </div>
+            <?php
+                if(isset($list_news_invole) && $list_news_invole != NULL){
+                  foreach($list_news_invole as $value){
+                  //var_dump($value);die();
+                  @$images = unserialize($value['news_images']);
+              ?>
             <div class="cate-news-iteam">
-              <img src="images/cate-images-news.jpg" alt="">
-              <a href="#">Máy hàn inverter và những tính năng ưu điểm vượt trội</a>
+              <img src="<?php echo base_url()."uploads/news/thumb/".$value['news_images']."" ?>" alt="">
+              <a href="<?php echo base_url()."tin-tuc/".$value['news_rewrite']."/".$value['news_id'].".html"; ?>"><?php echo $value["news_title"]; ?></a>
             </div>
-            <div class="cate-news-iteam">
-              <img src="images/cate-images-news.jpg" alt="">
-              <a href="#">Máy hàn inverter và những tính năng ưu điểm vượt trội</a>
-            </div>
-            <div class="cate-news-iteam">
-              <img src="images/cate-images-news.jpg" alt="">
-              <a href="#">Máy hàn inverter và những tính năng ưu điểm vượt trội</a>
-            </div>
-            <div class="cate-news-iteam">
-              <img src="images/cate-images-news.jpg" alt="">
-              <a href="#">Máy hàn inverter và những tính năng ưu điểm vượt trội</a>
-            </div>
-            <div class="cate-news-iteam">
-              <img src="images/cate-images-news.jpg" alt="">
-              <a href="#">Máy hàn inverter và những tính năng ưu điểm vượt trội</a>
-            </div>
-          </div>
+        <?php 
+            }
+          }
+         ?>          
         </div>
       </div>
     </section>

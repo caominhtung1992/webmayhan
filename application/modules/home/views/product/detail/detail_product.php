@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="<?php echo base_url(); ?>public/styles/magiczoom.css" type="text/css" />
+<!--link rel="stylesheet" href="<?php echo base_url(); ?>public/styles/magiczoom.css" type="text/css" />
 <script type="text/javascript" src="<?php echo base_url(); ?>public/scripts/magiczoom.js"></script> 
 <script type="text/javascript">
   MagicZoom.options = {
@@ -41,7 +41,7 @@ $("#tab_detail_product .title_tab a").click(function(){
             </a> 
             </div>
           </div>
-          <!--img_large-->
+          
           
           <div class="show_lightbox_img"> 
           <a id="view_large" class="bg" href="<?php echo base_url()."uploads/products/".$detail['pro_folderimg']."/".$images[0].""; ?>"></a> 
@@ -54,7 +54,7 @@ $("#tab_detail_product .title_tab a").click(function(){
 			?>
           </div>
           <div id="rate"> </div>
-          <!--rate-->
+         
           <div class="clear space2"></div>
           <ul id="img_thumb">
           	<?php
@@ -71,7 +71,7 @@ $("#tab_detail_product .title_tab a").click(function(){
             
           </ul>
         </div>
-        <!--img_product-->
+      
         <div id="overview_product">
           <h1 class="detail_title"><?php echo $detail['pro_name']; ?></h1>
           <p class="detail_des">
@@ -116,10 +116,10 @@ $("#tab_detail_product .title_tab a").click(function(){
             <script type="text/javascript">stLight.options({publisher: "a7e862b4-2800-4bf5-9a3a-015522fcf16b", doNotHash: false, doNotCopy: false, hashAddressBar: false});</script> 
           </div>
         </div>
-        <!--overview_product-->
+        
         <div class="clear"></div>
       </div>
-      <!--detail_product-->
+      
       <div class="clear"></div>
       <div id="tab_detail_product">
         <div class="title_tab">
@@ -127,33 +127,33 @@ $("#tab_detail_product .title_tab a").click(function(){
         <a href="#thongsokythuat" class="">Thông số kỹ thuật</a> 
         <a href="#binhluan" class="">Bình luận</a>
         </div>
-        <!--title_tab-->
+       
         <div class="content_tab">
           <div id="dacdiem" class="cf current">
             <?php if($detail['pro_info'] == NULL){echo "Thông tin chưa cập nhật";}else{echo $detail['pro_info'].""; } ?>
           </div>
-          <!--dacdiem-->
+          
           <div id="thongsokythuat" class="cf">
             <?php if($detail['pro_full'] == NULL){echo "Thông tin chưa cập nhật";}else{echo $detail['pro_full'].""; } ?>
           </div>
-          <!--thongsokythuat-->
+          
           <div id="binhluan" class="cf">
           	<div id="comment_fb" style="margin-top:10px;">
                 <div id="cmt_face" class="fb-comments" data-href="<?php echo base_url().uri_string().".html";?>" data-width="651" data-num-posts="100"></div>
             </div>
           </div>
-          <!--huongdan-->
+          
         </div>
-        <!--content_tab--> 
+     
       </div>
-      <!--tab_detail_product-->
+     
       <div class="clear"></div>
       <p>&nbsp;</p>
       <div class="clear"></div>
     </div>
-    <!--box_column_right--> 
+    
   </div>
-  <!--column_right-->
+  
   <?php $this->load->view("column_right"); ?>
 </div>
 <script type="text/javascript">
@@ -177,4 +177,129 @@ function user_like_content(a,b){
 		}
 	)
 }
-</script>
+</script-->
+
+
+<section id="main-body">
+      <div class="main-content">
+        <div class="row">
+          <div class="col-24 de-breadcrumbs">
+            <a href="">Trang chủ </a>>><a href=""> Sản phẩm </a>>><a href=""> Máy hàn</a>>><a href=""> Máy hàn (đỏ)</a>>><a href=""> <?php echo $detail['pro_name']; ?></a>
+          </div>
+          <div class="col-24">
+            <div class="de-product-l">
+              <div class="de-left-img">
+                <img src="images/destail-01.png" alt="">
+              </div>
+              <div class="de-left-info">
+                <div class="col-24 de-info-title">
+                  <p><?php echo $detail['pro_name']; ?></p>
+                </div>
+                <div class="col-24">    
+                  <div class="col-8 de-info-price">                 
+                    <p>Giá: Liên hệ</p>
+                  </div>
+                  <div class="col-16 de-info-status">                 
+                    <span>Trạng thái:</span><span class="status-color">Còn hàng</span>
+                  </div>                
+                </div>
+                <div class="col-24 de-info-guarantee">  
+                  <div class="col-8 ">                  
+                    <p>Bảo hành:</p>
+                  </div>
+                  <div class="col-16">                  
+                    <p>12 tháng</p>
+                  </div>                  
+                </div>
+                <div class="col-24 de-info-producer">
+                  <div class="col-8">                 
+                    <p>Nhà sản xuất:</p>
+                  </div>
+                  <div class="col-16">                  
+                    <p>Guangdong ASK</p>
+                  </div>                  
+                </div>
+                <div class="col-24 de-info-contact">    
+                  <div class="col-8">                 
+                    <p>Liên hệ ngay:</p>
+                  </div>
+                  <div class="col-16">                  
+                    <span>Hotline: </span><span>0921 345 169</span>
+                  </div>                
+                </div>
+                <div class="col-24 de-info-email">    
+                  <div class="col-8">                 
+                    <p>Email:</p>
+                  </div>
+                  <div class="col-16 de-email-color">                 
+                    <p>dacatinox01@gmail.com</p>
+                  </div>                
+                </div>
+                <div class="col-24 de-info-email01">    
+                  <div class="col-8">                 
+                    <p>Hoặc</p>
+                  </div>
+                  <div class="col-16 de-email-color">                 
+                    <p>salem@dacatinox.vn</p>
+                  </div>                
+                </div>
+                <div class="col-24 de-info-cart">
+                  <div class="col-12 de-buy">                 
+                    <a href="">Mua hàng</a>
+                  </div>
+                  <div class="col-12 de-cart">                  
+                    <a href="">Giỏ hàng</a>
+                  </div>                  
+                </div>
+              </div>
+            </div>
+            <div class="de-product-r">
+              <div class="left-content-video">
+                <div class="title-new-left">
+                  <p>video</p>
+                </div>
+                <div class="left-main-video">
+                  <iframe width="100%" height="150px" src="https://www.youtube.com/embed/7QF_QRMyeds" frameborder="0" allowfullscreen></iframe>
+                </div>
+              </div>
+              <div class="left-content-commitment">
+                <div class="left-commitment-t de-left-commitent">
+                  <p class="abc">Cam kết</p>
+                  <ul>
+                    <li><a href="#">Bán đúng giá đăng</a></li>
+                    <li><a href="#">Bán hàng đúng như miêu tả</a></li>
+                    <li><a href="#">Giao hàng thu tiền tận nhà</a></li>
+                    <li><a href="#">Đổi trả hàng trong 7 ngày</a></li>
+                    <li><a href="#">Bảo hành bảo trì tận nơi</a></li>
+                    <li><a href="#">Hàng mới 100%</a></li>
+                  </ul>
+                </div>
+                <div class="left-commitment-b">
+                  <img src="<?php echo base_url();?>public/images/images-adv.jpg" alt="">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-24 cate-news">
+            <div class="cate-r-title-news">
+              <p class="cate-title-info">Tin tức sự kiện</p>
+              <a href="#">Xem tất cả &nbsp >></a>
+            </div>
+            <?php
+                if(isset($list_news_invole) && $list_news_invole != NULL){
+                  foreach($list_news_invole as $value){
+                  //var_dump($value);die();
+                  @$images = unserialize($value['news_images']);
+              ?>
+            <div class="cate-news-iteam">
+              <img src="<?php echo base_url()."uploads/news/thumb/".$value['news_images']."" ?>" alt="">
+              <a href="<?php echo base_url()."tin-tuc/".$value['news_rewrite']."/".$value['news_id'].".html"; ?>"><?php echo $value["news_title"]; ?></a>
+            </div>
+        <?php 
+            }
+          }
+         ?>          
+        </div>
+        </div>
+      </div>
+    </section>

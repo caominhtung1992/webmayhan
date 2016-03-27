@@ -156,7 +156,7 @@
                       <p><?php echo $value["pro_info"] ?></p>
                     </div>
                     <div class="product-info-bot">
-                      <a class="detail-pro" href="#">Chi Tiết</a>
+                      <a class="detail-pro" href="<?php echo base_url()."".$value['pro_name_rewrite']."/p".$value['pro_id'].".html"; ?>">Chi Tiết</a>
                       <a class="comparison-pro" href="#">So Sánh</a>
                     </div>
                   </div>

@@ -4,6 +4,7 @@
 			parent::__construct();
 			$this->load->helper("url");
 			$this->load->library("string");
+			$this->load->model("marticles");
 			$this->load->model("mproduct");
 		}
 		public function index(){
@@ -18,6 +19,7 @@
 			if($id1 == NULL || !isset($cate_name['cate_id'])){
 				redirect(base_url());
 			}
+			$data['list_news_invole'] 	= $this->marticles->list_news_invole();
 			$get_setup 				= $this->mindex->get_setup();
 			$data['pro_hot'] 		= $this->mindex->list_pro_hot($get_setup['set_pro_hot']);
 			$config['base_url'] 	= base_url()."".$id2."/c".$id."";

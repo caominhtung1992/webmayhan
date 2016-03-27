@@ -3805,9 +3805,12 @@ button {
 }
 
 .cate-right .cate-iteam-pro .cate-iteam-main .cate-iteam-img img {
+  width: 90%;
   margin-top: 20px;
 }
-
+.sale-number{
+  margin-left: 10px !important;
+}
 .cate-right .cate-iteam-pro .cate-iteam-main .cate-iteam-info {
   width: 90%;
   height: 75px;
@@ -3852,7 +3855,7 @@ button {
   height: 65px;
   background-image: url(../images/bg-sale.png);
   background-repeat: no-repeat;
-  z-index: 10;
+  z-index: 100;
 }
 
 .cate-right .cate-iteam-pro .cate-iteam-main .sale p, .cate-right .cate-iteam-pro .cate-iteam-main .sale #main-body ul, #main-body .cate-right .cate-iteam-pro .cate-iteam-main .sale ul, .cate-right .cate-iteam-pro .cate-iteam-main .sale #main-body ol, #main-body .cate-right .cate-iteam-pro .cate-iteam-main .sale ol, .cate-right .cate-iteam-pro .cate-iteam-main .sale #main-body table, #main-body .cate-right .cate-iteam-pro .cate-iteam-main .sale table {
@@ -3864,7 +3867,7 @@ button {
 
 .cate-right .cate-iteam-pro .cate-iteam-main .sale span {
   color: #f00;
-  margin-left: 10px;
+  margin-left: 0px;
 }
 
 .cate-right .cate-iteam-pro .cate-iteam-main .sale .sale-number {
