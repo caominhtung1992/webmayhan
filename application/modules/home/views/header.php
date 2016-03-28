@@ -18,7 +18,7 @@
           <div class="col-19 menu-top">
             <ul>
               <li><a href="<?php echo base_url();?>">Trang chủ</a></li>
-              <li><a href="<?php echo base_url();?>">Giới thiệu</a></li>
+              <li><a href="<?php echo base_url();?>page/gioi-thieu-ve-catdainox/111.html">Giới thiệu</a></li>
               <li class="cap1"><a href="<?php echo base_url();?>">Sản phẩm</a>
                   <ul class="cap2">
                     <?php
@@ -30,7 +30,7 @@
                   </ul>
               </li>
               <li><a href="<?php echo base_url(); ?>tin-tuc/">Tin tức</a></li>
-              <li><a href="<?php echo base_url();?>">Liên hệ</a></li>
+              <li><a href="<?php echo base_url();?>lien-he/">Liên hệ</a></li>
             </ul>               
           </div>
           <div class="col-5 hotline-top">

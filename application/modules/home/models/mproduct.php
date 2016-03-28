@@ -102,6 +102,15 @@
 			$this->db->set('count_total','count_total+1',FALSE);
 			$this->db->update($this->_count_search);
 		}
+
+		public function get_related_products($cate_id,$pro_id){
+			$this->db->where("cate_id_parent",$cate_id);
+			//$this->db->or_where("cate_id_parent",$cate_id);
+			$this->db->where("pro_status",1);
+			$this->db->where("pro_id !=",$pro_id);
+			$this->db->limit(5);
+			return $this->db->get($this->_table)->result_array();
+		}
 		/*public function listnews(){
 			$list = $this->list_cago();
 			if($list != NULL){

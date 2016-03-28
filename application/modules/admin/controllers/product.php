@@ -59,7 +59,9 @@
 					"pro_qty"			=> $this->fillter($this->input->post("pro_qty")),
 					"pro_promotion"		=> $this->fillter($this->input->post("pro_promotion")),
 					"pro_war"			=> $this->fillter($this->input->post("pro_war")),
+					"pro_producer"			=> $this->fillter($this->input->post("pro_producer")),
 					"pro_full"			=> $this->input->post("pro_full"),
+					"pro_description"			=> $this->input->post("pro_description"),
 					"pro_date"			=> date("H:i:s - d/m/Y"),
 					"pro_key"			=> $this->fillter($this->input->post("pro_key")),
 					"pro_des"			=> $this->fillter($this->input->post("pro_des"))
@@ -132,7 +134,9 @@
 					"pro_qty"			=> $this->fillter( $this->input->post("pro_qty")),
 					"pro_promotion"		=> $this->fillter($this->input->post("pro_promotion")),
 					"pro_war"			=> $this->fillter($this->input->post("pro_war")),
+					"pro_producer"			=> $this->fillter($this->input->post("pro_producer")),
 					"pro_full"			=> $this->input->post("pro_full"),
+					"pro_description"			=> $this->input->post("pro_description"),
 					"pro_key"			=> $this->fillter($this->input->post("pro_key")),
 					"pro_des"			=> $this->fillter($this->input->post("pro_des"))
 				);

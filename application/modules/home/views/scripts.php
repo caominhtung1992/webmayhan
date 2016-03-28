@@ -2,6 +2,7 @@
 <link href="<?php echo base_url();?>public/styles/skin.css" rel="stylesheet" type="text/css" />
 <link href="<?php echo base_url();?>public/styles/main.css" rel="stylesheet" type="text/css" />
 <link href="<?php echo base_url();?>public/styles/jquery.bxslider.css" rel="stylesheet" type="text/css" />
+<link href="<?php echo base_url();?>public/styles/jslider.css" rel="stylesheet" type="text/css" />
 
 
 <script type="text/javascript" src="<?php echo base_url();?>public/scripts/jquery-1.8.2.min.js"></script>
@@ -13,6 +14,10 @@
 <script type="text/javascript" src="<?php echo base_url();?>public/scripts/jquery.jcarousel.min.js"></script>
 <script type="text/javascript" src="<?php echo base_url();?>public/scripts/jcarousel.js"></script>
 <script type="text/javascript" src="<?php echo base_url();?>public/scripts/common.js"></script>
+<script type="text/javascript" src="<?php echo base_url();?>public/scripts/tmpl.js"></script>
+<script type="text/javascript" src="<?php echo base_url();?>public/scripts/jquery.dependClass-0.1.js"></script>
+<script type="text/javascript" src="<?php echo base_url();?>public/scripts/draggable-0.1.js"></script>
+<script type="text/javascript" src="<?php echo base_url();?>public/scripts/jquery.slider.js"></script>
 
 
 <script type="text/javascript">

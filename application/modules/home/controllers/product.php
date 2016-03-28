@@ -4,12 +4,15 @@
 			parent::__construct();
 			$this->load->helper("url");
 			$this->load->library("string");
-			$this->load->model("marticles");
 			$this->load->model("mproduct");
+			$this->load->model("marticles");
+			//$this->output->cache(30);
+			
 		}
 		public function index(){
 			$id1 = $this->uri->segment(2);
-		    $id  = array_pop(explode('c', $id1));
+		    $id  = explode('c', $id1);
+		    $id = $id[1];
 			$id2 = $this->uri->segment(1);
 			$data['online'] 		= $this->online();
 			$data['access'] 	= $this->access();
@@ -34,13 +37,14 @@
 			$this->pagination->initialize($config);
 			$data['title'] 			= $cate_name['cate_name'];
 			$data['listall'] 		= $this->mindex->listall();
+			$data['list_cate_menu'] = $this->mindex->listall_cate($cate_name['cate_id'],$cate_name['cate_id_parent']);
 			$data['list_support'] 	= $this->mindex->list_support();
 			$data['list_pro_best'] 	= $this->mcolumn_right->list_product();
 			$data['list_news'] 		= $this->mcolumn_right->list_news();
 			$start = $this->uri->segment(3);
 			$data['list_pro'] 		= $this->mproduct->list_pro($id,$config['per_page'],$start);
 			$this->mproduct->update_cate($id);
-			//$this->debug($cate_name);
+			//$this->debug($data['list_cate_menu']);
 			$this->load->view("product/all/layout",$data);
 		}
 	}

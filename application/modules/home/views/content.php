@@ -99,27 +99,27 @@
               </p>
               <div class="left-img-partner">
                 <a href="#">
-                  <img src="<?php echo base_url();?>public/images/img-parten01.jpg" alt="">
+                  <img src="<?php echo base_url();?>public/images/destail-01.jpg" alt="">
                 </a>
               </div>
               <div class="left-img-partner">
                 <a href="#">
-                  <img src="<?php echo base_url();?>public/images/img-parten02.jpg" alt="">
+                  <img src="<?php echo base_url();?>public/images/destail-02.jpg" alt="">
                 </a>
               </div>
               <div class="left-img-partner">
                 <a href="#">
-                  <img src="<?php echo base_url();?>public/images/img-parten01.jpg" alt="">
+                  <img src="<?php echo base_url();?>public/images/destail-05.jpg" alt="">
                 </a>
               </div>
               <div class="left-img-partner">
                 <a href="#">
-                  <img src="<?php echo base_url();?>public/images/img-parten02.jpg" alt="">
+                  <img src="<?php echo base_url();?>public/images/destail-04.jpg" alt="">
                 </a>
               </div>
               <div class="left-img-partner">
                 <a href="#">
-                  <img src="<?php echo base_url();?>public/images/img-parten01.jpg" alt="">
+                  <img src="<?php echo base_url();?>public/images/destail-05.jpg" alt="">
                 </a>
               </div>
             </div>
@@ -140,10 +140,12 @@
                   <div class="iteam-pro-img">
                     <a href="<?php echo base_url()."".$value['pro_name_rewrite']."/p".$value['pro_id'].".html"; ?>">
                       <img src="<?php echo base_url()."uploads/products/thumb/".$images[0]."" ?>" alt="">
+                      <?php if($value['pro_saleoff'] == 1){ ?>
                       <div class="sale">
                         <p>Giảm</p>
                         <span class="sale-number">-<?php echo round(( $value["pro_market"] - $value["pro_price"] ) / $value["pro_market"] * 100) ?></span><span>%</span>
                       </div>
+                      <?php } ?>
                     </a>
                   </div>
                   <div class="iteam-pro-info">
@@ -181,15 +183,26 @@
                     <a href="<?php echo base_url()."".$value['pro_name_rewrite']."/p".$value['pro_id'].".html"; ?>">
                       <img src="<?php echo base_url()."uploads/products/thumb/".$images[0]."" ?>" alt="">
                     </a>
-                    <div class="sale">
+                    <?php if($value['pro_saleoff'] == 1){ ?>
+                      <div class="sale">
                         <p>Giảm</p>
                         <span class="sale-number">-<?php echo round(( $value["pro_market"] - $value["pro_price"] ) / $value["pro_market"] * 100) ?></span><span>%</span>
                       </div>
+                      <?php } ?>
                   </div>
                   <div class="iteam-pro-info">
                     <a href="<?php echo base_url()."".$value['pro_name_rewrite']."/p".$value['pro_id'].".html"; ?>"><?php echo $value["pro_name"] ?></a>
                      <p><?php echo $value["pro_market"] ?> vnđ</p>
                     <span><?php echo $value["pro_price"] ?> vnđ</span>
+                  </div>
+                  <div class="product-info">
+                    <div class="product-info-top">
+                      <p><?php echo $value["pro_info"] ?></p>
+                    </div>
+                    <div class="product-info-bot">
+                      <a class="detail-pro" href="<?php echo base_url()."".$value['pro_name_rewrite']."/p".$value['pro_id'].".html"; ?>">Chi Tiết</a>
+                      <a class="comparison-pro" href="#">So Sánh</a>
+                    </div>
                   </div>
                 </div>
               <?php 
@@ -211,15 +224,26 @@
                     <a href="<?php echo base_url()."".$value['pro_name_rewrite']."/p".$value['pro_id'].".html"; ?>">
                       <img src="<?php echo base_url()."uploads/products/thumb/".$images[0]."" ?>" alt="">
                     </a>
-                    <div class="sale">
+                    <?php if($value['pro_saleoff'] == 1){ ?>
+                      <div class="sale">
                         <p>Giảm</p>
                         <span class="sale-number">-<?php echo round(( $value["pro_market"] - $value["pro_price"] ) / $value["pro_market"] * 100) ?></span><span>%</span>
                       </div>
+                      <?php } ?>
                   </div>
                   <div class="iteam-pro-info">
                     <a href="<?php echo base_url()."".$value['pro_name_rewrite']."/p".$value['pro_id'].".html"; ?>"><?php echo $value["pro_name"] ?></a>
                      <p><?php echo $value["pro_market"] ?> vnđ</p>
                     <span><?php echo $value["pro_price"] ?> vnđ</span>
+                  </div>
+                  <div class="product-info">
+                    <div class="product-info-top">
+                      <p><?php echo $value["pro_info"] ?></p>
+                    </div>
+                    <div class="product-info-bot">
+                      <a class="detail-pro" href="<?php echo base_url()."".$value['pro_name_rewrite']."/p".$value['pro_id'].".html"; ?>">Chi Tiết</a>
+                      <a class="comparison-pro" href="#">So Sánh</a>
+                    </div>
                   </div>
                 </div>
               <?php 
@@ -241,15 +265,26 @@
                     <a href="<?php echo base_url()."".$value['pro_name_rewrite']."/p".$value['pro_id'].".html"; ?>">
                       <img src="<?php echo base_url()."uploads/products/thumb/".$images[0]."" ?>" alt="">
                     </a>
-                    <div class="sale">
+                    <?php if($value['pro_saleoff'] == 1){ ?>
+                      <div class="sale">
                         <p>Giảm</p>
                         <span class="sale-number">-<?php echo round(( $value["pro_market"] - $value["pro_price"] ) / $value["pro_market"] * 100) ?></span><span>%</span>
                       </div>
+                      <?php } ?>
                   </div>
                   <div class="iteam-pro-info">
                     <a href="<?php echo base_url()."".$value['pro_name_rewrite']."/p".$value['pro_id'].".html"; ?>"><?php echo $value["pro_name"] ?></a>
                      <p><?php echo $value["pro_market"] ?> vnđ</p>
                     <span><?php echo $value["pro_price"] ?> vnđ</span>
+                  </div>
+                  <div class="product-info">
+                    <div class="product-info-top">
+                      <p><?php echo $value["pro_info"] ?></p>
+                    </div>
+                    <div class="product-info-bot">
+                      <a class="detail-pro" href="<?php echo base_url()."".$value['pro_name_rewrite']."/p".$value['pro_id'].".html"; ?>">Chi Tiết</a>
+                      <a class="comparison-pro" href="#">So Sánh</a>
+                    </div>
                   </div>
                 </div>
               <?php 
@@ -263,15 +298,18 @@
               <p>BẰNG KHEN  </p>
               <SPAN>& CHỨNG NHẬN </SPAN>
               <div class="right-main-merit">
-                <div class="iteam-right-merit">
-                  <img src="<?php echo base_url();?>public/images/merit01.jpg" alt="">
+                <?php
+                if(isset($slide) && $slide != NULL){
+                  foreach($slide as $value){
+                  //var_dump($value);die();
+                ?>
+                  <div class="iteam-right-merit">
+                    <img src="<?php echo base_url()."uploads/banner/".$value['slide_image']."";?>" alt="">
                 </div>
-                <div class="iteam-right-merit">
-                  <img src="<?php echo base_url();?>public/images/merit02.jpg" alt="">
-                </div>
-                <div class="iteam-right-merit">
-                  <img src="<?php echo base_url();?>public/images/merit03.jpg" alt="">
-                </div>
+              <?php 
+                  }
+                } 
+                ?>                
               </div>
             </div>
             <div class="right-main-new">

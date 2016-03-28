@@ -9,10 +9,12 @@
 		protected $_product 		= "tbl_products";
 		protected $_popup 			= "tbl_popup";
 		protected $_referer			= "tbl_referer";
+		protected $_slide			= "tbl_banner";
 		public function __construct(){
 			parent::__construct();
 			$this->load->database();
 		}
+		
 		public function get_setup(){
 			$this->db->where("set_id","1");
 			return $this->db->get($this->_setup)->row_array();
@@ -118,6 +120,13 @@
 			);
 			return $ok;
 		}
+		public function listall_cate($cate_id,$cate_id_parent){
+			$this->db->where("cate_id_parent",$cate_id_parent);
+			//$this->db->where("cate_id !=",$cate_id);
+			//$this->db->where("cate_parent",2);
+			$this->db->order_by("cate_order","DESC");
+			return $this->db->get($this->_category)->result_array();
+		}
 		public function add_referer($data){
 			$this->db->insert($this->_referer,$data);
 		}
@@ -137,5 +146,12 @@
 			$this->db->where("re_domain",$domain);
 			$this->db->set('re_count','re_count+1',FALSE);
 			$this->db->update($this->_referer);
+		}
+		//Get list slideshow
+		public function get_listslide($id){
+			$this->db->where("slide_type",$id);
+			$this->db->where("slide_status",1);
+			$this->db->order_by("slide_order","DESC");
+			return $this->db->get($this->_slide)->result_array();
 		}
 	}

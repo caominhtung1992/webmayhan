@@ -1,9 +1,10 @@
-<div class="content_full">
-<?php $this->load->view("column_left"); ?>
-
-<div class="column_right">
-  <div id="location"><!--i class="bg icon_home"></i--><a href="/" title="Trang chủ">Trang chủ</a> » <a href="javascript:void(0)" title="Liên hệ">Liên hệ</a></div>
-  <div class="clear"></div>
+<section id="main-body">
+  <div class="main-content">
+  <div class="row">
+    <div class="col-24 lh-breadcrumbs">
+      <a href="<?php echo base_url();?>">Trang chủ </a>>><a href=""> <?php echo $title; ?></a>
+    </div>
+    <div class="col-24">
   <div class="box_column_right">
     <div class="title_box_right">
       <h1>Liên hệ</h1>
@@ -93,3 +94,5 @@
   <!--box_column_right--> 
 </div>
 </div>
+</div>
+</section>

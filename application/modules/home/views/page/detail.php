@@ -96,7 +96,7 @@
           <div class="col-24 cate-news">
             <div class="cate-r-title-news">
               <p class="cate-title-info">Tin tức sự kiện</p>
-              <a href="#">Xem tất cả &nbsp >></a>
+              <a href="<?php echo base_url(); ?>tin-tuc/">Xem tất cả &nbsp >></a>
             </div>
             <?php
                 if(isset($list_news_invole) && $list_news_invole != NULL){

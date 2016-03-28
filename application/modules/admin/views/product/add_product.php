@@ -87,6 +87,10 @@
               <td>Thông tin bảo hành</td>
               <td><textarea name="pro_war" id="warranty" rows="4" cols="50"></textarea></td>
             </tr>
+            <tr>
+              <td>Nhà sản xuất</td>
+              <td><textarea name="pro_producer" id="warranty" rows="4" cols="50"></textarea></td>
+            </tr>
           </tbody>
         </table>
         <br />
@@ -95,16 +99,24 @@
           <textarea name="pro_info" id="summary" style="width:600px" rows="6" cols="30"></textarea>
         </div>
         <br />
-        
-        <div class="label">Chi tiết</div>
-        <?php 
-			$fck = new FCKeditor('pro_full');
-			$fck->BasePath = sBASEPATH;
-			//$fck->Value  = $get['pro_full'];
-			$fck->Width  = '100%';
-			$fck->Height = 500;
-			$fck->Create();
-		?>
+        <div class="label">Mô tả sản phẩm</div>
+            <?php 
+          $fck = new FCKeditor('pro_description');
+          $fck->BasePath = sBASEPATH;
+          //$fck->Value  = $get['pro_full'];
+          $fck->Width  = '100%';
+          $fck->Height = 500;
+          $fck->Create();
+        ?>
+        <div class="label">Thông số kỹ thuật</div>
+            <?php 
+    			$fck = new FCKeditor('pro_full');
+    			$fck->BasePath = sBASEPATH;
+    			//$fck->Value  = $get['pro_full'];
+    			$fck->Width  = '100%';
+    			$fck->Height = 500;
+    			$fck->Create();
+    		?>
         <dt>
             <label>Dùng cho SEO</label>
           </dt>

@@ -6,14 +6,19 @@
 			$this->load->library('session');
 			$this->load->library("string");
 			$this->load->model("mproduct");
+			$this->load->model("marticles");
+			//$this->output->cache(30);
+			
 		}
 		public function index(){
 			$id1 = $this->uri->segment(2);
-		    $id  = array_pop(explode('p', $id1));
+		    $id  = explode('p', $id1);
+		    $id = $id[1];
 			$data['detail'] 		= $this->mproduct->getdata($id);
 			if($id == NULL || !isset($data['detail']['pro_id'])){
 				redirect(base_url());
 			}
+			$data['list_news_invole'] 	= $this->marticles->list_news_invole();
 			$data['online'] 		= $this->online();
 			$data['access'] 	= $this->access();
 			$this->write($data['access']);
@@ -25,6 +30,8 @@
 			$data['title'] 			= $data['detail']['pro_name'];
 			$data['list_pro_best'] 	= $this->mcolumn_right->list_product();
 			$data['list_news'] 		= $this->mcolumn_right->list_news();
+			$data['get_related_products'] = $this->mproduct->get_related_products($data['detail']['cate_id_parent'],$data['detail']['pro_id']);
+			//$this->debug($data['get_related_products']);
 			$this->mproduct->update_pro($id);
 			
 			/*$history = $this->mproduct->getdata($id);

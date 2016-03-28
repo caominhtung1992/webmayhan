@@ -184,12 +184,15 @@ function user_like_content(a,b){
       <div class="main-content">
         <div class="row">
           <div class="col-24 de-breadcrumbs">
-            <a href="">Trang chủ </a>>><a href=""> Sản phẩm </a>>><a href=""> Máy hàn</a>>><a href=""> Máy hàn (đỏ)</a>>><a href=""> <?php echo $detail['pro_name']; ?></a>
+            <a href="<?php echo base_url(); ?>">Trang chủ </a>>><a href=""> <?php echo $detail['pro_name']; ?></a>
           </div>
           <div class="col-24">
             <div class="de-product-l">
               <div class="de-left-img">
-                <img src="images/destail-01.png" alt="">
+              <?php
+              @$images = unserialize($detail['pro_images']);
+              ?>
+                <img src="<?php echo base_url()."uploads/products/".$detail['pro_folderimg']."/".$images[0].""; ?>" alt="">
               </div>
               <div class="de-left-info">
                 <div class="col-24 de-info-title">
@@ -200,7 +203,12 @@ function user_like_content(a,b){
                     <p>Giá: Liên hệ</p>
                   </div>
                   <div class="col-16 de-info-status">                 
-                    <span>Trạng thái:</span><span class="status-color">Còn hàng</span>
+                    <span>Trạng thái:</span>
+                    <?php if($detail['pro_qty'] > 0){ ?>
+                    <span class="status-color">Còn hàng</span>
+                    <?php }else{ ?>
+                     <span class="status-color">Hết hàng</span>
+                    <?php } ?>
                   </div>                
                 </div>
                 <div class="col-24 de-info-guarantee">  
@@ -216,7 +224,7 @@ function user_like_content(a,b){
                     <p>Nhà sản xuất:</p>
                   </div>
                   <div class="col-16">                  
-                    <p>Guangdong ASK</p>
+                    <p><?php echo $detail['pro_producer'] ?></p>
                   </div>                  
                 </div>
                 <div class="col-24 de-info-contact">    
@@ -245,11 +253,19 @@ function user_like_content(a,b){
                 </div>
                 <div class="col-24 de-info-cart">
                   <div class="col-12 de-buy">                 
-                    <a href="">Mua hàng</a>
+                    <a href="http://local.webmayhan.vn/gio-hang.html?step=2">Mua hàng</a>
                   </div>
-                  <div class="col-12 de-cart">                  
+                  <!--div class="col-12 de-cart">                  
                     <a href="">Giỏ hàng</a>
-                  </div>                  
+                  </div--> 
+                  <form action="<?php echo base_url()."home/cart/addcart/".$detail['pro_id'].""; ?>" method="post">
+                    <div class="cssOrder" style="float:left;"> 
+                    <input style="position:relative; width: 196px;
+                      height: 56px;
+                      left: 17px;
+                      top: 0px;;border: none;cursor:pointer;color:#fff;" type="submit" value="Giỏ hàng" class="btn_datmua_to bg" />
+                    </div>
+                    </form>                 
                 </div>
               </div>
             </div>
@@ -280,10 +296,76 @@ function user_like_content(a,b){
               </div>
             </div>
           </div>
+          <div class="col-24 " id="tab_detail_product">
+                <div class="title_tab">
+                  <a href="#dacdiem" class="nobdr_l current">Mô tả sản phẩm</a>
+                  <a href="#thongsokythuat" class="">Thông số kỹ thuật</a> 
+                  <a href="#binhluan" class="">Bình chọn</a>
+                </div>
+                <div class="content_tab">
+                <div id="dacdiem" class="cf current">
+                  <div class="dacdiem-content">
+                  <?php if($detail['pro_description'] == NULL){echo "Thông tin chưa cập nhật";}else{echo $detail['pro_description'].""; } ?>
+                  </div>
+                </div>
+                
+                <div id="thongsokythuat" class="cf">
+                  <?php if($detail['pro_full'] == NULL){echo "Thông tin chưa cập nhật";}else{echo $detail['pro_full'].""; } ?>
+                </div>
+                
+                <div id="binhluan" class="cf">
+                  <div id="comment_fb" style="margin-top:10px;">
+                      <div id="cmt_face" class="fb-comments" data-href="<?php echo base_url().uri_string().".html";?>" data-width="651" data-num-posts="100"></div>
+                  </div>
+                </div>
+          
+        </div>
+          </div>
+          <div class="col-24 cate-news">
+              <div class="cate-r-title-news">
+                <p class="cate-title-info" style="padding-left: 15px;">Sản phẩm cùng loại</p>
+                <a href="#">Xem tất cả &nbsp >></a>
+              </div>
+               <?php
+              if(isset($get_related_products) && $get_related_products != NULL){
+                foreach($get_related_products as $value){
+                  @$images = unserialize($value['pro_images']);
+                  //var_dump($images);die();
+            ?>
+              <div class="cate-iteam-pro">
+              <div class="cate-iteam-main">
+                <div class="cate-iteam-img">
+                  <a href="<?php echo base_url()."".$value['pro_name_rewrite']."/p".$value['pro_id'].".html"; ?>"><img src="<?php echo base_url()."uploads/products/thumb/".$images[0]."" ?>" alt=""></a>
+                </div>
+                <div class="cate-iteam-info">
+                  <a href="<?php echo base_url()."".$value['pro_name_rewrite']."/p".$value['pro_id'].".html"; ?>"><?php echo $value['pro_name']; ?></a>
+                  <p><?php echo $value['pro_market'] ?></p>
+                  <span><?php echo $value['pro_price'] ?></span>
+                </div>
+                <?php if($value['pro_saleoff'] == 1){ ?>
+                <div class="sale">
+                  <p>Giảm</p>
+                  <span class="sale-number">-<?php echo round(( $value["pro_market"] - $value["pro_price"] ) / $value["pro_market"] * 100) ?></span><span>%</span>
+                </div>
+                <?php } ?>              
+              </div>
+            </div>
+            <?php 
+              }
+            } 
+            ?>
+          </div>
+          <div class="col-24 cate-detail-doitac">
+            <div class="col-5 cate-detail-doitacimg"><img src="<?php echo base_url();?>public/images/destail-01.jpg" alt=""></div>
+             <div class="col-5 cate-detail-doitacimg">  <img src="<?php echo base_url();?>public/images/destail-02.jpg" alt=""></div>
+              <div class="col-5 cate-detail-doitacimg"><img src="<?php echo base_url();?>public/images/destail-03.jpg" alt=""></div>
+               <div class="col-5 cate-detail-doitacimg"> <img src="<?php echo base_url();?>public/images/destail-04.jpg" alt=""></div>
+                <div class="col-4 cate-detail-doitacimg"><img src="<?php echo base_url();?>public/images/destail-05.jpg" alt=""></div> 
+          </div>
           <div class="col-24 cate-news">
             <div class="cate-r-title-news">
               <p class="cate-title-info">Tin tức sự kiện</p>
-              <a href="#">Xem tất cả &nbsp >></a>
+              <a href="<?php echo base_url(); ?>tin-tuc/">Xem tất cả &nbsp >></a>
             </div>
             <?php
                 if(isset($list_news_invole) && $list_news_invole != NULL){
@@ -291,15 +373,28 @@ function user_like_content(a,b){
                   //var_dump($value);die();
                   @$images = unserialize($value['news_images']);
               ?>
-            <div class="cate-news-iteam">
-              <img src="<?php echo base_url()."uploads/news/thumb/".$value['news_images']."" ?>" alt="">
-              <a href="<?php echo base_url()."tin-tuc/".$value['news_rewrite']."/".$value['news_id'].".html"; ?>"><?php echo $value["news_title"]; ?></a>
-            </div>
-        <?php 
-            }
-          }
-         ?>          
+                <div class="cate-news-iteam">
+                  <img src="<?php echo base_url()."uploads/news/thumb/".$value['news_images']."" ?>" alt="">
+                  <a href="<?php echo base_url()."tin-tuc/".$value['news_rewrite']."/".$value['news_id'].".html"; ?>"><?php echo $value["news_title"]; ?></a>
+                </div>
+            <?php 
+                }
+              }
+             ?>          
         </div>
         </div>
       </div>
     </section>
+    <script>
+      $(document).ready(function(e) {
+      $("#tab_detail_product .title_tab a").click(function(){
+        $("#tab_detail_product .title_tab a").removeClass("current");
+        $(this).addClass("current");
+        $("#tab_detail_product .content_tab .cf").hide();
+        $($(this).attr("href")).show();
+        
+        return false;
+      });
+        $(".show_lightbox_img a").lightBox(); 
+      });
+    </script>

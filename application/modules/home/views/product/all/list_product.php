@@ -116,15 +116,23 @@
       <div class="main-content">
         <div class="row">
           <div class="col-24 cate-breadcrumbs">
-            <a href="">Trang chủ </a>>><a href=""> Máy hàn</a>
+            <a href="">Trang chủ </a>>><a href=""> <?php echo $title; ?></a>
           </div>
           <div class="col-5 cate-left">
             <div class="cate-left-menu">
-              <p class="cate-left-menu-title">Máy Hàn</p>
+              <p class="cate-left-menu-title"><?php echo $title; ?></p>
               <ul>
-                <li><a href="#">Máy Hàn TIG</a></li>
-                <li><a href="#">Máy Hàn TIG</a></li>
-                <li><a href="#">Máy Hàn TIG</a></li>
+              <?php
+                  if(isset($list_cate_menu) && $list_cate_menu != NULL){
+                    foreach($list_cate_menu as $k => $v){
+                      //var_dump($v);
+                      //die();
+                  ?>
+                  <li><a href="<?php echo base_url()."".$v['cate_rewrite']."/c".$v['cate_id'].".html"; ?>""><?php echo $v['cate_name'] ?></a></li>
+                  <?php
+                    }
+                  }
+                ?>
               </ul>
             </div>
             <div class="cate-left-trademark">
@@ -147,7 +155,15 @@
                 <li><a href="#">MÁY HÀN ESAB - TRUNG QUỐC</a></li>
               </ul>
             </div>
-            <div class="cate-left-fitter"></div>
+            <div class="cate-left-fitter">
+              <div class="layout-slider" style="width: 100%">
+               <p>Giá</p>
+               <span style="display: inline-block; width: 100%; padding: 0 5px;"><input id="Slider1" type="slider" name="price" value="30000.5;60000" /></span>
+            </div>
+            <script type="text/javascript" charset="utf-8">
+              jQuery("#Slider1").slider({ from: 2000000, to: 20000000, step: 500, smooth: true, round: 0, dimension: "&nbsp;$", skin: "plastic" });
+            </script>
+            </div>
             <div class="left-content-video">
               <div class="title-new-left">
                 <p>video</p>
@@ -208,7 +224,7 @@
               <img src="<?php echo base_url();?>public/images/cateloger-banner.jpg" alt="">
             </div>
             <div class="cate-r-title">
-              <p class="cate-title-info">Máy Hàn</p>
+              <p class="cate-title-info"><?php echo $title; ?></p>
             </div>
             <?php 
             if(isset($list_pro) && $list_pro != NULL){
@@ -228,10 +244,12 @@
                   <p><?php echo $value['pro_market'] ?></p>
                   <span><?php echo $value['pro_price'] ?></span>
                 </div>
+                <?php if($value['pro_saleoff'] == 1){ ?>
                 <div class="sale">
                   <p>Giảm</p>
                   <span class="sale-number">-<?php echo round(( $value["pro_market"] - $value["pro_price"] ) / $value["pro_market"] * 100) ?></span><span>%</span>
-                </div>              
+                </div>
+                <?php } ?>              
               </div>
             </div>
             <?php } }  ?>
@@ -242,7 +260,7 @@
           <div class="col-24 cate-news">
             <div class="cate-r-title-news">
               <p class="cate-title-info">Tin tức sự kiện</p>
-              <a href="#">Xem tất cả &nbsp >></a>
+              <a href="<?php echo base_url(); ?>tin-tuc/">Xem tất cả &nbsp >></a>
             </div>
             <?php
                 if(isset($list_news_invole) && $list_news_invole != NULL){

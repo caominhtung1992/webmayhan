@@ -17,7 +17,7 @@ function mycarousel_initCallback(carousel)
       });
       };
       
-      jQuery(document).ready(function() {
+      jQuery(window).load(function() {
         jQuery('#mycarousel1').jcarousel({
         auto: 2,
         wrap: 'last',
