@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.1.12
+-- version 4.5.1
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 22, 2016 at 06:47 PM
--- Server version: 5.6.16
--- PHP Version: 5.5.11
+-- Generation Time: Mar 29, 2016 at 04:48 AM
+-- Server version: 10.1.9-MariaDB
+-- PHP Version: 5.6.15
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -14,7 +14,7 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Database: `webmayhan`
@@ -26,8 +26,8 @@ SET time_zone = "+00:00";
 -- Table structure for table `tbl_articles`
 --
 
-CREATE TABLE IF NOT EXISTS `tbl_articles` (
-  `article_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE `tbl_articles` (
+  `article_id` int(10) UNSIGNED NOT NULL,
   `article_title` varchar(200) CHARACTER SET utf8 NOT NULL,
   `article_title_rewrite` varchar(200) CHARACTER SET utf8 NOT NULL,
   `article_info` text CHARACTER SET utf8 NOT NULL,
@@ -35,9 +35,8 @@ CREATE TABLE IF NOT EXISTS `tbl_articles` (
   `article_image` varchar(200) CHARACTER SET utf8 NOT NULL,
   `article_order` int(10) NOT NULL,
   `article_date` varchar(100) CHARACTER SET utf8 NOT NULL,
-  `article_status` int(1) NOT NULL DEFAULT '1',
-  PRIMARY KEY (`article_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
+  `article_status` int(1) NOT NULL DEFAULT '1'
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tbl_articles`
@@ -53,16 +52,24 @@ INSERT INTO `tbl_articles` (`article_id`, `article_title`, `article_title_rewrit
 -- Table structure for table `tbl_banner`
 --
 
-CREATE TABLE IF NOT EXISTS `tbl_banner` (
-  `slide_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE `tbl_banner` (
+  `slide_id` int(10) UNSIGNED NOT NULL,
   `slide_title` varchar(200) NOT NULL,
   `slide_image` varchar(200) NOT NULL,
   `slide_link` varchar(200) NOT NULL,
   `slide_type` int(2) NOT NULL,
   `slide_order` tinyint(10) NOT NULL,
-  `slide_status` int(1) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`slide_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=64 ;
+  `slide_status` int(1) NOT NULL DEFAULT '0'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `tbl_banner`
+--
+
+INSERT INTO `tbl_banner` (`slide_id`, `slide_title`, `slide_image`, `slide_link`, `slide_type`, `slide_order`, `slide_status`) VALUES
+(64, 'ok', '1459216601988.jpg', '', 21, 0, 1),
+(65, 'okkk', '1459216617379.jpg', '', 21, 0, 1),
+(66, 'kkkk', '1459216635545.jpg', '', 21, 0, 1);
 
 -- --------------------------------------------------------
 
@@ -70,13 +77,12 @@ CREATE TABLE IF NOT EXISTS `tbl_banner` (
 -- Table structure for table `tbl_banner_location`
 --
 
-CREATE TABLE IF NOT EXISTS `tbl_banner_location` (
-  `location_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE `tbl_banner_location` (
+  `location_id` int(10) UNSIGNED NOT NULL,
   `location_name` varchar(255) CHARACTER SET utf8 NOT NULL,
   `location_description` text CHARACTER SET utf8 NOT NULL,
-  `location_date` varchar(100) NOT NULL,
-  PRIMARY KEY (`location_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=23 ;
+  `location_date` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tbl_banner_location`
@@ -92,8 +98,8 @@ INSERT INTO `tbl_banner_location` (`location_id`, `location_name`, `location_des
 -- Table structure for table `tbl_categorie`
 --
 
-CREATE TABLE IF NOT EXISTS `tbl_categorie` (
-  `cago_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE `tbl_categorie` (
+  `cago_id` int(10) UNSIGNED NOT NULL,
   `cago_name` varchar(100) NOT NULL,
   `cago_rewrite` varchar(255) NOT NULL,
   `cago_info` text NOT NULL,
@@ -103,9 +109,8 @@ CREATE TABLE IF NOT EXISTS `tbl_categorie` (
   `cago_key` text NOT NULL,
   `cago_des` text NOT NULL,
   `cago_order` int(10) NOT NULL,
-  `cago_status` char(1) NOT NULL DEFAULT '1',
-  PRIMARY KEY (`cago_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=221 ;
+  `cago_status` char(1) NOT NULL DEFAULT '1'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `tbl_categorie`
@@ -123,8 +128,8 @@ INSERT INTO `tbl_categorie` (`cago_id`, `cago_name`, `cago_rewrite`, `cago_info`
 -- Table structure for table `tbl_category`
 --
 
-CREATE TABLE IF NOT EXISTS `tbl_category` (
-  `cate_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE `tbl_category` (
+  `cate_id` int(10) UNSIGNED NOT NULL,
   `cate_name` varchar(50) NOT NULL,
   `cate_rewrite` varchar(200) NOT NULL,
   `cate_images` text NOT NULL,
@@ -138,18 +143,17 @@ CREATE TABLE IF NOT EXISTS `tbl_category` (
   `cate_view` int(10) NOT NULL,
   `cate_parent` varchar(100) NOT NULL,
   `cate_id_parent` int(10) NOT NULL,
-  `cate_display` varchar(200) NOT NULL,
-  PRIMARY KEY (`cate_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=562 ;
+  `cate_display` varchar(200) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `tbl_category`
 --
 
 INSERT INTO `tbl_category` (`cate_id`, `cate_name`, `cate_rewrite`, `cate_images`, `cate_info`, `cate_full`, `cate_date`, `cate_key`, `cate_des`, `cate_order`, `cate_status`, `cate_view`, `cate_parent`, `cate_id_parent`, `cate_display`) VALUES
-(468, 'Phụ Kiên máy hàn', 'phu-kien-may-han', '1397520618925.jpg', '', '&#160;', '', 'Laptop cũ', 'Laptop cũ bán tại hà nội', 97, 1, 363, '1', 0, 'product'),
-(466, 'Máy cắt', 'may-cat', '1396016311787.jpg', 'các loại máy cắt', '&#160;', '', '', '', 99, 1, 130, '1', 0, 'product'),
-(470, 'Máy Hàn', 'may-han', '13975205644.jpg', '', '&#160;', '', '', '', 98, 1, 137, '1', 0, 'product'),
+(468, 'Phụ Kiên máy hàn', 'phu-kien-may-han', '1397520618925.jpg', '', '&#160;', '', 'Laptop cũ', 'Laptop cũ bán tại hà nội', 97, 1, 367, '1', 0, 'product'),
+(466, 'Máy cắt', 'may-cat', '1396016311787.jpg', 'các loại máy cắt', '&#160;', '', '', '', 99, 1, 132, '1', 0, 'product'),
+(470, 'Máy Hàn', 'may-han', '13975205644.jpg', '', '&#160;', '', '', '', 98, 1, 147, '1', 0, 'product'),
 (472, 'Máy cắt uốn', 'may-cat-uon', '', '', '&#160;', '', '', '', 96, 1, 79, '1', 0, 'product'),
 (490, 'Vật liệu hàn', 'vat-lieu-han', '', '', '&#160;', '', '', '', 0, 1, 54, '2', 468, 'product'),
 (491, 'Đồng hồ điện', 'dong-ho-dien', '', '', '&#160;', '', '', '', 0, 1, 52, '2', 468, 'product'),
@@ -160,7 +164,7 @@ INSERT INTO `tbl_category` (`cate_id`, `cate_name`, `cate_rewrite`, `cate_images
 (498, 'Không nhận USB-ổ DVD không đọc', 'khong-nhan-usb-o-dvd-khong-doc', '', '', '&#160;', '', '', '', 0, 1, 17, '2', 467, ''),
 (499, 'Sửa các bệnh về màn hình và cao áp', 'sua-cac-benh-ve-man-hinh-va-cao-ap', '', '', '', '', '', '', 0, 1, 19, '2', 467, ''),
 (501, 'Máy Cắt Thép', 'may-cat-thep', '', '', '&#160;', '', '', '', 0, 1, 293, '2', 466, 'product'),
-(502, 'Máy Cắt Bê Tông', 'may-cat-be-tong', '', '', '&#160;', '', '', '', 0, 1, 94, '2', 466, 'product'),
+(502, 'Máy Cắt Bê Tông', 'may-cat-be-tong', '', '', '&#160;', '', '', '', 0, 1, 97, '2', 466, 'product'),
 (503, 'Máy Cắt Gạch', 'may-cat-gach', '', '', '&#160;', '', '', '', 0, 1, 69, '2', 466, 'product'),
 (507, 'Máy Hàn TIG', 'may-han-tig', '', '', '&#160;', '', '', '', 0, 1, 61, '2', 470, 'product'),
 (508, 'Máy Hàn MGO', 'may-han-mgo', '', '', '&#160;', '', '', '', 0, 1, 191, '2', 470, 'product'),
@@ -177,8 +181,8 @@ INSERT INTO `tbl_category` (`cate_id`, `cate_name`, `cate_rewrite`, `cate_images
 -- Table structure for table `tbl_config`
 --
 
-CREATE TABLE IF NOT EXISTS `tbl_config` (
-  `config_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE `tbl_config` (
+  `config_id` int(10) UNSIGNED NOT NULL,
   `config_title` varchar(200) NOT NULL,
   `config_key` text NOT NULL,
   `config_des` text NOT NULL,
@@ -186,9 +190,8 @@ CREATE TABLE IF NOT EXISTS `tbl_config` (
   `config_footer` text NOT NULL,
   `config_email` varchar(255) NOT NULL,
   `config_intro` longtext NOT NULL,
-  `config_contact` longtext NOT NULL,
-  PRIMARY KEY (`config_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+  `config_contact` longtext NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `tbl_config`
@@ -203,16 +206,15 @@ INSERT INTO `tbl_config` (`config_id`, `config_title`, `config_key`, `config_des
 -- Table structure for table `tbl_contact`
 --
 
-CREATE TABLE IF NOT EXISTS `tbl_contact` (
-  `con_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE `tbl_contact` (
+  `con_id` int(10) UNSIGNED NOT NULL,
   `con_name` varchar(150) CHARACTER SET utf8 NOT NULL,
   `con_email` varchar(100) CHARACTER SET utf8 NOT NULL,
   `con_phone` varchar(50) CHARACTER SET utf8 NOT NULL,
   `con_full` text CHARACTER SET utf8,
   `con_date` varchar(255) NOT NULL,
-  `con_status` int(1) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`con_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=204 ;
+  `con_status` int(1) NOT NULL DEFAULT '0'
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tbl_contact`
@@ -229,12 +231,11 @@ INSERT INTO `tbl_contact` (`con_id`, `con_name`, `con_email`, `con_phone`, `con_
 -- Table structure for table `tbl_contact_info`
 --
 
-CREATE TABLE IF NOT EXISTS `tbl_contact_info` (
-  `contact_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE `tbl_contact_info` (
+  `contact_id` int(10) UNSIGNED NOT NULL,
   `contact_value` text CHARACTER SET utf8 NOT NULL,
-  `contact_status` int(1) NOT NULL DEFAULT '1',
-  PRIMARY KEY (`contact_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+  `contact_status` int(1) NOT NULL DEFAULT '1'
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tbl_contact_info`
@@ -249,8 +250,8 @@ INSERT INTO `tbl_contact_info` (`contact_id`, `contact_value`, `contact_status`)
 -- Table structure for table `tbl_content`
 --
 
-CREATE TABLE IF NOT EXISTS `tbl_content` (
-  `con_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE `tbl_content` (
+  `con_id` int(10) UNSIGNED NOT NULL,
   `con_title` varchar(255) NOT NULL,
   `con_position` varchar(200) NOT NULL,
   `con_number` int(50) NOT NULL,
@@ -258,9 +259,8 @@ CREATE TABLE IF NOT EXISTS `tbl_content` (
   `con_price` varchar(100) NOT NULL,
   `con_full` longtext NOT NULL,
   `con_images` varchar(200) NOT NULL,
-  `con_date` varchar(200) NOT NULL,
-  PRIMARY KEY (`con_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=22 ;
+  `con_date` varchar(200) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `tbl_content`
@@ -277,12 +277,11 @@ INSERT INTO `tbl_content` (`con_id`, `con_title`, `con_position`, `con_number`, 
 -- Table structure for table `tbl_count_search`
 --
 
-CREATE TABLE IF NOT EXISTS `tbl_count_search` (
-  `count_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE `tbl_count_search` (
+  `count_id` int(10) UNSIGNED NOT NULL,
   `count_name` varchar(255) NOT NULL,
-  `count_total` int(10) NOT NULL DEFAULT '1',
-  PRIMARY KEY (`count_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
+  `count_total` int(10) NOT NULL DEFAULT '1'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `tbl_count_search`
@@ -301,8 +300,8 @@ INSERT INTO `tbl_count_search` (`count_id`, `count_name`, `count_total`) VALUES
 -- Table structure for table `tbl_customer`
 --
 
-CREATE TABLE IF NOT EXISTS `tbl_customer` (
-  `cus_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE `tbl_customer` (
+  `cus_id` int(10) UNSIGNED NOT NULL,
   `cus_name` varchar(50) NOT NULL,
   `cus_password` char(50) NOT NULL,
   `cus_fullname` varchar(50) NOT NULL,
@@ -314,11 +313,10 @@ CREATE TABLE IF NOT EXISTS `tbl_customer` (
   `cus_date` varchar(100) NOT NULL,
   `cus_day` varchar(100) NOT NULL,
   `cus_lastlogin` varchar(100) NOT NULL,
-  `cus_level` int(10) unsigned NOT NULL DEFAULT '2',
+  `cus_level` int(10) UNSIGNED NOT NULL DEFAULT '2',
   `cus_mod` int(10) NOT NULL DEFAULT '0',
-  `cus_status` int(1) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`cus_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=144 ;
+  `cus_status` int(1) NOT NULL DEFAULT '0'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `tbl_customer`
@@ -337,13 +335,12 @@ INSERT INTO `tbl_customer` (`cus_id`, `cus_name`, `cus_password`, `cus_fullname`
 -- Table structure for table `tbl_education`
 --
 
-CREATE TABLE IF NOT EXISTS `tbl_education` (
-  `edu_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE `tbl_education` (
+  `edu_id` int(10) UNSIGNED NOT NULL,
   `edu_info` text CHARACTER SET utf8 NOT NULL,
   `edu_full` longtext CHARACTER SET utf8 NOT NULL,
-  `edu_status` int(1) NOT NULL DEFAULT '1',
-  PRIMARY KEY (`edu_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+  `edu_status` int(1) NOT NULL DEFAULT '1'
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tbl_education`
@@ -358,12 +355,11 @@ INSERT INTO `tbl_education` (`edu_id`, `edu_info`, `edu_full`, `edu_status`) VAL
 -- Table structure for table `tbl_favorites`
 --
 
-CREATE TABLE IF NOT EXISTS `tbl_favorites` (
-  `fa_id` int(10) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `tbl_favorites` (
+  `fa_id` int(10) NOT NULL,
   `fa_userid` int(10) NOT NULL,
-  `pro_id` int(10) NOT NULL,
-  PRIMARY KEY (`fa_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=43 ;
+  `pro_id` int(10) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tbl_favorites`
@@ -379,13 +375,11 @@ INSERT INTO `tbl_favorites` (`fa_id`, `fa_userid`, `pro_id`) VALUES
 -- Table structure for table `tbl_guide`
 --
 
-CREATE TABLE IF NOT EXISTS `tbl_guide` (
-  `guide_id` int(10) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `tbl_guide` (
+  `guide_id` int(10) NOT NULL,
   `guide_full` longtext CHARACTER SET utf8 NOT NULL,
-  `guide_status` int(1) NOT NULL,
-  PRIMARY KEY (`guide_id`),
-  UNIQUE KEY `guide_id` (`guide_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+  `guide_status` int(1) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tbl_guide`
@@ -400,15 +394,14 @@ INSERT INTO `tbl_guide` (`guide_id`, `guide_full`, `guide_status`) VALUES
 -- Table structure for table `tbl_intro`
 --
 
-CREATE TABLE IF NOT EXISTS `tbl_intro` (
-  `in_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE `tbl_intro` (
+  `in_id` int(10) UNSIGNED NOT NULL,
   `in_name` varchar(200) CHARACTER SET utf8 NOT NULL,
   `in_name_rewrite` varchar(200) CHARACTER SET utf8 NOT NULL,
   `in_value` longtext CHARACTER SET utf8 NOT NULL,
   `in_images` varchar(200) CHARACTER SET utf8 NOT NULL,
-  `in_order` int(1) NOT NULL,
-  PRIMARY KEY (`in_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=15 ;
+  `in_order` int(1) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tbl_intro`
@@ -426,12 +419,11 @@ INSERT INTO `tbl_intro` (`in_id`, `in_name`, `in_name_rewrite`, `in_value`, `in_
 -- Table structure for table `tbl_intro_one`
 --
 
-CREATE TABLE IF NOT EXISTS `tbl_intro_one` (
-  `intro_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE `tbl_intro_one` (
+  `intro_id` int(10) UNSIGNED NOT NULL,
   `intro_full` longtext CHARACTER SET utf8 NOT NULL,
-  `intro_status` int(1) NOT NULL,
-  PRIMARY KEY (`intro_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+  `intro_status` int(1) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tbl_intro_one`
@@ -446,14 +438,13 @@ INSERT INTO `tbl_intro_one` (`intro_id`, `intro_full`, `intro_status`) VALUES
 -- Table structure for table `tbl_menu`
 --
 
-CREATE TABLE IF NOT EXISTS `tbl_menu` (
-  `menu_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE `tbl_menu` (
+  `menu_id` int(10) UNSIGNED NOT NULL,
   `menu_name` varchar(200) CHARACTER SET utf8 NOT NULL,
   `menu_rewrite` varchar(200) CHARACTER SET utf8 NOT NULL,
   `menu_order` int(1) NOT NULL,
-  `menu_status` int(1) NOT NULL DEFAULT '1',
-  PRIMARY KEY (`menu_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+  `menu_status` int(1) NOT NULL DEFAULT '1'
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tbl_menu`
@@ -470,8 +461,8 @@ INSERT INTO `tbl_menu` (`menu_id`, `menu_name`, `menu_rewrite`, `menu_order`, `m
 -- Table structure for table `tbl_news`
 --
 
-CREATE TABLE IF NOT EXISTS `tbl_news` (
-  `news_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE `tbl_news` (
+  `news_id` int(10) UNSIGNED NOT NULL,
   `news_title` varchar(255) NOT NULL,
   `news_rewrite` varchar(200) NOT NULL,
   `news_author` varchar(100) NOT NULL,
@@ -487,9 +478,8 @@ CREATE TABLE IF NOT EXISTS `tbl_news` (
   `news_view` varchar(255) NOT NULL DEFAULT '0',
   `news_hot` int(1) NOT NULL DEFAULT '1',
   `news_status` int(1) NOT NULL DEFAULT '1',
-  `cago_id` int(10) unsigned NOT NULL,
-  PRIMARY KEY (`news_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=161 ;
+  `cago_id` int(10) UNSIGNED NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `tbl_news`
@@ -503,10 +493,10 @@ INSERT INTO `tbl_news` (`news_id`, `news_title`, `news_rewrite`, `news_author`, 
 (148, 'Nhanh tay tải UniKey 4.2 RC1 phiên bản mới', 'nhanh-tay-tai-unikey-42-rc1-phien-ban-moi', '', '', '<div class="boxDon-t" style="font-family: Arial, Helvetica, sans-serif; width: 564px; padding-left: 10px; height: 27px; background-image: url(http://hn.24h.com.vn/images/sprites.gif); overflow: hidden; background-position: 0px -558px; background-repeat: no-repeat no-repeat;"><br />\n&#160;</div>\n<div class="boxDon-c" style="font-family: Arial, Helvetica, sans-serif; width: 556px; border-left-color: rgb(238, 238, 238); border-left-style: solid; border-left-width: 1px; border-right-color: rgb(238, 238, 238); border-right-style: solid; border-right-width: 1px; padding: 5px 8px;">\n<div class="div-baiviet">\n<div class="baiviet-img200" style="width: 200px; margin: 0px 15px 5px 0px; float: left; position: relative;"><span class="img200" style="width: 200px; height: 200px; background-color: rgb(245, 245, 245); display: block;"><img width="200" height="200" alt="Nhanh tay tải UniKey 4.2 RC1 phiên bản mới" class="thumb-border" src="http://img-hn.24hstatic.com:8008/upload/1-2014/images/2014-01-19/1390126464-unikey0ava.jpg" style="border: 0px;" /></span>\n<div class="chu-thich-anh" style="font-size: 11px; padding-top: 5px; padding-bottom: 5px; text-align: center; color: rgb(102, 102, 102);">Nhanh tay tải UniKey 4.2 RC1 phiên bản mới</div>\n</div>\n<h1 class="baiviet-title" style="font-size: 14px; color: rgb(92, 160, 56); margin: 0px; padding-bottom: 5px;">Nhanh tay tải UniKey 4.2 RC1 phiên bản mới</h1>\n<div class="baiviet-ngay" style="font-size: 11px; padding-bottom: 5px;">Thứ Hai, ngày 20/01/2014 06:00 AM (GMT+7)</div>\n<p class="baiviet-sapo" style="font-weight: bold; text-align: justify; padding-right: 10px; margin: 0px;">UniKey 4.2 RC1 được gói gọn trong một tập tin duy nhất và tương thích tốt hơn với người dùng Windows 8, Windows 8.1.</p>\n</div>\n<div class="clear padT5" style="clear: both; padding-top: 5px;">&#160;</div>\n<div id="baiviet-container" class="text-conent" style="text-align: justify;">\n<p>UniKey là ứng dụng gõ tiếng Việt có dấu hoàn toàn miễn phí của tác giả Phạm Kim Long, phiên bản mới nhất UniKey 4.2 RC1 được cung cấp tại địa chỉ&#160;<strong><a href="http://hn.24h.com.vn/redirectout.php?to=aHR0cDovL3VuaWtleS5vcmcvYmRvd25sb2FkLnBocA==" target="_blank" style="text-decoration: none; color: rgb(0, 0, 255);">này</a></strong>.</p>\n<p style="text-align: center;"><img class="news-image" alt="Nhanh tay tải UniKey 4.2 RC1 phiên bản mới - 1" src="http://img-hn.24hstatic.com:8008/upload/1-2014/images/2014-01-19/1390126334-unikey.jpg" style="border: 0px; width: 460px; height: 212px;" /></p>\n<p style="text-align: center;"><em>UniKey 4.2 RC1.</em></p>\n<p>Không có nhiều thay đổi ở giao diện người dùng, nhưng UniKey 4.2 RC1 đã được thiết kế lại để tối ưu với Windows 8/8.1. Bên cạnh đó, các tập tin hệ thống và hình ảnh đã được tinh giản hoặc đính trực tiếp vào tập tin thực thi, do đó UniKey 4.2 RC1 đã trở nên cực kỳ nhỏ gọn, chỉ gồm một tập tin duy nhất có dung lượng 327KB và người dùng có thể mang theo bên mình để sử dụng ở bất kỳ đâu khá tiện dụng. Tuy nhiên, UniKey 4.2 RC1 không tương thích tốt với các nền tảng Windows cũ hơn Windows 8, tức Windows 7 trở về trước.</p>\n<p style="text-align: center;"><img class="news-image" alt="Nhanh tay tải UniKey 4.2 RC1 phiên bản mới - 2" src="http://img-hn.24hstatic.com:8008/upload/1-2014/images/2014-01-19/1390126358-unikey-tacgia.jpg" style="border: 0px; width: 399px; height: 347px;" /></p>\n<p style="color: rgb(0, 0, 255); font-style: italic; text-align: center;">Thông tin tác giả của UniKey.</p>\n<p>UniKey đã có tuổi đời hơn chục năm, trong thời gian đó nó đã "đè bẹp" VietKey - ứng dụng cùng chức năng nhưng có phí. Theo chia sẻ của tác giả, khi thấy câu hỏi hàng đầu của người dùng tại các diễn đàn là "Ai có bản bẻ khóa của VietKey không?", anh đã nghĩ tới việc tạo nên một sản phẩm chất lượng, miễn phí cho người dùng. Ngoài ra, lập trình ra một sản phẩm và tự sử dụng nó là điều mà anh cảm thấy rất tự hào.</p>\n</div>\n</div>', '', '', '1395110491804.jpg', '09:39:48 - 18/03/2014', '', '', '', '59', 1, 1, 186);
 INSERT INTO `tbl_news` (`news_id`, `news_title`, `news_rewrite`, `news_author`, `news_info`, `news_full`, `news_tags`, `news_tags_rewrite`, `news_images`, `news_date`, `news_key`, `news_des`, `news_external`, `news_view`, `news_hot`, `news_status`, `cago_id`) VALUES
 (149, 'Giúp Windows hoạt động nhanh như mới với Glary Utilities', 'giup-windows-hoat-dong-nhanh-nhu-moi-voi-glary-utilities', '', '', '&#160;\n<div>\n<div class="boxDon-t" style="font-family: Arial, Helvetica, sans-serif; width: 564px; padding-left: 10px; height: 27px; background-image: url(http://hn.24h.com.vn/images/sprites.gif); overflow: hidden; background-position: 0px -558px; background-repeat: no-repeat no-repeat;">&#160;</div>\n<div class="boxDon-c" style="font-family: Arial, Helvetica, sans-serif; width: 556px; border-left-color: rgb(238, 238, 238); border-left-style: solid; border-left-width: 1px; border-right-color: rgb(238, 238, 238); border-right-style: solid; border-right-width: 1px; padding: 5px 8px;">\n<div class="div-baiviet">\n<div class="baiviet-img200" style="width: 200px; margin: 0px 15px 5px 0px; float: left; position: relative;"><span class="img200" style="width: 200px; height: 200px; background-color: rgb(245, 245, 245); display: block;"><img width="200" height="200" alt="Giúp Windows hoạt động nhanh như mới với Glary Utilities" class="thumb-border" src="http://img-hn.24hstatic.com:8008/upload/1-2014/images/2014-03-16/1394964340-ig1.jpg" style="border: 0px;" /></span>\n<div class="chu-thich-anh" style="font-size: 11px; padding-top: 5px; padding-bottom: 5px; text-align: center; color: rgb(102, 102, 102);">&#160;</div>\n</div>\n<h1 class="baiviet-title" style="font-size: 14px; color: rgb(92, 160, 56); margin: 0px; padding-bottom: 5px;">Giúp Windows hoạt động nhanh như mới với Glary Utilities</h1>\n<div class="baiviet-ngay" style="font-size: 11px; padding-bottom: 5px;">Thứ Hai, ngày 17/03/2014 06:00 AM (GMT+7)</div>\n<p class="baiviet-sapo" style="font-weight: bold; text-align: justify; padding-right: 10px; margin: 0px;">Bài viết dưới đây sẽ giúp bạn có cơ hội sở hữu bản quyền miễn phí của Glary Utilities, một trong những phần mềm tối ưu hệ thống nổi tiếng và được yêu thích nhất hiện nay.</p>\n</div>\n<div class="clear padT5" style="clear: both; padding-top: 5px;">&#160;</div>\n<div id="baiviet-container" class="text-conent" style="text-align: justify;">\n<p>&#160;</p>\n<p>Sau một thời gian dài sử dụng, Windows trên máy tính sẽ trở nên ì ạch hơn so với ban đầu, do các lỗi và các vấn đề phát sinh trong quá trình sử dụng mà không phải ai cũng biết cách để giải quyết triệt để.</p>\n<p>&#160;</p>\n<p>Glary Utilities Pro (GU) là phần mềm tối ưu hệ thống luôn được người dùng và nhiều trang công nghệ đánh giá cao về tính năng và tính hiệu quả của nó. GU Pro cung cấp đầy đủ các chức năng của một phần mềm tối ưu để giúp khắc phục lại các vấn đề gặp phải trên hệ thống, giúp Windows hoạt động hiệu quả và mượt mà hơn.</p>\n<p>&#160;</p>\n<p>Đặc biệt, GU Pro còn cung cấp nhiều chức năng hữu ích khác như tìm và diệt phần mềm gián điệp, khôi phục file đã bị xóa, quản lý và gỡ bỏ phần mềm trên hệ thống… Có thể nói, GU Pro là một trong những phần mềm tối ưu hệ thống được trang bị đầy đủ và toàn diện các tính năng cần thiết nhất cho người dùng Windows hiện nay.</p>\n<p style="text-align: center;"><img class="news-image" alt="Giúp Windows hoạt động nhanh như mới với Glary Utilities - 1" src="http://img-hn.24hstatic.com:8008/upload/1-2014/images/2014-03-16/1394964140-ig1.jpg" style="border: 0px; width: 500px; height: 352px;" /></p>\n<p>&#160;</p>\n<p style="color: rgb(0, 0, 255); font-style: italic; text-align: center;">Hướng dẫn cài đặt và kích hoạt phần mềm.</p>\n<p>&#160;</p>\n<p>Mặc định phiên bản chuyên nghiệp của Glary Utilities có giá 27,95 USD, trong khi phiên bản thử nghiệm chỉ cho phép sử dụng trong 30 ngày. Hiện tại hãng phần mềm EaseUS đang có chương trình khuyến mãi cung cấp bản quyền phần mềm hoàn toàn miễn phí. Bạn thực hiện theo các bước sau để tận dụng chương trình khuyến mãi này:</p>\n<p>&#160;</p>\n<p>- Đầu tiên, download bản dùng thử của phần mềm&#160;<a href="http://hn.24h.com.vn/redirectout.php?to=aHR0cDovL3d3dy5odHdhcmVzLmNvbS93aW5kb3dzL3N5c3RlbS11dGlsaXRpZXMvc3lzdGVtLW1haW50ZW5hbmNlL2dsYXJ5LXV0aWxpdGllcy1wcm8v" target="_blank" style="text-decoration: none; color: rgb(0, 0, 255);">tại đây</a>.</p>\n<p>&#160;</p>\n<p>- Sau khi hoàn tất cài đặt, trong lần đầu tiên sử dụng, một hộp thoại hiện ra yêu cầu người dùng nâng cấp phần mềm lên phiên bản mới. Bạn nhấn “Skip this version” để bỏ qua hộp thoại này.</p>\n<p>&#160;</p>\n<p>- Từ giao diện chính của GU, nhấn nút “Upgrade Now”, sau đó sử dụng thông tin sau để điền vào khung tương ứng ở hộp thoại hiện ra, rồi nhấn nút “Active Now”: Your Name: EaseUS Users // Registration Code: 3788-61679-58234-2362</p>\n<p>&#160;</p>\n<p>Đây là thông tin bản quyền do hãng phần mềm EaseUS cung cấp nên hoàn toàn hợp lệ và miễn phí.</p>\n<p>&#160;</p>\n<p>Hướng dẫn nâng cấp phần mềm lên phiên bản mới nhất</p>\n<p>&#160;</p>\n<p>Sau khi cài đặt và kích hoạt bản quyền phần mềm như hướng dẫn ở trên, tiếp download phiên bản GU 4.7 mới nhất&#160;<a href="http://hn.24h.com.vn/redirectout.php?to=aHR0cDovL3NvZnQ0YWxsLmluZm8vZnJlZS1zb2Z0d2FyZS1kb3dubG9hZC9nbGFyeS11dGlsaXRpZXMv" target="_blank" style="text-decoration: none; color: rgb(0, 0, 255);">tại đây</a>.</p>\n<p>&#160;</p>\n<p>Tiến hành cài đặt phần mềm, một hộp thoại hiện ra thông báo cho người dùng được biết phiên bản cũ của phần mềm đã được cài đặt trước đó và có muốn thay thế bằng phiên bản mới hay không. Nhấn “Yes” để đồng ý và cài đặt phiên bản mới như bình thường.</p>\n<p>&#160;</p>\n<p>Sau khi hoàn tất quá trình cài đặt, bạn đã có thể sử dụng GU phiên bản mới nhất nhưng vẫn được giữ nguyên bản quyền phần mềm đã kích hoạt trước đó.</p>\n<p>&#160;</p>\n<p><strong>Hướng dẫn sử dụng</strong></p>\n<p>&#160;</p>\n<p>Một ưu điểm của GU đó là có giao diện hỗ trợ hoàn toàn tiếng Việt, điều này giúp người dùng tại Việt Nam thuận tiện hơn khi sử dụng phần mềm. Để thay đổi ngôn ngữ phần mềm từ tiếng Anh (mặc định) sang tiếng Việt, bạn nhấn vào nút “Menu” ở bên góc phải, chọn“Settings”.</p>\n<p>&#160;</p>\n<p>Từ hộp thoại hiện ra, tại mục “Language”, bạn chọn “Tiếng Việt”, sau đó lưu lại thiết lập để chuyển ngôn ngữ của phần mềm sang tiếng Việt. Bây giờ giao diện của phần mềm đã hiển thị hoàn toàn bắng tiếng Việt, rất thuận tiện cho quá trình sử dụng.</p>\n<p style="text-align: center;"><img class="news-image" alt="Giúp Windows hoạt động nhanh như mới với Glary Utilities - 2" src="http://img-hn.24hstatic.com:8008/upload/1-2014/images/2014-03-16/1394964172-ig2.jpg" style="border: 0px; width: 500px; height: 346px;" /></p>\n<p>&#160;</p>\n<p>Giao diện chính của phần mềm được phân chia ra làm 3 tab riêng biệt, trong đó tab “Tổng quát” ở giao diện chính cho phép người dùng thay đổi một vài thiết lập của phần mềm, cũng như cho phép người dùng điều chỉnh để thay đổi các ứng dụng khởi động cùng hệ thống để tăng tốc độ khởi động máy. Ở tab này sẽ hiển thị thông tin về tổng thời gian mà Windows cần để hoàn tất quá trình khởi động.</p>\n<p>&#160;</p>\n<p>Tại đây, nhấn vào nút “Quản lý khởi động” để quản lý các tiến trình khởi động cùng hệ thống. Bạn có thể tắt bớt đi các tiến trình không cần thiết để giúp thời gian khởi động hệ thống được nhanh và rút ngắn hơn.</p>\n<p style="text-align: center;"><img class="news-image" alt="Giúp Windows hoạt động nhanh như mới với Glary Utilities - 3" src="http://img-hn.24hstatic.com:8008/upload/1-2014/images/2014-03-16/1394964183-ig3.jpg" style="border: 0px; width: 500px; height: 353px;" /></p>\n<p>&#160;</p>\n<p>Tab “1-Click Tối ưu hóa” là chức năng hữu ích nhất của phần mềm, sẽ cho phép phần mềm tự động thực hiện các chức năng cần thiết để tối ưu hệ thống chỉ bằng một cú click chuột.</p>\n<p>Những vấn đề mà phần mềm sẽ tự động khắc phục bao gồm quét và don dẹp các khóa registry của hệ thống, sửa lại các shortcut đang bị lỗi trên hệ thống, xóa các phần mềm gián điệp (nếu có), chỉnh sửa lỗi gặp phải trên ổ cứng, xóa lịch sử sử dụng máy tính của người dùng, xóa các file rác có trên hệ thống để tiết kiệm dung lượng ổ cứng, và quản lý quá trình khởi động của hệ thống.</p>\n<p style="text-align: center;"><img class="news-image" alt="Giúp Windows hoạt động nhanh như mới với Glary Utilities - 4" src="http://img-hn.24hstatic.com:8008/upload/1-2014/images/2014-03-16/1394964193-ig4.jpg" style="border: 0px; width: 500px; height: 356px;" /></p>\n<p>Lưu ý: với tùy chọn “Xóa dấu vết” để xóa lịch sử sử dụng máy tính của người dùng, bạn nên cân nhắc khi lựa chọn vì chức năng này có thể xóa luôn lịch sử các trang web đã ghé thăm, cache, cookies, mật khẩu tự động lưu… trên trình duyệt web. Mặc định, phần mềm sẽ chỉ xóa cache lưu trên trình duyệt web.</p>\n<p>&#160;</p>\n<p>Nhấn nút “Quét ngay” sau khi đã đánh dấu các chức năng muốn sử dụng để phần mềm tự động thực hiện các bước cần thiết giúp tối ưu hệ thống. Khi quá trình quét hoàn tất, phần mềm sẽ liệt kê chi tiết các lỗi liên quan. Tại bước này, bạn chỉ việc nhấn nút “Sửa lỗi vấn đề” để khắc phục các lỗi gặp phải này.</p>\n<p>&#160;</p>\n<p>Nhìn chung chức năng “1-Click Tối ưu hóa” là chức năng hữu ích nhất của phần mềm, phù hợp với những người dùng không quá thành thạo về công nghệ và hiểu biết về máy tính, họ vẫn có thể sử dụng phần mềm để tối ưu hệ thống một cách hiệu quả.</p>\n<p>&#160;</p>\n<p>Tại tab “Công cụ nâng cao”, phần mềm cũng cung cấp một loạt các chức năng để giúp quản lý và thay đổi các thiết lập trên hệ thống được dễ dàng hơn. Đây được xem như là một “kho báu” với những người dùng muốn tự tay thiết lập và thực hiện các bước tối ưu trên Windows.</p>\n<p>&#160;</p>\n<p>Tên gọi của các công cụ đều được hiển thị bằng tiếng Việt nên rất dễ dàng và thuận tiện cho người dùng lựa chọn, sử dụng.</p>\n<p>&#160;</p>\n<p>Trong số các công cụ mà phần mềm cung cấp, có thể kể đến các công cụ rất hữu ích cho người dùng, như mục “Registry” (cho phép quét dọn, sửa, chống phân mảnh, sao lưu và phục hồi khóa Registry trên hệ thống); hay mục “Ổ đĩa” (cho phép dọn dẹp ổ cứng, tìm và xóa các file trùng lặp trên ổ cứng, xóa các shortcut bị hư hỏng…); mục “Tinh chỉnh Hệ thống” với chức năng cho phép tối ưu và giải phóng bộ nhớ RAM để chạy các phần mềm nặng; hay mục “Ổ cứng” cho phép chống phân mảnh và kiểm tra lỗi trên ổ cứng….</p>\n<p style="text-align: center;"><img class="news-image" alt="Giúp Windows hoạt động nhanh như mới với Glary Utilities - 5" src="http://img-hn.24hstatic.com:8008/upload/1-2014/images/2014-03-16/1394964210-ig5.jpg" style="border: 0px; width: 500px; height: 357px;" /></p>\n<p>Ngoài ra, để tiện cho việc sử dụng của người dùng, phía dưới giao diện của phần mềm là một thanh công cụ tập trung đầy đủ các công cụ hữu ích và cần thiết nhất với phần lớn người dùng, bạn có thể chọn trực tiếp các chức năng tại thanh công cụ này để thực hiện các thiết lập hay tùy chỉnh cần thiết cho Windows.</p>\n</div>\n</div>\n</div>', '', '', '1395110691692.jpg', '09:44:51 - 18/03/2014', '', '', '', '60', 1, 1, 185),
-(150, 'Google Translate trên Android hỗ trợ thêm 13 ngôn ngữ mới', 'google-translate-tren-android-ho-tro-them-13-ngon-ngu-moi', '', '', '&#160;\n<div>\n<div class="boxDon-t" style="font-family: Arial, Helvetica, sans-serif; width: 564px; padding-left: 10px; height: 27px; background-image: url(http://hn.24h.com.vn/images/sprites.gif); overflow: hidden; background-position: 0px -558px; background-repeat: no-repeat no-repeat;"><br />\n&#160;</div>\n<div class="boxDon-c" style="font-family: Arial, Helvetica, sans-serif; width: 556px; border-left-color: rgb(238, 238, 238); border-left-style: solid; border-left-width: 1px; border-right-color: rgb(238, 238, 238); border-right-style: solid; border-right-width: 1px; padding: 5px 8px;">\n<div class="div-baiviet">\n<div class="baiviet-img200" style="width: 200px; margin: 0px 15px 5px 0px; float: left; position: relative;"><span class="img200" style="width: 200px; height: 200px; background-color: rgb(245, 245, 245); display: block;"><img width="200" height="200" alt="Google Translate trên Android hỗ trợ thêm 13 ngôn ngữ mới" class="thumb-border" src="http://img-hn.24hstatic.com:8008/upload/1-2014/images/2014-03-15/1394891012-gg.jpg" style="border: 0px;" /></span>\n<div class="chu-thich-anh" style="font-size: 11px; padding-top: 5px; padding-bottom: 5px; text-align: center; color: rgb(102, 102, 102);">Google Translate trên Android hỗ trợ thêm 13 ngôn ngữ mới.</div>\n</div>\n<h1 class="baiviet-title" style="font-size: 14px; color: rgb(92, 160, 56); margin: 0px; padding-bottom: 5px;">Google Translate trên Android hỗ trợ thêm 13 ngôn ngữ mới</h1>\n<div class="baiviet-ngay" style="font-size: 11px; padding-bottom: 5px;">Chủ Nhật, ngày 16/03/2014 06:00 AM (GMT+7)</div>\n<p class="baiviet-sapo" style="font-weight: bold; text-align: justify; padding-right: 10px; margin: 0px;">Với phiên bản cập nhật 3.0.5, ứng dụng dịch của Google bổ sung thêm 13 ngôn ngữ mới cùng nhiều tính năng cải tiến.</p>\n</div>\n<div class="clear padT5" style="clear: both; padding-top: 5px;">&#160;</div>\n<div id="baiviet-container" class="text-conent" style="text-align: justify;">\n<p>&#160;</p>\n<p>Google vừa thông báo phiên bản cập nhật mới nhất cho&#160;ứng dụng Google Translate (Google Dịch) với khả năng dịch hai chiều cho 80 ngôn ngữ khác nhau. Đáng chú ý ứng dụng đã cải tiến và bổ sung tính năng nhận dạng chữ viết tay và khả năng dịch tự động các ghi chú trong ảnh chụp.</p>\n<p style="text-align: center;"><img class="news-image" alt="Google Translate trên Android hỗ trợ thêm 13 ngôn ngữ mới - 1" src="http://img-hn.24hstatic.com:8008/upload/1-2014/images/2014-03-15/1394890982-unnamed1_c32f1.jpg" style="border: 0px; width: 500px; height: 313px;" /></p>\n<p style="color: rgb(0, 0, 255); font-style: italic; text-align: center;">Google Translate trên Android hỗ trợ thêm 13 ngôn ngữ mới.</p>\n<p>Như vậy với phiên bản mới nhất 3.0.5, Google chính thức bổ sung thêm 13 ngôn ngữ khác (chủ yếu thuộc khu vực Trung Đông - Châu Á). Hiện phiên bản mới đã sẳn sàng&#160;để tải về trên kho ứng dụng<a href="https://play.google.com/store/apps/details?id=com.google.android.apps.translate" target="_blank" style="text-decoration: none; color: rgb(0, 0, 255);">Google Play</a>&#160;với&#160;dung lượng 3,35MB.</p>\n<p><strong>Một số tính năng chỉnh sửa bổ sung&#160;mới:</strong></p>\n<p>&#160;</p>\n<p>- Dịch hai chiều với 80 ngôn ngữ</p>\n<p>-&#160;Hội thoại một cách tự nhiên và để Google dịch</p>\n<p>-&#160;Nói, nhập, viết hoặc quét ảnh để dịch</p>\n<p>-&#160;Dịch ngoại tuyến không cần kết nối internet.</p>\n<p>-&#160;Lưu bản dịch của bạn và truy cập từ bất kỳ thiết bị nào (Nhập dữ liệu thông qua máy ảnh và dịch ngoại tuyến khả dụng cho Android 2.3 và cao hơn)</p>\n</div>\n</div>\n</div>', '', '', '1396440661833.jpg', '09:46:16 - 18/03/2014', '', '', '', '81', 1, 1, 185),
+(150, 'Google Translate trên Android hỗ trợ thêm 13 ngôn ngữ mới', 'google-translate-tren-android-ho-tro-them-13-ngon-ngu-moi', '', '', '&#160;\n<div>\n<div class="boxDon-t" style="font-family: Arial, Helvetica, sans-serif; width: 564px; padding-left: 10px; height: 27px; background-image: url(http://hn.24h.com.vn/images/sprites.gif); overflow: hidden; background-position: 0px -558px; background-repeat: no-repeat no-repeat;"><br />\n&#160;</div>\n<div class="boxDon-c" style="font-family: Arial, Helvetica, sans-serif; width: 556px; border-left-color: rgb(238, 238, 238); border-left-style: solid; border-left-width: 1px; border-right-color: rgb(238, 238, 238); border-right-style: solid; border-right-width: 1px; padding: 5px 8px;">\n<div class="div-baiviet">\n<div class="baiviet-img200" style="width: 200px; margin: 0px 15px 5px 0px; float: left; position: relative;"><span class="img200" style="width: 200px; height: 200px; background-color: rgb(245, 245, 245); display: block;"><img width="200" height="200" alt="Google Translate trên Android hỗ trợ thêm 13 ngôn ngữ mới" class="thumb-border" src="http://img-hn.24hstatic.com:8008/upload/1-2014/images/2014-03-15/1394891012-gg.jpg" style="border: 0px;" /></span>\n<div class="chu-thich-anh" style="font-size: 11px; padding-top: 5px; padding-bottom: 5px; text-align: center; color: rgb(102, 102, 102);">Google Translate trên Android hỗ trợ thêm 13 ngôn ngữ mới.</div>\n</div>\n<h1 class="baiviet-title" style="font-size: 14px; color: rgb(92, 160, 56); margin: 0px; padding-bottom: 5px;">Google Translate trên Android hỗ trợ thêm 13 ngôn ngữ mới</h1>\n<div class="baiviet-ngay" style="font-size: 11px; padding-bottom: 5px;">Chủ Nhật, ngày 16/03/2014 06:00 AM (GMT+7)</div>\n<p class="baiviet-sapo" style="font-weight: bold; text-align: justify; padding-right: 10px; margin: 0px;">Với phiên bản cập nhật 3.0.5, ứng dụng dịch của Google bổ sung thêm 13 ngôn ngữ mới cùng nhiều tính năng cải tiến.</p>\n</div>\n<div class="clear padT5" style="clear: both; padding-top: 5px;">&#160;</div>\n<div id="baiviet-container" class="text-conent" style="text-align: justify;">\n<p>&#160;</p>\n<p>Google vừa thông báo phiên bản cập nhật mới nhất cho&#160;ứng dụng Google Translate (Google Dịch) với khả năng dịch hai chiều cho 80 ngôn ngữ khác nhau. Đáng chú ý ứng dụng đã cải tiến và bổ sung tính năng nhận dạng chữ viết tay và khả năng dịch tự động các ghi chú trong ảnh chụp.</p>\n<p style="text-align: center;"><img class="news-image" alt="Google Translate trên Android hỗ trợ thêm 13 ngôn ngữ mới - 1" src="http://img-hn.24hstatic.com:8008/upload/1-2014/images/2014-03-15/1394890982-unnamed1_c32f1.jpg" style="border: 0px; width: 500px; height: 313px;" /></p>\n<p style="color: rgb(0, 0, 255); font-style: italic; text-align: center;">Google Translate trên Android hỗ trợ thêm 13 ngôn ngữ mới.</p>\n<p>Như vậy với phiên bản mới nhất 3.0.5, Google chính thức bổ sung thêm 13 ngôn ngữ khác (chủ yếu thuộc khu vực Trung Đông - Châu Á). Hiện phiên bản mới đã sẳn sàng&#160;để tải về trên kho ứng dụng<a href="https://play.google.com/store/apps/details?id=com.google.android.apps.translate" target="_blank" style="text-decoration: none; color: rgb(0, 0, 255);">Google Play</a>&#160;với&#160;dung lượng 3,35MB.</p>\n<p><strong>Một số tính năng chỉnh sửa bổ sung&#160;mới:</strong></p>\n<p>&#160;</p>\n<p>- Dịch hai chiều với 80 ngôn ngữ</p>\n<p>-&#160;Hội thoại một cách tự nhiên và để Google dịch</p>\n<p>-&#160;Nói, nhập, viết hoặc quét ảnh để dịch</p>\n<p>-&#160;Dịch ngoại tuyến không cần kết nối internet.</p>\n<p>-&#160;Lưu bản dịch của bạn và truy cập từ bất kỳ thiết bị nào (Nhập dữ liệu thông qua máy ảnh và dịch ngoại tuyến khả dụng cho Android 2.3 và cao hơn)</p>\n</div>\n</div>\n</div>', '', '', '1396440661833.jpg', '09:46:16 - 18/03/2014', '', '', '', '82', 1, 1, 185),
 (151, 'Cập nhật Windows 8.1 cũng là lúc tạm biệt Windows XP', 'cap-nhat-windows-81-cung-la-luc-tam-biet-windows-xp', '', 'Đầu tháng 4 sẽ là một bước ngoặc quan trọng đối với vòng đời của hệ điều hành Windows.', '&#160;\n<div>\n<div class="boxDon-t" style="font-family: Arial, Helvetica, sans-serif; width: 564px; padding-left: 10px; height: 27px; background-image: url(http://hn.24h.com.vn/images/sprites.gif); overflow: hidden; background-position: 0px -558px; background-repeat: no-repeat no-repeat;"><br />\n&#160;</div>\n<div class="boxDon-c" style="font-family: Arial, Helvetica, sans-serif; width: 556px; border-left-color: rgb(238, 238, 238); border-left-style: solid; border-left-width: 1px; border-right-color: rgb(238, 238, 238); border-right-style: solid; border-right-width: 1px; padding: 5px 8px;">\n<div class="div-baiviet">\n<div class="baiviet-img200" style="width: 200px; margin: 0px 15px 5px 0px; float: left; position: relative;"><span class="img200" style="width: 200px; height: 200px; background-color: rgb(245, 245, 245); display: block;"><img width="200" height="200" alt="Cập nhật Windows 8.1 cũng là lúc tạm biệt Windows XP" class="thumb-border" src="http://img-hn.24hstatic.com:8008/upload/1-2014/images/2014-02-28/1393578139-w8.jpg" style="border: 0px;" /></span>\n<div class="chu-thich-anh" style="font-size: 11px; padding-top: 5px; padding-bottom: 5px; text-align: center; color: rgb(102, 102, 102);">Bản cập nhật Windows 8.1 trình làng cũng là lúc tạm biệt Windows XP.</div>\n</div>\n<h1 class="baiviet-title" style="font-size: 14px; color: rgb(92, 160, 56); margin: 0px; padding-bottom: 5px;">Cập nhật Windows 8.1 cũng là lúc tạm biệt Windows XP</h1>\n<div class="baiviet-ngay" style="font-size: 11px; padding-bottom: 5px;">Thứ Bảy, ngày 01/03/2014 06:00 AM (GMT+7)</div>\n<div class="baiviet-sukien" style="color: rgb(99, 99, 99); padding-bottom: 7px;">Sự kiện:&#160;<a title="MWC 2014" href="http://www.24h.com.vn/mwc-2012-c407e2138.html" style="color: rgb(99, 99, 99);">MWC 2014</a></div>\n<p class="baiviet-sapo" style="font-weight: bold; text-align: justify; padding-right: 10px; margin: 0px;">Đầu tháng 4 sẽ là một bước ngoặc quan trọng đối với vòng đời của hệ điều hành Windows.</p>\n</div>\n<div class="clear padT5" style="clear: both; padding-top: 5px;">&#160;</div>\n<div id="baiviet-container" class="text-conent" style="text-align: justify;">\n<p>Theo&#160;<em>Neowin</em>, vào ngày 9/4 năm nay, Microsoft sẽ ra mắt bản cập nhật dành cho&#160;<a href="http://www.24h.com.vn/windows-8-c407e2057.html" style="text-decoration: none; color: rgb(0, 0, 255);">Windows 8</a>.1 và chính thức nói lời tạm biệt với Windows XP. Tuy nhiên, trước đó khoảng một tuần, vào ngày 3/4, người dùng có tài khoản trên MSDN sẽ được tải sớm bản cập nhật Windows 8.1.</p>\n<p>Thông tin này có phần ngược lại so với những gì Microsoft đã từng cam kết, đó là hãng vẫn tiếp tục hỗ trợ Windows XP tới tận tháng 7/2015 vì hệ điều hành này còn quá nhiều lỗ hổng bảo mật mà hãng không thể không chú ý tới.</p>\n<p style="text-align: center;"><img class="news-image" alt="Cập nhật Windows 8.1 cũng là lúc tạm biệt Windows XP - 1" src="http://img-hn.24hstatic.com:8008/upload/1-2014/images/2014-02-28/1393577818-w8.jpg" style="border: 0px; width: 500px; height: 304px;" /></p>\n<p style="color: rgb(0, 0, 255); font-style: italic; text-align: center;">Người dùng có tài khoản trên MSDN sẽ sớm được tải bản cập nhật dành cho Windows 8.1.</p>\n<p>Ngày 9/1 còn được gọi là "Patch Tuesday" (Thứ Tư vá lỗi) bởi vì Microsoft sẽ đồng loạt tung bản vá lỗi cho nhiều sản phẩm khác của mình.</p>\n<p style="text-align: center;"><img class="news-image" alt="Cập nhật Windows 8.1 cũng là lúc tạm biệt Windows XP - 2" src="http://img-hn.24hstatic.com:8008/upload/1-2014/images/2014-02-28/1393577864-winxppro.jpg" style="border: 0px; width: 500px; height: 375px;" /></p>\n<p style="color: rgb(0, 0, 255); font-style: italic; text-align: center;">Người dùng sắp phải nói lời tạm biệt Windows XP.</p>\n<p>Những điểm mới mà bản cập nhật sẽ mang lại cho Windows 8.1 vẫn chưa được tiết lộ, nhưng rất có thể nó sẽ bổ sung thêm nhiều tùy chọn trên giao diện Modern UI hiện tại, như sắp xếp các biểu tượng linh động hơn, chạy cùng lúc nhiều ứng dụng trên một màn hình Modern UI,... Đặc biệt, người dùng vẫn đang mong chờ sự trở lại của nút Start Menu ở chế độ Desktop.</p>\n<p>Mới đây, tại triển lãm&#160;<a href="http://www.24h.com.vn/mwc-2012-c407e2138.html" style="text-decoration: none; color: rgb(0, 0, 255);">MWC</a>&#160;(Mobile Word Congress) 2014 diễn ra tại Tây Ban Nha, Phó Giám đốc Microsoft, Joe Belfiore từng nói rằng, hãng muốn giúp người dùng Windows không có màn hình cảm ứng có thể làm việc tốt hơn.</p>\n</div>\n</div>\n</div>', '', '', '1395111550130.jpg', '09:59:10 - 18/03/2014', 'key', 'des', '', '92', 1, 1, 185),
 (155, 'Bầu Kiên hầu tòa', 'bau-kien-hau-toa', '', 'Ngày 16/4, cựu phó chủ tịch HĐQT Ngân hàng ACB cùng 5 cựu lãnh đạo cao cấp của nhà băng này bị đưa ra xét xử tại TAND Hà Nội với cáo...', '&#160;<span style="color: rgb(68, 68, 68); font-family: arial; font-size: 14px; font-weight: 700; line-height: 18px;">Ngày 16/4, cựu phó chủ tịch HĐQT Ngân hàng ACB cùng 5 cựu lãnh đạo cao cấp của nhà băng này bị đưa ra xét xử tại TAND Hà Nội với cáo buộc cố ý làm trái gây thiệt hại&#160; hàng nghìn tỷ đồng.</span>\n<div class="relative_new" style="margin: 0px; padding: 0px 0px 5px; width: 480.0249938964844px; float: left; font-family: arial;">\n<ul class="list_news_dot_3x3_300" style="margin: 0px; padding: 0px; list-style-type: none; width: 480.0249938964844px; float: left; border: none; color: rgb(102, 102, 102);">\n    <li style="margin: 0px; padding: 0px 0px 5px 10px; list-style-type: none; background-image: url(http://st.f3.vnecdn.net/responsive/c/v7/images/graphics/bg_dot_gray_3x3.gif); background-position: 0px 6px; background-repeat: no-repeat no-repeat;"><a href="http://vnexpress.net/tin-tuc/phap-luat/phien-xu-vu-bau-kien-keo-dai-nua-thang-2970489.html" style="margin: 0px; padding: 0px; color: rgb(102, 102, 102); text-decoration: none; outline: none; font-weight: 700; line-height: 16px;">Phiên xử vụ bầu Kiên kéo dài nửa tháng</a></li>\n</ul>\n</div>\n<div id="left_calculator" style="margin: 0px; padding: 0px; font-family: arial;">\n<div class="fck_detail width_common" style="margin: 0px; padding: 0px 0px 10px; width: 480.0249938964844px; float: left; overflow: hidden; font-size: 14px; color: rgb(51, 51, 51);">\n<p class="Normal" style="margin: 0px 0px 1em; padding: 0px; line-height: 18px;">Từ 6h30, khoảng 20 cảnh sát có mặt, kiểm soát an ninh quanh khu vực cổng tòa. Sau khoảng 5 phút, đoàn xe chở phạm nhân tiến đi vào cổng. Trong 9 người bị xét xử, có 4 bị tạm giam gồm: Nguyễn Đức Kiên (cựu phó chủ tịch HĐQT ACB), Lý Xuân Hải (cựu tổng giám đốc ACB) cùng Trần Ngọc Thanh (giám đốc Công ty ACBI), Nguyễn Thị Hải Yến (kế toán trưởng ACBI).</p>\n<table align="center" border="0" cellpadding="3" cellspacing="0" class="tplCaption" style="margin: 0px auto 10px; padding: 0px; max-width: 100%; width: 480px;">\n    <tbody style="margin: 0px; padding: 0px;">\n        <tr style="margin: 0px; padding: 0px;">\n            <td style="margin: 0px; padding: 2px; line-height: 0;"><img alt="cong-toa-500-4590-1397610511.jpg" data-natural-="" src="http://m.f29.img.vnecdn.net/2014/04/16/cong-toa-500-4590-1397610511.jpg" style="margin: 0px; padding: 0px; border: 0px; font-size: 0px; line-height: 0; max-width: 100%; width: 476.79998779296875px;" /></td>\n        </tr>\n        <tr style="margin: 0px; padding: 0px;">\n            <td style="margin: 0px; padding: 2px; line-height: 0;">\n            <p class="Image" style="margin: 0px; padding: 10px; line-height: normal; color: rgb(51, 51, 51); background-color: rgb(245, 245, 245);">Cổng tòa án TAND Hà Nội trước khi đoàn xe chở phạm đi vào.&#160;<em style="margin: 0px; padding: 0px;">Ảnh: Quý Đoàn</em></p>\n            </td>\n        </tr>\n    </tbody>\n</table>\n<p class="Normal" style="margin: 0px 0px 1em; padding: 0px; line-height: 18px;">TAND Hà Nội mở phiên xử Nguyễn Đức Kiên cùng 8 người với về 4 tội: Trốn thuế, Kinh doanh trái phép, Lừa đảo chiếm đoạt tài sản và Cố ý làm trái gây hậu quả nghiêm trọng.&#160;<span style="margin: 0px; padding: 0px;">Chủ tọa là Phó chánh án TAND Hà Nội Nguyễn Hữu Chính - người từng cầm trịch xét xử nhiều vụ án lớn. Khoảng 20 luật sư dự kiến sẽ tham gia bào chữa cho các bị cáo, riêng ông Kiên mời 4 người.</span></p>\n<p class="Normal" style="margin: 0px 0px 1em; padding: 0px; line-height: 18px;">Hiện 6 luật sư tham gia tố tụng tại vụ án này gửi văn bản đề nghị hoãn phiên xử tới TAND Hà Nội. Một trong các lý do là kết luận tại phiên phúc thẩm của vụ lừa đảo do Huỳnh Thị Huyền Như chủ mưu có ý nghĩa quyết định đến việc xác định thiệt hại của Ngân hàng ACB cũng như xác định tội danh cố ý làm trái quy định cùng trách nhiệm dân sự của ông Kiên và người liên quan.</p>\n<p class="Normal" style="margin: 0px 0px 1em; padding: 0px; line-height: 18px;">Theo luật sư, trong trường hợp, cấp phúc thẩm tuyên buộc Vietinbank bồi thường toàn bộ số tiền Huyền Như chiếm đoạt thì đồng nghĩa với việc ACB không có thiệt hại. Khi đó ông Kiên cùng đồng phạm dù có cố ý làm trái khi ủy thác cho hàng chục nhân viên mang tiền của ACB đi gửi tiết kiệm tại Vietinbank thì cũng sẽ không cấu thành tội phạm như truy tố của VKSND Tối cao.</p>\n<table align="center" border="0" cellpadding="3" cellspacing="0" class="tplCaption" style="margin: 0px auto 10px; padding: 0px; max-width: 100%; width: 480px;">\n    <tbody style="margin: 0px; padding: 0px;">\n        <tr style="margin: 0px; padding: 0px;">\n            <td style="margin: 0px; padding: 2px; line-height: 0;"><img alt="kien-7563-1397550340.jpg" src="http://m.f29.img.vnecdn.net/2014/04/15/kien-7563-1397550340.jpg" style="margin: 0px; padding: 0px; border: 0px; font-size: 0px; line-height: 0; max-width: 100%; width: 476.79998779296875px;" /></td>\n        </tr>\n        <tr style="margin: 0px; padding: 0px;">\n            <td style="margin: 0px; padding: 2px; line-height: 0;">\n            <p class="Image" style="margin: 0px; padding: 10px; line-height: normal; color: rgb(51, 51, 51); background-color: rgb(245, 245, 245);"><span style="margin: 0px; padding: 0px;">Bầu Kiên khi còn đương chức.</span></p>\n            </td>\n        </tr>\n    </tbody>\n</table>\n<p class="Normal" style="margin: 0px 0px 1em; padding: 0px; line-height: 18px;">Theo cáo buộc, từ năm 1993, ông Kiên sở hữu gần 3,8% cổ phiếu của ngân hàng ACB, giữ chức Phó chủ tịch HĐQT trong 14 năm (1994-2008), Chủ tịch Hội đồng đầu tư ngân hàng ACB trong 9 năm (2003-2012). Trong thời gian này, ông thành lập 6 công ty gồm: Công ty Cổ phần phát triển sản xuất và Xuất nhập khẩu Thiên Nam, Công ty cổ phần đầu tư Thương mại B&amp;B, Công ty cổ phần tập đoàn tài chính Á Châu, Công ty cổ phần Đầu tư ACB Hà Nội, Công ty cổ phần đầu tư Á Châu và công ty TNHH Đầu tư tài chính Á Châu Hà Nội. Cả 6 công ty đều do ông Kiên làm chủ tịch HĐQT.</p>\n<p class="Normal" style="margin: 0px 0px 1em; padding: 0px; line-height: 18px;">Theo cơ quan công tố, từ ngày 15/5/2007 đến ngày 3/8/2012, thông qua 6 công ty này, ông Kiên đã tổ chức kinh doanh không đúng với giấy phép khi mua bán cổ phần, cổ phiếu, vàng với tổng số tiền hơn 21.000 tỷ đồng.</p>\n<p class="Normal" style="margin: 0px 0px 1em; padding: 0px; line-height: 18px;">Ngoài kinh doanh trái phép, theo cơ quan công tố, ông Kiên còn có hành vi lừa đảo chiếm đoạt tài sản. Cụ thể, Công ty cổ phần đầu tư ACB Hà Nội (ACBI), thế chấp 20 triệu cổ phần Công ty cổ phần Thép Hoà Phát để đảm bảo nghĩa vụ trả nợ tại ngân hàng ACB. Song với tư cách là chủ tịch HĐQT, ông Kiên đã chỉ đạo Trần Ngọc Thanh (Giám đốc ACBI), Nguyễn Thị Hải Yến (kế toán trưởng) lập khống biên bản họp HĐQT và quyết định về việc bán số cổ phần để tạo lòng tin với Công ty TNHH một thành viên Thép Hoà Phát làm công ty này tin số cổ phần này đang được ACBI quản lý, chưa chuyển nhượng và có tranh chấp. Do vậy, ngày 21/5/2012, Giám đốc Công ty TNHH Một thành viên thép Hòa Phát đã ký hợp đồng mua 20 triệu cổ phần này và chuyển 264 tỷ đồng cho Công ty ACBI. Nguyễn Đức Kiên bị cho là chủ mưu lừa đảo trong vụ này và Thanh, Yến là đồng phạm giúp sức.</p>\n<p class="Normal" style="margin: 0px 0px 1em; padding: 0px; line-height: 18px;">Ở cáo buộc cố ý làm trái quy định nhà nước về quản lý kinh tế gây hậu quả nghiêm trọng, ngoài ông Kiên còn có nhiều lãnh đạo cao cấp của ACB bị cho có liên quan. Theo VKS, ngày 22/3/2010, Thường trực HĐQT ACB gồm các ông Trần Xuân Giá (<span style="margin: 0px; padding: 0px;">chủ tịch HĐQT)</span>, Lê Vũ Kỳ, Phạm Trung Cang, Trịnh Kim Quang (3 phó chủ tịch), Lý Xuân Hải (tổng giám đốc), Huỳnh Quang Tuấn (phó tổng giám đốc) cùng Nguyễn Đức Kiên ra quyết định về việc uỷ thác cho các cá nhân gửi tiền, ngoại tệ ở những tổ chức tín dụng. Từ ngày 27/6/2011 đến 5/9/2011, ông Hải đã uỷ quyền cho kế toán trưởng uỷ thác gần 720 tỷ đồng cho 19 nhân viên ngân hàng gửi tiết kiệm vào Vietinbank chi nhánh Nhà Bè và Vietinbank chi nhánh TP HCM. Lãi suất ghi trong hợp đồng là 14% một năm, lãi suất thỏa thuận ngoài hợp đồng từ 3,7 đến 13% một năm.</p>\n<p class="Normal" style="margin: 0px 0px 1em; padding: 0px; line-height: 18px;">Tuy nhiên, toàn bộ số tiền đã bị Huỳnh Thị Huyền Như (quyền trưởng phòng giao dịch Điên Biên Phủ thuộc Vietinbank chi nhánh TP HCM) sử dụng thủ đoạn gian dối để chiếm đoạt, gây thiệt hại cho Ngân hàng ACB.</p>\n<p class="Normal" style="margin: 0px 0px 1em; padding: 0px; line-height: 18px;">VKS còn phát hiện trong thời gian nắm giữ vai trò quan trọng tại ngân hàng ACB, ông Kiên cùng các ông Trần Xuân Giá, Trịnh Kim Quang, Phạm Trung Cang, Lê Vũ Kỳ, Lý Xuân Hải đã thống nhất ban hành chủ trương mua cổ phiếu trên thị trường chứng khoán và đầu tư cổ phiếu ACB gây thiệt hại gần 690 tỷ đồng. Các ông này bị cáo buộc phải chịu trách nhiệm hình sự vì gây thiệt hại cho ngân hàng ACB hơn 1.400 tỷ đồng.</p>\n<table align="center" border="1" cellpadding="1" cellspacing="0" class="tbl_insert" style="margin: 0px auto 10px; padding: 0px; max-width: 100%; width: 478.3999938964844px;">\n    <tbody style="margin: 0px; padding: 0px;">\n        <tr style="margin: 0px; padding: 0px;">\n            <td style="margin: 0px; padding: 5px; border: none;">\n            <p class="Normal" style="margin: 0px 0px 1em; padding: 0px; line-height: 18px; background-image: none; color: rgb(51, 51, 51); background-position: initial initial; background-repeat: initial initial;">9 người hầu tòa gồm:</p>\n            <p class="Normal" style="margin: 0px 0px 1em; padding: 0px; line-height: 18px; background-image: none; color: rgb(51, 51, 51); background-position: initial initial; background-repeat: initial initial;">1. Nguyễn Đức Kiên, 50 tuổi, bị truy tố tội Lừa đảo chiếm đoạt tài sản, Cố ý làm trái quy định nhà nước về quản lý kinh tế gây hậu quả nghiêm trọng, Trốn thuế, Kinh doanh trái phép. Trong số này ở tội Lừa đảo chiếm đoạt tài sản, khung hình phạt có thể lên tới án chung thân.</p>\n            <p class="Normal" style="margin: 0px 0px 1em; padding: 0px; line-height: 18px; background-image: none; color: rgb(51, 51, 51); background-position: initial initial; background-repeat: initial initial;">2. Trần Xuân Giá, 75 tuổi, tại ngoại, bị truy tố tội Cố ý làm trái quy định nhà nước về quản lý kinh tế gây hậu quả nghiêm trọng.</p>\n            <p class="Normal" style="margin: 0px 0px 1em; padding: 0px; line-height: 18px; background-image: none; color: rgb(51, 51, 51); background-position: initial initial; background-repeat: initial initial;">3. Lê Vũ Kỳ, 58 tuổi, tại ngoại, bị truy tố tội Cố ý làm trái quy định nhà nước về quản lý kinh tế gây hậu quả nghiêm trọng.</p>\n            <p class="Normal" style="margin: 0px 0px 1em; padding: 0px; line-height: 18px; background-image: none; color: rgb(51, 51, 51); background-position: initial initial; background-repeat: initial initial;">4. Trịnh Kim Quang, 60 tuổi, tại ngoại, bị truy tố tội Cố ý làm trái quy định nhà nước về quản lý kinh tế gây hậu quả nghiêm trọng.</p>\n            <p class="Normal" style="margin: 0px 0px 1em; padding: 0px; line-height: 18px; background-image: none; color: rgb(51, 51, 51); background-position: initial initial; background-repeat: initial initial;">5. Phạm Trung Cang, 60 tuổi, tại ngoại, bị truy tố tội Cố ý làm trái quy định nhà nước về quản lý kinh tế gây hậu quả nghiêm trọng.</p>\n            <p class="Normal" style="margin: 0px 0px 1em; padding: 0px; line-height: 18px; background-image: none; color: rgb(51, 51, 51); background-position: initial initial; background-repeat: initial initial;">6. Lý Xuân Hải, 49 tuổi, bị truy tố tội Cố ý làm trái quy định nhà nước về quản lý kinh tế gây hậu quả nghiêm trọng.</p>\n            <p class="Normal" style="margin: 0px 0px 1em; padding: 0px; line-height: 18px; background-image: none; color: rgb(51, 51, 51); background-position: initial initial; background-repeat: initial initial;">7. Huỳnh Quang Tuấn, 56 tuổi, tại ngoại, bị truy tố tội Cố ý làm trái quy định nhà nước về quản lý kinh tế gây hậu quả nghiêm trọng.</p>\n            <p class="Normal" style="margin: 0px 0px 1em; padding: 0px; line-height: 18px; background-image: none; color: rgb(51, 51, 51); background-position: initial initial; background-repeat: initial initial;">Khung hình phạt theo tội danh với ông Giá, Quang, Cang, Hải và Tuấn từ 10 đến 20 năm tù.</p>\n            <p class="Normal" style="margin: 0px 0px 1em; padding: 0px; line-height: 18px; background-image: none; color: rgb(51, 51, 51); background-position: initial initial; background-repeat: initial initial;">8. Trần Ngọc Thanh, 62 tuổi, bị truy tố tội Lừa đảo chiếm đoạt tài sản.</p>\n            <p class="Normal" style="margin: 0px 0px 1em; padding: 0px; line-height: 18px; background-image: none; color: rgb(51, 51, 51); background-position: initial initial; background-repeat: initial initial;">9. Nguyễn Thị Hải Yến, 45 tuổi, Lừa đảo chiếm đoạt tài sản.</p>\n            <p class="Normal" style="margin: 0px 0px 1em; padding: 0px; line-height: 18px; background-image: none; color: rgb(51, 51, 51); background-position: initial initial; background-repeat: initial initial;">Khung hình phạt với bị cáo Thanh, Yến từ 12 đến chung thân.</p>\n            </td>\n        </tr>\n    </tbody>\n</table>\n</div>\n</div>', '', '', '1397612244277.jpg', '08:37:24 - 16/04/2014', '', '', 'http://vnexpress.net/tin-tuc/phap-luat/bau-kien-hau-toa-2978196.html', '63', 1, 1, 220),
-(158, 'Công nghệ hàn chipset hiện đại nhất', 'cong-nghe-han-chipset-hien-dai-nhat', '', 'sửa chữa laptop', '<iframe width="500" height="300" src="//www.youtube.com/embed/E-a4e1a_ruQ" frameborder="0" allowfullscreen=""></iframe>', '', '', '1405062624150.png', '15:24:46 - 30/06/2014', '', '', '', '48', 1, 1, 185);
+(158, 'Công nghệ hàn chipset hiện đại nhất', 'cong-nghe-han-chipset-hien-dai-nhat', '', 'sửa chữa laptop', '<iframe width="500" height="300" src="//www.youtube.com/embed/E-a4e1a_ruQ" frameborder="0" allowfullscreen=""></iframe>', '', '', '1405062624150.png', '15:24:46 - 30/06/2014', '', '', '', '50', 1, 1, 185);
 
 -- --------------------------------------------------------
 
@@ -514,41 +504,24 @@ INSERT INTO `tbl_news` (`news_id`, `news_title`, `news_rewrite`, `news_author`, 
 -- Table structure for table `tbl_online`
 --
 
-CREATE TABLE IF NOT EXISTS `tbl_online` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE `tbl_online` (
+  `id` int(10) UNSIGNED NOT NULL,
   `time` varchar(100) CHARACTER SET utf8 NOT NULL,
   `user_ip` varchar(100) CHARACTER SET utf8 NOT NULL,
   `local` varchar(150) CHARACTER SET utf8 NOT NULL,
-  `date` int(10) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=25606 ;
+  `date` int(10) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tbl_online`
 --
 
 INSERT INTO `tbl_online` (`id`, `time`, `user_ip`, `local`, `date`) VALUES
-(25599, '1458668208', '127.0.0.1', '/index.php', 0),
-(25591, '1458668187', '127.0.0.1', '/index.php/tin-tuc/', 0),
-(25592, '1458668188', '127.0.0.1', '/index.php/tin-tuc/', 0),
-(25593, '1458668191', '127.0.0.1', '/index.php', 0),
-(25594, '1458668194', '127.0.0.1', '/index.php', 0),
-(25587, '1458668149', '127.0.0.1', '/index.php', 0),
-(25603, '1458668225', '127.0.0.1', '/index.php', 0),
-(25600, '1458668215', '127.0.0.1', '/index.php/san-pham-moi/', 0),
-(25601, '1458668217', '127.0.0.1', '/index.php', 0),
-(25602, '1458668220', '127.0.0.1', '/index.php/may-cat-cut-40m-03/p1508.html', 0),
-(25598, '1458668201', '127.0.0.1', '/index.php/tin-tuc/', 0),
-(25586, '1458668060', '127.0.0.1', '/index.php/page/gioi-thieu-ve-catdainox/111.html', 0),
-(25596, '1458668197', '127.0.0.1', '/index.php/tin-tuc/', 0),
-(25597, '1458668200', '127.0.0.1', '/index.php/tin-tuc/', 0),
-(25590, '1458668184', '127.0.0.1', '/index.php/tin-tuc/', 0),
-(25589, '1458668184', '127.0.0.1', '/index.php/tin-tuc/', 0),
-(25588, '1458668166', '127.0.0.1', '/index.php/tin-tuc/', 0),
-(25605, '1458668661', '127.0.0.1', '/index.php/page/gioi-thieu-ve-catdainox/111.html', 0),
-(25604, '1458668639', '127.0.0.1', '/index.php/tin-tuc/', 0),
-(25585, '1458668031', '127.0.0.1', '/index.php/tin-tuc/', 0),
-(25595, '1458668195', '127.0.0.1', '/index.php', 0);
+(26107, '1459219639', '::1', '/webmayhan/index.php', 0),
+(26108, '1459219666', '::1', '/webmayhan/index.php', 0),
+(26109, '1459219696', '::1', '/webmayhan/index.php', 0),
+(26105, '1459219079', '::1', '/webmayhan/index.php', 0),
+(26106, '1459219614', '::1', '/webmayhan/index.php', 0);
 
 -- --------------------------------------------------------
 
@@ -556,8 +529,8 @@ INSERT INTO `tbl_online` (`id`, `time`, `user_ip`, `local`, `date`) VALUES
 -- Table structure for table `tbl_order`
 --
 
-CREATE TABLE IF NOT EXISTS `tbl_order` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE `tbl_order` (
+  `id` int(10) UNSIGNED NOT NULL,
   `name` varchar(200) CHARACTER SET utf8 NOT NULL,
   `local` varchar(255) CHARACTER SET utf8 NOT NULL,
   `phone` varchar(100) CHARACTER SET utf8 NOT NULL,
@@ -578,9 +551,8 @@ CREATE TABLE IF NOT EXISTS `tbl_order` (
   `ship_method` int(10) NOT NULL,
   `status` int(10) NOT NULL,
   `user_id` int(10) NOT NULL,
-  `serial` text NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=122 ;
+  `serial` text NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tbl_order`
@@ -595,8 +567,8 @@ INSERT INTO `tbl_order` (`id`, `name`, `local`, `phone`, `email`, `info`, `price
 -- Table structure for table `tbl_page`
 --
 
-CREATE TABLE IF NOT EXISTS `tbl_page` (
-  `page_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE `tbl_page` (
+  `page_id` int(10) UNSIGNED NOT NULL,
   `page_title` varchar(255) NOT NULL,
   `page_rewrite` varchar(200) NOT NULL,
   `page_author` varchar(100) NOT NULL,
@@ -610,9 +582,8 @@ CREATE TABLE IF NOT EXISTS `tbl_page` (
   `page_date` varchar(100) NOT NULL,
   `page_view` int(10) NOT NULL,
   `page_status` int(1) NOT NULL DEFAULT '1',
-  `cago_id` int(10) unsigned NOT NULL,
-  PRIMARY KEY (`page_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=122 ;
+  `cago_id` int(10) UNSIGNED NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `tbl_page`
@@ -623,13 +594,13 @@ INSERT INTO `tbl_page` (`page_id`, `page_title`, `page_rewrite`, `page_author`, 
 (114, 'Kiểm tra đơn hàng', 'kiem-tra-don-hang', '', '', '&#160;Nội dung đang cập nhật...', '', '', '', '', '', '22:10:11 - 21/03/2016', 1, 1, 0),
 (105, 'Liên hệ với CATDAINOX', 'lien-he-voi-catdainox', '', '', '<p>&#160;Nội dung đang cập nhật...</p>', '', '', '', '', '', '22:08:35 - 21/03/2016', 54, 1, 0),
 (107, 'Điều khoản và điều kiện giao dịch', 'dieu-khoan-va-dieu-kien-giao-dich', '', '', '<p>&#160;Nội dung đang cập nhật...</p>', '', '', '', '', '', '22:07:27 - 21/03/2016', 51, 1, 0),
-(115, 'Chính sách bảo mật thanh toán', 'chinh-sach-bao-mat-thanh-toan', '', '', 'Đang cập nhật', '', '', '', '', '', '22:10:41 - 21/03/2016', 4, 1, 0),
+(115, 'Chính sách bảo mật thanh toán', 'chinh-sach-bao-mat-thanh-toan', '', '', 'Đang cập nhật', '', '', '', '', '', '22:10:41 - 21/03/2016', 38, 1, 0),
 (109, 'Quy chế hoạt động', 'quy-che-hoat-dong', '', '', '<p style="text-align: justify; ">&#160;Nội dung đang cập nhật...</p>', '', '', '', 'dsfgdfsgf', 'dfg', '22:07:00 - 21/03/2016', 110, 1, 0),
 (104, 'Trung tâm hỗ trợ khách hàng', 'trung-tam-ho-tro-khach-hang', '', '', '<p class="news_detail_description" style="margin: 0px; padding: 0px; color: gray; line-height: 18px; font-family: Tahoma, Geneva, sans-serif;">&#160;</p>\r\nNội dung đang cập nhật<br />\r\n<br type="_moz" />\r\n<p class="news_detail_description" style="margin: 0px; padding: 0px; color: gray; line-height: 18px; font-family: Tahoma, Geneva, sans-serif;">&#160;</p>\r\n<div class="news_detail_full" style="margin: 0px 10px; padding: 0px; clear: left; color: rgb(54, 54, 54); line-height: 18px; text-align: justify; font-family: Tahoma, Geneva, sans-serif;">&#160;</div>', '', '', '', '', '', '22:09:47 - 21/03/2016', 69, 1, 0),
 (111, 'Giới thiệu về CATDAINOX', 'gioi-thieu-ve-catdainox', '', '', '&#160;Nội dung đang cập nhật...', '', '', '', 'key', 'des', '22:06:35 - 21/03/2016', 100, 1, 0),
 (116, 'Chính sách định danh khách hàng', 'chinh-sach-dinh-danh-khach-hang', '', '', '&#160;Đang cập nhật...', '', '', '', '', '', '22:11:08 - 21/03/2016', 2, 1, 0),
 (117, 'Chính sách thanh toán', 'chinh-sach-thanh-toan', '', '', '&#160;', '', '', '', '', '', '22:11:20 - 21/03/2016', 1, 1, 0),
-(118, 'Chính sách giao hàng', 'chinh-sach-giao-hang', '', '', '&#160;', '', '', '', '', '', '22:11:29 - 21/03/2016', 1, 1, 0),
+(118, 'Chính sách giao hàng', 'chinh-sach-giao-hang', '', '', '&#160;', '', '', '', '', '', '22:11:29 - 21/03/2016', 2, 1, 0),
 (119, 'Chính sách đổi trả', 'chinh-sach-doi-tra', '', '', '&#160;', '', '', '', '', '', '22:11:38 - 21/03/2016', 1, 1, 0),
 (120, 'Chính sách bảo hành', 'chinh-sach-bao-hanh', '', '', '&#160;', '', '', '', '', '', '22:11:45 - 21/03/2016', 2, 1, 0),
 (121, 'Câu hỏi thường gặp', 'cau-hoi-thuong-gap', '', '', '&#160;', '', '', '', '', '', '22:12:05 - 21/03/2016', 2, 1, 0);
@@ -640,13 +611,12 @@ INSERT INTO `tbl_page` (`page_id`, `page_title`, `page_rewrite`, `page_author`, 
 -- Table structure for table `tbl_popup`
 --
 
-CREATE TABLE IF NOT EXISTS `tbl_popup` (
-  `pop_id` int(1) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `tbl_popup` (
+  `pop_id` int(1) NOT NULL,
   `pop_link` varchar(255) NOT NULL,
   `pop_images` varchar(255) NOT NULL,
-  `pop_status` int(11) NOT NULL,
-  PRIMARY KEY (`pop_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+  `pop_status` int(11) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tbl_popup`
@@ -661,8 +631,8 @@ INSERT INTO `tbl_popup` (`pop_id`, `pop_link`, `pop_images`, `pop_status`) VALUE
 -- Table structure for table `tbl_posts`
 --
 
-CREATE TABLE IF NOT EXISTS `tbl_posts` (
-  `post_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE `tbl_posts` (
+  `post_id` int(10) UNSIGNED NOT NULL,
   `post_title` varchar(200) CHARACTER SET utf8 NOT NULL,
   `post_title_rewrite` varchar(200) CHARACTER SET utf8 NOT NULL,
   `post_author` varchar(100) CHARACTER SET utf8 NOT NULL,
@@ -673,9 +643,8 @@ CREATE TABLE IF NOT EXISTS `tbl_posts` (
   `post_image` varchar(200) CHARACTER SET utf8 NOT NULL,
   `post_status` int(10) DEFAULT NULL,
   `post_date` varchar(200) NOT NULL,
-  `cate_id` int(10) NOT NULL,
-  PRIMARY KEY (`post_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=29 ;
+  `cate_id` int(10) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tbl_posts`
@@ -684,11 +653,11 @@ CREATE TABLE IF NOT EXISTS `tbl_posts` (
 INSERT INTO `tbl_posts` (`post_id`, `post_title`, `post_title_rewrite`, `post_author`, `post_info`, `post_value`, `post_tags`, `post_tags_rewrite`, `post_image`, `post_status`, `post_date`, `cate_id`) VALUES
 (1, 'Thiết kế website công ty', 'thiet-ke-website-cong-ty', 'admin', 'Thiết kế web công ty. <strong>Công ty thiết kế website North Star</strong> xin gửi tới Quý doanh nghiệp gói thiết kế web công ty', '<ul>\n    <li>Thời gian hoàn thành: 2 - 3 tuần</li>\n    <li>Bảo hành: Vĩnh viễn</li>\n    <li>Giao diện: Theo yêu cầu khách hàng</li>\n</ul>\n<br />\n<b>Gói website bao gồm:<br />\n<br />\n</b>\n<ul>\n    <li>Đăng ký 01 tên miền quốc tế dạng tencongty.com (hoặc .net, .org)</li>\n    <li>Đăng ký 01 năm lưu trữ website (hosting) dung lượng 200 MB, băng thông 5 GB (có thể nâng cấp dễ dàng khi cần)</li>\n    <li>Mã nguồn đã tối ưu hóa với máy tìm kiếm</li>\n    <li>Các URL chính đều rewrite tự động (VD: www.tenmien.com/ten-muc/tieu-de.htm)</li>\n    <li>Tư vấn quảng bá web vào Google</li>\n    <li>Thiết kế đồ họa giao diện</li>\n    <li>Lập trình các chức năng</li>\n    <li>Hướng dẫn, hỗ trợ quản trị thông tin</li>\n</ul>\n<br />\n<h3>Các chức năng của gói thiết kế website giới thiệu công ty</h3>\n<br />\n<ol>\n    <li>Trang chủ\n    <ul>\n        <li>Flash Slideshow</li>\n        <li>Giới thiệu tóm tắt</li>\n        <li>Các tin mới, tin nổi bật</li>\n        <li>Banner quảng cáo</li>\n    </ul>\n    </li>\n    <li>Giới thiệu\n    <ul>\n        <li>Các mục giới thiệu (không giới hạn số mục, tự động phân trang)</li>\n        <li>Xem chi tiết</li>\n        <li>Các thông tin giới thiệu khác</li>\n        <li>In ấn thông tin</li>\n        <li>Lưu thông tin</li>\n        <li>Download tin ra file Word</li>\n    </ul>\n    </li>\n    <li>Tin tức\n    <ul>\n        <li>Các mục tin (không giới hạn số mục, tự động phân trang)</li>\n        <li>Xem chi tiết</li>\n        <li>Tin mới hơn</li>\n        <li>Tin cũ hơn</li>\n        <li>In ấn tin</li>\n        <li>Lưu tin</li>\n        <li>Download tin ra file Word</li>\n    </ul>\n    </li>\n    <li>Album ảnh\n    <ul>\n        <li>Các album ảnh</li>\n        <li>Xem chi tiết các album</li>\n        <li>Xem hình ảnh dạng slideshow</li>\n        <li>Xem từng hình ảnh</li>\n    </ul>\n    </li>\n    <li>Tuyển dụng\n    <ul>\n        <li>Liệt kê các tin tuyển dụng (tiêu đề, vị trí, thời gian, hạn nộp hồ sơ)</li>\n        <li>Thông tin tuyển dụng khác</li>\n        <li>In ấn thông tin</li>\n        <li>Lưu thông tin</li>\n        <li>Download thông tin ra file Word</li>\n    </ul>\n    </li>\n    <li>Thăm dò ý kiến\n    <ul>\n        <li>Câu hỏi thăm dò</li>\n        <li>Các phương án lựa chọn</li>\n        <li>Xem kết quả</li>\n    </ul>\n    </li>\n    <li>Banner quảng cáo\n    <ul>\n        <li>Hiển thị banner theo nhiều vị trí, thứ tự</li>\n        <li>Mở liên kết khi click vào banner</li>\n    </ul>\n    </li>\n    <li>Tìm kiếm</li>\n    <li>Tiện ích\n    <ul>\n        <li>Thời tiết</li>\n        <li>Tỉ giá</li>\n    </ul>\n    </li>\n    <li>Thống kê\n    <ul>\n        <li>Số người đang tham gia</li>\n        <li>Số lượt truy cập</li>\n    </ul>\n    </li>\n    <li>Liên hệ\n    <ul>\n        <li>Thông tin liên hệ</li>\n        <li>Form liên hệ</li>\n    </ul>\n    </li>\n    <li>Bảng quản trị\n    <ul>\n        <li>Đăng nhập, thay đổi mật khẩu, thoát</li>\n        <li>Quản trị mục giới thiệu</li>\n        <li>Quản trị thông tin giới thiệu</li>\n        <li>Quản trị album</li>\n        <li>Quản trị hình ảnh</li>\n        <li>Quản trị mục tin tức</li>\n        <li>Quản trị tin tức</li>\n        <li>Quản trị tuyển dụng</li>\n        <li>Quản trị banner</li>\n        <li>Quản trị thăm dò</li>\n        <li>Theo dõi thống kê</li>\n        <li>Quản trị thanh menu (trên, dưới, trái)</li>\n        <li>Quản trị file upload</li>\n        <li><em>Giao diện tiếng Việt, dễ sử dụng, quản trị</em></li>\n        <li><em>Tích hợp bộ soạn thảo nội dung WYSIWYG tương tự Microsoft Words</em></li>\n        <li><em>* Quản trị: Tạo, sửa, xóa, cập nhật trạng thái, sắp xếp..</em></li>\n    </ul>\n    </li>\n</ol>', '', '', 'news_s207.png', 1, '26/03/2013', 52),
 (8, 'Thiết kế website rao vặt', 'thiet-ke-website-rao-vat', 'admin', 'Công ty thiết kế North Star xin gửi tới quý khách hàng gói thiết kế web rao vặt. Dưới đây là một số thông tin mang tính tham khảo. Để được tư vấn giải pháp chi tiết theo từng yêu cầu cụ thể, quý khách vui lòng liên hệ với bộ phận tư vấn', '<span>Quý khách đang có nhu cầu&#160;</span><a href="http://northstar.vn/cac-goi-thiet-ke-web.html">thiết kế web</a><span>&#160;đăng tin giao vặt. Northstar giới thiệu với quý khách hàng gói&#160;</span><a href="http://northstar.vn/cac-goi-thiet-ke-web.html">thiết kế website</a><span> rao vặt với các tính năng cơ bản sau:<br />\n</span>\n<h3>&#160;</h3>\n<table width="100%" cellspacing="0" cellpadding="0" border="0">\n    <tbody>\n        <tr>\n            <td><strong>I. CHỨC NĂNG WEBSITE</strong></td>\n        </tr>\n        <tr>\n            <td>\n            <table width="100%" cellspacing="1" cellpadding="3" border="0" bgcolor="#dedede">\n                <tbody>\n                    <tr>\n                        <th bgcolor="#ffffff">STT</th>\n                        <th bgcolor="#ffffff">Tính năng</th>\n                        <th bgcolor="#ffffff">Chi tiết tính năng</th>\n                        <th bgcolor="#ffffff">Mô tả tính năng</th>\n                    </tr>\n                    <tr>\n                        <td bgcolor="#ffffff">1</td>\n                        <td bgcolor="#ffffff"><strong>Giao diện</strong></td>\n                        <td bgcolor="#ffffff">\n                        <ul>\n                            <li>Logo</li>\n                            <li>Banner</li>\n                            <li>Khung website</li>\n                            <li>Hình ảnh</li>\n                        </ul>\n                        </td>\n                        <td bgcolor="#ffffff">Là bản thiết kế trang của website</td>\n                    </tr>\n                    <tr>\n                        <td bgcolor="#ffffff">2</td>\n                        <td bgcolor="#ffffff"><strong>Trang chủ</strong></td>\n                        <td bgcolor="#ffffff">\n                        <ul>\n                            <li>Danh sách mục hiển thị</li>\n                        </ul>\n                        </td>\n                        <td bgcolor="#ffffff">Là trang chính hiển thị các thông tin quan trọng và tiêu điểm của website</td>\n                    </tr>\n                    <tr>\n                        <td bgcolor="#ffffff">3</td>\n                        <td bgcolor="#ffffff"><strong>Nhà cung cấp sản phẩm</strong></td>\n                        <td bgcolor="#ffffff">\n                        <ul>\n                            <li>Bảng điều khiển tài khỏan</li>\n                            <li>Thông tin tài khoản</li>\n                            <li>Đăng ký</li>\n                            <li>Đăng nhập</li>\n                            <li>Sổ địa chỉ</li>\n                            <li>Đơn hàng – hóa đơn</li>\n                            <li>Thư đặt hàng</li>\n                            <li>Danh sách sản phẩm bán</li>\n                            <li>Chi tiết sản phẩm</li>\n                            <li>Danh sách khách hàng</li>\n                        </ul>\n                        </td>\n                        <td bgcolor="#ffffff">Cho phép nhà cung cấp có thể mở tài khoản trên website để bán hàng, quản lý đơn hàng, nhận thông tin từ quản trị web, cho phép theo dõi sản phẩm và quản lý khách hàng trên website…vvv</td>\n                    </tr>\n                    <tr>\n                        <td bgcolor="#ffffff">4</td>\n                        <td bgcolor="#ffffff"><strong>Khách hàng</strong></td>\n                        <td bgcolor="#ffffff">\n                        <ul>\n                            <li>Bảng điều khiển tài khoản</li>\n                            <li>Thông tin tài khoản</li>\n                            <li>Đăng ký</li>\n                            <li>Đăng nhập</li>\n                            <li>Sổ địa chỉ</li>\n                            <li>Đơn hàng – hóa đơn</li>\n                            <li>Thư đặt hàng</li>\n                            <li>Chi tiết sản phẩm</li>\n                        </ul>\n                        </td>\n                        <td bgcolor="#ffffff">Cho phép khách hàng có thể mở tài khoản trên website để đặt hàng, quản lý đơn hàng, nhận thông tin từ Quản trị web …vvv</td>\n                    </tr>\n                    <tr>\n                        <td bgcolor="#ffffff">5</td>\n                        <td bgcolor="#ffffff"><strong>Sản phẩm</strong></td>\n                        <td bgcolor="#ffffff">\n                        <ul>\n                            <li>Danh mục sản phẩm</li>\n                            <li>Danh sách sản phẩm</li>\n                            <li>Chi tiết sản phẩm</li>\n                            <li>Hình ảnh, video sản phẩm</li>\n                        </ul>\n                        </td>\n                        <td bgcolor="#ffffff">Cung cấp thông tin về danh mục sản phẩm và danh sách sản phẩm của doanh nghiệp</td>\n                    </tr>\n                    <tr>\n                        <td bgcolor="#ffffff">6</td>\n                        <td bgcolor="#ffffff"><strong>Sản phẩm bán chạy</strong></td>\n                        <td bgcolor="#ffffff">\n                        <ul>\n                            <li>Danh sách sản phẩm bán chạy</li>\n                        </ul>\n                        </td>\n                        <td bgcolor="#ffffff">Cung cấp thông tin về các sản phẩm bán chạy nhất</td>\n                    </tr>\n                    <tr>\n                        <td bgcolor="#ffffff">7</td>\n                        <td bgcolor="#ffffff"><strong>Sản phẩm mới</strong></td>\n                        <td bgcolor="#ffffff">\n                        <ul>\n                            <li>Danh sách sản phẩm mới</li>\n                        </ul>\n                        </td>\n                        <td bgcolor="#ffffff">Cung cấp thông tin về các sản phẩm mới</td>\n                    </tr>\n                    <tr>\n                        <td bgcolor="#ffffff">8</td>\n                        <td bgcolor="#ffffff"><strong>Sản phẩm khuyến mại</strong></td>\n                        <td bgcolor="#ffffff">\n                        <ul>\n                            <li>Danh sách sản phẩm khuyến mại</li>\n                        </ul>\n                        </td>\n                        <td bgcolor="#ffffff">Cung cấp thông tin về các sản phẩm khuyến mại</td>\n                    </tr>\n                    <tr>\n                        <td bgcolor="#ffffff">9</td>\n                        <td bgcolor="#ffffff"><strong>Sản phẩm liên quan</strong></td>\n                        <td bgcolor="#ffffff">\n                        <ul>\n                            <li>Danh sách sản phẩm liên quan</li>\n                        </ul>\n                        </td>\n                        <td bgcolor="#ffffff">Cung cấp thông tin về các sản phẩm liên quan</td>\n                    </tr>\n                    <tr>\n                        <td bgcolor="#ffffff">10</td>\n                        <td bgcolor="#ffffff"><strong>Lư sản phẩm</strong></td>\n                        <td bgcolor="#ffffff">\n                        <ul>\n                            <li>Danh sách sản phẩm lưu</li>\n                        </ul>\n                        </td>\n                        <td bgcolor="#ffffff">Cho phép khách hàng có thể lưu sản phẩm ưu thích sau khi xem</td>\n                    </tr>\n                    <tr>\n                        <td bgcolor="#ffffff">11</td>\n                        <td bgcolor="#ffffff"><strong>Đánh giá sản phẩm</strong></td>\n                        <td bgcolor="#ffffff">\n                        <ul>\n                            <li>Đánh giá sản phẩm theo SAO</li>\n                            <li>Kết quả đánh giá</li>\n                        </ul>\n                        </td>\n                        <td bgcolor="#ffffff">Cho phép khách hàng đánh giá các sản phẩm theo SAO.</td>\n                    </tr>\n                    <tr>\n                        <td bgcolor="#ffffff">12</td>\n                        <td bgcolor="#ffffff"><strong>So sánh sản phẩm</strong></td>\n                        <td bgcolor="#ffffff">\n                        <ul>\n                            <li>Danh sách sản phẩm so sánh</li>\n                            <li>Kết quả so sánh</li>\n                        </ul>\n                        </td>\n                        <td bgcolor="#ffffff">Cho phép khách hàng có thể so sánh sản phẩm</td>\n                    </tr>\n                    <tr>\n                        <td bgcolor="#ffffff">13</td>\n                        <td bgcolor="#ffffff"><strong>Top sản phẩm đã xem</strong></td>\n                        <td bgcolor="#ffffff">\n                        <ul>\n                            <li>Danh sách sản phẩm đã xem</li>\n                        </ul>\n                        </td>\n                        <td bgcolor="#ffffff">Cung cấp tính năng xem danh sách sản phẩm đã truy cập</td>\n                    </tr>\n                    <tr>\n                        <td bgcolor="#ffffff">14</td>\n                        <td bgcolor="#ffffff"><strong>Trình bày sản phẩm</strong></td>\n                        <td bgcolor="#ffffff">\n                        <ul>\n                            <li>Hiển thị kiểu lưới/danh sách</li>\n                            <li>Sắp xếp sản phẩm (theo giá, mã, tên, ngày đăng…)</li>\n                        </ul>\n                        </td>\n                        <td bgcolor="#ffffff">Cung cấp tính năng mở rộng hiển thị trên gian hàng</td>\n                    </tr>\n                    <tr>\n                        <td bgcolor="#ffffff">15</td>\n                        <td bgcolor="#ffffff"><strong>Đặt hàng</strong></td>\n                        <td bgcolor="#ffffff">\n                        <ul>\n                            <li>Giỏ hàng</li>\n                            <li>Thông tin khách hàng</li>\n                            <li>Đặt hàng</li>\n                        </ul>\n                        </td>\n                        <td bgcolor="#ffffff">Cho phép khách hàng đặt hàng trực tuyến thông qua website</td>\n                    </tr>\n                    <tr>\n                        <td bgcolor="#ffffff">16</td>\n                        <td bgcolor="#ffffff"><strong>Khuyến mại</strong></td>\n                        <td bgcolor="#ffffff">\n                        <ul>\n                            <li>Sản phẩm giảm giá</li>\n                            <li>Sản phẩm tặng kèm</li>\n                            <li>Sản phẩm miễn phí</li>\n                            <li>Sản phẩm dùng thử</li>\n                        </ul>\n                        </td>\n                        <td bgcolor="#ffffff">Cung cấp tính năng cho phép doanh nghiệp có thể đặt các trương trình khuyến mại thông qua bán sản phẩm</td>\n                    </tr>\n                    <tr>\n                        <td bgcolor="#ffffff">17</td>\n                        <td bgcolor="#ffffff"><strong>Top 20 từ khóa tìm kiếm</strong></td>\n                        <td bgcolor="#ffffff">\n                        <ul>\n                            <li>Danh sách từ khóa tìm kiếm</li>\n                        </ul>\n                        </td>\n                        <td bgcolor="#ffffff">Cung cấp tính năng hiển thị top 20 từ khóa tìm kiếm nhiều nhất (Từ khóa do ADMIN chỉ định)</td>\n                    </tr>\n                    <tr>\n                        <td bgcolor="#ffffff">18</td>\n                        <td bgcolor="#ffffff"><strong>Thông tin - Tin tức</strong></td>\n                        <td bgcolor="#ffffff">\n                        <ul>\n                            <li>Danh mục thông tin</li>\n                            <li>Danh sách thông tin</li>\n                            <li>Chi tiết thông tin</li>\n                            <li>Hình ảnh – video kèm theo</li>\n                        </ul>\n                        </td>\n                        <td bgcolor="#ffffff">Cho phép khách hàng đặt hàng trực tuyến thông qua website</td>\n                    </tr>\n                    <tr>\n                        <td bgcolor="#ffffff">19</td>\n                        <td bgcolor="#ffffff"><strong>Tiêu điểm</strong></td>\n                        <td bgcolor="#ffffff">\n                        <ul>\n                            <li>Danh sách tin tiêu điểm</li>\n                        </ul>\n                        </td>\n                        <td bgcolor="#ffffff">Cung cấp thông tin tiêu điểm được lựa chọn trong danh sách thông tin – tin tức công ty cung cấp</td>\n                    </tr>\n                    <tr>\n                        <td bgcolor="#ffffff">20</td>\n                        <td bgcolor="#ffffff"><strong>Tin mới</strong></td>\n                        <td bgcolor="#ffffff">\n                        <ul>\n                            <li>Danh sách tin mới</li>\n                        </ul>\n                        </td>\n                        <td bgcolor="#ffffff">Cung cấp thông tin mới từ danh sách thông tin – tin tức công ty cung cấp</td>\n                    </tr>\n                    <tr>\n                        <td bgcolor="#ffffff">21</td>\n                        <td bgcolor="#ffffff"><strong>Tin liên quan</strong></td>\n                        <td bgcolor="#ffffff">\n                        <ul>\n                            <li>Danh sách tin liên quan</li>\n                        </ul>\n                        </td>\n                        <td bgcolor="#ffffff">Cung cấp thông tin liên quan đến tin tức khách hàng đang xem</td>\n                    </tr>\n                    <tr>\n                        <td bgcolor="#ffffff">22</td>\n                        <td bgcolor="#ffffff"><strong>Rao vặt</strong></td>\n                        <td bgcolor="#ffffff">\n                        <ul>\n                            <li>Danh mục rao vặt</li>\n                            <li>Danh sách giao vặt</li>\n                            <li>Chi tiết rao vặt</li>\n                            <li>Hình ảnh – video</li>\n                        </ul>\n                        </td>\n                        <td bgcolor="#ffffff">Cho phép khách hàng có thể đăng tin rao vặt thông qua website</td>\n                    </tr>\n                    <tr>\n                        <td bgcolor="#ffffff">23</td>\n                        <td bgcolor="#ffffff"><strong>Top 10 rao vặt</strong></td>\n                        <td bgcolor="#ffffff">\n                        <ul>\n                            <li>Danh sách sản phẩm</li>\n                        </ul>\n                        </td>\n                        <td bgcolor="#ffffff">Hiển thị mỗi danh mục 10 tin đăng rao vặt tiêu biểu (có thể dùng cho khách hàng đăng tin vip)</td>\n                    </tr>\n                    <tr>\n                        <td bgcolor="#ffffff">24</td>\n                        <td bgcolor="#ffffff"><strong>Rao vặt mới</strong></td>\n                        <td bgcolor="#ffffff">\n                        <ul>\n                            <li>Danh sách sản phẩm</li>\n                        </ul>\n                        </td>\n                        <td bgcolor="#ffffff">Hiển thị mỗi những tin đăng rao vặt mới nhất</td>\n                    </tr>\n                    <tr>\n                        <td bgcolor="#ffffff">25</td>\n                        <td bgcolor="#ffffff"><strong>Rao vặt liên quan</strong></td>\n                        <td bgcolor="#ffffff">\n                        <ul>\n                            <li>Danh sách sản phẩm</li>\n                        </ul>\n                        </td>\n                        <td bgcolor="#ffffff">Hiển thị những tin đăng rao vặt liên quan đến tin đang xem.</td>\n                    </tr>\n                    <tr>\n                        <td bgcolor="#ffffff">26</td>\n                        <td bgcolor="#ffffff"><strong>Bộ lọc tìm kiếm sản phẩm</strong></td>\n                        <td bgcolor="#ffffff">\n                        <ul>\n                            <li>Danh mục lọc sản phẩm</li>\n                            <li>Danh sách lọc</li>\n                        </ul>\n                        </td>\n                        <td bgcolor="#ffffff">Cho phép khách hàng có thể tìm kiếm sản phẩm nhanh thông qua công cụ tìm kiếm</td>\n                    </tr>\n                    <tr>\n                        <td bgcolor="#ffffff">27</td>\n                        <td bgcolor="#ffffff"><strong>Tìm kiếm thông minh</strong></td>\n                        <td bgcolor="#ffffff">\n                        <ul>\n                            <li>Tìm kiếm đa năng</li>\n                            <li>Tìm kiếm thông minh</li>\n                            <li>&#160;</li>\n                            <li>Kết quả tìm kiếm</li>\n                            <li>&#160;</li>\n                            <li>Liên kết đến thông tin</li>\n                        </ul>\n                        </td>\n                        <td bgcolor="#ffffff">Cho phép khách hàng có thể tìm kiếm sản phẩm nhanh thông qua công cụ tìm kiếm. Công cụ tìm kiếm sẽ tự động liệt kê trên Textbox tìm kiếm.</td>\n                    </tr>\n                    <tr>\n                        <td bgcolor="#ffffff">28</td>\n                        <td bgcolor="#ffffff"><strong>Liên hệ</strong></td>\n                        <td bgcolor="#ffffff">\n                        <ul>\n                            <li>Thông tin liên hệ</li>\n                            <li>Form gửi email liên hệ</li>\n                        </ul>\n                        </td>\n                        <td bgcolor="#ffffff">Cung cấp thông tin liên hệ của quản trị web cho khách hàng. Khách hàng có thể gửi email phản hồi cho quản trị web bằng Form gửi email</td>\n                    </tr>\n                    <tr>\n                        <td bgcolor="#ffffff">29</td>\n                        <td bgcolor="#ffffff"><strong>Thống kê trực tuyến</strong></td>\n                        <td bgcolor="#ffffff">\n                        <ul>\n                            <li>Tổng lượt truy cập</li>\n                            <li>Số người đang online</li>\n                            <li>Số thành viên</li>\n                            <li>Tổng số gian hàng</li>\n                        </ul>\n                        </td>\n                        <td bgcolor="#ffffff">Cung cấp thông tin thống kê truy cập website cơ bản</td>\n                    </tr>\n                    <tr>\n                        <td bgcolor="#ffffff">30</td>\n                        <td bgcolor="#ffffff"><strong>Quảng cáo banner</strong></td>\n                        <td bgcolor="#ffffff">\n                        <ul>\n                            <li>Danh sách banner</li>\n                            <li>Vị trí banner</li>\n                            <li>Link liên kết</li>\n                        </ul>\n                        </td>\n                        <td bgcolor="#ffffff">Cho phép người quản trị có thể đặt các banner quảng cáo ở nhiều vị trí khác nhau.</td>\n                    </tr>\n                    <tr>\n                        <td bgcolor="#ffffff">31</td>\n                        <td bgcolor="#ffffff"><strong>Tối ứu hóa công cụ tìm kiếm</strong></td>\n                        <td bgcolor="#ffffff">\n                        <ul>\n                            <li>Tối ưu hóa theo tiêu chuẩn Google.com.vn</li>\n                        </ul>\n                        </td>\n                        <td bgcolor="#ffffff">Cung cấp khả năng thân thiện với hệ thống tìm kiếm nâng cao hiệu quả quảng cáo SEO trenen Google, Yahoo, Bing…vvv</td>\n                    </tr>\n                    <tr>\n                        <td bgcolor="#ffffff">32</td>\n                        <td bgcolor="#ffffff"><strong>Gian hàng đảm bảo</strong></td>\n                        <td bgcolor="#ffffff">\n                        <ul>\n                            <li>Gian hàng thường/gian hàng đảm bảo</li>\n                        </ul>\n                        </td>\n                        <td bgcolor="#ffffff">Cho phép có thể mở rộng phân loại gian hàng. (tính năng này chỉ chạy dùng với tính năng Nhà Cung cấp).</td>\n                    </tr>\n                    <tr>\n                        <td bgcolor="#ffffff">33</td>\n                        <td bgcolor="#ffffff"><strong>Hệ thống địa lý – khu vực</strong></td>\n                        <td bgcolor="#ffffff">\n                        <ul>\n                            <li>Danh sách tỉnh thành</li>\n                            <li>Danh sách huyện thi</li>\n                        </ul>\n                        </td>\n                        <td bgcolor="#ffffff">Cung cấp tính năng lọc doanh nghiệp và sản phẩm theo khu vực địa lý.</td>\n                    </tr>\n                    <tr>\n                        <td bgcolor="#ffffff">34</td>\n                        <td bgcolor="#ffffff"><strong>Đăng ký nhận tin</strong></td>\n                        <td bgcolor="#ffffff">\n                        <ul>\n                            <li>Đăng ký email</li>\n                            <li>Hệ thống gửi email bản tin</li>\n                            <li>Thông tin phương thức vận chuyển</li>\n                            <li>Hệ thống tính cước vận chuyển</li>\n                        </ul>\n                        </td>\n                        <td bgcolor="#ffffff">Cho phép khách hàng có thể nhận thông báo từ phía công ty</td>\n                    </tr>\n                    <tr>\n                        <td bgcolor="#ffffff">35</td>\n                        <td bgcolor="#ffffff"><strong>Hệ thống báo cáo</strong></td>\n                        <td bgcolor="#ffffff">\n                        <ul>\n                            <li>Báo cáo nhà cung cấp</li>\n                            <li>Báo cáo đơn hàng</li>\n                            <li>Báo cáo sản phẩm</li>\n                            <li>Báo cáo khách hàng</li>\n                        </ul>\n                        </td>\n                        <td bgcolor="#ffffff">Cung cấp tính năng báo cáo chuyên nghiệp cho người quản trị.</td>\n                    </tr>\n                    <tr>\n                        <td bgcolor="#ffffff">36</td>\n                        <td bgcolor="#ffffff"><strong>Tỉ giá vàng (Tự động)</strong></td>\n                        <td bgcolor="#ffffff">\n                        <ul>\n                            <li>Giá vàng mua vào</li>\n                            <li>Giá vàng bán ra</li>\n                        </ul>\n                        </td>\n                        <td bgcolor="#ffffff">Cung câp thông tin tỉ giá vàng hàng ngày.</td>\n                    </tr>\n                    <tr>\n                        <td bgcolor="#ffffff">37</td>\n                        <td bgcolor="#ffffff"><strong>Tỉ giá ngoại tệ (Tự động)</strong></td>\n                        <td bgcolor="#ffffff">\n                        <ul>\n                            <li>Danh sách tỉ giá ngoại tệ</li>\n                        </ul>\n                        </td>\n                        <td bgcolor="#ffffff">Cung cấp thông tin tỉ giá ngoại tệ hàng ngày.</td>\n                    </tr>\n                    <tr>\n                        <td bgcolor="#ffffff">38</td>\n                        <td bgcolor="#ffffff"><strong>Thông tin thời tiết (Tự động)</strong></td>\n                        <td bgcolor="#ffffff">\n                        <ul>\n                            <li>Thời tiết top tỉnh thành phố</li>\n                        </ul>\n                        </td>\n                        <td bgcolor="#ffffff">Cung cấp thông tin thời tiết về các thành phố lớn.</td>\n                    </tr>\n                    <tr>\n                        <td bgcolor="#ffffff">39</td>\n                        <td bgcolor="#ffffff"><strong>Bảng chứng khoán (Tự động)</strong></td>\n                        <td bgcolor="#ffffff">\n                        <ul>\n                            <li>Bảng chứng khoản lấy tự động</li>\n                        </ul>\n                        </td>\n                        <td bgcolor="#ffffff">Cung cấp thông tin giá chứng khoán hàng ngày.</td>\n                    </tr>\n                    <tr>\n                        <td bgcolor="#ffffff">40</td>\n                        <td bgcolor="#ffffff"><strong>Sitemap</strong></td>\n                        <td bgcolor="#ffffff">\n                        <ul>\n                            <li>Sơ đồ cây thư mục web</li>\n                        </ul>\n                        </td>\n                        <td bgcolor="#ffffff">Cấp cấp tính năng tự động tạo sơ đồ web cho trang. Tính năng này sẽ liệt kê cấu trúc toàn bộ hệ thống web, giúp người dùng truy cập tiện lợi và dễ dàng….</td>\n                    </tr>\n                    <tr>\n                        <td bgcolor="#ffffff">41</td>\n                        <td bgcolor="#ffffff"><strong>Hệ thống email tự động</strong></td>\n                        <td bgcolor="#ffffff">\n                        <ul>\n                            <li>Email đăng ký</li>\n                            <li>Email đặt hàng</li>\n                            <li>Email quên mật khẩu</li>\n                            <li>Email nhận bản tin</li>\n                            <li>Email thông báo</li>\n                        </ul>\n                        </td>\n                        <td bgcolor="#ffffff" colspan="3">Cung cấp tính năng gửi email tự động cho người dùng thông qua website.</td>\n                    </tr>\n                    <tr>\n                        <td bgcolor="#ffffff"><font color="red"><strong>Yêu cầu thêm</strong></font></td>\n                        <td bgcolor="#ffffff" align="center"><font color="red">Quý khách có thể yêu cầu thêm các module khác cho website doanh nghiệp của mình.</font></td>\n                    </tr>\n                </tbody>\n            </table>\n            </td>\n        </tr>\n        <tr>\n            <td>&#160;</td>\n        </tr>\n        <tr>\n            <td><strong>II.THÔNG TIN KỸ THUẬT</strong></td>\n        </tr>\n        <tr>\n            <td>- Trang web sử dụng kỹ thuật lập trình web động dựa trên ngôn ngữ kịch bản PHP<br />\n            - Thông tin được lưu trữ trên Hệ quản trị cơ sở dữ liệu PHP &amp; MYSQL Server.<br />\n            - Giao diện đồ họa: Photoshop CS5, Macromedial Flash Player.</td>\n        </tr>\n        <tr>\n            <td>&#160;</td>\n        </tr>\n        <tr>\n            <td><strong>III.HƯỚNG DẪN CHUẨN BỊ THÔNG TIN WEBSITE</strong></td>\n        </tr>\n        <tr>\n            <td>- Khi ký kết hợp đồng, Công ty Northstar sẽ hướng dẫn chuẩn bị nội dung cho trang web để khách hàng chuẩn bị.<br />\n            - Cho phép lập các thuộc tính sản phẩm top, bán chạy, hàng mới, khuyến mãi lên từng sản phẩm ( nếu có )</td>\n        </tr>\n        <tr>\n            <td>&#160;</td>\n        </tr>\n        <tr>\n            <td><strong>IV.CẬP NHẬT NỘI DUNG BAN ĐẦU</strong></td>\n        </tr>\n        <tr>\n            <td>Nếu thông tin sản phẩm của trang web được bàn giao trong thời gian 20 ngày sau khi ký Hợp đồng, Công ty Northstar sẽ hỗ trợ cập nhật ban đầu một số lượng về :<br />\n            - Thông tin sản phẩm lên trang web.<br />\n            - Ảnh sản phẩm lên trang web.<br />\n            - 01 bài viết giới thiệu về Công ty khách hàng.</td>\n        </tr>\n        <tr>\n            <td>&#160;</td>\n        </tr>\n        <tr>\n            <td><strong>V.ĐÀO TẠO, HƯỚNG DẪN SỬ DỤNG VÀ QUẢN TRỊ WEBSITE</strong></td>\n        </tr>\n        <tr>\n            <td>Thực hiện đào tạo tại Văn phòng Công ty khách hàng cho 02 cán bộ của khách hàng về sử dụng trang web (hoặc tại Công ty Northstar , hoặc qua Internet) bao gồm:<br />\n            - Đào tạo quản trị trang web trực tiếp trên máy tính. Thời gian: 02-03 ngày.<br />\n            - Khởi tạo các email trên máy chủ và hướng dẫn cài đặt, sử dụng email tại các máy trạm của khách hàng.<br />\n            - Cung cấp một tài liệu có đầy đủ 02 nội dung nói trên sau đào tạo.</td>\n        </tr>\n        <tr>\n            <td>&#160;</td>\n        </tr>\n        <tr>\n            <td><strong>VI.BÀN GIAO SẢN PHẨM</strong></td>\n        </tr>\n        <tr>\n            <td>- Bàn giao đĩa CD mã nguồn, tài liệu hướng dẫn sử dụng ( nếu có nhu cầu)<br />\n            - Ký biên bản nghiệm thu hợp đồng và chính thức đưa website vào sử dụng<br />\n            - Chuyển hóa đơn GTGT cho khách hàng.</td>\n        </tr>\n        <tr>\n            <td>&#160;</td>\n        </tr>\n        <tr>\n            <td><strong>VII.BẢO HÀNH WEBISTE</strong></td>\n        </tr>\n        <tr>\n            <td>- Dịch vụ bảo hành website có thời gian 05 năm từ ngày trang web được bàn giao. Cách thức nhận yêu cầu bảo hành qua email, điện thoại, Fax.<br />\n            - Phạm vi bảo hành bao gồm việc sửa lỗi của trang web nếu sai sót so với tính năng thiết kế, phát sinh lỗi trong khi sử dụng.<br />\n            - Thông báo cho khách hàng gia hạn sử dụng tên miền và duy trì hosting trước 01 tháng tại thời điểm hết hạn.</td>\n        </tr>\n        <tr>\n            <td>&#160;</td>\n        </tr>\n        <tr>\n            <td><strong>VII.HỖ TRỢ MIỄN PHÍ</strong></td>\n        </tr>\n        <tr>\n            <td>- Bảo hành source code 01 năm hoặc trong thời gian lưu trữ Hostinh tại Northstar.<br />\n            - Đăng ký tại các công cụ tìm kiếm phổ biến : Google …<br />\n            - Hướng dẫn biên tập miễn phí trong 01 tháng đầu tiên khi đã bàn giao website cho khách hàng.<br />\n            - Cài đặt email cho khách hàng.</td>\n        </tr>\n        <tr>\n            <td>&#160;</td>\n        </tr>\n        <tr>\n            <td><strong>IX.THỜI GIAN VÀ LỊCH TRÌNH: 6 - 8 ngày làm việc</strong></td>\n        </tr>\n        <tr>\n            <td>- Ngày 1-2: Hoàn thành giao diện thiết kế. - Ngày thứ 2-4: Lập trình website. - Ngày thứ 5: Chạy thử nghiệm và chỉnh sửa. - Ngày thứ 6: Hướng dẫn sử dụng, bàn giao - Bảo hành source code 01 năm hoặc trong thời gian lưu trữ Hosting tại Northstar - Đăng ký tại các công cụ tìm kiếm phổ biến : Google…</td>\n        </tr>\n        <tr>\n            <td>&#160;</td>\n        </tr>\n        <tr>\n            <td><strong>X.BÁO GIÁ VÀ THANH TOÁN</strong></td>\n        </tr>\n        <tr>\n            <td><strong>a. Báo giá:</strong><br />\n            <table cellspacing="1" cellpadding="3" border="0" bgcolor="#131313" align="center">\n                <tbody>\n                    <tr>\n                        <th bgcolor="#ffffff">STT</th>\n                        <th bgcolor="#ffffff">Hạng mục</th>\n                        <th bgcolor="#ffffff" align="center">Đơn giá&#160;<br />\n                        ( VNĐ )</th>\n                        <th bgcolor="#ffffff" align="center">Số lượng</th>\n                        <th bgcolor="#ffffff" align="center">Thành Tiền&#160;<br />\n                        ( VNĐ )</th>\n                    </tr>\n                    <tr>\n                        <td bgcolor="#ffffff">1</td>\n                        <td bgcolor="#ffffff">Khảo sát, Phân tích, Thiết kế và lập trình website</td>\n                        <td bgcolor="#ffffff">Liên hệ</td>\n                        <td bgcolor="#ffffff">1</td>\n                        <td bgcolor="#ffffff">Liên hệ</td>\n                    </tr>\n                    <tr>\n                        <td bgcolor="#ffffff">2</td>\n                        <td bgcolor="#ffffff">Email</td>\n                        <td bgcolor="#ffffff">Miễn phí</td>\n                        <td bgcolor="#ffffff">&#160;</td>\n                        <td bgcolor="#ffffff">Miễn phí</td>\n                    </tr>\n                    <tr>\n                        <td bgcolor="#ffffff">3</td>\n                        <td bgcolor="#ffffff">Máy chủ lưu trữ website</td>\n                        <td bgcolor="#ffffff">Liên hệ</td>\n                        <td bgcolor="#ffffff">12</td>\n                        <td bgcolor="#ffffff">Liên hệ</td>\n                    </tr>\n                    <tr>\n                        <td bgcolor="#ffffff">4</td>\n                        <td bgcolor="#ffffff">Đào tạo sử dung, Tài liệu hướng dẫn, CD mã nguồn, Cập nhật nội dung</td>\n                        <td bgcolor="#ffffff">Miễn phí</td>\n                        <td bgcolor="#ffffff">&#160;</td>\n                        <td bgcolor="#ffffff">Miễn phí</td>\n                    </tr>\n                    <tr>\n                        <td bgcolor="#ffffff" colspan="2"><strong>Tổng cộng</strong></td>\n                        <td bgcolor="#ffffff" colspan="3">&#160;</td>\n                    </tr>\n                </tbody>\n            </table>\n            <br />\n            <strong>b. Thanh toán:</strong>&#160;thanh toán làm 2 lần<br />\n            -&#160;<i>Lần 01</i>: Thanh toán 60% giá trị hợp đồng sau khi ký hợp đồng. Đây là điều kiện bắt buộc để bắt đầu dịch vụ<br />\n            -&#160;<i>Lần 02</i>: Thanh toán 40% giá trị hợp đồng ngay sau khi website xây dựng hoàn chỉnh, đưa vào hoạt động.<br />\n            -&#160;<i>Phương thức thanh toán</i>: Tiền VNĐ( Trực tiếp bằng tiền mặt hoặc chuyển khoản)</td>\n        </tr>\n        <tr>\n            <td><strong>Công Ty TNHH North Star Media</strong>&#160;sẽ mang lại cho quý khách một sản phẩm với những chức năng phù hợp và giao diện độc đáo nhằm mang lại hiệu quả cao trong công việc kinh doanh của khách hàng.</td>\n        </tr>\n    </tbody>\n</table>\n<h3><strong><u><br />\n</u></strong></h3>\n<center><h3><strong><u>Thông tin liên hệ</u></strong></h3>\n<div><strong>Công ty TNHH North Star Media.</strong></div>\n<h4><span>Địa chỉ : Số 100 - Kiều Mai - Phú Diễn - Hà Nội</span></h4>\n<div><strong>Hotline - 0974.136.509 Hoặc 0976.256.106</strong></div>\n</center>\n<br />\n<h3>&#160;</h3>\n<span><br type="_moz" />\n</span>', '', '', 'rao_vat.gif', NULL, '19/03/2013', 52),
-(2, 'Thiết kế website thương mại điện tử', 'thiet-ke-website-thuong-mai-dien-tu', 'admin', 'Thích hợp cho các doanh nghiệp chuyên về mua bán sản phẩm, hàng hóa qua mạng, hoặc các sàn giao dịch sản phẩm, hàng hóa. Cung cấp khả năng tích hợp gian hàng trực tuyến, rao vặt, trang tin tức, diễn đàn và nhiều chức năng khác tạo thành một cộng đồng kinh doanh trực tuyến mà chúng ta gọi chung là <b>Thương Mại Điện Tử</b>.', '<ul>\n    <li>Thời gian hoàn thành: 3 - 6 tuần</li>\n    <li>Bảo hành: Vĩnh viễn</li>\n</ul>\n<br />\n<b>Gói website bao gồm:</b>\n<ul>\n    <li>Đăng ký 01 tên miền quốc tế dạng tencongty.com (hoặc .net, .org)</li>\n    <li>Đăng ký 01 năm lưu trữ website (hosting) dung lượng 200 MB (có thể nâng cấp dễ dàng khi cần)</li>\n    <li>Mã nguồn đã tối ưu hóa với máy tìm kiếm</li>\n    <li>Các URL chính đều rewrite tự động (VD: www.tenmien.com/muc-san-pham/ten-san-pham.htm)</li>\n    <li>Tư vấn quảng bá web đạt thứ hạng cao ở Google</li>\n    <li>Thiết kế đồ họa giao diện</li>\n    <li>Lập trình các chức năng</li>\n    <li>Hướng dẫn, hỗ trợ quản trị thông tin</li>\n</ul>\n<br />\n<h3>Các chức năng của gói thiết kế website thương mại điện tử</h3>\n<br />\n<ol>\n    <li>Trang chủ</li>\n    <li>Giới thiệu\n    <ul>\n        <li>Các mục giới thiệu (không giới hạn số mục, tự động phân trang)</li>\n        <li>Xem chi tiết</li>\n        <li>Các thông tin giới thiệu khác</li>\n        <li>In ấn thông tin</li>\n        <li>Lưu thông tin</li>\n        <li>Download tin ra file Word</li>\n    </ul>\n    </li>\n    <li>Sản phẩm\n    <ul>\n        <li>Các mục sản phẩm (không giới hạn số mục, tự động phân trang)</li>\n        <li>Xem chi tiết sản phẩm\n        <ul>\n            <li>Đặc điểm, thông tin giới thiệu sản phẩm</li>\n            <li>Thời gian cập nhật</li>\n            <li>Số lượt xem sản phẩm</li>\n            <li>Các sản phẩm khác cùng mục</li>\n            <li>In ấn thông tin</li>\n            <li>Lưu sản phẩm</li>\n        </ul>\n        </li>\n    </ul>\n    </li>\n    <li>Giỏ hàng\n    <ul>\n        <li>Thêm sản phẩm vào giỏ</li>\n        <li>Xóa sản phẩm trong giỏ</li>\n        <li>Sửa số lượng sản phẩm</li>\n        <li>Tự động tính giá tiền</li>\n    </ul>\n    </li>\n    <li>Đặt hàng\n    <ul>\n        <li>Gửi đặt hàng theo đơn hàng (gồm các sản phẩm đã có trong Giỏ) vào email</li>\n    </ul>\n    </li>\n    <li>Tìm kiếm\n    <ul>\n        <li>Tìm kiếm theo từ khóa</li>\n    </ul>\n    </li>\n    <li>Hỗ trợ trực tuyến\n    <ul>\n        <li>Hiển thị thông tin hỗ trợ (Yahoo! Messenger, Skype, Hotline)</li>\n    </ul>\n    </li>\n    <li>Banner quảng cáo\n    <ul>\n        <li>Hiển thị banner theo nhiều vị trí, thứ tự</li>\n        <li>Mở liên kết khi click vào banner</li>\n    </ul>\n    </li>\n    <li>Tin tức\n    <ul>\n        <li>Các mục tin (không giới hạn số mục, tự động phân trang)</li>\n        <li>Xem chi tiết</li>\n        <li>Tin mới hơn</li>\n        <li>Tin cũ hơn</li>\n        <li>In ấn tin</li>\n        <li>Lưu tin</li>\n        <li>Download tin ra file Word</li>\n    </ul>\n    </li>\n    <li>Thăm dò ý kiến\n    <ul>\n        <li>Câu hỏi thăm dò</li>\n        <li>Các phương án lựa chọn</li>\n        <li>Xem kết quả</li>\n    </ul>\n    </li>\n    <li>Tiện ích\n    <ul>\n        <li>Thời tiết</li>\n        <li>Tỉ giá</li>\n    </ul>\n    </li>\n    <li>Thống kê\n    <ul>\n        <li>Số người đang tham gia</li>\n        <li>Số lượt truy cập</li>\n    </ul>\n    </li>\n    <li>Liên hệ\n    <ul>\n        <li>Thông tin liên hệ</li>\n        <li>Form liên hệ</li>\n    </ul>\n    </li>\n    <li>Bảng quản trị\n    <ul>\n        <li>Đăng nhập, thay đổi mật khẩu, thoát</li>\n        <li>Quản trị mục giới thiệu</li>\n        <li>Quản trị thông tin giới thiệu</li>\n        <li>Quản trị mục sản phẩm</li>\n        <li>Quản trị thông tin sản phẩm</li>\n        <li>Quản trị mục tin tức</li>\n        <li>Quản trị tin tức</li>\n        <li>Quản trị banner</li>\n        <li>Quản trị thăm dò</li>\n        <li>Theo dõi thống kê</li>\n        <li>Quản trị thanh menu (trên, dưới, trái)</li>\n        <li>Quản trị file upload</li>\n        <li><em>Giao diện tiếng Việt, dễ sử dụng, quản trị</em></li>\n        <li><em>Tích hợp bộ soạn thảo nội dung WYSIWYG tương tự Microsoft Words</em></li>\n        <li><em>* Quản trị: Tạo, sửa, xóa, cập nhật trạng thái, sắp xếp..</em></li>\n        <li>&#160;</li>\n    </ul>\n    </li>\n</ol>', '', '', '39-e-commerce.jpg', 1, '26/03/2013', 52);
-INSERT INTO `tbl_posts` (`post_id`, `post_title`, `post_title_rewrite`, `post_author`, `post_info`, `post_value`, `post_tags`, `post_tags_rewrite`, `post_image`, `post_status`, `post_date`, `cate_id`) VALUES
+(2, 'Thiết kế website thương mại điện tử', 'thiet-ke-website-thuong-mai-dien-tu', 'admin', 'Thích hợp cho các doanh nghiệp chuyên về mua bán sản phẩm, hàng hóa qua mạng, hoặc các sàn giao dịch sản phẩm, hàng hóa. Cung cấp khả năng tích hợp gian hàng trực tuyến, rao vặt, trang tin tức, diễn đàn và nhiều chức năng khác tạo thành một cộng đồng kinh doanh trực tuyến mà chúng ta gọi chung là <b>Thương Mại Điện Tử</b>.', '<ul>\n    <li>Thời gian hoàn thành: 3 - 6 tuần</li>\n    <li>Bảo hành: Vĩnh viễn</li>\n</ul>\n<br />\n<b>Gói website bao gồm:</b>\n<ul>\n    <li>Đăng ký 01 tên miền quốc tế dạng tencongty.com (hoặc .net, .org)</li>\n    <li>Đăng ký 01 năm lưu trữ website (hosting) dung lượng 200 MB (có thể nâng cấp dễ dàng khi cần)</li>\n    <li>Mã nguồn đã tối ưu hóa với máy tìm kiếm</li>\n    <li>Các URL chính đều rewrite tự động (VD: www.tenmien.com/muc-san-pham/ten-san-pham.htm)</li>\n    <li>Tư vấn quảng bá web đạt thứ hạng cao ở Google</li>\n    <li>Thiết kế đồ họa giao diện</li>\n    <li>Lập trình các chức năng</li>\n    <li>Hướng dẫn, hỗ trợ quản trị thông tin</li>\n</ul>\n<br />\n<h3>Các chức năng của gói thiết kế website thương mại điện tử</h3>\n<br />\n<ol>\n    <li>Trang chủ</li>\n    <li>Giới thiệu\n    <ul>\n        <li>Các mục giới thiệu (không giới hạn số mục, tự động phân trang)</li>\n        <li>Xem chi tiết</li>\n        <li>Các thông tin giới thiệu khác</li>\n        <li>In ấn thông tin</li>\n        <li>Lưu thông tin</li>\n        <li>Download tin ra file Word</li>\n    </ul>\n    </li>\n    <li>Sản phẩm\n    <ul>\n        <li>Các mục sản phẩm (không giới hạn số mục, tự động phân trang)</li>\n        <li>Xem chi tiết sản phẩm\n        <ul>\n            <li>Đặc điểm, thông tin giới thiệu sản phẩm</li>\n            <li>Thời gian cập nhật</li>\n            <li>Số lượt xem sản phẩm</li>\n            <li>Các sản phẩm khác cùng mục</li>\n            <li>In ấn thông tin</li>\n            <li>Lưu sản phẩm</li>\n        </ul>\n        </li>\n    </ul>\n    </li>\n    <li>Giỏ hàng\n    <ul>\n        <li>Thêm sản phẩm vào giỏ</li>\n        <li>Xóa sản phẩm trong giỏ</li>\n        <li>Sửa số lượng sản phẩm</li>\n        <li>Tự động tính giá tiền</li>\n    </ul>\n    </li>\n    <li>Đặt hàng\n    <ul>\n        <li>Gửi đặt hàng theo đơn hàng (gồm các sản phẩm đã có trong Giỏ) vào email</li>\n    </ul>\n    </li>\n    <li>Tìm kiếm\n    <ul>\n        <li>Tìm kiếm theo từ khóa</li>\n    </ul>\n    </li>\n    <li>Hỗ trợ trực tuyến\n    <ul>\n        <li>Hiển thị thông tin hỗ trợ (Yahoo! Messenger, Skype, Hotline)</li>\n    </ul>\n    </li>\n    <li>Banner quảng cáo\n    <ul>\n        <li>Hiển thị banner theo nhiều vị trí, thứ tự</li>\n        <li>Mở liên kết khi click vào banner</li>\n    </ul>\n    </li>\n    <li>Tin tức\n    <ul>\n        <li>Các mục tin (không giới hạn số mục, tự động phân trang)</li>\n        <li>Xem chi tiết</li>\n        <li>Tin mới hơn</li>\n        <li>Tin cũ hơn</li>\n        <li>In ấn tin</li>\n        <li>Lưu tin</li>\n        <li>Download tin ra file Word</li>\n    </ul>\n    </li>\n    <li>Thăm dò ý kiến\n    <ul>\n        <li>Câu hỏi thăm dò</li>\n        <li>Các phương án lựa chọn</li>\n        <li>Xem kết quả</li>\n    </ul>\n    </li>\n    <li>Tiện ích\n    <ul>\n        <li>Thời tiết</li>\n        <li>Tỉ giá</li>\n    </ul>\n    </li>\n    <li>Thống kê\n    <ul>\n        <li>Số người đang tham gia</li>\n        <li>Số lượt truy cập</li>\n    </ul>\n    </li>\n    <li>Liên hệ\n    <ul>\n        <li>Thông tin liên hệ</li>\n        <li>Form liên hệ</li>\n    </ul>\n    </li>\n    <li>Bảng quản trị\n    <ul>\n        <li>Đăng nhập, thay đổi mật khẩu, thoát</li>\n        <li>Quản trị mục giới thiệu</li>\n        <li>Quản trị thông tin giới thiệu</li>\n        <li>Quản trị mục sản phẩm</li>\n        <li>Quản trị thông tin sản phẩm</li>\n        <li>Quản trị mục tin tức</li>\n        <li>Quản trị tin tức</li>\n        <li>Quản trị banner</li>\n        <li>Quản trị thăm dò</li>\n        <li>Theo dõi thống kê</li>\n        <li>Quản trị thanh menu (trên, dưới, trái)</li>\n        <li>Quản trị file upload</li>\n        <li><em>Giao diện tiếng Việt, dễ sử dụng, quản trị</em></li>\n        <li><em>Tích hợp bộ soạn thảo nội dung WYSIWYG tương tự Microsoft Words</em></li>\n        <li><em>* Quản trị: Tạo, sửa, xóa, cập nhật trạng thái, sắp xếp..</em></li>\n        <li>&#160;</li>\n    </ul>\n    </li>\n</ol>', '', '', '39-e-commerce.jpg', 1, '26/03/2013', 52),
 (9, 'Thiết kế logo chuyên nghiệp', 'thiet-ke-logo-chuyen-nghiep', 'admin', 'Thiết kế web công ty. Công ty thiết kế website North Star xin gửi tới Quý doanh nghiệp gói thiết kế web công ty', '&#160;\n<table width="100%" border="0" cellpadding="3" cellspacing="3"  Verdana, Arial, Helvetica, sans-serif; background-color: rgb(240, 240, 240);">\n    <tbody>\n        <tr>\n            <td width="180" align="right" valign="middle"><span class="style80 style63"  rgb(0, 102, 153);"><strong>Giai đoạn 1 :</strong></span></td>\n            <td width="700"><span class="style80 style63"  rgb(0, 102, 153);"><strong>Thiết kế</strong></span></td>\n        </tr>\n        <tr>\n            <td width="180" align="right" valign="top">&#160;</td>\n            <td width="700" align="left" valign="top">\n            <p class="style68"><span class="style71"  rgb(74, 140, 132);">North Star thiết kế tối thiểu 4 mẫu đen trắng (hoặc màu), khách hàng lựa chọn&#160;1 đến 3 mẫu để chỉnh sửa. Trường hợp khách hàng không chọn được mẫu nào trong lần thiết kế lần đầu tiên, North Star sẽ thực hiện thiết kế lại lần 2, số lượng là 3 mẫu logo điều chỉnh tối đa khi nào khách hàng thấy vừa ý thì thôi</span></p>\n            <p class="style68"><span class="style71"  rgb(74, 140, 132);">Mẫu thiết kế sẽ được thực hiện trong vòng 7 ngày (hoặc theo thỏa thuận của hai bên)</span></p>\n            </td>\n        </tr>\n    </tbody>\n</table>\n<table width="100%" border="0" cellpadding="3" cellspacing="3"  Verdana, Arial, Helvetica, sans-serif; background-color: rgb(240, 240, 240);">\n    <tbody>\n        <tr>\n            <td width="180" align="right" valign="middle"><span class="style63"  rgb(0, 102, 153);"><strong>Giai đoạn 2 :</strong></span></td>\n            <td width="700"><span class="style15 style63"  rgb(0, 102, 153);"><strong>Phối màu</strong></span></td>\n        </tr>\n        <tr>\n            <td width="180" align="right" valign="top">&#160;</td>\n            <td width="700" align="left" valign="top">\n            <p class="style68"><span class="style71"  rgb(74, 140, 132);">Điều chỉnh mẫu được chọn theo ý của khách hàng và thực hiện phối 03 mẫu màu, căn cứ theo mẫu trắng đen mà khách hàng đã chọn.</span></p>\n            </td>\n        </tr>\n    </tbody>\n</table>\n<table width="100%" border="0" cellpadding="3" cellspacing="3"  Verdana, Arial, Helvetica, sans-serif; background-color: rgb(240, 240, 240);">\n    <tbody>\n        <tr>\n            <td width="180" align="right" valign="middle"><span class="style80 style63"  rgb(0, 102, 153);"><strong>Giai đoạn 3 :</strong></span></td>\n            <td width="700"><span class="style63 style5"  rgb(0, 102, 153);"><strong>Hoàn thiện</strong></span></td>\n        </tr>\n        <tr>\n            <td width="180" align="right" valign="top">&#160;</td>\n            <td width="700" align="left" valign="top">\n            <p class="style68"><span class="style71"  rgb(74, 140, 132);">Căn cứ theo mẫu Logo khách hàng chọn để thiết kế:</span></p>\n            <p class="style68"><span class="style71"  rgb(74, 140, 132);">- Danh thiếp (Card)</span></p>\n            <p class="style68"><span class="style71"  rgb(74, 140, 132);">- Bao thư nhỏ (120 x 220)</span></p>\n            <p class="style68"><span class="style71"  rgb(74, 140, 132);">-&#160;Bao thư khổ trung (170 x 220)</span></p>\n            <p class="style68"><span class="style71"  rgb(74, 140, 132);">-&#160;Bao thư lớn (250 x 350)</span></p>\n            <p class="style68"><span class="style71"  rgb(74, 140, 132);">- Giấy tiêu đề (200 x 300)</span></p>\n            <p class="style68"><span class="style71"  rgb(74, 140, 132);">- Thẻ nhân viên</span></p>\n            <p class="style68"><span class="style71"  rgb(74, 140, 132);">- Mẫu thư điện tử (E-mail)</span></p>\n            <p class="style68"><span class="style71"  rgb(74, 140, 132);">- Bảng hiệu công ty.</span></p>\n            </td>\n        </tr>\n    </tbody>\n</table>\n<table width="100%" border="0" cellpadding="3" cellspacing="3"  Verdana, Arial, Helvetica, sans-serif; background-color: rgb(240, 240, 240);">\n    <tbody>\n        <tr>\n            <td width="180" align="right" valign="middle"><span class="style80 style63"  rgb(0, 102, 153);"><strong>Giai đoạn 4 :</strong></span></td>\n            <td width="700"><span class="style63 style5"  rgb(0, 102, 153);"><strong>Kết thúc</strong></span></td>\n        </tr>\n        <tr>\n            <td width="180" align="right" valign="top">&#160;</td>\n            <td width="700" align="left" valign="top">\n            <p class="style68"><span class="style71"  rgb(74, 140, 132);">Sau khi có kết quả chọn màu, North Star bàn giao cho khách hàng một bộ hồ sơ gồm:</span></p>\n            <p class="style68"><span class="style71"  rgb(74, 140, 132);">+ Sách hướng dẫn sử dụng logo</span></p>\n            <p class="style68"><span class="style71"  rgb(74, 140, 132);">+ Bản tóm tắt ý nghĩa logo</span></p>\n            <p class="style68"><span class="style71"  rgb(74, 140, 132);">+ Hệ thống lưới caro hướng dẫn tỉ lệ quy cách</span></p>\n            <p class="style68"><span class="style71"  rgb(74, 140, 132);">+ Hệ thống màu quy định màu trong sử dụng logo</span>&#160;<span class="style71"  rgb(74, 140, 132);">(hệ màu CMYK, RGB, PANTONE)</span></p>\n            <p class="style68"><span class="style71"  rgb(74, 140, 132);">+ Các tình huống kích thước tỷ lệ &amp; màu nền không nên sử dụng trong logo</span></p>\n            <p class="style68"><span class="style71"  rgb(74, 140, 132);">+ Quy định giới hạn không gian logo</span></p>\n            <p class="style68"><span class="style71"  rgb(74, 140, 132);">+ Kích thước tối thiểu của logo</span></p>\n            <p class="style68"><span class="style71"  rgb(74, 140, 132);">+ Lưu hồ sơ gốc vào đĩa CDR có đuôi JPG, CorelDRAW hoặc Adobe IIlustrator.</span></p>\n            <p class="style68"><span class="style68 style82"><span class="style78"  rgb(102, 102, 102);"><img src="http://www.vietnamstart.com/images_2008/1-muiten.jpg" width="9" height="9" alt="" />&#160;Để biết thêm chi tiết vui lòng liên hệ với chúng tôi<br />\n            </span></span><br />\n            &#160;</p>\n            </td>\n        </tr>\n    </tbody>\n</table>', '', '', 'graphic-design.jpeg', NULL, '26/03/2013', 88),
 (10, 'Thiết kế bao bì sản phẩm', 'thiet-ke-bao-bi-san-pham', 'admin', '', '&#160;', '', '', 'Colorful-Floral-Design.jpg', NULL, '26/02/2013', 88),
-(11, 'Thiết kế catalogue - slogan', 'thiet-ke-catalogue---slogan', 'admin', '', '&#160;', '', '', 'design_services.jpg', NULL, '19/03/2013', 88),
+(11, 'Thiết kế catalogue - slogan', 'thiet-ke-catalogue---slogan', 'admin', '', '&#160;', '', '', 'design_services.jpg', NULL, '19/03/2013', 88);
+INSERT INTO `tbl_posts` (`post_id`, `post_title`, `post_title_rewrite`, `post_author`, `post_info`, `post_value`, `post_tags`, `post_tags_rewrite`, `post_image`, `post_status`, `post_date`, `cate_id`) VALUES
 (13, 'Seo website top 10 google', 'seo-website-top-10-google', 'admin', 'Bạn đang tìm kiếm một dịch vụ SEO Top 10 mà có thể giúp đảm bảo thứ hạng website của bạn trên các bộ máy tìm kiếm với thời gian thực hiện và giá cả hợp lý? GoodSEO.vn là một lựa chọn hàng đầu cho bạn và dưới đây là các lý do tại sao các bạn nên lựa chọn dịch vụ SEO Top 10 của chúng tôi để giúp cho website của bạn đạt được thứ hạng cao trên kết quả tìm kiếm.', '&#160;', '', '', 'seo.jpg', NULL, '27/02/2013', 124),
 (16, 'Hosting linux', 'hosting-linux', 'admin', '', '&#160;', '', '', 'Linux-Web-Hosting1.jpg', NULL, '27/02/2013', 126),
 (5, 'Thiết kế website bất động sản', 'thiet-ke-website-bat-dong-san', 'admin', 'Giải pháp <strong>thiết kế website bất động sản</strong> sẽ đem lại sự lựa chọn tốt nhất cho các doanh nghiệp bất động sản để xây dựng một website dự án bất động sản nhằm quảng bá dự án và cung cấp thông tin cho nhà đầu tư. <strong>Công ty thiết kế web chuyên nghiệp North Star</strong> chuyên thiết kế web bất động sản cho các công ty xây dựng, bất động sản, nhà đất hàng đầu tại Việt Nam.', '<ul>\n    <li>Thời gian hoàn thành: 3 - 6 tuần</li>\n    <li>Bảo hành: Vĩnh viễn</li>\n    <li>Giao diện: Theo yêu cầu khách hàng</li>\n</ul>\n<br />\n<b>Gói website bao gồm:</b>\n<ul>\n    <li>Đăng ký 01 tên miền quốc tế dạng tencongty.com (hoặc .net, .org)</li>\n    <li>Đăng ký 01 năm lưu trữ website (hosting) dung lượng 200 MB (có thể nâng cấp dễ dàng khi cần)</li>\n    <li>Mã nguồn đã tối ưu hóa với máy tìm kiếm</li>\n    <li>Các URL chính đều rewrite tự động (VD: www.tenmien.com/muc-san-pham/ten-san-pham.htm)</li>\n    <li>Tư vấn quảng bá web vào Google</li>\n    <li>Thiết kế đồ họa giao diện</li>\n    <li>Lập trình các chức năng</li>\n    <li>Hướng dẫn, hỗ trợ quản trị thông tin</li>\n</ul>\n<br />\n<h3>Các chức năng của gói thiết kế website bất động sản</h3>\n<br />\n<ol>\n    <li>Trang chủ</li>\n    <li>Giới thiệu\n    <ul>\n        <li>Các mục giới thiệu (không giới hạn số mục, tự động phân trang)</li>\n        <li>Xem chi tiết</li>\n        <li>Các thông tin giới thiệu khác</li>\n        <li>In ấn thông tin</li>\n        <li>Lưu thông tin</li>\n        <li>Download tin ra file Word</li>\n    </ul>\n    </li>\n    <li>Giới thiệu BĐS</li>\n    <li>Phân loại BĐS: Loại, Mức giá, Địa điểm...</li>\n    <li>Tìm kiếm nhanh</li>\n    <li>Tìm kiếm chi tiết theo phân loại</li>\n    <li>Banner quảng cáo\n    <ul>\n        <li>Hiển thị banner theo nhiều vị trí, thứ tự</li>\n        <li>Mở liên kết khi click vào banner</li>\n    </ul>\n    </li>\n    <li>Hỗ trợ trực tuyến\n    <ul>\n        <li>Hiển thị thông tin hỗ trợ (Yahoo! Messenger, Skype, Hotline)</li>\n    </ul>\n    </li>\n    <li>Tin tức\n    <ul>\n        <li>Các mục tin (không giới hạn số mục, tự động phân trang)</li>\n        <li>Xem chi tiết</li>\n        <li>Tin mới hơn</li>\n        <li>Tin cũ hơn</li>\n        <li>In ấn tin</li>\n        <li>Lưu tin</li>\n        <li>Download tin ra file Word</li>\n    </ul>\n    </li>\n    <li>Download</li>\n    <li>Thăm dò ý kiến\n    <ul>\n        <li>Câu hỏi thăm dò</li>\n        <li>Các phương án lựa chọn</li>\n        <li>Xem kết quả</li>\n    </ul>\n    </li>\n    <li>Tiện ích\n    <ul>\n        <li>Thời tiết</li>\n        <li>Tỉ giá</li>\n    </ul>\n    </li>\n    <li>Thống kê\n    <ul>\n        <li>Số người đang tham gia</li>\n        <li>Số lượt truy cập</li>\n    </ul>\n    </li>\n    <li>Liên hệ\n    <ul>\n        <li>Thông tin liên hệ</li>\n        <li>Form liên hệ</li>\n    </ul>\n    </li>\n    <li>Bảng quản trị\n    <ul>\n        <li>Đăng nhập, thay đổi mật khẩu, thoát</li>\n        <li>Quản trị mục giới thiệu</li>\n        <li>Quản trị thông tin giới thiệu</li>\n        <li>Quản trị mục bất động sản</li>\n        <li>Quản trị loại bất động sản</li>\n        <li>Quản trị thông tin bất động sản</li>\n        <li>Quản trị mục tin tức</li>\n        <li>Quản trị tin tức</li>\n        <li>Quản trị banner</li>\n        <li>Quản trị thăm dò</li>\n        <li>Theo dõi thống kê</li>\n        <li>Quản trị thanh menu (trên, dưới, trái)</li>\n        <li>Quản trị file upload</li>\n        <li><em>Giao diện tiếng Việt, dễ sử dụng, quản trị</em></li>\n        <li><em>Tích hợp bộ soạn thảo nội dung WYSIWYG tương tự Microsoft Words</em></li>\n        <li><em>* Quản trị: Tạo, sửa, xóa, cập nhật trạng thái, sắp xếp..</em></li>\n    </ul>\n    </li>\n</ol>', '', '', 'batdongsan.jpeg', NULL, '26/03/2013', 52),
@@ -712,30 +681,32 @@ INSERT INTO `tbl_posts` (`post_id`, `post_title`, `post_title_rewrite`, `post_au
 -- Table structure for table `tbl_products`
 --
 
-CREATE TABLE IF NOT EXISTS `tbl_products` (
-  `pro_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE `tbl_products` (
+  `pro_id` int(10) UNSIGNED NOT NULL,
   `pro_code` varchar(100) DEFAULT NULL,
   `pro_name` varchar(100) NOT NULL,
-  `pro_qty` int(10) unsigned NOT NULL,
+  `pro_qty` int(10) UNSIGNED NOT NULL,
   `pro_name_rewrite` varchar(200) NOT NULL,
   `pro_video` varchar(255) NOT NULL,
   `pro_status` char(1) NOT NULL DEFAULT '1',
   `pro_promotion` text NOT NULL,
   `pro_info` text NOT NULL,
   `pro_full` longtext NOT NULL,
-  `pro_price` int(10) unsigned NOT NULL,
-  `pro_market` int(10) unsigned NOT NULL,
+  `pro_description` longtext NOT NULL,
+  `pro_price` int(10) UNSIGNED NOT NULL,
+  `pro_market` int(10) UNSIGNED NOT NULL,
   `pro_new` int(1) NOT NULL,
   `pro_hot` int(1) NOT NULL,
   `pro_saleoff` int(1) NOT NULL,
   `pro_bestsale` int(1) NOT NULL,
   `pro_location` varchar(200) NOT NULL,
-  `pro_order` int(10) unsigned NOT NULL DEFAULT '0',
-  `pro_new_check` int(20) unsigned NOT NULL DEFAULT '0',
-  `pro_hot_check` int(20) unsigned NOT NULL DEFAULT '0',
-  `pro_saleoff_check` int(20) unsigned NOT NULL DEFAULT '0',
-  `pro_bestsale_check` int(20) unsigned NOT NULL DEFAULT '0',
+  `pro_order` int(10) UNSIGNED NOT NULL DEFAULT '0',
+  `pro_new_check` int(20) UNSIGNED NOT NULL DEFAULT '0',
+  `pro_hot_check` int(20) UNSIGNED NOT NULL DEFAULT '0',
+  `pro_saleoff_check` int(20) UNSIGNED NOT NULL DEFAULT '0',
+  `pro_bestsale_check` int(20) UNSIGNED NOT NULL DEFAULT '0',
   `pro_war` varchar(200) NOT NULL,
+  `pro_producer` varchar(200) NOT NULL,
   `pro_ship` varchar(200) NOT NULL,
   `pro_folderimg` varchar(150) NOT NULL,
   `pro_images` text NOT NULL,
@@ -745,31 +716,30 @@ CREATE TABLE IF NOT EXISTS `tbl_products` (
   `pro_buy` int(10) NOT NULL DEFAULT '0',
   `pro_key` text NOT NULL,
   `pro_des` text NOT NULL,
-  `cate_id` int(10) unsigned NOT NULL,
-  `cate_id_parent` int(10) NOT NULL,
-  PRIMARY KEY (`pro_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1516 ;
+  `cate_id` int(10) UNSIGNED NOT NULL,
+  `cate_id_parent` int(10) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `tbl_products`
 --
 
-INSERT INTO `tbl_products` (`pro_id`, `pro_code`, `pro_name`, `pro_qty`, `pro_name_rewrite`, `pro_video`, `pro_status`, `pro_promotion`, `pro_info`, `pro_full`, `pro_price`, `pro_market`, `pro_new`, `pro_hot`, `pro_saleoff`, `pro_bestsale`, `pro_location`, `pro_order`, `pro_new_check`, `pro_hot_check`, `pro_saleoff_check`, `pro_bestsale_check`, `pro_war`, `pro_ship`, `pro_folderimg`, `pro_images`, `pro_date`, `pro_view`, `pro_like`, `pro_buy`, `pro_key`, `pro_des`, `cate_id`, `cate_id_parent`) VALUES
-(1505, '', 'Máy cắt CUT-40M', 10, 'may-cat-cut-40m', '', '1', '', '', '&#160;', 10000000, 11500000, 1, 0, 0, 0, '', 0, 4294967295, 4294967295, 4294967295, 4294967295, '12 tháng', '', '22032016093617', 'a:1:{i:0;s:29:"22032016093617pro-home-03.png";}', '21:35:51 - 22/03/2016', 1, 0, 0, '', '', 468, 490),
-(1506, '', 'Máy cắt CUT-40M 01', 10, 'may-cat-cut-40m-01', '', '1', '', 'Hãng sản xuất: Mealer / Công suất tiêu thụ (KVA): 4.8 / Tấn số (Hz): 50/60 Hz / Dòng điện cắt (A): 40 / Chu kỳ tải (&amp;amp;permil;): 60 / Điện áp không tải tối đa (V): 230 / Độ dày cắt tối đa (mm): 1&amp;amp;tilde;12 / Áp suất khí nén (kg/cm2): 3&amp;amp;tilde;5 / Hiệu suất (&amp;amp;permil;): 85 / Trọng lượng (kg): 9 / Xuất xứ: - /', '&#160;<span style="color: rgb(51, 51, 51); font-family: Arial; line-height: 16px;">Hãng sản xuất:&#160;</span><b style="font-family: Arial; color: rgb(51, 51, 51); line-height: 16px;"><a href="http://www.vatgia.com/s/mealer" style="color: rgb(62, 62, 62); text-decoration: none;">Mealer</a></b><span style="color: rgb(51, 51, 51); font-family: Arial; line-height: 16px;">&#160;/ Công suất tiêu thụ (KVA):&#160;</span><b style="font-family: Arial; color: rgb(51, 51, 51); line-height: 16px;"><a href="http://www.vatgia.com/s/4.8" style="color: rgb(62, 62, 62); text-decoration: none;">4.8</a></b><span style="color: rgb(51, 51, 51); font-family: Arial; line-height: 16px;">&#160;/ Tấn số (Hz):&#160;</span><b style="font-family: Arial; color: rgb(51, 51, 51); line-height: 16px;"><a href="http://www.vatgia.com/s/50+60+hz" style="color: rgb(62, 62, 62); text-decoration: none;">50/60 Hz</a></b><span style="color: rgb(51, 51, 51); font-family: Arial; line-height: 16px;">&#160;/ Dòng điện cắt (A):&#160;</span><b style="font-family: Arial; color: rgb(51, 51, 51); line-height: 16px;"><a href="http://www.vatgia.com/s/40" style="color: rgb(62, 62, 62); text-decoration: none;">40</a></b><span style="color: rgb(51, 51, 51); font-family: Arial; line-height: 16px;">&#160;/ Chu kỳ tải (%):&#160;</span><b style="font-family: Arial; color: rgb(51, 51, 51); line-height: 16px;"><a href="http://www.vatgia.com/s/60" style="color: rgb(62, 62, 62); text-decoration: none;">60</a></b><span style="color: rgb(51, 51, 51); font-family: Arial; line-height: 16px;">/ Điện áp không tải tối đa (V):&#160;</span><b style="font-family: Arial; color: rgb(51, 51, 51); line-height: 16px;"><a href="http://www.vatgia.com/s/230" style="color: rgb(62, 62, 62); text-decoration: none;">230</a></b><span style="color: rgb(51, 51, 51); font-family: Arial; line-height: 16px;">&#160;/ Độ dày cắt tối đa (mm):&#160;</span><b style="font-family: Arial; color: rgb(51, 51, 51); line-height: 16px;"><a href="http://www.vatgia.com/s/1~12" style="color: rgb(62, 62, 62); text-decoration: none;">1~12</a></b><span style="color: rgb(51, 51, 51); font-family: Arial; line-height: 16px;">&#160;/ Áp suất khí nén (kg/cm2):&#160;</span><b style="font-family: Arial; color: rgb(51, 51, 51); line-height: 16px;"><a href="http://www.vatgia.com/s/3~5" style="color: rgb(62, 62, 62); text-decoration: none;">3~5</a></b><span style="color: rgb(51, 51, 51); font-family: Arial; line-height: 16px;">&#160;/ Hiệu suất (%):&#160;</span><b style="font-family: Arial; color: rgb(51, 51, 51); line-height: 16px;"><a href="http://www.vatgia.com/s/85" style="color: rgb(62, 62, 62); text-decoration: none;">85</a></b><span style="color: rgb(51, 51, 51); font-family: Arial; line-height: 16px;">&#160;/ Trọng lượng (kg):&#160;</span><b style="font-family: Arial; color: rgb(51, 51, 51); line-height: 16px;"><a href="http://www.vatgia.com/s/9" style="color: rgb(62, 62, 62); text-decoration: none;">9</a></b><span style="color: rgb(51, 51, 51); font-family: Arial; line-height: 16px;">&#160;/ Xuất xứ:&#160;</span><b style="font-family: Arial; color: rgb(51, 51, 51); line-height: 16px;"><a href="http://www.vatgia.com/s/-" style="color: rgb(62, 62, 62); text-decoration: none;">- /</a></b>', 10000000, 11500000, 1, 0, 0, 0, '', 0, 4294967295, 4294967295, 4294967295, 4294967295, '12 tháng ', '', '22032016093736', 'a:1:{i:0;s:29:"22032016093736pro-home-02.png";}', '21:37:36 - 22/03/2016', 0, 0, 0, '', '', 468, 491),
-(1507, '', 'Máy cắt CUT-40M 02', 10, 'may-cat-cut-40m-02', '', '1', '', 'Hãng sản xuất: Mealer / Công suất tiêu thụ (KVA): 4.8 / Tấn số (Hz): 50/60 Hz / Dòng điện cắt (A): 40 / Chu kỳ tải (&amp;permil;): 60 / Điện áp không tải tối đa (V): 230 / Độ dày cắt tối đa (mm): 1&amp;tilde;12 / Áp suất khí nén (kg/cm2): 3&amp;tilde;5 / Hiệu suất (&amp;permil;): 85 / Trọng lượng (kg): 9 / Xuất xứ: - /', '<span style="color: rgb(51, 51, 51); font-family: Arial; line-height: 16px;">Hãng sản xuất:&#160;</span><b style="font-family: Arial; color: rgb(51, 51, 51); line-height: 16px;"><a href="http://www.vatgia.com/s/mealer" style="color: rgb(62, 62, 62); text-decoration: none;">Mealer</a></b><span style="color: rgb(51, 51, 51); font-family: Arial; line-height: 16px;">&#160;/ Công suất tiêu thụ (KVA):&#160;</span><b style="font-family: Arial; color: rgb(51, 51, 51); line-height: 16px;"><a href="http://www.vatgia.com/s/4.8" style="color: rgb(62, 62, 62); text-decoration: none;">4.8</a></b><span style="color: rgb(51, 51, 51); font-family: Arial; line-height: 16px;">&#160;/ Tấn số (Hz):&#160;</span><b style="font-family: Arial; color: rgb(51, 51, 51); line-height: 16px;"><a href="http://www.vatgia.com/s/50+60+hz" style="color: rgb(62, 62, 62); text-decoration: none;">50/60 Hz</a></b><span style="color: rgb(51, 51, 51); font-family: Arial; line-height: 16px;">&#160;/ Dòng điện cắt (A):&#160;</span><b style="font-family: Arial; color: rgb(51, 51, 51); line-height: 16px;"><a href="http://www.vatgia.com/s/40" style="color: rgb(62, 62, 62); text-decoration: none;">40</a></b><span style="color: rgb(51, 51, 51); font-family: Arial; line-height: 16px;">&#160;/ Chu kỳ tải (%):&#160;</span><b style="font-family: Arial; color: rgb(51, 51, 51); line-height: 16px;"><a href="http://www.vatgia.com/s/60" style="color: rgb(62, 62, 62); text-decoration: none;">60</a></b><span style="color: rgb(51, 51, 51); font-family: Arial; line-height: 16px;">/ Điện áp không tải tối đa (V):&#160;</span><b style="font-family: Arial; color: rgb(51, 51, 51); line-height: 16px;"><a href="http://www.vatgia.com/s/230" style="color: rgb(62, 62, 62); text-decoration: none;">230</a></b><span style="color: rgb(51, 51, 51); font-family: Arial; line-height: 16px;">&#160;/ Độ dày cắt tối đa (mm):&#160;</span><b style="font-family: Arial; color: rgb(51, 51, 51); line-height: 16px;"><a href="http://www.vatgia.com/s/1~12" style="color: rgb(62, 62, 62); text-decoration: none;">1~12</a></b><span style="color: rgb(51, 51, 51); font-family: Arial; line-height: 16px;">&#160;/ Áp suất khí nén (kg/cm2):&#160;</span><b style="font-family: Arial; color: rgb(51, 51, 51); line-height: 16px;"><a href="http://www.vatgia.com/s/3~5" style="color: rgb(62, 62, 62); text-decoration: none;">3~5</a></b><span style="color: rgb(51, 51, 51); font-family: Arial; line-height: 16px;">&#160;/ Hiệu suất (%):&#160;</span><b style="font-family: Arial; color: rgb(51, 51, 51); line-height: 16px;"><a href="http://www.vatgia.com/s/85" style="color: rgb(62, 62, 62); text-decoration: none;">85</a></b><span style="color: rgb(51, 51, 51); font-family: Arial; line-height: 16px;">&#160;/ Trọng lượng (kg):&#160;</span><b style="font-family: Arial; color: rgb(51, 51, 51); line-height: 16px;"><a href="http://www.vatgia.com/s/9" style="color: rgb(62, 62, 62); text-decoration: none;">9</a></b><span style="color: rgb(51, 51, 51); font-family: Arial; line-height: 16px;">&#160;/ Xuất xứ:&#160;</span><b style="font-family: Arial; color: rgb(51, 51, 51); line-height: 16px;"><a href="http://www.vatgia.com/s/-" style="color: rgb(62, 62, 62); text-decoration: none;">- /</a></b>', 10000000, 11500000, 1, 0, 0, 0, '', 0, 4294967295, 4294967295, 4294967295, 4294967295, '', '', '22032016093810', 'a:1:{i:0;s:29:"22032016093810pro-home-01.jpg";}', '21:38:10 - 22/03/2016', 0, 0, 0, '', '', 468, 494),
-(1508, '', 'Máy cắt CUT-40M 03', 10, 'may-cat-cut-40m-03', '', '1', '', 'Hãng sản xuất: Mealer / Công suất tiêu thụ (KVA): 4.8 / Tấn số (Hz): 50/60 Hz / Dòng điện cắt (A): 40 / Chu kỳ tải (&amp;amp;permil;): 60 / Điện áp không tải tối đa (V): 230 / Độ dày cắt tối đa (mm): 1&amp;amp;tilde;12 / Áp suất khí nén (kg/cm2): 3&amp;amp;tilde;5 / Hiệu suất (&amp;amp;permil;): 85 / Trọng lượng (kg): 9 / Xuất xứ: - /', '&#160;<span style="color: rgb(51, 51, 51); font-family: Arial; line-height: 16px;">Hãng sản xuất:&#160;</span><b style="font-family: Arial; color: rgb(51, 51, 51); line-height: 16px;"><a href="http://www.vatgia.com/s/mealer" style="color: rgb(62, 62, 62); text-decoration: none;">Mealer</a></b><span style="color: rgb(51, 51, 51); font-family: Arial; line-height: 16px;">&#160;/ Công suất tiêu thụ (KVA):&#160;</span><b style="font-family: Arial; color: rgb(51, 51, 51); line-height: 16px;"><a href="http://www.vatgia.com/s/4.8" style="color: rgb(62, 62, 62); text-decoration: none;">4.8</a></b><span style="color: rgb(51, 51, 51); font-family: Arial; line-height: 16px;">&#160;/ Tấn số (Hz):&#160;</span><b style="font-family: Arial; color: rgb(51, 51, 51); line-height: 16px;"><a href="http://www.vatgia.com/s/50+60+hz" style="color: rgb(62, 62, 62); text-decoration: none;">50/60 Hz</a></b><span style="color: rgb(51, 51, 51); font-family: Arial; line-height: 16px;">&#160;/ Dòng điện cắt (A):&#160;</span><b style="font-family: Arial; color: rgb(51, 51, 51); line-height: 16px;"><a href="http://www.vatgia.com/s/40" style="color: rgb(62, 62, 62); text-decoration: none;">40</a></b><span style="color: rgb(51, 51, 51); font-family: Arial; line-height: 16px;">&#160;/ Chu kỳ tải (%):&#160;</span><b style="font-family: Arial; color: rgb(51, 51, 51); line-height: 16px;"><a href="http://www.vatgia.com/s/60" style="color: rgb(62, 62, 62); text-decoration: none;">60</a></b><span style="color: rgb(51, 51, 51); font-family: Arial; line-height: 16px;">/ Điện áp không tải tối đa (V):&#160;</span><b style="font-family: Arial; color: rgb(51, 51, 51); line-height: 16px;"><a href="http://www.vatgia.com/s/230" style="color: rgb(62, 62, 62); text-decoration: none;">230</a></b><span style="color: rgb(51, 51, 51); font-family: Arial; line-height: 16px;">&#160;/ Độ dày cắt tối đa (mm):&#160;</span><b style="font-family: Arial; color: rgb(51, 51, 51); line-height: 16px;"><a href="http://www.vatgia.com/s/1~12" style="color: rgb(62, 62, 62); text-decoration: none;">1~12</a></b><span style="color: rgb(51, 51, 51); font-family: Arial; line-height: 16px;">&#160;/ Áp suất khí nén (kg/cm2):&#160;</span><b style="font-family: Arial; color: rgb(51, 51, 51); line-height: 16px;"><a href="http://www.vatgia.com/s/3~5" style="color: rgb(62, 62, 62); text-decoration: none;">3~5</a></b><span style="color: rgb(51, 51, 51); font-family: Arial; line-height: 16px;">&#160;/ Hiệu suất (%):&#160;</span><b style="font-family: Arial; color: rgb(51, 51, 51); line-height: 16px;"><a href="http://www.vatgia.com/s/85" style="color: rgb(62, 62, 62); text-decoration: none;">85</a></b><span style="color: rgb(51, 51, 51); font-family: Arial; line-height: 16px;">&#160;/ Trọng lượng (kg):&#160;</span><b style="font-family: Arial; color: rgb(51, 51, 51); line-height: 16px;"><a href="http://www.vatgia.com/s/9" style="color: rgb(62, 62, 62); text-decoration: none;">9</a></b><span style="color: rgb(51, 51, 51); font-family: Arial; line-height: 16px;">&#160;/ Xuất xứ:&#160;</span><b style="font-family: Arial; color: rgb(51, 51, 51); line-height: 16px;"><a href="http://www.vatgia.com/s/-" style="color: rgb(62, 62, 62); text-decoration: none;">- /</a></b>', 10000000, 11500000, 1, 0, 0, 0, '', 0, 4294967295, 4294967295, 4294967295, 4294967295, '', '', '22032016093913', 'a:1:{i:0;s:29:"22032016093913pro-home-03.png";}', '21:38:58 - 22/03/2016', 2, 0, 0, '', '', 466, 501),
-(1509, '', 'Máy cắt CUT-40M 04', 10, 'may-cat-cut-40m-04', '', '1', '', 'Hãng sản xuất: Mealer / Công suất tiêu thụ (KVA): 4.8 / Tấn số (Hz): 50/60 Hz / Dòng điện cắt (A): 40 / Chu kỳ tải (&amp;permil;): 60 / Điện áp không tải tối đa (V): 230 / Độ dày cắt tối đa (mm): 1&amp;tilde;12 / Áp suất khí nén (kg/cm2): 3&amp;tilde;5 / Hiệu suất (&amp;permil;): 85 / Trọng lượng (kg): 9 / Xuất xứ: - /', '&#160;', 10000000, 12500000, 1, 0, 0, 0, '', 0, 4294967295, 4294967295, 4294967295, 4294967295, '', '', '22032016093958', 'a:1:{i:0;s:29:"22032016093958pro-home-01.jpg";}', '21:39:58 - 22/03/2016', 0, 0, 0, '', '', 470, 507),
-(1510, '', 'Máy cắt CUT-40M 05', 10, 'may-cat-cut-40m-05', '', '1', '', 'Hãng sản xuất: Mealer / Công suất tiêu thụ (KVA): 4.8 / Tấn số (Hz): 50/60 Hz / Dòng điện cắt (A): 40 / Chu kỳ tải (&amp;permil;): 60 / Điện áp không tải tối đa (V): 230 / Độ dày cắt tối đa (mm): 1&amp;tilde;12 / Áp suất khí nén (kg/cm2): 3&amp;tilde;5 / Hiệu suất (&amp;permil;): 85 / Trọng lượng (kg): 9 / Xuất xứ: - /', '&#160;', 10000000, 11500000, 1, 0, 0, 0, '', 0, 4294967295, 4294967295, 4294967295, 4294967295, '', '', '22032016094020', 'a:1:{i:0;s:29:"22032016094020pro-home-02.png";}', '21:40:20 - 22/03/2016', 0, 0, 0, '', '', 470, 508),
-(1511, '', 'Máy cắt CUT-40M 06', 10, 'may-cat-cut-40m-06', '', '1', '', 'Hãng sản xuất: Mealer / Công suất tiêu thụ (KVA): 4.8 / Tấn số (Hz): 50/60 Hz / Dòng điện cắt (A): 40 / Chu kỳ tải (&amp;permil;): 60 / Điện áp không tải tối đa (V): 230 / Độ dày cắt tối đa (mm): 1&amp;tilde;12 / Áp suất khí nén (kg/cm2): 3&amp;tilde;5 / Hiệu suất (&amp;permil;): 85 / Trọng lượng (kg): 9 / Xuất xứ: - /', '&#160;', 10000000, 11500000, 1, 0, 0, 0, '', 0, 4294967295, 4294967295, 4294967295, 4294967295, '', '', '22032016094045', 'a:1:{i:0;s:29:"22032016094045pro-home-02.png";}', '21:40:45 - 22/03/2016', 0, 0, 0, '', '', 470, 509),
-(1512, '', 'Máy uốn CUT-40M', 10, 'may-uon-cut-40m', '', '1', '', '', '&#160;', 10000000, 12500000, 0, 0, 0, 0, '', 0, 0, 0, 0, 0, '', '', '23032016122229', 'a:1:{i:0;s:29:"23032016122229pro-home-03.png";}', '00:22:29 - 23/03/2016', 0, 0, 0, '', '', 472, 535),
-(1513, '', 'Máy cắt CUT-40M 01', 10, 'may-cat-cut-40m-01', '', '1', '', '', '&#160;', 10000000, 11500000, 0, 0, 0, 0, '', 0, 0, 0, 0, 0, '', '', '23032016122548', 'a:1:{i:0;s:29:"23032016122548pro-home-02.png";}', '00:25:48 - 23/03/2016', 0, 0, 0, '', '', 466, 502),
-(1514, '', 'Máy cắt CUT-40MB', 10, 'may-cat-cut-40mb', '', '1', '', '', '&#160;', 10000000, 12500000, 0, 0, 0, 0, '', 0, 0, 0, 0, 0, '', '', '23032016122620', 'a:1:{i:0;s:29:"23032016122620pro-home-02.png";}', '00:26:20 - 23/03/2016', 0, 0, 0, '', '', 466, 502),
-(1515, '', 'Máy cắt CUT-40MC', 10, 'may-cat-cut-40mc', '', '1', '', 'TIỆN DỤNG VỚI NGUỒN ĐIỆN 220V CẮT NHANH, ĐẸP, CƠ ĐỘNG, KINH TẾ SỬ DỤNG KHI CẮT TỪ MÁY NÉN KHÍ (&amp;amp;gt;4.5Kg) CHINH PHỤC ĐỘ DÀY', '&#160;', 10000000, 12500000, 0, 0, 0, 0, '', 0, 0, 0, 0, 0, '', '', '23032016122824', 'a:1:{i:0;s:29:"23032016122824pro-home-02.png";}', '00:28:24 - 23/03/2016', 0, 0, 0, '', '', 466, 503),
-(1406, '', 'Các bệnh về màn hình và cao áp', 10, 'cac-benh-ve-man-hinh-va-cao-ap', '', '1', '', 'Sửa chữa laptop lấy ngay!', '&#160;<span style="color: rgb(20, 20, 20); font-family: arial, tahoma, verdana; line-height: 20px;">-Laptop bật có hình Window hay logo máy mờ mờ (nhìn kỹ mới thấy ) giá 200.000 - 300.000 lấy ngay</span><span style="background-color: rgb(252, 252, 255); color: rgb(20, 20, 20); font-family: arial, tahoma, verdana; font-size: 15px; line-height: 20px;">​</span>\n<div style="margin: 0px; padding: 0px 0px 0px 30px; color: rgb(20, 20, 20); font-family: arial, tahoma, verdana; font-size: 15px; line-height: 20px; background-color: rgb(252, 252, 255);"><span style="font-size: 12px;">-Laptop bật có hình nhưng bị toàn màu đỏ ,độ sáng kém hơi tối giá 200.000 - 300.000 đồng lấy ngay</span>​</div>\n<div style="margin: 0px; padding: 0px 0px 0px 30px; color: rgb(20, 20, 20); font-family: arial, tahoma, verdana; font-size: 15px; line-height: 20px; background-color: rgb(252, 252, 255);"><span style="font-size: 12px;">-Laptop bật có hình vài giây hoặc vào Win thì tối đen có hình mờ giá 200.000 - 300.000 đồng lấy ngay</span>​</div>\n<div style="margin: 0px; padding: 0px 0px 0px 30px; color: rgb(20, 20, 20); font-family: arial, tahoma, verdana; font-size: 15px; line-height: 20px; background-color: rgb(252, 252, 255);"><span style="font-size: 12px;">-Laptop đang chạy một lúc thì tối đen vẫn có hình mờ sâu bên trong giá 200.000 - 300.000 đ lấy ngay</span>​</div>\n<div style="margin: 0px; padding: 0px 0px 0px 30px; color: rgb(20, 20, 20); font-family: arial, tahoma, verdana; font-size: 15px; line-height: 20px; background-color: rgb(252, 252, 255);"><span style="font-size: 12px;">-Laptop bị nước vào màn hình chỗ tối chỗ sáng thay vệ sinh tấm quang giá 200.000 - 300.000 đ lấy ngay</span>​</div>\n<div style="margin: 0px; padding: 0px 0px 0px 30px; color: rgb(20, 20, 20); font-family: arial, tahoma, verdana; font-size: 15px; line-height: 20px; background-color: rgb(252, 252, 255);"><span style="font-size: 12px;">-Laptop màn hình bị loang đen ,bị kẻ ngang, kẻ dọc, bị ố đen lấm chấm nên thay màn mới (có bảng giá ở phần dưới giá dao động khoảng 1,5 triệu)</span>​</div>\n<div style="margin: 0px; padding: 0px 0px 0px 30px; color: rgb(20, 20, 20); font-family: arial, tahoma, verdana; font-size: 15px; line-height: 20px; background-color: rgb(252, 252, 255);"><span style="font-size: 12px;">-Laptop bị chập chờn lúc có hình lúc mất khi gập màn hình lên xuống giá 200.000 - 300.000 đ lấy ngay</span>​</div>\n<div style="margin: 0px; padding: 0px 0px 0px 30px; color: rgb(20, 20, 20); font-family: arial, tahoma, verdana; font-size: 15px; line-height: 20px; background-color: rgb(252, 252, 255);"><span style="font-size: 12px;">-Laptop bị trắng xóa màn hình (cắm ra màn ngoài hình bình thường ) giá 200.000 - 300.000 đ lấy ngay</span>​</div>\n<div style="margin: 0px; padding: 0px 0px 0px 30px; color: rgb(20, 20, 20); font-family: arial, tahoma, verdana; font-size: 15px; line-height: 20px; background-color: rgb(252, 252, 255);"><span style="font-size: 12px;">-Laptop không có hình, chỉ thấy màn sáng một lúc thì loang lổ toàn sọc nên thay màn mới</span>​</div>\n<div style="margin: 0px; padding: 0px 0px 0px 30px; color: rgb(20, 20, 20); font-family: arial, tahoma, verdana; font-size: 15px; line-height: 20px; background-color: rgb(252, 252, 255);"><span style="font-size: 12px;">-Laptop màn hình bị loang đen ,bị kẻ ngang ,kẻ dọc ,bị ố đen lấm chấm nên thay màn mới</span>​<br />\n<span style="color: rgb(0, 0, 255);"><em><strong><span style="font-size: medium;"><span style="font-family: arial, Helvetica, sans-serif;">Liên hệ : </span></span></strong></em></span><span style="color: rgb(255, 0, 0);"><em><strong><span style="font-size: medium;"><span style="font-family: arial, Helvetica, sans-serif;">17 Lương Thế Vinh - Thanh Xuân - Hà Nội&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160;<br />\n<span style="color: rgb(0, 0, 255);">SDT:</span> 0982954154 - 01234954154 &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; <br />\n<span style="color: rgb(0, 0, 255);">Email:</span> khanhdt1984@gmail.com</span></span></strong></em></span></div>', 0, 0, 0, 0, 0, 0, '', 0, 0, 0, 0, 0, '', '', '05042014121848', 'a:1:{i:0;s:26:"0504201412184816404115.jpg";}', '00:18:48 - 05/04/2014', 31, 0, 0, '', '', 467, 499),
-(1410, '', 'Sửa laptop k sạc được Pin', 10, 'sua-laptop-k-sac-duoc-pin', '', '1', '', 'Sửa chữa laptop lấy ngay!', '&#160;&#160; &#160; &#160; &#160; &#160;<u><strong><span style="color: rgb(255, 0, 0);"><span style="font-family: arial, tahoma, verdana; line-height: 20px;"><span style="text-decoration: underline;">Sửa laptop không dùng được sạc</span></span><span style="background-color: rgb(252, 252, 255); font-family: arial, tahoma, verdana; font-size: 15px; line-height: 20px;">​</span></span></strong></u>\n<div style="margin: 0px; padding: 0px 0px 0px 30px; color: rgb(20, 20, 20); font-family: arial, tahoma, verdana; font-size: 15px; line-height: 20px; background-color: rgb(252, 252, 255);"><span style="font-size: 12px;">-Laptop acer aspire 4937 , 4736, 4736Z, 4736ZG ... cắm sạc only dùng bình thường lắp pin vào chạy tắt hoặc có lúc không lên màn hình giá 300k lấy ngay</span>​</div>\n<div style="margin: 0px; padding: 0px 0px 0px 30px; color: rgb(20, 20, 20); font-family: arial, tahoma, verdana; font-size: 15px; line-height: 20px; background-color: rgb(252, 252, 255);"><span style="font-size: 12px;">-Laptop toshiba dùng pin thì chạy tốt, cứ cắm sạc vào là tự tắt máy, khởi động lại, nhoè màn hình, sọc màn hình giá 300k đến 500k&#160;</span>​</div>\n<div style="margin: 0px; padding: 0px 0px 0px 30px; color: rgb(20, 20, 20); font-family: arial, tahoma, verdana; font-size: 15px; line-height: 20px; background-color: rgb(252, 252, 255);"><span style="font-size: 12px;">-Laptop dùng pin thì bình thường , cắm sạc vào là treo máy bị xé hình giá 300klấy ngay<br />\n</span><strong><u><span style="color: rgb(255, 0, 0);"><span style="font-size: 12px;"><span style="text-decoration: underline;">Sửa laptop không sạc được pin</span></span>​</span></u></strong></div>\n<div style="margin: 0px; padding: 0px 0px 0px 30px; color: rgb(20, 20, 20); font-family: arial, tahoma, verdana; font-size: 15px; line-height: 20px; background-color: rgb(252, 252, 255);"><span style="font-size: 12px;">- Laptop không sạc được pin ( pin vẫn tốt ) do mạch nạp giá 200k - 500k</span>​<br />\n<span style="color: rgb(0, 0, 255);"><span style="font-size: medium;"><em><strong><span style="font-family: arial, Helvetica, sans-serif; background-color: rgb(255, 255, 255);">Liên hệ :</span></strong></em></span></span><span style="color: rgb(255, 0, 0);"><span style="font-size: medium;"><em><strong><span style="font-family: arial, Helvetica, sans-serif; background-color: rgb(255, 255, 255);"> 17 Lương Thế Vinh - Thanh Xuân - Hà Nội&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; <br />\n<span style="color: rgb(0, 0, 255);">SDT:</span> 0982954154 - 01234954154 &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; <br />\n<span style="color: rgb(0, 0, 255);">Email: </span>khanhdt1984@gmail.com</span></strong></em></span></span></div>', 0, 0, 0, 0, 0, 0, '', 0, 0, 0, 0, 0, '', '', '05042014123933', 'a:1:{i:0;s:28:"05042014123933pin4-869d9.jpg";}', '00:39:33 - 05/04/2014', 36, 0, 0, '', '', 467, 496),
-(1414, '', 'Sửa laptop không có âm thanh', 10, 'sua-laptop-khong-co-am-thanh', '', '1', '', 'Sửa laptop lấy ngay!', '&#160;<span style="color: rgb(20, 20, 20); font-family: arial, tahoma, verdana; line-height: 20px;"><span style="text-decoration: underline;">Sửa laptop không có tiếng không âm thanh :</span></span><span style="background-color: rgb(252, 252, 255); color: rgb(20, 20, 20); font-family: arial, tahoma, verdana; font-size: 15px; line-height: 20px;">​</span>\n<div style="margin: 0px; padding: 0px 0px 0px 30px; color: rgb(20, 20, 20); font-family: arial, tahoma, verdana; font-size: 15px; line-height: 20px; background-color: rgb(252, 252, 255);"><span style="font-size: 12px;">- Laptop không có tiếng do hỏng chip âm thanh giá 300k</span>​</div>\n<div style="margin: 0px; padding: 0px 0px 0px 30px; color: rgb(20, 20, 20); font-family: arial, tahoma, verdana; font-size: 15px; line-height: 20px; background-color: rgb(252, 252, 255);"><span style="font-size: 12px;">-Laptop không có tiếng (cắm tai nghe bình thường ) do hỏng loa giá 200k</span>​</div>\n<div style="margin: 0px; padding: 0px 0px 0px 30px; color: rgb(20, 20, 20); font-family: arial, tahoma, verdana; font-size: 15px; line-height: 20px; background-color: rgb(252, 252, 255);"><span style="font-size: 12px;">-Laptop có tiếng nhưng am thanh rè sè do bị rách màng loa: thay loa mới.</span>​<br />\n<span style="color: rgb(0, 0, 255);">Liên hệ </span>: <span style="color: rgb(255, 0, 0);">17 Lương Thế Vinh - Thanh Xuân - Hà Nội&#160;<br />\n&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; <span style="color: rgb(0, 0, 255);">SDT</span>: 0982954154 - 01234954154<br />\n&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; <span style="color: rgb(0, 0, 255);">Email</span>: khanhdt1984@gmail.com<br type="_moz" />\n</span></div>', 0, 0, 0, 0, 0, 0, '', 0, 0, 0, 0, 0, '', '', '05042014124559', 'a:1:{i:0;s:24:"05042014124559529729.jpg";}', '00:45:59 - 05/04/2014', 23, 0, 0, '', '', 467, 497),
-(1453, '', 'MTXT HP HP 14-d010TU', 10, 'mtxt-hp-hp-14-d010tu', '', '1', 'cặp.sạc....', 'máy mới', '&#160;\n<table width="948px" cellspacing="0" cellpadding="0" style="border-spacing: 0px; color: rgb(51, 51, 51); font-family: Arial, Helvetica, sans-serif; font-size: 12px; border-bottom-width: medium; border-style: solid solid none; border-image-source: none;">\n    <tbody>\n        <tr>\n            <td style="margin: 0px; padding: 0px 0px 0px 5px; width: 200px; height: 30px; background-image: none; background-attachment: scroll; background-color: rgb(247, 247, 247); border-right-color: rgb(230, 230, 230); border-bottom-style: solid; border-bottom-color: rgb(230, 230, 230); background-position: 0% 0%; background-repeat: repeat repeat;">Thương hiệu</td>\n            <td style="margin: 0px; padding: 0px 0px 0px 5px; background-image: none; background-attachment: scroll; background-color: rgb(247, 247, 247); border-bottom-style: solid; border-bottom-color: rgb(230, 230, 230); line-height: 21.600000381469727px; background-position: 0% 0%; background-repeat: repeat repeat;">HP</td>\n        </tr>\n        <tr>\n            <td style="margin: 0px; padding: 0px 0px 0px 5px; width: 200px; height: 30px; background-image: none; background-attachment: scroll; border-right-color: rgb(230, 230, 230); border-bottom-style: solid; border-bottom-color: rgb(230, 230, 230); background-position: 0% 0%; background-repeat: repeat repeat;">Xuất xứ</td>\n            <td style="margin: 0px; padding: 0px 0px 0px 5px; background-image: none; background-attachment: scroll; border-bottom-style: solid; border-bottom-color: rgb(230, 230, 230); line-height: 21.600000381469727px; background-position: 0% 0%; background-repeat: repeat repeat;">Thương hiệu Mỹ - sản xuất tại Trung Quốc</td>\n        </tr>\n        <tr>\n            <td style="margin: 0px; padding: 0px 0px 0px 5px; width: 200px; height: 30px; background-image: none; background-attachment: scroll; background-color: rgb(247, 247, 247); border-right-color: rgb(230, 230, 230); border-bottom-style: solid; border-bottom-color: rgb(230, 230, 230); background-position: 0% 0%; background-repeat: repeat repeat;">Hệ điều hành - OS</td>\n            <td style="margin: 0px; padding: 0px 0px 0px 5px; background-image: none; background-attachment: scroll; background-color: rgb(247, 247, 247); border-bottom-style: solid; border-bottom-color: rgb(230, 230, 230); line-height: 21.600000381469727px; background-position: 0% 0%; background-repeat: repeat repeat;">Không</td>\n        </tr>\n        <tr>\n            <td style="margin: 0px; padding: 0px 0px 0px 5px; width: 200px; height: 30px; background-image: none; background-attachment: scroll; border-right-color: rgb(230, 230, 230); border-bottom-style: solid; border-bottom-color: rgb(230, 230, 230); background-position: 0% 0%; background-repeat: repeat repeat;">Bộ vi xử lý - CPU</td>\n            <td style="margin: 0px; padding: 0px 0px 0px 5px; background-image: none; background-attachment: scroll; border-bottom-style: solid; border-bottom-color: rgb(230, 230, 230); line-height: 21.600000381469727px; background-position: 0% 0%; background-repeat: repeat repeat;">Core i3-3110M (2*2.4-GHz, 3-MB L2 cache)</td>\n        </tr>\n        <tr>\n            <td style="margin: 0px; padding: 0px 0px 0px 5px; width: 200px; height: 30px; background-image: none; background-attachment: scroll; background-color: rgb(247, 247, 247); border-right-color: rgb(230, 230, 230); border-bottom-style: solid; border-bottom-color: rgb(230, 230, 230); background-position: 0% 0%; background-repeat: repeat repeat;">Bộ nhớ trong - RAM</td>\n            <td style="margin: 0px; padding: 0px 0px 0px 5px; background-image: none; background-attachment: scroll; background-color: rgb(247, 247, 247); border-bottom-style: solid; border-bottom-color: rgb(230, 230, 230); line-height: 21.600000381469727px; background-position: 0% 0%; background-repeat: repeat repeat;">4GB DDR3 Bus 1600 Mhz</td>\n        </tr>\n        <tr>\n            <td style="margin: 0px; padding: 0px 0px 0px 5px; width: 200px; height: 30px; background-image: none; background-attachment: scroll; border-right-color: rgb(230, 230, 230); border-bottom-style: solid; border-bottom-color: rgb(230, 230, 230); background-position: 0% 0%; background-repeat: repeat repeat;">Ổ đĩa cứng - HDD</td>\n            <td style="margin: 0px; padding: 0px 0px 0px 5px; background-image: none; background-attachment: scroll; border-bottom-style: solid; border-bottom-color: rgb(230, 230, 230); line-height: 21.600000381469727px; background-position: 0% 0%; background-repeat: repeat repeat;">500GB</td>\n        </tr>\n        <tr>\n            <td style="margin: 0px; padding: 0px 0px 0px 5px; width: 200px; height: 30px; background-image: none; background-attachment: scroll; background-color: rgb(247, 247, 247); border-right-color: rgb(230, 230, 230); border-bottom-style: solid; border-bottom-color: rgb(230, 230, 230); background-position: 0% 0%; background-repeat: repeat repeat;">Bộ vi xử lý đồ họa - GPU</td>\n            <td style="margin: 0px; padding: 0px 0px 0px 5px; background-image: none; background-attachment: scroll; background-color: rgb(247, 247, 247); border-bottom-style: solid; border-bottom-color: rgb(230, 230, 230); line-height: 21.600000381469727px; background-position: 0% 0%; background-repeat: repeat repeat;">Không</td>\n        </tr>\n        <tr>\n            <td style="margin: 0px; padding: 0px 0px 0px 5px; width: 200px; height: 30px; background-image: none; background-attachment: scroll; border-right-color: rgb(230, 230, 230); border-bottom-style: solid; border-bottom-color: rgb(230, 230, 230); background-position: 0% 0%; background-repeat: repeat repeat;">Kích cỡ màn hình - LCD</td>\n            <td style="margin: 0px; padding: 0px 0px 0px 5px; background-image: none; background-attachment: scroll; border-bottom-style: solid; border-bottom-color: rgb(230, 230, 230); line-height: 21.600000381469727px; background-position: 0% 0%; background-repeat: repeat repeat;">14'''' LED-backlit HD BrightView</td>\n        </tr>\n        <tr>\n            <td style="margin: 0px; padding: 0px 0px 0px 5px; width: 200px; height: 30px; background-image: none; background-attachment: scroll; background-color: rgb(247, 247, 247); border-right-color: rgb(230, 230, 230); border-bottom-style: solid; border-bottom-color: rgb(230, 230, 230); background-position: 0% 0%; background-repeat: repeat repeat;">Ổ quang học - ODD</td>\n            <td style="margin: 0px; padding: 0px 0px 0px 5px; background-image: none; background-attachment: scroll; background-color: rgb(247, 247, 247); border-bottom-style: solid; border-bottom-color: rgb(230, 230, 230); line-height: 21.600000381469727px; background-position: 0% 0%; background-repeat: repeat repeat;">DVDRW LightScribe</td>\n        </tr>\n        <tr>\n            <td style="margin: 0px; padding: 0px 0px 0px 5px; width: 200px; height: 30px; background-image: none; background-attachment: scroll; border-right-color: rgb(230, 230, 230); border-bottom-style: solid; border-bottom-color: rgb(230, 230, 230); background-position: 0% 0%; background-repeat: repeat repeat;">Mạng không dây - Wifi</td>\n            <td style="margin: 0px; padding: 0px 0px 0px 5px; background-image: none; background-attachment: scroll; border-bottom-style: solid; border-bottom-color: rgb(230, 230, 230); line-height: 21.600000381469727px; background-position: 0% 0%; background-repeat: repeat repeat;">802.11b.g.n</td>\n        </tr>\n        <tr>\n            <td style="margin: 0px; padding: 0px 0px 0px 5px; width: 200px; height: 30px; background-image: none; background-attachment: scroll; background-color: rgb(247, 247, 247); border-right-color: rgb(230, 230, 230); border-bottom-style: solid; border-bottom-color: rgb(230, 230, 230); background-position: 0% 0%; background-repeat: repeat repeat;">Webcam</td>\n            <td style="margin: 0px; padding: 0px 0px 0px 5px; background-image: none; background-attachment: scroll; background-color: rgb(247, 247, 247); border-bottom-style: solid; border-bottom-color: rgb(230, 230, 230); line-height: 21.600000381469727px; background-position: 0% 0%; background-repeat: repeat repeat;">Có</td>\n        </tr>\n        <tr>\n            <td style="margin: 0px; padding: 0px 0px 0px 5px; width: 200px; height: 30px; background-image: none; background-attachment: scroll; border-right-color: rgb(230, 230, 230); border-bottom-style: solid; border-bottom-color: rgb(230, 230, 230); background-position: 0% 0%; background-repeat: repeat repeat;">Bluetooth</td>\n            <td style="margin: 0px; padding: 0px 0px 0px 5px; background-image: none; background-attachment: scroll; border-bottom-style: solid; border-bottom-color: rgb(230, 230, 230); line-height: 21.600000381469727px; background-position: 0% 0%; background-repeat: repeat repeat;">Không</td>\n        </tr>\n        <tr>\n            <td style="margin: 0px; padding: 0px 0px 0px 5px; width: 200px; height: 30px; background-image: none; background-attachment: scroll; background-color: rgb(247, 247, 247); border-right-color: rgb(230, 230, 230); border-bottom-style: solid; border-bottom-color: rgb(230, 230, 230); background-position: 0% 0%; background-repeat: repeat repeat;">Finger print</td>\n            <td style="margin: 0px; padding: 0px 0px 0px 5px; background-image: none; background-attachment: scroll; background-color: rgb(247, 247, 247); border-bottom-style: solid; border-bottom-color: rgb(230, 230, 230); line-height: 21.600000381469727px; background-position: 0% 0%; background-repeat: repeat repeat;">Không</td>\n        </tr>\n        <tr>\n            <td style="margin: 0px; padding: 0px 0px 0px 5px; width: 200px; height: 30px; background-image: none; background-attachment: scroll; border-right-color: rgb(230, 230, 230); border-bottom-style: solid; border-bottom-color: rgb(230, 230, 230); background-position: 0% 0%; background-repeat: repeat repeat;">Pin</td>\n            <td style="margin: 0px; padding: 0px 0px 0px 5px; background-image: none; background-attachment: scroll; border-bottom-style: solid; border-bottom-color: rgb(230, 230, 230); line-height: 21.600000381469727px; background-position: 0% 0%; background-repeat: repeat repeat;">Pin 6 cell</td>\n        </tr>\n        <tr>\n            <td style="margin: 0px; padding: 0px 0px 0px 5px; width: 200px; height: 30px; background-image: none; background-attachment: scroll; background-color: rgb(247, 247, 247); border-right-color: rgb(230, 230, 230); border-bottom-style: solid; border-bottom-color: rgb(230, 230, 230); background-position: 0% 0%; background-repeat: repeat repeat;">Khối lượng</td>\n            <td style="margin: 0px; padding: 0px 0px 0px 5px; background-image: none; background-attachment: scroll; background-color: rgb(247, 247, 247); border-bottom-style: solid; border-bottom-color: rgb(230, 230, 230); line-height: 21.600000381469727px; background-position: 0% 0%; background-repeat: repeat repeat;">2.1 Kg</td>\n        </tr>\n    </tbody>\n</table>', 9299000, 9599000, 0, 0, 0, 0, '', 0, 0, 0, 0, 0, '12 tháng', '', '09042014022422', 'a:1:{i:0;s:20:"0904201402242205.jpg";}', '14:24:22 - 09/04/2014', 20, 0, 1, 'keyword', 'description', 512, 0);
+INSERT INTO `tbl_products` (`pro_id`, `pro_code`, `pro_name`, `pro_qty`, `pro_name_rewrite`, `pro_video`, `pro_status`, `pro_promotion`, `pro_info`, `pro_full`, `pro_description`, `pro_price`, `pro_market`, `pro_new`, `pro_hot`, `pro_saleoff`, `pro_bestsale`, `pro_location`, `pro_order`, `pro_new_check`, `pro_hot_check`, `pro_saleoff_check`, `pro_bestsale_check`, `pro_war`, `pro_producer`, `pro_ship`, `pro_folderimg`, `pro_images`, `pro_date`, `pro_view`, `pro_like`, `pro_buy`, `pro_key`, `pro_des`, `cate_id`, `cate_id_parent`) VALUES
+(1505, '', 'Máy cắt CUT-40M', 10, 'may-cat-cut-40m', '', '1', '', '', '&#160;', '', 10000000, 11500000, 1, 0, 0, 0, '', 0, 4294967295, 4294967295, 4294967295, 4294967295, '12 tháng', '', '', '22032016093617', 'a:1:{i:0;s:29:"22032016093617pro-home-03.png";}', '21:35:51 - 22/03/2016', 1, 0, 0, '', '', 468, 490),
+(1506, '', 'Máy cắt CUT-40M 01', 10, 'may-cat-cut-40m-01', '', '1', '', 'Hãng sản xuất: Mealer / Công suất tiêu thụ (KVA): 4.8 / Tấn số (Hz): 50/60 Hz / Dòng điện cắt (A): 40 / Chu kỳ tải (&amp;amp;permil;): 60 / Điện áp không tải tối đa (V): 230 / Độ dày cắt tối đa (mm): 1&amp;amp;tilde;12 / Áp suất khí nén (kg/cm2): 3&amp;amp;tilde;5 / Hiệu suất (&amp;amp;permil;): 85 / Trọng lượng (kg): 9 / Xuất xứ: - /', '&#160;<span style="color: rgb(51, 51, 51); font-family: Arial; line-height: 16px;">Hãng sản xuất:&#160;</span><b style="font-family: Arial; color: rgb(51, 51, 51); line-height: 16px;"><a href="http://www.vatgia.com/s/mealer" style="color: rgb(62, 62, 62); text-decoration: none;">Mealer</a></b><span style="color: rgb(51, 51, 51); font-family: Arial; line-height: 16px;">&#160;/ Công suất tiêu thụ (KVA):&#160;</span><b style="font-family: Arial; color: rgb(51, 51, 51); line-height: 16px;"><a href="http://www.vatgia.com/s/4.8" style="color: rgb(62, 62, 62); text-decoration: none;">4.8</a></b><span style="color: rgb(51, 51, 51); font-family: Arial; line-height: 16px;">&#160;/ Tấn số (Hz):&#160;</span><b style="font-family: Arial; color: rgb(51, 51, 51); line-height: 16px;"><a href="http://www.vatgia.com/s/50+60+hz" style="color: rgb(62, 62, 62); text-decoration: none;">50/60 Hz</a></b><span style="color: rgb(51, 51, 51); font-family: Arial; line-height: 16px;">&#160;/ Dòng điện cắt (A):&#160;</span><b style="font-family: Arial; color: rgb(51, 51, 51); line-height: 16px;"><a href="http://www.vatgia.com/s/40" style="color: rgb(62, 62, 62); text-decoration: none;">40</a></b><span style="color: rgb(51, 51, 51); font-family: Arial; line-height: 16px;">&#160;/ Chu kỳ tải (%):&#160;</span><b style="font-family: Arial; color: rgb(51, 51, 51); line-height: 16px;"><a href="http://www.vatgia.com/s/60" style="color: rgb(62, 62, 62); text-decoration: none;">60</a></b><span style="color: rgb(51, 51, 51); font-family: Arial; line-height: 16px;">/ Điện áp không tải tối đa (V):&#160;</span><b style="font-family: Arial; color: rgb(51, 51, 51); line-height: 16px;"><a href="http://www.vatgia.com/s/230" style="color: rgb(62, 62, 62); text-decoration: none;">230</a></b><span style="color: rgb(51, 51, 51); font-family: Arial; line-height: 16px;">&#160;/ Độ dày cắt tối đa (mm):&#160;</span><b style="font-family: Arial; color: rgb(51, 51, 51); line-height: 16px;"><a href="http://www.vatgia.com/s/1~12" style="color: rgb(62, 62, 62); text-decoration: none;">1~12</a></b><span style="color: rgb(51, 51, 51); font-family: Arial; line-height: 16px;">&#160;/ Áp suất khí nén (kg/cm2):&#160;</span><b style="font-family: Arial; color: rgb(51, 51, 51); line-height: 16px;"><a href="http://www.vatgia.com/s/3~5" style="color: rgb(62, 62, 62); text-decoration: none;">3~5</a></b><span style="color: rgb(51, 51, 51); font-family: Arial; line-height: 16px;">&#160;/ Hiệu suất (%):&#160;</span><b style="font-family: Arial; color: rgb(51, 51, 51); line-height: 16px;"><a href="http://www.vatgia.com/s/85" style="color: rgb(62, 62, 62); text-decoration: none;">85</a></b><span style="color: rgb(51, 51, 51); font-family: Arial; line-height: 16px;">&#160;/ Trọng lượng (kg):&#160;</span><b style="font-family: Arial; color: rgb(51, 51, 51); line-height: 16px;"><a href="http://www.vatgia.com/s/9" style="color: rgb(62, 62, 62); text-decoration: none;">9</a></b><span style="color: rgb(51, 51, 51); font-family: Arial; line-height: 16px;">&#160;/ Xuất xứ:&#160;</span><b style="font-family: Arial; color: rgb(51, 51, 51); line-height: 16px;"><a href="http://www.vatgia.com/s/-" style="color: rgb(62, 62, 62); text-decoration: none;">- /</a></b>', '', 10000000, 11500000, 1, 0, 0, 0, '', 0, 4294967295, 4294967295, 4294967295, 4294967295, '12 tháng ', '', '', '22032016093736', 'a:1:{i:0;s:29:"22032016093736pro-home-02.png";}', '21:37:36 - 22/03/2016', 0, 0, 0, '', '', 468, 491),
+(1507, '', 'Máy cắt CUT-40M 02', 10, 'may-cat-cut-40m-02', '', '1', '', 'Hãng sản xuất: Mealer / Công suất tiêu thụ (KVA): 4.8 / Tấn số (Hz): 50/60 Hz / Dòng điện cắt (A): 40 / Chu kỳ tải (&amp;permil;): 60 / Điện áp không tải tối đa (V): 230 / Độ dày cắt tối đa (mm): 1&amp;tilde;12 / Áp suất khí nén (kg/cm2): 3&amp;tilde;5 / Hiệu suất (&amp;permil;): 85 / Trọng lượng (kg): 9 / Xuất xứ: - /', '<span style="color: rgb(51, 51, 51); font-family: Arial; line-height: 16px;">Hãng sản xuất:&#160;</span><b style="font-family: Arial; color: rgb(51, 51, 51); line-height: 16px;"><a href="http://www.vatgia.com/s/mealer" style="color: rgb(62, 62, 62); text-decoration: none;">Mealer</a></b><span style="color: rgb(51, 51, 51); font-family: Arial; line-height: 16px;">&#160;/ Công suất tiêu thụ (KVA):&#160;</span><b style="font-family: Arial; color: rgb(51, 51, 51); line-height: 16px;"><a href="http://www.vatgia.com/s/4.8" style="color: rgb(62, 62, 62); text-decoration: none;">4.8</a></b><span style="color: rgb(51, 51, 51); font-family: Arial; line-height: 16px;">&#160;/ Tấn số (Hz):&#160;</span><b style="font-family: Arial; color: rgb(51, 51, 51); line-height: 16px;"><a href="http://www.vatgia.com/s/50+60+hz" style="color: rgb(62, 62, 62); text-decoration: none;">50/60 Hz</a></b><span style="color: rgb(51, 51, 51); font-family: Arial; line-height: 16px;">&#160;/ Dòng điện cắt (A):&#160;</span><b style="font-family: Arial; color: rgb(51, 51, 51); line-height: 16px;"><a href="http://www.vatgia.com/s/40" style="color: rgb(62, 62, 62); text-decoration: none;">40</a></b><span style="color: rgb(51, 51, 51); font-family: Arial; line-height: 16px;">&#160;/ Chu kỳ tải (%):&#160;</span><b style="font-family: Arial; color: rgb(51, 51, 51); line-height: 16px;"><a href="http://www.vatgia.com/s/60" style="color: rgb(62, 62, 62); text-decoration: none;">60</a></b><span style="color: rgb(51, 51, 51); font-family: Arial; line-height: 16px;">/ Điện áp không tải tối đa (V):&#160;</span><b style="font-family: Arial; color: rgb(51, 51, 51); line-height: 16px;"><a href="http://www.vatgia.com/s/230" style="color: rgb(62, 62, 62); text-decoration: none;">230</a></b><span style="color: rgb(51, 51, 51); font-family: Arial; line-height: 16px;">&#160;/ Độ dày cắt tối đa (mm):&#160;</span><b style="font-family: Arial; color: rgb(51, 51, 51); line-height: 16px;"><a href="http://www.vatgia.com/s/1~12" style="color: rgb(62, 62, 62); text-decoration: none;">1~12</a></b><span style="color: rgb(51, 51, 51); font-family: Arial; line-height: 16px;">&#160;/ Áp suất khí nén (kg/cm2):&#160;</span><b style="font-family: Arial; color: rgb(51, 51, 51); line-height: 16px;"><a href="http://www.vatgia.com/s/3~5" style="color: rgb(62, 62, 62); text-decoration: none;">3~5</a></b><span style="color: rgb(51, 51, 51); font-family: Arial; line-height: 16px;">&#160;/ Hiệu suất (%):&#160;</span><b style="font-family: Arial; color: rgb(51, 51, 51); line-height: 16px;"><a href="http://www.vatgia.com/s/85" style="color: rgb(62, 62, 62); text-decoration: none;">85</a></b><span style="color: rgb(51, 51, 51); font-family: Arial; line-height: 16px;">&#160;/ Trọng lượng (kg):&#160;</span><b style="font-family: Arial; color: rgb(51, 51, 51); line-height: 16px;"><a href="http://www.vatgia.com/s/9" style="color: rgb(62, 62, 62); text-decoration: none;">9</a></b><span style="color: rgb(51, 51, 51); font-family: Arial; line-height: 16px;">&#160;/ Xuất xứ:&#160;</span><b style="font-family: Arial; color: rgb(51, 51, 51); line-height: 16px;"><a href="http://www.vatgia.com/s/-" style="color: rgb(62, 62, 62); text-decoration: none;">- /</a></b>', '', 10000000, 11500000, 1, 0, 0, 0, '', 0, 4294967295, 4294967295, 4294967295, 4294967295, '', '', '', '22032016093810', 'a:1:{i:0;s:29:"22032016093810pro-home-01.jpg";}', '21:38:10 - 22/03/2016', 0, 0, 0, '', '', 468, 494),
+(1508, '', 'Máy cắt CUT-40M 03', 10, 'may-cat-cut-40m-03', '', '1', '', 'Hãng sản xuất: Mealer / Công suất tiêu thụ (KVA): 4.8 / Tấn số (Hz): 50/60 Hz / Dòng điện cắt (A): 40 / Chu kỳ tải (&amp;amp;permil;): 60 / Điện áp không tải tối đa (V): 230 / Độ dày cắt tối đa (mm): 1&amp;amp;tilde;12 / Áp suất khí nén (kg/cm2): 3&amp;amp;tilde;5 / Hiệu suất (&amp;amp;permil;): 85 / Trọng lượng (kg): 9 / Xuất xứ: - /', '&#160;<span style="color: rgb(51, 51, 51); font-family: Arial; line-height: 16px;">Hãng sản xuất:&#160;</span><b style="font-family: Arial; color: rgb(51, 51, 51); line-height: 16px;"><a href="http://www.vatgia.com/s/mealer" style="color: rgb(62, 62, 62); text-decoration: none;">Mealer</a></b><span style="color: rgb(51, 51, 51); font-family: Arial; line-height: 16px;">&#160;/ Công suất tiêu thụ (KVA):&#160;</span><b style="font-family: Arial; color: rgb(51, 51, 51); line-height: 16px;"><a href="http://www.vatgia.com/s/4.8" style="color: rgb(62, 62, 62); text-decoration: none;">4.8</a></b><span style="color: rgb(51, 51, 51); font-family: Arial; line-height: 16px;">&#160;/ Tấn số (Hz):&#160;</span><b style="font-family: Arial; color: rgb(51, 51, 51); line-height: 16px;"><a href="http://www.vatgia.com/s/50+60+hz" style="color: rgb(62, 62, 62); text-decoration: none;">50/60 Hz</a></b><span style="color: rgb(51, 51, 51); font-family: Arial; line-height: 16px;">&#160;/ Dòng điện cắt (A):&#160;</span><b style="font-family: Arial; color: rgb(51, 51, 51); line-height: 16px;"><a href="http://www.vatgia.com/s/40" style="color: rgb(62, 62, 62); text-decoration: none;">40</a></b><span style="color: rgb(51, 51, 51); font-family: Arial; line-height: 16px;">&#160;/ Chu kỳ tải (%):&#160;</span><b style="font-family: Arial; color: rgb(51, 51, 51); line-height: 16px;"><a href="http://www.vatgia.com/s/60" style="color: rgb(62, 62, 62); text-decoration: none;">60</a></b><span style="color: rgb(51, 51, 51); font-family: Arial; line-height: 16px;">/ Điện áp không tải tối đa (V):&#160;</span><b style="font-family: Arial; color: rgb(51, 51, 51); line-height: 16px;"><a href="http://www.vatgia.com/s/230" style="color: rgb(62, 62, 62); text-decoration: none;">230</a></b><span style="color: rgb(51, 51, 51); font-family: Arial; line-height: 16px;">&#160;/ Độ dày cắt tối đa (mm):&#160;</span><b style="font-family: Arial; color: rgb(51, 51, 51); line-height: 16px;"><a href="http://www.vatgia.com/s/1~12" style="color: rgb(62, 62, 62); text-decoration: none;">1~12</a></b><span style="color: rgb(51, 51, 51); font-family: Arial; line-height: 16px;">&#160;/ Áp suất khí nén (kg/cm2):&#160;</span><b style="font-family: Arial; color: rgb(51, 51, 51); line-height: 16px;"><a href="http://www.vatgia.com/s/3~5" style="color: rgb(62, 62, 62); text-decoration: none;">3~5</a></b><span style="color: rgb(51, 51, 51); font-family: Arial; line-height: 16px;">&#160;/ Hiệu suất (%):&#160;</span><b style="font-family: Arial; color: rgb(51, 51, 51); line-height: 16px;"><a href="http://www.vatgia.com/s/85" style="color: rgb(62, 62, 62); text-decoration: none;">85</a></b><span style="color: rgb(51, 51, 51); font-family: Arial; line-height: 16px;">&#160;/ Trọng lượng (kg):&#160;</span><b style="font-family: Arial; color: rgb(51, 51, 51); line-height: 16px;"><a href="http://www.vatgia.com/s/9" style="color: rgb(62, 62, 62); text-decoration: none;">9</a></b><span style="color: rgb(51, 51, 51); font-family: Arial; line-height: 16px;">&#160;/ Xuất xứ:&#160;</span><b style="font-family: Arial; color: rgb(51, 51, 51); line-height: 16px;"><a href="http://www.vatgia.com/s/-" style="color: rgb(62, 62, 62); text-decoration: none;">- /</a></b>', '', 10000000, 11500000, 1, 0, 0, 0, '', 0, 4294967295, 4294967295, 4294967295, 4294967295, '', '', '', '22032016093913', 'a:1:{i:0;s:29:"22032016093913pro-home-03.png";}', '21:38:58 - 22/03/2016', 10, 0, 0, '', '', 466, 501),
+(1509, '', 'Máy cắt CUT-40M 04', 10, 'may-cat-cut-40m-04', '', '1', '', 'Hãng sản xuất: Mealer / Công suất tiêu thụ (KVA): 4.8 / Tấn số (Hz): 50/60 Hz / Dòng điện cắt (A): 40 / Chu kỳ tải (&amp;permil;): 60 / Điện áp không tải tối đa (V): 230 / Độ dày cắt tối đa (mm): 1&amp;tilde;12 / Áp suất khí nén (kg/cm2): 3&amp;tilde;5 / Hiệu suất (&amp;permil;): 85 / Trọng lượng (kg): 9 / Xuất xứ: - /', '&#160;', '', 10000000, 12500000, 1, 0, 0, 0, '', 0, 4294967295, 4294967295, 4294967295, 4294967295, '', '', '', '22032016093958', 'a:1:{i:0;s:29:"22032016093958pro-home-01.jpg";}', '21:39:58 - 22/03/2016', 34, 0, 0, '', '', 470, 507),
+(1510, '', 'Máy cắt CUT-40M 05', 10, 'may-cat-cut-40m-05', '', '1', '', 'Hãng sản xuất: Mealer / Công suất tiêu thụ (KVA): 4.8 / Tấn số (Hz): 50/60 Hz / Dòng điện cắt (A): 40 / Chu kỳ tải (&amp;permil;): 60 / Điện áp không tải tối đa (V): 230 / Độ dày cắt tối đa (mm): 1&amp;tilde;12 / Áp suất khí nén (kg/cm2): 3&amp;tilde;5 / Hiệu suất (&amp;permil;): 85 / Trọng lượng (kg): 9 / Xuất xứ: - /', '&#160;', '', 10000000, 11500000, 1, 0, 0, 0, '', 0, 4294967295, 4294967295, 4294967295, 4294967295, '', '', '', '22032016094020', 'a:1:{i:0;s:29:"22032016094020pro-home-02.png";}', '21:40:20 - 22/03/2016', 0, 0, 0, '', '', 470, 508),
+(1511, '', 'Máy cắt CUT-40M 06', 10, 'may-cat-cut-40m-06', '', '1', '', 'Hãng sản xuất: Mealer / Công suất tiêu thụ (KVA): 4.8 / Tấn số (Hz): 50/60 Hz / Dòng điện cắt (A): 40 / Chu kỳ tải (&amp;permil;): 60 / Điện áp không tải tối đa (V): 230 / Độ dày cắt tối đa (mm): 1&amp;tilde;12 / Áp suất khí nén (kg/cm2): 3&amp;tilde;5 / Hiệu suất (&amp;permil;): 85 / Trọng lượng (kg): 9 / Xuất xứ: - /', '&#160;', '', 10000000, 11500000, 1, 0, 0, 0, '', 0, 4294967295, 4294967295, 4294967295, 4294967295, '', '', '', '22032016094045', 'a:1:{i:0;s:29:"22032016094045pro-home-02.png";}', '21:40:45 - 22/03/2016', 0, 0, 0, '', '', 470, 509),
+(1512, '', 'Máy uốn CUT-40M', 10, 'may-uon-cut-40m', '', '1', '', '', '&#160;', '', 10000000, 12500000, 0, 0, 0, 0, '', 0, 0, 0, 0, 0, '', '', '', '23032016122229', 'a:1:{i:0;s:29:"23032016122229pro-home-03.png";}', '00:22:29 - 23/03/2016', 0, 0, 0, '', '', 472, 535),
+(1513, '', 'Máy cắt CUT-40M 01', 10, 'may-cat-cut-40m-01', '', '1', '', '', '&#160;', '', 10000000, 11500000, 0, 0, 0, 0, '', 0, 0, 0, 0, 0, '', '', '', '23032016122548', 'a:1:{i:0;s:29:"23032016122548pro-home-02.png";}', '00:25:48 - 23/03/2016', 6, 0, 0, '', '', 466, 502),
+(1514, '', 'Máy cắt CUT-40MB', 10, 'may-cat-cut-40mb', '', '1', '', '', '&#160;', '', 10000000, 12500000, 0, 0, 0, 0, '', 0, 0, 0, 0, 0, '', '', '', '23032016122620', 'a:1:{i:0;s:29:"23032016122620pro-home-02.png";}', '00:26:20 - 23/03/2016', 0, 0, 0, '', '', 466, 502),
+(1515, '', 'Máy cắt CUT-40MC', 10, 'may-cat-cut-40mc', '', '1', '', 'TIỆN DỤNG VỚI NGUỒN ĐIỆN 220V CẮT NHANH, ĐẸP, CƠ ĐỘNG, KINH TẾ SỬ DỤNG KHI CẮT TỪ MÁY NÉN KHÍ (&amp;amp;gt;4.5Kg) CHINH PHỤC ĐỘ DÀY', '&#160;', '', 10000000, 12500000, 0, 0, 1, 0, '', 0, 4294967295, 4294967295, 4294967295, 4294967295, '', '', '', '23032016122824', 'a:1:{i:0;s:29:"23032016122824pro-home-02.png";}', '00:28:24 - 23/03/2016', 5, 0, 0, '', '', 466, 503),
+(1406, '', 'Các bệnh về màn hình và cao áp', 10, 'cac-benh-ve-man-hinh-va-cao-ap', '', '1', '', 'Sửa chữa laptop lấy ngay!', '&#160;<span style="color: rgb(20, 20, 20); font-family: arial, tahoma, verdana; line-height: 20px;">-Laptop bật có hình Window hay logo máy mờ mờ (nhìn kỹ mới thấy ) giá 200.000 - 300.000 lấy ngay</span><span style="background-color: rgb(252, 252, 255); color: rgb(20, 20, 20); font-family: arial, tahoma, verdana; font-size: 15px; line-height: 20px;">​</span>\n<div style="margin: 0px; padding: 0px 0px 0px 30px; color: rgb(20, 20, 20); font-family: arial, tahoma, verdana; font-size: 15px; line-height: 20px; background-color: rgb(252, 252, 255);"><span style="font-size: 12px;">-Laptop bật có hình nhưng bị toàn màu đỏ ,độ sáng kém hơi tối giá 200.000 - 300.000 đồng lấy ngay</span>​</div>\n<div style="margin: 0px; padding: 0px 0px 0px 30px; color: rgb(20, 20, 20); font-family: arial, tahoma, verdana; font-size: 15px; line-height: 20px; background-color: rgb(252, 252, 255);"><span style="font-size: 12px;">-Laptop bật có hình vài giây hoặc vào Win thì tối đen có hình mờ giá 200.000 - 300.000 đồng lấy ngay</span>​</div>\n<div style="margin: 0px; padding: 0px 0px 0px 30px; color: rgb(20, 20, 20); font-family: arial, tahoma, verdana; font-size: 15px; line-height: 20px; background-color: rgb(252, 252, 255);"><span style="font-size: 12px;">-Laptop đang chạy một lúc thì tối đen vẫn có hình mờ sâu bên trong giá 200.000 - 300.000 đ lấy ngay</span>​</div>\n<div style="margin: 0px; padding: 0px 0px 0px 30px; color: rgb(20, 20, 20); font-family: arial, tahoma, verdana; font-size: 15px; line-height: 20px; background-color: rgb(252, 252, 255);"><span style="font-size: 12px;">-Laptop bị nước vào màn hình chỗ tối chỗ sáng thay vệ sinh tấm quang giá 200.000 - 300.000 đ lấy ngay</span>​</div>\n<div style="margin: 0px; padding: 0px 0px 0px 30px; color: rgb(20, 20, 20); font-family: arial, tahoma, verdana; font-size: 15px; line-height: 20px; background-color: rgb(252, 252, 255);"><span style="font-size: 12px;">-Laptop màn hình bị loang đen ,bị kẻ ngang, kẻ dọc, bị ố đen lấm chấm nên thay màn mới (có bảng giá ở phần dưới giá dao động khoảng 1,5 triệu)</span>​</div>\n<div style="margin: 0px; padding: 0px 0px 0px 30px; color: rgb(20, 20, 20); font-family: arial, tahoma, verdana; font-size: 15px; line-height: 20px; background-color: rgb(252, 252, 255);"><span style="font-size: 12px;">-Laptop bị chập chờn lúc có hình lúc mất khi gập màn hình lên xuống giá 200.000 - 300.000 đ lấy ngay</span>​</div>\n<div style="margin: 0px; padding: 0px 0px 0px 30px; color: rgb(20, 20, 20); font-family: arial, tahoma, verdana; font-size: 15px; line-height: 20px; background-color: rgb(252, 252, 255);"><span style="font-size: 12px;">-Laptop bị trắng xóa màn hình (cắm ra màn ngoài hình bình thường ) giá 200.000 - 300.000 đ lấy ngay</span>​</div>\n<div style="margin: 0px; padding: 0px 0px 0px 30px; color: rgb(20, 20, 20); font-family: arial, tahoma, verdana; font-size: 15px; line-height: 20px; background-color: rgb(252, 252, 255);"><span style="font-size: 12px;">-Laptop không có hình, chỉ thấy màn sáng một lúc thì loang lổ toàn sọc nên thay màn mới</span>​</div>\n<div style="margin: 0px; padding: 0px 0px 0px 30px; color: rgb(20, 20, 20); font-family: arial, tahoma, verdana; font-size: 15px; line-height: 20px; background-color: rgb(252, 252, 255);"><span style="font-size: 12px;">-Laptop màn hình bị loang đen ,bị kẻ ngang ,kẻ dọc ,bị ố đen lấm chấm nên thay màn mới</span>​<br />\n<span style="color: rgb(0, 0, 255);"><em><strong><span style="font-size: medium;"><span style="font-family: arial, Helvetica, sans-serif;">Liên hệ : </span></span></strong></em></span><span style="color: rgb(255, 0, 0);"><em><strong><span style="font-size: medium;"><span style="font-family: arial, Helvetica, sans-serif;">17 Lương Thế Vinh - Thanh Xuân - Hà Nội&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160;<br />\n<span style="color: rgb(0, 0, 255);">SDT:</span> 0982954154 - 01234954154 &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; <br />\n<span style="color: rgb(0, 0, 255);">Email:</span> khanhdt1984@gmail.com</span></span></strong></em></span></div>', '', 0, 0, 0, 0, 0, 0, '', 0, 0, 0, 0, 0, '', '', '', '05042014121848', 'a:1:{i:0;s:26:"0504201412184816404115.jpg";}', '00:18:48 - 05/04/2014', 31, 0, 0, '', '', 467, 499),
+(1410, '', 'Sửa laptop k sạc được Pin', 10, 'sua-laptop-k-sac-duoc-pin', '', '1', '', 'Sửa chữa laptop lấy ngay!', '&#160;&#160; &#160; &#160; &#160; &#160;<u><strong><span style="color: rgb(255, 0, 0);"><span style="font-family: arial, tahoma, verdana; line-height: 20px;"><span style="text-decoration: underline;">Sửa laptop không dùng được sạc</span></span><span style="background-color: rgb(252, 252, 255); font-family: arial, tahoma, verdana; font-size: 15px; line-height: 20px;">​</span></span></strong></u>\n<div style="margin: 0px; padding: 0px 0px 0px 30px; color: rgb(20, 20, 20); font-family: arial, tahoma, verdana; font-size: 15px; line-height: 20px; background-color: rgb(252, 252, 255);"><span style="font-size: 12px;">-Laptop acer aspire 4937 , 4736, 4736Z, 4736ZG ... cắm sạc only dùng bình thường lắp pin vào chạy tắt hoặc có lúc không lên màn hình giá 300k lấy ngay</span>​</div>\n<div style="margin: 0px; padding: 0px 0px 0px 30px; color: rgb(20, 20, 20); font-family: arial, tahoma, verdana; font-size: 15px; line-height: 20px; background-color: rgb(252, 252, 255);"><span style="font-size: 12px;">-Laptop toshiba dùng pin thì chạy tốt, cứ cắm sạc vào là tự tắt máy, khởi động lại, nhoè màn hình, sọc màn hình giá 300k đến 500k&#160;</span>​</div>\n<div style="margin: 0px; padding: 0px 0px 0px 30px; color: rgb(20, 20, 20); font-family: arial, tahoma, verdana; font-size: 15px; line-height: 20px; background-color: rgb(252, 252, 255);"><span style="font-size: 12px;">-Laptop dùng pin thì bình thường , cắm sạc vào là treo máy bị xé hình giá 300klấy ngay<br />\n</span><strong><u><span style="color: rgb(255, 0, 0);"><span style="font-size: 12px;"><span style="text-decoration: underline;">Sửa laptop không sạc được pin</span></span>​</span></u></strong></div>\n<div style="margin: 0px; padding: 0px 0px 0px 30px; color: rgb(20, 20, 20); font-family: arial, tahoma, verdana; font-size: 15px; line-height: 20px; background-color: rgb(252, 252, 255);"><span style="font-size: 12px;">- Laptop không sạc được pin ( pin vẫn tốt ) do mạch nạp giá 200k - 500k</span>​<br />\n<span style="color: rgb(0, 0, 255);"><span style="font-size: medium;"><em><strong><span style="font-family: arial, Helvetica, sans-serif; background-color: rgb(255, 255, 255);">Liên hệ :</span></strong></em></span></span><span style="color: rgb(255, 0, 0);"><span style="font-size: medium;"><em><strong><span style="font-family: arial, Helvetica, sans-serif; background-color: rgb(255, 255, 255);"> 17 Lương Thế Vinh - Thanh Xuân - Hà Nội&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; <br />\n<span style="color: rgb(0, 0, 255);">SDT:</span> 0982954154 - 01234954154 &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; <br />\n<span style="color: rgb(0, 0, 255);">Email: </span>khanhdt1984@gmail.com</span></strong></em></span></span></div>', '', 0, 0, 0, 0, 0, 0, '', 0, 0, 0, 0, 0, '', '', '', '05042014123933', 'a:1:{i:0;s:28:"05042014123933pin4-869d9.jpg";}', '00:39:33 - 05/04/2014', 36, 0, 0, '', '', 467, 496),
+(1414, '', 'Sửa laptop không có âm thanh', 10, 'sua-laptop-khong-co-am-thanh', '', '1', '', 'Sửa laptop lấy ngay!', '&#160;<span style="color: rgb(20, 20, 20); font-family: arial, tahoma, verdana; line-height: 20px;"><span style="text-decoration: underline;">Sửa laptop không có tiếng không âm thanh :</span></span><span style="background-color: rgb(252, 252, 255); color: rgb(20, 20, 20); font-family: arial, tahoma, verdana; font-size: 15px; line-height: 20px;">​</span>\n<div style="margin: 0px; padding: 0px 0px 0px 30px; color: rgb(20, 20, 20); font-family: arial, tahoma, verdana; font-size: 15px; line-height: 20px; background-color: rgb(252, 252, 255);"><span style="font-size: 12px;">- Laptop không có tiếng do hỏng chip âm thanh giá 300k</span>​</div>\n<div style="margin: 0px; padding: 0px 0px 0px 30px; color: rgb(20, 20, 20); font-family: arial, tahoma, verdana; font-size: 15px; line-height: 20px; background-color: rgb(252, 252, 255);"><span style="font-size: 12px;">-Laptop không có tiếng (cắm tai nghe bình thường ) do hỏng loa giá 200k</span>​</div>\n<div style="margin: 0px; padding: 0px 0px 0px 30px; color: rgb(20, 20, 20); font-family: arial, tahoma, verdana; font-size: 15px; line-height: 20px; background-color: rgb(252, 252, 255);"><span style="font-size: 12px;">-Laptop có tiếng nhưng am thanh rè sè do bị rách màng loa: thay loa mới.</span>​<br />\n<span style="color: rgb(0, 0, 255);">Liên hệ </span>: <span style="color: rgb(255, 0, 0);">17 Lương Thế Vinh - Thanh Xuân - Hà Nội&#160;<br />\n&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; <span style="color: rgb(0, 0, 255);">SDT</span>: 0982954154 - 01234954154<br />\n&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; <span style="color: rgb(0, 0, 255);">Email</span>: khanhdt1984@gmail.com<br type="_moz" />\n</span></div>', '', 0, 0, 0, 0, 0, 0, '', 0, 0, 0, 0, 0, '', '', '', '05042014124559', 'a:1:{i:0;s:24:"05042014124559529729.jpg";}', '00:45:59 - 05/04/2014', 23, 0, 0, '', '', 467, 497),
+(1453, '', 'MTXT HP HP 14-d010TU', 10, 'mtxt-hp-hp-14-d010tu', '', '1', 'cặp.sạc....', 'máy mới', '&#160;\n<table width="948px" cellspacing="0" cellpadding="0" style="border-spacing: 0px; color: rgb(51, 51, 51); font-family: Arial, Helvetica, sans-serif; font-size: 12px; border-bottom-width: medium; border-style: solid solid none; border-image-source: none;">\n    <tbody>\n        <tr>\n            <td style="margin: 0px; padding: 0px 0px 0px 5px; width: 200px; height: 30px; background-image: none; background-attachment: scroll; background-color: rgb(247, 247, 247); border-right-color: rgb(230, 230, 230); border-bottom-style: solid; border-bottom-color: rgb(230, 230, 230); background-position: 0% 0%; background-repeat: repeat repeat;">Thương hiệu</td>\n            <td style="margin: 0px; padding: 0px 0px 0px 5px; background-image: none; background-attachment: scroll; background-color: rgb(247, 247, 247); border-bottom-style: solid; border-bottom-color: rgb(230, 230, 230); line-height: 21.600000381469727px; background-position: 0% 0%; background-repeat: repeat repeat;">HP</td>\n        </tr>\n        <tr>\n            <td style="margin: 0px; padding: 0px 0px 0px 5px; width: 200px; height: 30px; background-image: none; background-attachment: scroll; border-right-color: rgb(230, 230, 230); border-bottom-style: solid; border-bottom-color: rgb(230, 230, 230); background-position: 0% 0%; background-repeat: repeat repeat;">Xuất xứ</td>\n            <td style="margin: 0px; padding: 0px 0px 0px 5px; background-image: none; background-attachment: scroll; border-bottom-style: solid; border-bottom-color: rgb(230, 230, 230); line-height: 21.600000381469727px; background-position: 0% 0%; background-repeat: repeat repeat;">Thương hiệu Mỹ - sản xuất tại Trung Quốc</td>\n        </tr>\n        <tr>\n            <td style="margin: 0px; padding: 0px 0px 0px 5px; width: 200px; height: 30px; background-image: none; background-attachment: scroll; background-color: rgb(247, 247, 247); border-right-color: rgb(230, 230, 230); border-bottom-style: solid; border-bottom-color: rgb(230, 230, 230); background-position: 0% 0%; background-repeat: repeat repeat;">Hệ điều hành - OS</td>\n            <td style="margin: 0px; padding: 0px 0px 0px 5px; background-image: none; background-attachment: scroll; background-color: rgb(247, 247, 247); border-bottom-style: solid; border-bottom-color: rgb(230, 230, 230); line-height: 21.600000381469727px; background-position: 0% 0%; background-repeat: repeat repeat;">Không</td>\n        </tr>\n        <tr>\n            <td style="margin: 0px; padding: 0px 0px 0px 5px; width: 200px; height: 30px; background-image: none; background-attachment: scroll; border-right-color: rgb(230, 230, 230); border-bottom-style: solid; border-bottom-color: rgb(230, 230, 230); background-position: 0% 0%; background-repeat: repeat repeat;">Bộ vi xử lý - CPU</td>\n            <td style="margin: 0px; padding: 0px 0px 0px 5px; background-image: none; background-attachment: scroll; border-bottom-style: solid; border-bottom-color: rgb(230, 230, 230); line-height: 21.600000381469727px; background-position: 0% 0%; background-repeat: repeat repeat;">Core i3-3110M (2*2.4-GHz, 3-MB L2 cache)</td>\n        </tr>\n        <tr>\n            <td style="margin: 0px; padding: 0px 0px 0px 5px; width: 200px; height: 30px; background-image: none; background-attachment: scroll; background-color: rgb(247, 247, 247); border-right-color: rgb(230, 230, 230); border-bottom-style: solid; border-bottom-color: rgb(230, 230, 230); background-position: 0% 0%; background-repeat: repeat repeat;">Bộ nhớ trong - RAM</td>\n            <td style="margin: 0px; padding: 0px 0px 0px 5px; background-image: none; background-attachment: scroll; background-color: rgb(247, 247, 247); border-bottom-style: solid; border-bottom-color: rgb(230, 230, 230); line-height: 21.600000381469727px; background-position: 0% 0%; background-repeat: repeat repeat;">4GB DDR3 Bus 1600 Mhz</td>\n        </tr>\n        <tr>\n            <td style="margin: 0px; padding: 0px 0px 0px 5px; width: 200px; height: 30px; background-image: none; background-attachment: scroll; border-right-color: rgb(230, 230, 230); border-bottom-style: solid; border-bottom-color: rgb(230, 230, 230); background-position: 0% 0%; background-repeat: repeat repeat;">Ổ đĩa cứng - HDD</td>\n            <td style="margin: 0px; padding: 0px 0px 0px 5px; background-image: none; background-attachment: scroll; border-bottom-style: solid; border-bottom-color: rgb(230, 230, 230); line-height: 21.600000381469727px; background-position: 0% 0%; background-repeat: repeat repeat;">500GB</td>\n        </tr>\n        <tr>\n            <td style="margin: 0px; padding: 0px 0px 0px 5px; width: 200px; height: 30px; background-image: none; background-attachment: scroll; background-color: rgb(247, 247, 247); border-right-color: rgb(230, 230, 230); border-bottom-style: solid; border-bottom-color: rgb(230, 230, 230); background-position: 0% 0%; background-repeat: repeat repeat;">Bộ vi xử lý đồ họa - GPU</td>\n            <td style="margin: 0px; padding: 0px 0px 0px 5px; background-image: none; background-attachment: scroll; background-color: rgb(247, 247, 247); border-bottom-style: solid; border-bottom-color: rgb(230, 230, 230); line-height: 21.600000381469727px; background-position: 0% 0%; background-repeat: repeat repeat;">Không</td>\n        </tr>\n        <tr>\n            <td style="margin: 0px; padding: 0px 0px 0px 5px; width: 200px; height: 30px; background-image: none; background-attachment: scroll; border-right-color: rgb(230, 230, 230); border-bottom-style: solid; border-bottom-color: rgb(230, 230, 230); background-position: 0% 0%; background-repeat: repeat repeat;">Kích cỡ màn hình - LCD</td>\n            <td style="margin: 0px; padding: 0px 0px 0px 5px; background-image: none; background-attachment: scroll; border-bottom-style: solid; border-bottom-color: rgb(230, 230, 230); line-height: 21.600000381469727px; background-position: 0% 0%; background-repeat: repeat repeat;">14'''' LED-backlit HD BrightView</td>\n        </tr>\n        <tr>\n            <td style="margin: 0px; padding: 0px 0px 0px 5px; width: 200px; height: 30px; background-image: none; background-attachment: scroll; background-color: rgb(247, 247, 247); border-right-color: rgb(230, 230, 230); border-bottom-style: solid; border-bottom-color: rgb(230, 230, 230); background-position: 0% 0%; background-repeat: repeat repeat;">Ổ quang học - ODD</td>\n            <td style="margin: 0px; padding: 0px 0px 0px 5px; background-image: none; background-attachment: scroll; background-color: rgb(247, 247, 247); border-bottom-style: solid; border-bottom-color: rgb(230, 230, 230); line-height: 21.600000381469727px; background-position: 0% 0%; background-repeat: repeat repeat;">DVDRW LightScribe</td>\n        </tr>\n        <tr>\n            <td style="margin: 0px; padding: 0px 0px 0px 5px; width: 200px; height: 30px; background-image: none; background-attachment: scroll; border-right-color: rgb(230, 230, 230); border-bottom-style: solid; border-bottom-color: rgb(230, 230, 230); background-position: 0% 0%; background-repeat: repeat repeat;">Mạng không dây - Wifi</td>\n            <td style="margin: 0px; padding: 0px 0px 0px 5px; background-image: none; background-attachment: scroll; border-bottom-style: solid; border-bottom-color: rgb(230, 230, 230); line-height: 21.600000381469727px; background-position: 0% 0%; background-repeat: repeat repeat;">802.11b.g.n</td>\n        </tr>\n        <tr>\n            <td style="margin: 0px; padding: 0px 0px 0px 5px; width: 200px; height: 30px; background-image: none; background-attachment: scroll; background-color: rgb(247, 247, 247); border-right-color: rgb(230, 230, 230); border-bottom-style: solid; border-bottom-color: rgb(230, 230, 230); background-position: 0% 0%; background-repeat: repeat repeat;">Webcam</td>\n            <td style="margin: 0px; padding: 0px 0px 0px 5px; background-image: none; background-attachment: scroll; background-color: rgb(247, 247, 247); border-bottom-style: solid; border-bottom-color: rgb(230, 230, 230); line-height: 21.600000381469727px; background-position: 0% 0%; background-repeat: repeat repeat;">Có</td>\n        </tr>\n        <tr>\n            <td style="margin: 0px; padding: 0px 0px 0px 5px; width: 200px; height: 30px; background-image: none; background-attachment: scroll; border-right-color: rgb(230, 230, 230); border-bottom-style: solid; border-bottom-color: rgb(230, 230, 230); background-position: 0% 0%; background-repeat: repeat repeat;">Bluetooth</td>\n            <td style="margin: 0px; padding: 0px 0px 0px 5px; background-image: none; background-attachment: scroll; border-bottom-style: solid; border-bottom-color: rgb(230, 230, 230); line-height: 21.600000381469727px; background-position: 0% 0%; background-repeat: repeat repeat;">Không</td>\n        </tr>\n        <tr>\n            <td style="margin: 0px; padding: 0px 0px 0px 5px; width: 200px; height: 30px; background-image: none; background-attachment: scroll; background-color: rgb(247, 247, 247); border-right-color: rgb(230, 230, 230); border-bottom-style: solid; border-bottom-color: rgb(230, 230, 230); background-position: 0% 0%; background-repeat: repeat repeat;">Finger print</td>\n            <td style="margin: 0px; padding: 0px 0px 0px 5px; background-image: none; background-attachment: scroll; background-color: rgb(247, 247, 247); border-bottom-style: solid; border-bottom-color: rgb(230, 230, 230); line-height: 21.600000381469727px; background-position: 0% 0%; background-repeat: repeat repeat;">Không</td>\n        </tr>\n        <tr>\n            <td style="margin: 0px; padding: 0px 0px 0px 5px; width: 200px; height: 30px; background-image: none; background-attachment: scroll; border-right-color: rgb(230, 230, 230); border-bottom-style: solid; border-bottom-color: rgb(230, 230, 230); background-position: 0% 0%; background-repeat: repeat repeat;">Pin</td>\n            <td style="margin: 0px; padding: 0px 0px 0px 5px; background-image: none; background-attachment: scroll; border-bottom-style: solid; border-bottom-color: rgb(230, 230, 230); line-height: 21.600000381469727px; background-position: 0% 0%; background-repeat: repeat repeat;">Pin 6 cell</td>\n        </tr>\n        <tr>\n            <td style="margin: 0px; padding: 0px 0px 0px 5px; width: 200px; height: 30px; background-image: none; background-attachment: scroll; background-color: rgb(247, 247, 247); border-right-color: rgb(230, 230, 230); border-bottom-style: solid; border-bottom-color: rgb(230, 230, 230); background-position: 0% 0%; background-repeat: repeat repeat;">Khối lượng</td>\n            <td style="margin: 0px; padding: 0px 0px 0px 5px; background-image: none; background-attachment: scroll; background-color: rgb(247, 247, 247); border-bottom-style: solid; border-bottom-color: rgb(230, 230, 230); line-height: 21.600000381469727px; background-position: 0% 0%; background-repeat: repeat repeat;">2.1 Kg</td>\n        </tr>\n    </tbody>\n</table>', '', 9299000, 9599000, 0, 0, 0, 0, '', 0, 0, 0, 0, 0, '12 tháng', '', '', '09042014022422', 'a:1:{i:0;s:20:"0904201402242205.jpg";}', '14:24:22 - 09/04/2014', 20, 0, 1, 'keyword', 'description', 512, 0);
 
 -- --------------------------------------------------------
 
@@ -777,12 +747,11 @@ INSERT INTO `tbl_products` (`pro_id`, `pro_code`, `pro_name`, `pro_qty`, `pro_na
 -- Table structure for table `tbl_referer`
 --
 
-CREATE TABLE IF NOT EXISTS `tbl_referer` (
-  `re_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE `tbl_referer` (
+  `re_id` int(10) UNSIGNED NOT NULL,
   `re_domain` varchar(255) NOT NULL,
-  `re_count` int(10) NOT NULL DEFAULT '1',
-  PRIMARY KEY (`re_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=26 ;
+  `re_count` int(10) NOT NULL DEFAULT '1'
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tbl_referer`
@@ -807,12 +776,11 @@ INSERT INTO `tbl_referer` (`re_id`, `re_domain`, `re_count`) VALUES
 -- Table structure for table `tbl_search`
 --
 
-CREATE TABLE IF NOT EXISTS `tbl_search` (
-  `search_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE `tbl_search` (
+  `search_id` int(10) UNSIGNED NOT NULL,
   `search_text` varchar(255) NOT NULL,
-  `search_count` int(10) unsigned NOT NULL DEFAULT '1',
-  PRIMARY KEY (`search_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+  `search_count` int(10) UNSIGNED NOT NULL DEFAULT '1'
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tbl_search`
@@ -828,13 +796,12 @@ INSERT INTO `tbl_search` (`search_id`, `search_text`, `search_count`) VALUES
 -- Table structure for table `tbl_services`
 --
 
-CREATE TABLE IF NOT EXISTS `tbl_services` (
-  `service_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE `tbl_services` (
+  `service_id` int(10) UNSIGNED NOT NULL,
   `service_info` text CHARACTER SET utf8 NOT NULL,
   `service_full` longtext CHARACTER SET utf8 NOT NULL,
-  `service_data` varchar(200) CHARACTER SET utf8 NOT NULL,
-  PRIMARY KEY (`service_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+  `service_data` varchar(200) CHARACTER SET utf8 NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tbl_services`
@@ -849,8 +816,8 @@ INSERT INTO `tbl_services` (`service_id`, `service_info`, `service_full`, `servi
 -- Table structure for table `tbl_setup`
 --
 
-CREATE TABLE IF NOT EXISTS `tbl_setup` (
-  `set_id` int(1) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE `tbl_setup` (
+  `set_id` int(1) UNSIGNED NOT NULL,
   `set_pass` varchar(10) NOT NULL,
   `set_info` varchar(255) NOT NULL,
   `set_count_pro` varchar(200) NOT NULL,
@@ -858,9 +825,8 @@ CREATE TABLE IF NOT EXISTS `tbl_setup` (
   `set_pro_hot` varchar(10) NOT NULL,
   `set_pro_bestsale` varchar(10) NOT NULL,
   `set_pro_new` varchar(10) NOT NULL,
-  `set_pro_saleoff` varchar(10) NOT NULL,
-  PRIMARY KEY (`set_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+  `set_pro_saleoff` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `tbl_setup`
@@ -875,16 +841,15 @@ INSERT INTO `tbl_setup` (`set_id`, `set_pass`, `set_info`, `set_count_pro`, `set
 -- Table structure for table `tbl_slideshow`
 --
 
-CREATE TABLE IF NOT EXISTS `tbl_slideshow` (
-  `slide_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE `tbl_slideshow` (
+  `slide_id` int(10) UNSIGNED NOT NULL,
   `slide_title` varchar(200) NOT NULL,
   `slide_alt` varchar(200) NOT NULL,
   `slide_image` varchar(200) NOT NULL,
   `slide_link` varchar(200) NOT NULL,
   `slide_type` int(2) NOT NULL,
-  `slide_status` int(1) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`slide_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=13 ;
+  `slide_status` int(1) NOT NULL DEFAULT '0'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `tbl_slideshow`
@@ -902,17 +867,16 @@ INSERT INTO `tbl_slideshow` (`slide_id`, `slide_title`, `slide_alt`, `slide_imag
 -- Table structure for table `tbl_support`
 --
 
-CREATE TABLE IF NOT EXISTS `tbl_support` (
-  `sup_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE `tbl_support` (
+  `sup_id` int(10) UNSIGNED NOT NULL,
   `sup_name` varchar(50) NOT NULL,
   `sup_yahoo` varchar(50) NOT NULL,
   `sup_phone` varchar(100) NOT NULL,
   `sup_sky` varchar(100) NOT NULL,
   `sup_email` varchar(150) NOT NULL,
   `sup_order` int(10) NOT NULL DEFAULT '0',
-  `sup_status` int(1) NOT NULL DEFAULT '1',
-  PRIMARY KEY (`sup_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=30 ;
+  `sup_status` int(1) NOT NULL DEFAULT '1'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `tbl_support`
@@ -928,8 +892,8 @@ INSERT INTO `tbl_support` (`sup_id`, `sup_name`, `sup_yahoo`, `sup_phone`, `sup_
 -- Table structure for table `tbl_user`
 --
 
-CREATE TABLE IF NOT EXISTS `tbl_user` (
-  `user_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE `tbl_user` (
+  `user_id` int(10) UNSIGNED NOT NULL,
   `user_name` varchar(50) NOT NULL,
   `user_password` char(50) NOT NULL,
   `user_fullname` varchar(50) NOT NULL,
@@ -940,11 +904,10 @@ CREATE TABLE IF NOT EXISTS `tbl_user` (
   `user_ip` varchar(100) NOT NULL DEFAULT '0',
   `user_date` varchar(100) NOT NULL,
   `user_lastlogin` varchar(100) NOT NULL,
-  `user_level` int(10) unsigned NOT NULL DEFAULT '2',
+  `user_level` int(10) UNSIGNED NOT NULL DEFAULT '2',
   `user_mod` int(10) NOT NULL DEFAULT '0',
-  `user_status` int(1) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`user_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=138 ;
+  `user_status` int(1) NOT NULL DEFAULT '0'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `tbl_user`
@@ -953,9 +916,359 @@ CREATE TABLE IF NOT EXISTS `tbl_user` (
 INSERT INTO `tbl_user` (`user_id`, `user_name`, `user_password`, `user_fullname`, `user_gender`, `user_phone`, `user_address`, `user_email`, `user_ip`, `user_date`, `user_lastlogin`, `user_level`, `user_mod`, `user_status`) VALUES
 (118, 'khanhdt', 'ea0e2d03d9252b440fc01e040db7ce29', 'Đỗ Tiến Khanh', '1', '0982954154', '17 Lương Thế Vinh', 'khanhdt1984@gmail.com', '58.187.46.53', '23:24:28 - 30/03/2014', '14:57:39 - 30/06/2014', 1, 0, 1),
 (1, 'bachnx', '726f56c54291dd7ce74be36e91256536', 'Nguyễn Xuân Bách', '1', '0976256106', 'Cầu Giấy - Hà Nội', 'bachnx92@gmail.com', '127.0.0.1', '23:27:36 - 30/03/2014', '12:14:16 - 12/03/2016', 1, 1, 1),
-(129, 'admin', '21232f297a57a5a743894a0e4a801fc3', 'Cao Tùng', '1', '01675641992', 'Cầu Giấy - Hà Nội', 'caominhtung64@gmail.com', '127.0.0.1', '14:27:04 - 14/04/2014', '21:20:23 - 22/03/2016', 1, 0, 1),
+(129, 'admin', '21232f297a57a5a743894a0e4a801fc3', 'Cao Tùng', '1', '01675641992', 'Cầu Giấy - Hà Nội', 'caominhtung64@gmail.com', '::1', '14:27:04 - 14/04/2014', '08:55:56 - 29/03/2016', 1, 0, 1),
 (128, 'thanhdat', '0a2e33ddbad4048dd0abba710e967152', 'Nguyễn Thành Đạt', '1', '0969730726', '17 lương thế vinh', 'sadknigt1294@live.com', '123.16.101.247', '00:12:35 - 05/04/2014', '08:32:21 - 07/08/2014', 1, 0, 1);
 
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `tbl_articles`
+--
+ALTER TABLE `tbl_articles`
+  ADD PRIMARY KEY (`article_id`);
+
+--
+-- Indexes for table `tbl_banner`
+--
+ALTER TABLE `tbl_banner`
+  ADD PRIMARY KEY (`slide_id`);
+
+--
+-- Indexes for table `tbl_banner_location`
+--
+ALTER TABLE `tbl_banner_location`
+  ADD PRIMARY KEY (`location_id`);
+
+--
+-- Indexes for table `tbl_categorie`
+--
+ALTER TABLE `tbl_categorie`
+  ADD PRIMARY KEY (`cago_id`);
+
+--
+-- Indexes for table `tbl_category`
+--
+ALTER TABLE `tbl_category`
+  ADD PRIMARY KEY (`cate_id`);
+
+--
+-- Indexes for table `tbl_config`
+--
+ALTER TABLE `tbl_config`
+  ADD PRIMARY KEY (`config_id`);
+
+--
+-- Indexes for table `tbl_contact`
+--
+ALTER TABLE `tbl_contact`
+  ADD PRIMARY KEY (`con_id`);
+
+--
+-- Indexes for table `tbl_contact_info`
+--
+ALTER TABLE `tbl_contact_info`
+  ADD PRIMARY KEY (`contact_id`);
+
+--
+-- Indexes for table `tbl_content`
+--
+ALTER TABLE `tbl_content`
+  ADD PRIMARY KEY (`con_id`);
+
+--
+-- Indexes for table `tbl_count_search`
+--
+ALTER TABLE `tbl_count_search`
+  ADD PRIMARY KEY (`count_id`);
+
+--
+-- Indexes for table `tbl_customer`
+--
+ALTER TABLE `tbl_customer`
+  ADD PRIMARY KEY (`cus_id`);
+
+--
+-- Indexes for table `tbl_education`
+--
+ALTER TABLE `tbl_education`
+  ADD PRIMARY KEY (`edu_id`);
+
+--
+-- Indexes for table `tbl_favorites`
+--
+ALTER TABLE `tbl_favorites`
+  ADD PRIMARY KEY (`fa_id`);
+
+--
+-- Indexes for table `tbl_guide`
+--
+ALTER TABLE `tbl_guide`
+  ADD PRIMARY KEY (`guide_id`),
+  ADD UNIQUE KEY `guide_id` (`guide_id`);
+
+--
+-- Indexes for table `tbl_intro`
+--
+ALTER TABLE `tbl_intro`
+  ADD PRIMARY KEY (`in_id`);
+
+--
+-- Indexes for table `tbl_intro_one`
+--
+ALTER TABLE `tbl_intro_one`
+  ADD PRIMARY KEY (`intro_id`);
+
+--
+-- Indexes for table `tbl_menu`
+--
+ALTER TABLE `tbl_menu`
+  ADD PRIMARY KEY (`menu_id`);
+
+--
+-- Indexes for table `tbl_news`
+--
+ALTER TABLE `tbl_news`
+  ADD PRIMARY KEY (`news_id`);
+
+--
+-- Indexes for table `tbl_online`
+--
+ALTER TABLE `tbl_online`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `tbl_order`
+--
+ALTER TABLE `tbl_order`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `tbl_page`
+--
+ALTER TABLE `tbl_page`
+  ADD PRIMARY KEY (`page_id`);
+
+--
+-- Indexes for table `tbl_popup`
+--
+ALTER TABLE `tbl_popup`
+  ADD PRIMARY KEY (`pop_id`);
+
+--
+-- Indexes for table `tbl_posts`
+--
+ALTER TABLE `tbl_posts`
+  ADD PRIMARY KEY (`post_id`);
+
+--
+-- Indexes for table `tbl_products`
+--
+ALTER TABLE `tbl_products`
+  ADD PRIMARY KEY (`pro_id`);
+
+--
+-- Indexes for table `tbl_referer`
+--
+ALTER TABLE `tbl_referer`
+  ADD PRIMARY KEY (`re_id`);
+
+--
+-- Indexes for table `tbl_search`
+--
+ALTER TABLE `tbl_search`
+  ADD PRIMARY KEY (`search_id`);
+
+--
+-- Indexes for table `tbl_services`
+--
+ALTER TABLE `tbl_services`
+  ADD PRIMARY KEY (`service_id`);
+
+--
+-- Indexes for table `tbl_setup`
+--
+ALTER TABLE `tbl_setup`
+  ADD PRIMARY KEY (`set_id`);
+
+--
+-- Indexes for table `tbl_slideshow`
+--
+ALTER TABLE `tbl_slideshow`
+  ADD PRIMARY KEY (`slide_id`);
+
+--
+-- Indexes for table `tbl_support`
+--
+ALTER TABLE `tbl_support`
+  ADD PRIMARY KEY (`sup_id`);
+
+--
+-- Indexes for table `tbl_user`
+--
+ALTER TABLE `tbl_user`
+  ADD PRIMARY KEY (`user_id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `tbl_articles`
+--
+ALTER TABLE `tbl_articles`
+  MODIFY `article_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+--
+-- AUTO_INCREMENT for table `tbl_banner`
+--
+ALTER TABLE `tbl_banner`
+  MODIFY `slide_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
+--
+-- AUTO_INCREMENT for table `tbl_banner_location`
+--
+ALTER TABLE `tbl_banner_location`
+  MODIFY `location_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+--
+-- AUTO_INCREMENT for table `tbl_categorie`
+--
+ALTER TABLE `tbl_categorie`
+  MODIFY `cago_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=221;
+--
+-- AUTO_INCREMENT for table `tbl_category`
+--
+ALTER TABLE `tbl_category`
+  MODIFY `cate_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=562;
+--
+-- AUTO_INCREMENT for table `tbl_config`
+--
+ALTER TABLE `tbl_config`
+  MODIFY `config_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `tbl_contact`
+--
+ALTER TABLE `tbl_contact`
+  MODIFY `con_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=204;
+--
+-- AUTO_INCREMENT for table `tbl_contact_info`
+--
+ALTER TABLE `tbl_contact_info`
+  MODIFY `contact_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `tbl_content`
+--
+ALTER TABLE `tbl_content`
+  MODIFY `con_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+--
+-- AUTO_INCREMENT for table `tbl_count_search`
+--
+ALTER TABLE `tbl_count_search`
+  MODIFY `count_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+--
+-- AUTO_INCREMENT for table `tbl_customer`
+--
+ALTER TABLE `tbl_customer`
+  MODIFY `cus_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=144;
+--
+-- AUTO_INCREMENT for table `tbl_education`
+--
+ALTER TABLE `tbl_education`
+  MODIFY `edu_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `tbl_favorites`
+--
+ALTER TABLE `tbl_favorites`
+  MODIFY `fa_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+--
+-- AUTO_INCREMENT for table `tbl_guide`
+--
+ALTER TABLE `tbl_guide`
+  MODIFY `guide_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `tbl_intro`
+--
+ALTER TABLE `tbl_intro`
+  MODIFY `in_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+--
+-- AUTO_INCREMENT for table `tbl_intro_one`
+--
+ALTER TABLE `tbl_intro_one`
+  MODIFY `intro_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `tbl_menu`
+--
+ALTER TABLE `tbl_menu`
+  MODIFY `menu_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT for table `tbl_news`
+--
+ALTER TABLE `tbl_news`
+  MODIFY `news_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=161;
+--
+-- AUTO_INCREMENT for table `tbl_online`
+--
+ALTER TABLE `tbl_online`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26110;
+--
+-- AUTO_INCREMENT for table `tbl_order`
+--
+ALTER TABLE `tbl_order`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=122;
+--
+-- AUTO_INCREMENT for table `tbl_page`
+--
+ALTER TABLE `tbl_page`
+  MODIFY `page_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=122;
+--
+-- AUTO_INCREMENT for table `tbl_popup`
+--
+ALTER TABLE `tbl_popup`
+  MODIFY `pop_id` int(1) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `tbl_posts`
+--
+ALTER TABLE `tbl_posts`
+  MODIFY `post_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+--
+-- AUTO_INCREMENT for table `tbl_products`
+--
+ALTER TABLE `tbl_products`
+  MODIFY `pro_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1516;
+--
+-- AUTO_INCREMENT for table `tbl_referer`
+--
+ALTER TABLE `tbl_referer`
+  MODIFY `re_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+--
+-- AUTO_INCREMENT for table `tbl_search`
+--
+ALTER TABLE `tbl_search`
+  MODIFY `search_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `tbl_services`
+--
+ALTER TABLE `tbl_services`
+  MODIFY `service_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `tbl_setup`
+--
+ALTER TABLE `tbl_setup`
+  MODIFY `set_id` int(1) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `tbl_slideshow`
+--
+ALTER TABLE `tbl_slideshow`
+  MODIFY `slide_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+--
+-- AUTO_INCREMENT for table `tbl_support`
+--
+ALTER TABLE `tbl_support`
+  MODIFY `sup_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+--
+-- AUTO_INCREMENT for table `tbl_user`
+--
+ALTER TABLE `tbl_user`
+  MODIFY `user_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=138;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

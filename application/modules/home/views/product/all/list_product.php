@@ -155,7 +155,6 @@
                 <li><a href="#">MÁY HÀN ESAB - TRUNG QUỐC</a></li>
               </ul>
             </div>
-            
             <div class="left-content-video">
               <div class="title-new-left">
                 <p>video</p>

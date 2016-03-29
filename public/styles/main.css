@@ -3402,6 +3402,7 @@ button {
 }
 
 .product-info .product-info-bot .comparison-pro {
+  display: none;
   width: 50%;
   height: 100%;
   float: left;
@@ -4209,6 +4210,7 @@ button {
     float: left;
     color: #f00;
   }
+<<<<<<< HEAD
   .iteam_slider_top a img{
     width: 85%;
   }
@@ -4218,3 +4220,17 @@ button {
   .camket-phu{
     padding-top: -7px !important;
   }
+=======
+  .detail_add{
+    float: left;
+    background: #f00;
+    text-align: center;
+    width: 185px;
+    height: 55px;
+    line-height: 55px;
+    color: #fff;
+    }
+    .detail_add a{
+      text-decoration: none;
+    }
+>>>>>>> 1bfe7a1954587713a89faa7c2e2d352545373777

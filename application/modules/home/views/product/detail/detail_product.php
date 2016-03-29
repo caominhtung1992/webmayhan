@@ -252,14 +252,15 @@ function user_like_content(a,b){
                   </div>                
                 </div>
                 <div class="col-24 de-info-cart">
-                  <div class="col-12 de-buy">                 
+                  <!--div class="col-12 de-buy">                 
                     <a href="http://local.webmayhan.vn/gio-hang.html?step=2">Mua hàng</a>
-                  </div>
+                  </div-->
                   <!--div class="col-12 de-cart">                  
                     <a href="">Giỏ hàng</a>
                   </div--> 
                   <form action="<?php echo base_url()."home/cart/addcart/".$detail['pro_id'].""; ?>" method="post">
                     <div class="cssOrder" style="float:left;"> 
+                    <a class="detail_add" href="">Mua hàng</a>
                     <input style="position:relative; width: 196px;
                       height: 56px;
                       left: 17px;
@@ -398,3 +399,12 @@ function user_like_content(a,b){
         $(".show_lightbox_img a").lightBox(); 
       });
     </script>
+    <script type="text/javascript">
+        $(document).ready(function(e) {
+            $(".detail_add").click(function(d){
+              d.preventDefault();
+              $("#detail_add_form").val("yes");
+              $("#form_add_cart").submit();
+            })
+          });
+      </script>
