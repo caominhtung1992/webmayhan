@@ -4220,17 +4220,14 @@ button {
   .camket-phu{
     padding-top: -7px !important;
   }
-=======
   .detail_add{
     float: left;
+    width: 155px;
+    height: 55px;
     background: #f00;
     text-align: center;
-    width: 185px;
-    height: 55px;
     line-height: 55px;
     color: #fff;
+    text-decoration: none;
     }
-    .detail_add a{
-      text-decoration: none;
-    }
->>>>>>> 1bfe7a1954587713a89faa7c2e2d352545373777
+  
