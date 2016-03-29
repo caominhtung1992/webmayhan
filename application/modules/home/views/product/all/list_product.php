@@ -155,15 +155,6 @@
                 <li><a href="#">MÁY HÀN ESAB - TRUNG QUỐC</a></li>
               </ul>
             </div>
-            <div class="cate-left-fitter">
-              <div class="layout-slider" style="width: 100%">
-               <p>Giá</p>
-               <span style="display: inline-block; width: 100%; padding: 0 5px;"><input id="Slider1" type="slider" name="price" value="30000.5;60000" /></span>
-            </div>
-            <script type="text/javascript" charset="utf-8">
-              jQuery("#Slider1").slider({ from: 2000000, to: 20000000, step: 500, smooth: true, round: 0, dimension: "&nbsp;$", skin: "plastic" });
-            </script>
-            </div>
             <div class="left-content-video">
               <div class="title-new-left">
                 <p>video</p>

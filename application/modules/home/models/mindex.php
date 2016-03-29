@@ -152,6 +152,7 @@
 			$this->db->where("slide_type",$id);
 			$this->db->where("slide_status",1);
 			$this->db->order_by("slide_order","DESC");
+			$this->db->limit(3);
 			return $this->db->get($this->_slide)->result_array();
 		}
 	}

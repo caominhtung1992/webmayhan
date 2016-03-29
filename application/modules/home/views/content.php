@@ -299,9 +299,8 @@
               <SPAN>& CHỨNG NHẬN </SPAN>
               <div class="right-main-merit">
                 <?php
-                if(isset($slide) && $slide != NULL){
-                  foreach($slide as $value){
-                  //var_dump($value);die();
+                if(isset($slider) && $slider != NULL){
+                  foreach($slider as $value){
                 ?>
                   <div class="iteam-right-merit">
                     <img src="<?php echo base_url()."uploads/banner/".$value['slide_image']."";?>" alt="">
