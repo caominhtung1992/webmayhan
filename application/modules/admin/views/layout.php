@@ -7,10 +7,10 @@
 <meta name="viewport" content="width=device-width">
 <meta name="robots" content="noindex, nofollow" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Quản trị website | Northstar</title>
+<title>Quản trị website</title>
 <meta http-equiv="content-language" content="vi"/>
 <meta http-equiv="refresh" content="600" />
-<link rel="shortcut icon" href="<?php echo base_url()."public/images/favicon.ico" ;?>" />
+<link rel="shortcut icon" href="<?php echo base_url()."public/images/logo.ico" ;?>" />
 
 <?php $this->load->view("admin/scripts"); ?>
 </head>

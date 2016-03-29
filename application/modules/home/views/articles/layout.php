@@ -6,7 +6,7 @@
 <meta http-equiv="refresh" content="600" />
 <title><?php echo $title ; ?></title>
 <link rel="canonical" href="<?php echo base_url().uri_string().".html"; ?>" />
-<link rel="shortcut icon" href="<?php echo base_url(); ?>favicon.ico" />
+<link rel="shortcut icon" href="<?php echo base_url(); ?>logo.ico" />
 <meta name="keywords" content="<?php if(isset($detail_news)){echo $detail_news['news_key'];}else{echo "Tin tức";}?>" />
 <meta name="description" content="<?php if(isset($detail_news)){echo $detail_news['news_des'];}else{echo "Tin tức";} ?>" />
 <meta property="og:type" content="blog" />

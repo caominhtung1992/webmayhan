@@ -573,19 +573,17 @@ h6, h6 a {
   min-height: 100%;
   margin: 0 auto;
   position: relative;
-  overflow-x: inherit;
+  overflow: hidden;
 }
 
 #main-body {
-  padding-bottom: 210px;
+ 
 }
 
 #footer {
   width: 100%;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  height: 210px;
+  height: auto;
+  float: left;
 }
 
 /*!
@@ -2948,7 +2946,7 @@ button {
 }
 
 #wrapper {
-  overflow-x: inherit;
+
 }
 
 .top-head {
@@ -2966,11 +2964,10 @@ button {
 }
 
 .mid-head {
-  background-image: url("../images/bg-menu.jpg");
-  background-repeat: no-repeat;
   height: 47px;
-  width: 1367px;
+  width: 1024px;
   margin: 0px auto;
+  background-image: url("../images/bg-top001.jpg");
 }
 
 .mid-head .hotline-top span {
@@ -2979,7 +2976,18 @@ button {
   line-height: 47px;
   color: #fff;
 }
-
+.menu-top{
+    width: 788px;
+    height: 100%;
+    float: left;
+}
+.hotline-top{
+  width: 236px;
+  float: left;
+  height: 100%;
+  background-image: url("../images/bg-top002.jpg");
+  background-repeat: no-repeat;
+}
 .mid-head .hotline-top p, .mid-head .hotline-top #main-body ul, #main-body .mid-head .hotline-top ul, .mid-head .hotline-top #main-body ol, #main-body .mid-head .hotline-top ol, .mid-head .hotline-top #main-body table, #main-body .mid-head .hotline-top table {
   color: #fff;
   float: right;
@@ -3001,12 +3009,11 @@ button {
   color: #fff;
   text-transform: uppercase;
   font-family: Arial;
-  font-size: 18px;
+  font-size: 17px;
   text-decoration: none;
 }
-
 .bt-head {
-  width: 1367px;
+  width: 1024px;
   margin-top: 10px;
   margin: 0px auto;
   height: auto;
@@ -3017,11 +3024,11 @@ button {
   height: auto;
   float: left;
   background: #ececec;
-  margin-bottom: 20px;
+  margin-bottom: 0px;
 }
 
 .new-product .new-pro-main {
-  width: 1064px;
+  width: 1024px;
   margin: 0px auto;
   background: #fff;
 }
@@ -3038,7 +3045,7 @@ button {
 
 .owl-carousel li {
   border-right: 1px solid #ccc;
-  padding: 0px 36px 0px 36px;
+  padding: 0px 33px 0px 33px;
 }
 
 .new-pro-title {
@@ -3174,7 +3181,7 @@ button {
 
 .left-content-commitment .left-commitment-t .abc {
   color: #fff;
-  padding: 10px 10px 10px 50px;
+  padding: 10px 10px 0px 50px;
   text-transform: uppercase;
   font-weight: bold;
   margin-bottom: 5px;
@@ -3388,7 +3395,7 @@ button {
 }
 
 .product-info .product-info-bot .detail-pro {
-  width: 50%;
+  width: 100%;
   height: 100%;
   float: left;
   background: #f00;
@@ -3399,6 +3406,7 @@ button {
   height: 100%;
   float: left;
   background: #0077ab;
+  display: none;
 }
 
 .grouptop-main-pro {
@@ -3571,32 +3579,38 @@ button {
 }
 
 #footer .top-footer .top-foote-r .top-foote-r-main {
-  width: 50%;
+  width: 100%;
   height: auto;
   float: left;
 }
 
 #footer .top-footer .top-foote-r .top-foote-r-main .top-foote-r-iteam {
-  margin-bottom: 10px;
+      margin-bottom: 10px;
+    width: 45%;
+    height: auto;
+    float: left;
+    margin-right: 5%;
 }
 
 #footer .top-footer .top-foote-r .top-foote-r-main .top-foote-r-iteam p, #footer .top-footer .top-foote-r .top-foote-r-main .top-foote-r-iteam #main-body ul, #main-body #footer .top-footer .top-foote-r .top-foote-r-main .top-foote-r-iteam ul, #footer .top-footer .top-foote-r .top-foote-r-main .top-foote-r-iteam #main-body ol, #main-body #footer .top-footer .top-foote-r .top-foote-r-main .top-foote-r-iteam ol, #footer .top-footer .top-foote-r .top-foote-r-main .top-foote-r-iteam #main-body table, #main-body #footer .top-footer .top-foote-r .top-foote-r-main .top-foote-r-iteam table {
   color: #f00;
   text-transform: uppercase;
   margin-bottom: 10px;
+  font-size: 14px;
 }
 
 #footer .top-footer .top-foote-r .top-foote-r-main .top-foote-r-iteam ul li {
   padding: 2px 0px;
   background: url("../images/bg-menu-left.jpg") no-repeat left;
   list-style-type:none;
-  margin-left: 15px;
+  margin-left: 5px;
 }
 
 #footer .top-footer .top-foote-r .top-foote-r-main .top-foote-r-iteam ul li a {
   color: #6c6b6c;
   text-decoration: none;
-  padding-left: 10px;
+  padding-left: 10px; 
+  font-size: 15px;
 }
 
 #footer .top-footer .top-foote-r .top-foote-r-main .top-foote-r-iteam ul li a:hover {
@@ -3809,7 +3823,7 @@ button {
   margin-top: 20px;
 }
 .sale-number{
-  margin-left: 10px !important;
+  margin-left: 0px !important;
 }
 .cate-right .cate-iteam-pro .cate-iteam-main .cate-iteam-info {
   width: 90%;
@@ -4194,4 +4208,13 @@ button {
     font-family: Arial;
     float: left;
     color: #f00;
+  }
+  .iteam_slider_top a img{
+    width: 85%;
+  }
+  .iteam_slider_top{
+    text-align: center;
+  }
+  .camket-phu{
+    padding-top: -7px !important;
   }

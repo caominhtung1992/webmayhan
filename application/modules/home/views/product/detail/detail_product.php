@@ -300,7 +300,7 @@ function user_like_content(a,b){
                 <div class="title_tab">
                   <a href="#dacdiem" class="nobdr_l current">Mô tả sản phẩm</a>
                   <a href="#thongsokythuat" class="">Thông số kỹ thuật</a> 
-                  <a href="#binhluan" class="">Bình chọn</a>
+                  <a href="#binhluan" class="">Bình luận</a>
                 </div>
                 <div class="content_tab">
                 <div id="dacdiem" class="cf current">

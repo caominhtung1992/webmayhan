@@ -1,3 +1,4 @@
+<div class="clear"></div>
 <section id="main-body">
       <div class="new-product">
         <div class="new-pro-main">
@@ -9,6 +10,7 @@
               </div>
             </div>
           </div>
+          <div class="clear"></div>
           <div class="slider-product">
             <ul class="owl-carousel jcarousel-skin-tango1" id="mycarousel1">
             <?php 
@@ -20,7 +22,7 @@
                   $stt++;
               ?>
                   <li class="iteam_slider">
-                    <div class="iteam_slider_top"><img src="<?php echo base_url()."uploads/products/thumb/".$images[0]."" ?>" /></div>
+                    <div class="iteam_slider_top"><a href="<?php echo base_url()."".$value['pro_name_rewrite']."/p".$value['pro_id'].".html"; ?>"><img src="<?php echo base_url()."uploads/products/thumb/".$images[0]."" ?>" /></a></div>
                     <div class="iteam_slider_bot">
                         <a href="<?php echo base_url()."".$value['pro_name_rewrite']."/p".$value['pro_id'].".html"; ?>"><?php echo $value['pro_name']; ?></a>
                         <p><?php echo $value['pro_market']; ?></p>
@@ -80,7 +82,7 @@
             <div class="left-content-commitment">
               <div class="left-commitment-t">
                 <p class="abc">Cam kết</p>
-                <ul>
+                <ul class="home-danhgia">
                   <li><a href="#">Bán đúng giá đăng</a></li>
                   <li><a href="#">Bán hàng đúng như miêu tả</a></li>
                   <li><a href="#">Giao hàng thu tiền tận nhà</a></li>
@@ -98,29 +100,19 @@
                 Đối tác
               </p>
               <div class="left-img-partner">
-                <a href="#">
                   <img src="<?php echo base_url();?>public/images/destail-01.jpg" alt="">
-                </a>
               </div>
               <div class="left-img-partner">
-                <a href="#">
                   <img src="<?php echo base_url();?>public/images/destail-02.jpg" alt="">
-                </a>
               </div>
               <div class="left-img-partner">
-                <a href="#">
                   <img src="<?php echo base_url();?>public/images/destail-05.jpg" alt="">
-                </a>
               </div>
               <div class="left-img-partner">
-                <a href="#">
                   <img src="<?php echo base_url();?>public/images/destail-04.jpg" alt="">
-                </a>
               </div>
               <div class="left-img-partner">
-                <a href="#">
                   <img src="<?php echo base_url();?>public/images/destail-05.jpg" alt="">
-                </a>
               </div>
             </div>
           </div>
@@ -331,5 +323,7 @@
             </div>
           </div>
         </div>
+        <div class="clear"></div>
       </div>
     </section>
+    <div class="clear"></div>

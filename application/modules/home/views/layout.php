@@ -11,7 +11,7 @@
 <meta http-equiv="refresh" content="600" />
 <title><?php echo $title ; ?></title>
 <link rel="canonical" href="<?php echo base_url(); ?>" />
-<link rel="shortcut icon" href="<?php echo base_url(); ?>favicon.ico" />
+<link rel="shortcut icon" href="<?php echo base_url(); ?>logo.ico" />
 <meta name="keywords" content="<?php echo $config['config_key']; ?>" />
 <meta name="description" content="<?php echo $config['config_des']; ?>" />
 <meta property="og:type" content="blog" />

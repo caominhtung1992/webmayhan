@@ -7,7 +7,7 @@
 <title><?php echo $title ; ?></title>
 <link rel="author" href="https://plus.google.com/102870804259820301805" />
 <link rel="canonical" href="<?php echo base_url()."gioi-thieu.html"; ?>" />
-<link rel="shortcut icon" href="<?php echo base_url(); ?>favicon.ico" />
+<link rel="shortcut icon" href="<?php echo base_url(); ?>logo.ico" />
 <meta name="keywords" content="<?php echo $title; ?>" />
 <meta name="description" content="<?php echo $title; ?>" />
 <meta property="og:type" content="blog" />

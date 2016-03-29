@@ -122,7 +122,7 @@ margin: 0;
 .iteam_slider_bot p{
     margin-left: 10px;
     color: #000;
-    margin-top: 10px;
+    margin-top: 0px;
     margin-bottom: 5px;
     font-size: 15px;
     text-decoration: line-through;
@@ -386,7 +386,7 @@ td.txt_left{text-align:left;border-left:0;padding:5px 0 0}
 #tab_detail_product .content_tab img{max-width:600px}
 #tab_detail_product .content_tab #phukien li{width:172px}
 #tab_detail_product .content_tab #phukien li .img_pro img{max-width:170px}
-#tab_detail_product .content_tab .cf{display:none}
+#tab_detail_product .content_tab .cf{display:none;padding-top: 45px;}
 #tab_detail_product .content_tab .cf.current{display:block}
 .btn_select{background-position:-273px -257px;width:86px;height:27px;float:right}
 #adv_right img{width:212px;margin-bottom:5px}

@@ -6,7 +6,7 @@
 <meta http-equiv="refresh" content="600" />
 <title><?php echo $title ; ?></title>
 <link rel="canonical" href="<?php echo base_url().uri_string().".html"; ?>" />
-<link rel="shortcut icon" href="<?php echo base_url(); ?>favicon.ico" />
+<link rel="shortcut icon" href="<?php echo base_url(); ?>logo.ico" />
 <meta name="keywords" content="<?php echo $detail['pro_key']; ?>" />
 <meta name="description" content="<?php echo $detail['pro_des']; ?>" />
 <meta property="og:title" content="<?php echo $title; ?>" />

@@ -93,7 +93,7 @@
               <div class="left-content-commitment">
                 <div class="left-commitment-t de-left-commitent">
                   <p class="abc">Cam kết</p>
-                  <ul>
+                  <ul class="camket-phu">
                     <li><a href="#">Bán đúng giá đăng</a></li>
                     <li><a href="#">Bán hàng đúng như miêu tả</a></li>
                     <li><a href="#">Giao hàng thu tiền tận nhà</a></li>

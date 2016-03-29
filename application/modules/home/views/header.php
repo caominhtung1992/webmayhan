@@ -40,9 +40,16 @@
       </div>
       <div class="bt-head">
         <ul class="bxslider">
-            <li><img src="<?php echo base_url();?>public/images/slider/img-slider01.jpg" /></li>
-            <li><img src="<?php echo base_url();?>public/images/slider/img-slider01.jpg" /></li>
-            <li><img src="<?php echo base_url();?>public/images/slider/img-slider01.jpg" /></li>
+        <?php
+                if(isset($slide_home) && $slide_home != NULL){
+                  foreach($slide_home as $value){
+                  //var_dump($value);die();
+                ?>
+                 <li><img src="<?php echo base_url()."uploads/banner/".$value['slide_image']."";?>" /></li>
+              <?php 
+                  }
+                } 
+                ?>  
         </ul>
       </div>
     </header>

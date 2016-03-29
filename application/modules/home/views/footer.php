@@ -30,7 +30,31 @@
           <div class="col-8 top-foote-r">
             <p class="top-foote-r-title">Sản phẩm</p>
             <div class="top-foote-r-main">
-              <div class="top-foote-r-iteam">
+            <?php
+            $count = 0;
+              if(isset($listall['cate']) && $listall['cate'] != NULL){
+                foreach($listall['cate'] as $k => $v){
+            ?>
+            <div class="top-foote-r-iteam">
+                <p> <?php echo $v['cate_name']; ?></p>
+                <ul>
+                  <?php
+                  if(isset($listall['sub']) && $listall['sub'] != NULL){
+                    foreach($listall['sub'][$k] as $key => $value){
+                      echo "<li><a class='sub_1' href='".base_url()."".$value['cate_rewrite']."/c".$value['cate_id'].".html'>".$value['cate_name']."</a></li>";
+                              }
+                  }
+                  ?>
+                </ul>
+              </div>
+              <?php
+              $count++;
+              if ($count == 4) 
+                break;
+              }
+            }
+            ?>  
+              <!--div class="top-foote-r-iteam">
                 <p>Máy Cắt</p>
                 <ul>
                   <li><a href="#">Máy Cắt Thép</a></li>
@@ -39,15 +63,13 @@
                 </ul>
               </div>
               <div class="top-foote-r-iteam">
-                <p>Máy Hàn</p>
+                <p>Máy Cắt</p>
                 <ul>
                   <li><a href="#">Máy Cắt Thép</a></li>
                   <li><a href="#">Máy Cắt Bê Tông</a></li>
                   <li><a href="#">Máy Cắt Gạch</a></li>
                 </ul>
               </div>
-            </div>
-            <div class="top-foote-r-main">
               <div class="top-foote-r-iteam">
                 <p>Phụ Kiện Máy Hàn</p>
                 <ul>
@@ -63,7 +85,7 @@
                   <li><a href="#">Máy Cắt Bê Tông</a></li>
                   <li><a href="#">Máy Cắt Gạch</a></li>
                 </ul>
-              </div>
+              </div-->
             </div>
           </div>
         </div>
@@ -90,3 +112,4 @@
         </div>
       </div>
     </footer>
+    <div class="clear"></div>
